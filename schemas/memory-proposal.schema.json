@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/memory-proposal@1.0.0",
+  "title": "Memory proposal (Phase 3 §4.8)",
+  "description": "proposals/queue/P-*.yaml — the only door into approved memory. sources[] must be non-empty when type is fact-* (validator-enforced)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "run", "origin_agent", "type", "target", "payload", "rationale", "consequence_class", "sources", "sensitivity", "status", "memc"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^P-\\d{4}-\\d{4}-\\d{3}$"},
+    "run": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "origin_agent": {"type": "string", "enum": ["ORCH", "RSRCH", "FACT", "COMPL", "QA", "MEMC", "ANLYT", "STRAT", "WRITE", "VOICE", "VDIR", "REMO", "HYPF", "wes"]},
+    "type": {"type": "string", "enum": ["fact-new", "fact-update", "source", "lesson-observation", "voice-phrase", "exemplar", "edit-pair", "decision-record", "profile-gap", "other"]},
+    "target": {"type": "string"},
+    "payload": {},
+    "rationale": {"type": "string"},
+    "consequence_class": {"type": "string", "enum": ["consequential", "low-risk"]},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "sensitivity": {"type": "string", "enum": ["S0", "S1", "S2", "S3"]},
+    "status": {"type": "string", "enum": ["queued", "triaged", "staged", "auto-committed", "rejected", "withdrawn"]},
+    "memc": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["triaged_at", "notes", "staged_in", "resolved_by"],
+      "properties": {
+        "triaged_at": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+        "notes": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+        "staged_in": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+        "resolved_by": {"anyOf": [{"type": "string"}, {"type": "null"}]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"type": {"pattern": "^fact-"}}},
+      "then": {"properties": {"sources": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"sensitivity": {"const": "S3"}}},
+      "then": false
+    }
+  ]
+}

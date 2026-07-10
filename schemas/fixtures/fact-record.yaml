@@ -1,0 +1,102 @@
+# Fixtures for fact-record.schema.json — valid case is the Phase 3 §4.2 example verbatim
+valid:
+  - why: "Phase 3 §4.2 F-BEN-0012 (COLA post-2011 service)"
+    record:
+      id: F-BEN-0012
+      project: benowitz-wealth
+      claim_key: frs.pension.cola.post-2011-service
+      statement: "FRS Pension Plan service earned on or after July 1, 2011 does not accrue a cost-of-living adjustment under current law."
+      topic: [frs, pension, cola]
+      source_ids: [S-BEN-0034]
+      source_type: primary-agency
+      jurisdiction: FL
+      published: "2025-07-01"
+      effective: "2011-07-01"
+      accessed: "2026-07-08"
+      last_verified: "2026-07-08"
+      verified_by: FACT
+      confidence: high
+      status: active
+      review_by: "2027-07-01"
+      supersedes: F-BEN-0007
+      superseded_by: null
+      excerpt: '"...members with an effective retirement date on or after..."'
+      usage_notes: "State the service-date qualification whenever this fact appears."
+      approved_by: wes
+      approved_on: "2026-07-09"
+      sensitivity: S0
+invalid:
+  - why: "no sources (facts without sources are on the never-store list)"
+    record:
+      id: F-BEN-0013
+      project: benowitz-wealth
+      claim_key: frs.drop.max-months
+      statement: "x"
+      topic: [frs]
+      source_ids: []
+      source_type: agency-publication
+      jurisdiction: FL
+      published: "2025-07-01"
+      effective: "2025-07-01"
+      accessed: "2026-07-08"
+      last_verified: "2026-07-08"
+      verified_by: FACT
+      confidence: high
+      status: active
+      review_by: "2027-07-01"
+      supersedes: null
+      superseded_by: null
+      excerpt: "..."
+      usage_notes: "x"
+      approved_by: wes
+      approved_on: "2026-07-09"
+      sensitivity: S0
+  - why: "missing review_by (the freshness contract is mandatory)"
+    record:
+      id: F-BEN-0014
+      project: benowitz-wealth
+      claim_key: frs.drop.interest-rate
+      statement: "x"
+      topic: [frs, drop]
+      source_ids: [S-BEN-0034]
+      source_type: agency-publication
+      jurisdiction: FL
+      published: "2025-07-01"
+      effective: "2025-07-01"
+      accessed: "2026-07-08"
+      last_verified: "2026-07-08"
+      verified_by: FACT
+      confidence: high
+      status: active
+      supersedes: null
+      superseded_by: null
+      excerpt: "..."
+      usage_notes: "x"
+      approved_by: wes
+      approved_on: "2026-07-09"
+      sensitivity: S0
+  - why: "claim_key not a dotted path (breaks mechanical conflict detection)"
+    record:
+      id: F-BEN-0015
+      project: benowitz-wealth
+      claim_key: "COLA Rules"
+      statement: "x"
+      topic: [frs]
+      source_ids: [S-BEN-0034]
+      source_type: agency-publication
+      jurisdiction: FL
+      published: "2025-07-01"
+      effective: "2025-07-01"
+      accessed: "2026-07-08"
+      last_verified: "2026-07-08"
+      verified_by: FACT
+      confidence: high
+      status: active
+      review_by: "2027-07-01"
+      supersedes: null
+      superseded_by: null
+      excerpt: "..."
+      usage_notes: "x"
+      approved_by: wes
+      approved_on: "2026-07-09"
+      sensitivity: S0

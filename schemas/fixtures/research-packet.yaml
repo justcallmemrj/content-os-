@@ -1,0 +1,62 @@
+# Fixtures for research-packet.schema.json — shaped per the RSRCH card (Phase 2 §6.2 output format)
+valid:
+  - why: "Minimal packet per RSRCH card: dated claims, tiered sources, uncertainty present even when empty is not allowed to be absent"
+    record:
+      id: RP-2026-0710-03
+      run_id: 2026-07-10-ben-drop-001
+      project: benowitz-wealth
+      topic: "DROP participation interaction with FRS Investment Plan election, current as of July 2026"
+      claims:
+        - id: c1
+          statement: "DROP participation is limited to a maximum of 96 months for most FRS members."
+          source: {title: "FRS DROP Guide", publisher: "Florida Division of Retirement", url: "https://frs.fl.gov/example/drop-guide", type: agency-publication, jurisdiction: FL}
+          published: "2025-07-01"
+          accessed: "2026-07-10"
+          tier: 1
+          confidence: high
+          basis: direct
+          excerpt: "...may participate in DROP for a maximum of 96 calendar months..."
+          time_sensitive: true
+          review_by: "2027-07-01"
+        - id: c2
+          statement: "An Investment Plan member who transfers to the Pension Plan may face a buy-in cost that changes DROP eligibility timing."
+          source: {title: "FRS Plan Comparison", publisher: "MyFRS", url: "https://myfrs.example.gov/comparison", type: agency-publication, jurisdiction: FL}
+          published: "2026-01-15"
+          accessed: "2026-07-10"
+          tier: 1
+          confidence: medium
+          basis: inferred
+          excerpt: "...transfer requires payment of the actuarial accrued liability..."
+      uncertainty:
+        - "2024 handbook and 2026 legislative summary disagree on second-election window mechanics"
+      outdated_facts_warnings: []
+      conflicts:
+        - between: [c1, c2]
+          summary: "handbook vs. legislative summary on election window"
+          escalated: true
+invalid:
+  - why: "uncertainty section absent — 'none identified' is information; the field is required"
+    record:
+      id: RP-2026-0710-04
+      run_id: 2026-07-10-ben-drop-001
+      project: benowitz-wealth
+      topic: "x"
+      claims: []
+      outdated_facts_warnings: []
+  - why: "claim basis outside direct|inferred (D8: categorical, no hedges)"
+    record:
+      id: RP-2026-0710-05
+      run_id: 2026-07-10-ben-drop-001
+      project: benowitz-wealth
+      topic: "x"
+      claims:
+        - id: c1
+          statement: "x"
+          source: {title: t, publisher: p, url: "https://example.gov", type: press}
+          accessed: "2026-07-10"
+          tier: 4
+          confidence: low
+          basis: probably
+          excerpt: "..."
+      uncertainty: []
+      outdated_facts_warnings: []

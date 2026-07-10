@@ -1,0 +1,62 @@
+# Fixtures for scorecard.schema.json — valid case is the package §8.3 sample expanded to proper YAML
+valid:
+  - why: "Package §8.3 RUB-SCRIPT-1 scorecard instance"
+    record:
+      run: 2026-07-10-ben-drop-001
+      rubric: RUB-SCRIPT-1
+      target: voice/drop-reel-v3.md
+      required:
+        R1_facts: pass
+        R2_compliance: pass
+        R3_duration: "pass(88s est)"
+        R4_disclosure: pass
+        R5_structure: pass
+        R6_contamination: pass
+      scores:
+        hook: 5
+        clarity: 5
+        flow: 4
+        educational: 5
+        voice: 4
+        cadence: 5
+        platform_fit: 5
+        cta: 4
+        source_quality: 4
+      composite: 9.1
+      golden_comparison: "nearest: none yet (this becomes golden #1); n/a"
+      observations: ["hook lands 0:06; watch vs. future goldens"]
+      verdict: pass
+invalid:
+  - why: "scored dimension outside 1–5"
+    record:
+      run: 2026-07-10-ben-drop-001
+      rubric: RUB-SCRIPT-1
+      target: voice/drop-reel-v3.md
+      required: {R1_facts: pass}
+      scores: {clarity: 7}
+      composite: 9.1
+      golden_comparison: "n/a"
+      observations: []
+      verdict: pass
+  - why: "required criterion value neither pass nor fail (required criteria are binary and blocking)"
+    record:
+      run: 2026-07-10-ben-drop-001
+      rubric: RUB-SCRIPT-1
+      target: voice/drop-reel-v3.md
+      required: {R1_facts: mostly}
+      scores: {clarity: 4}
+      composite: 8.0
+      golden_comparison: "n/a"
+      observations: []
+      verdict: pass
+  - why: "verdict outside pass|fail"
+    record:
+      run: 2026-07-10-ben-drop-001
+      rubric: RUB-SCRIPT-1
+      target: voice/drop-reel-v3.md
+      required: {R1_facts: pass}
+      scores: {clarity: 4}
+      composite: 8.0
+      golden_comparison: "n/a"
+      observations: []
+      verdict: maybe

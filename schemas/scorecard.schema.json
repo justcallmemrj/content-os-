@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/scorecard@1.0.0",
+  "title": "QA scorecard (Phase 6 §5–6; package §8.3 instance)",
+  "description": "runs/<id>/qa/scorecard.yaml — required criteria are pass/fail blocking; scored dimensions 1–5; a required failure may never average into a passing composite",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run", "rubric", "target", "required", "scores", "composite", "golden_comparison", "observations", "verdict"],
+  "properties": {
+    "run": {"type": "string"},
+    "rubric": {"type": "string", "pattern": "^RUB-[A-Z-]+-\\d+$"},
+    "target": {"type": "string"},
+    "required": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "string", "pattern": "^(pass|fail)(\\(.*\\))?$"},
+      "propertyNames": {"pattern": "^R\\d+(_[a-z0-9_]+)?$"}
+    },
+    "scores": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "integer", "minimum": 1, "maximum": 5}
+    },
+    "composite": {"type": "number", "minimum": 0, "maximum": 10},
+    "golden_comparison": {"type": "string"},
+    "observations": {"type": "array", "items": {"type": "string"}},
+    "verdict": {"type": "string", "enum": ["pass", "fail"]}
+  }
+}

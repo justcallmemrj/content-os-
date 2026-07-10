@@ -1,0 +1,66 @@
+# Fixtures for lesson-record.schema.json — valid case is the Phase 3 §4.7 example verbatim
+valid:
+  - why: "Phase 3 §4.7 L-BEN-0003 (question-form hooks, candidate status)"
+    record:
+      id: L-BEN-0003
+      scope: {project: benowitz-wealth, agents: [VOICE, WRITE]}
+      class: preference
+      statement: "Prefer question-form hooks for DROP-topic reels."
+      status: candidate
+      evidence: ["runs/2026-06-*/analysis/hook-retention.md", "ANLYT report AR-2026-06-02"]
+      sample_size: 34
+      contradicting_evidence: ["AR-2026-05-01 topic-confound note"]
+      risk: low
+      expected_benefit: "earlier retention hold"
+      side_effects: "hook monoculture if over-applied (cap at 60% of batch)"
+      eval_plan: "10-post matched-topic test per ANLYT design"
+      eval_results: pending
+      proposed_by: ANLYT
+      approved_by: null
+      activated_on: null
+      implements_diff: null
+      rollback: "revert implements_diff commit"
+      superseded_by: null
+invalid:
+  - why: "status active with implements_diff null — activation is a diff, not a status flip (D-025)"
+    record:
+      id: L-BEN-0004
+      scope: {project: benowitz-wealth, agents: [WRITE]}
+      class: preference
+      statement: x
+      status: active
+      evidence: []
+      sample_size: 0
+      contradicting_evidence: []
+      risk: low
+      expected_benefit: x
+      side_effects: x
+      eval_plan: x
+      eval_results: null
+      proposed_by: ANLYT
+      approved_by: null
+      activated_on: null
+      implements_diff: null
+      rollback: "revert implements_diff commit"
+      superseded_by: null
+  - why: "class outside preference|fact|rule|hypothesis"
+    record:
+      id: L-BEN-0005
+      scope: {project: benowitz-wealth, agents: [WRITE]}
+      class: vibe
+      statement: x
+      status: observed
+      evidence: []
+      sample_size: 0
+      contradicting_evidence: []
+      risk: low
+      expected_benefit: x
+      side_effects: x
+      eval_plan: x
+      eval_results: null
+      proposed_by: ANLYT
+      approved_by: null
+      activated_on: null
+      implements_diff: null
+      rollback: "revert implements_diff commit"
+      superseded_by: null

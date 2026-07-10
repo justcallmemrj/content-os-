@@ -1,0 +1,54 @@
+# Fixtures for source-record.schema.json — valid case is the Phase 3 §4.3 example verbatim
+valid:
+  - why: "Phase 3 §4.3 S-BEN-0034 (FRS Member Handbook)"
+    record:
+      id: S-BEN-0034
+      title: FRS Pension Plan Member Handbook
+      publisher: Florida Division of Retirement
+      url: "https://frs.fl.gov/example/member-handbook"
+      type: agency-publication
+      tier: 1
+      published: "2025-07-01"
+      effective: "2025-07-01"
+      accessed: "2026-07-08"
+      jurisdiction: FL
+      stability: annual
+      rights: us-fl-public-record
+      archived_copy: sources/_archive/S-BEN-0034-2025-07.pdf
+      status: active
+      cited_by: [F-BEN-0012, F-BEN-0019]
+invalid:
+  - why: "tier outside 1–4"
+    record:
+      id: S-BEN-0035
+      title: x
+      publisher: x
+      url: "https://example.com"
+      type: press
+      tier: 7
+      published: "2025-07-01"
+      effective: "2025-07-01"
+      accessed: "2026-07-08"
+      jurisdiction: FL
+      stability: volatile
+      rights: all-rights-reserved
+      archived_copy: null
+      status: active
+      cited_by: []
+  - why: "stability outside static|annual|volatile (feeds review_by defaults; must be categorical)"
+    record:
+      id: S-BEN-0036
+      title: x
+      publisher: x
+      url: "https://example.com"
+      type: press
+      tier: 3
+      published: "2025-07-01"
+      effective: "2025-07-01"
+      accessed: "2026-07-08"
+      jurisdiction: FL
+      stability: sometimes
+      rights: all-rights-reserved
+      archived_copy: null
+      status: active
+      cited_by: []

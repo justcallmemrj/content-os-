@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/claim-ledger@1.0.0",
+  "title": "Claim ledger (Phase 3 §4.4)",
+  "description": "runs/<run-id>/factcheck/ledger.yaml — the D-012 audit spine, run-scoped, archived with the run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run", "deliverable", "version", "passes", "claims"],
+  "properties": {
+    "run": {"type": "string"},
+    "deliverable": {"type": "string"},
+    "version": {"type": "integer", "minimum": 1},
+    "passes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "by", "at"],
+        "properties": {
+          "type": {"type": "string", "enum": ["full", "delta"]},
+          "by": {"type": "string", "const": "FACT"},
+          "at": {"type": "string"},
+          "trigger": {"type": "string"}
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "text", "location", "risk", "declared_by", "status", "on_screen", "history"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^CL-\\d{2,}$"},
+          "text": {"type": "string"},
+          "location": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["file", "anchor"],
+            "properties": {"file": {"type": "string"}, "anchor": {"type": "string"}}
+          },
+          "risk": {"type": "string", "enum": ["high", "medium", "low"]},
+          "declared_by": {"type": "string", "enum": ["WRITE", "FOUND"]},
+          "status": {"type": "string", "enum": ["verified", "verified-with-qualification", "unverified", "outdated", "misleading", "incorrect", "requires-professional-review"]},
+          "evidence": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+          "qualification": {"type": "string"},
+          "suggested_correction": {"type": "string"},
+          "on_screen": {"type": "boolean"},
+          "history": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["at", "event", "by"],
+              "properties": {
+                "at": {"type": "string"},
+                "event": {"type": "string", "enum": ["declared", "found", "verified", "adjudicated", "edited", "delta-verified", "qualified", "corrected", "escalated"]},
+                "by": {"type": "string"},
+                "against": {"type": "string"},
+                "diff": {"type": "string"},
+                "note": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "blocking_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["high_risk_non_verified"],
+      "properties": {
+        "high_risk_non_verified": {"type": "integer", "minimum": 0},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

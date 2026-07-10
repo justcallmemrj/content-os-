@@ -1,0 +1,55 @@
+# Fixtures for decision-record.schema.json — valid case is the Phase 3 §4.6 example verbatim
+valid:
+  - why: "Phase 3 §4.6 DEC-BEN-0004 (fee-only wording hold)"
+    record:
+      id: DEC-BEN-0004
+      date: "2026-07-10"
+      project: benowitz-wealth
+      decision: 'Hold "fee-only" out of all published copy pending Form ADV wording review.'
+      reason: 'ADV consistency across both brands unconfirmed; "fiduciary" is separately supportable.'
+      alternatives_considered:
+        - {option: "Use fee-only now", rejected_because: "unverifiable against filed ADV"}
+      approver: wes
+      effective_version: compliance.md@1.1.0
+      related: [projects/_shared/ria-compliance-envelope.md]
+      supersedes: null
+      status: active
+  - why: "system-level D- record shape"
+    record:
+      id: D-081
+      date: "2026-07-10"
+      project: system
+      decision: "Example system decision."
+      reason: "Example."
+      alternatives_considered: []
+      approver: wes
+      effective_version: null
+      related: []
+      supersedes: null
+      status: active
+invalid:
+  - why: "id matches neither D-NNN nor DEC-<PROJ>-NNNN (ad-hoc prefixes are how audit trails rot)"
+    record:
+      id: DEC-4
+      date: "2026-07-10"
+      project: benowitz-wealth
+      decision: x
+      reason: x
+      alternatives_considered: []
+      approver: wes
+      effective_version: null
+      related: []
+      supersedes: null
+      status: active
+  - why: "missing reason (decisions are the why layer; a decision without a reason is a status flip)"
+    record:
+      id: DEC-BEN-0005
+      date: "2026-07-10"
+      project: benowitz-wealth
+      decision: x
+      alternatives_considered: []
+      approver: wes
+      effective_version: null
+      related: []
+      supersedes: null
+      status: active

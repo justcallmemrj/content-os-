@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/research-packet@1.0.0",
+  "title": "Research packet (Phase 2 §6.2 RSRCH output format)",
+  "description": "runs/<id>/research/RP-*.yaml — claims[] each with ID, statement, source, dates, tier, confidence, direct-vs-inferred flag, excerpt; plus uncertainty list and outdated-facts warning list (both required, may be empty — 'none identified' is information)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "run_id", "project", "topic", "claims", "uncertainty", "outdated_facts_warnings"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^RP-\\d{4}-\\d{4}-\\d{2,}$"},
+    "run_id": {"type": "string"},
+    "project": {"type": "string", "enum": ["benowitz-wealth", "ducat-private-wealth", "trading-research", "founder-brand"]},
+    "topic": {"type": "string"},
+    "intended_use": {"type": "string"},
+    "depth": {"type": "string"},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "source", "accessed", "tier", "confidence", "basis", "excerpt"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^c\\d+$"},
+          "statement": {"type": "string"},
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "publisher", "url", "type"],
+            "properties": {
+              "title": {"type": "string"},
+              "publisher": {"type": "string"},
+              "url": {"type": "string"},
+              "type": {"type": "string", "enum": ["statute", "regulation", "agency-publication", "regulator-guidance", "peer-reviewed", "practitioner", "press", "dataset", "other"]},
+              "source_record_id": {"type": "string", "pattern": "^S-(BEN|DUC|TRD|FDR)-\\d{4}$"},
+              "jurisdiction": {"type": "string"}
+            }
+          },
+          "published": {"type": "string"},
+          "effective": {"type": "string"},
+          "accessed": {"type": "string"},
+          "tier": {"type": "integer", "minimum": 1, "maximum": 4},
+          "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+          "basis": {"type": "string", "enum": ["direct", "inferred"]},
+          "excerpt": {"type": "string"},
+          "time_sensitive": {"type": "boolean"},
+          "review_by": {"type": "string"}
+        }
+      }
+    },
+    "uncertainty": {"type": "array", "items": {"type": "string"}},
+    "outdated_facts_warnings": {"type": "array", "items": {"type": "string"}},
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["between", "summary", "escalated"],
+        "properties": {
+          "between": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+          "summary": {"type": "string"},
+          "escalated": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

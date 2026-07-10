@@ -1,0 +1,80 @@
+# Fixtures for work-order.schema.json — valid case is the Phase 5 §6.1 example verbatim
+valid:
+  - why: "Phase 5 §6.1 worked example (DROP reel)"
+    record:
+      task_id: T-2026-0710-004
+      run_id: 2026-07-10-ben-drop-001
+      parent_run: null
+      project_id: benowitz-wealth
+      cross_project: null
+      deliverable: {type: script, format: reel-90s, platform: instagram-reels, spec: "90-second educational reel on DROP exit timing"}
+      objective: webinar-registration
+      audience_ref: audience.md#frs-50plus
+      funnel_stage: awareness
+      voice_profile_version: brand-voice.md@1.2.0
+      required_fact_ids: [F-BEN-0012, F-BEN-0019]
+      disclosure_ids: [DISC-BEN-FRS-01]
+      prohibited_notes: []
+      asset_manifest_ref: null
+      constraints: {length_words: [170, 200], deadline: null}
+      model_tier_escalation: none
+      state: fact_check
+invalid:
+  - why: "state not in the trunk-state enum"
+    record:
+      task_id: T-2026-0710-004
+      run_id: 2026-07-10-ben-drop-001
+      parent_run: null
+      project_id: benowitz-wealth
+      cross_project: null
+      deliverable: {type: script, format: reel-90s, platform: instagram-reels, spec: "x"}
+      objective: webinar-registration
+      audience_ref: audience.md#frs-50plus
+      funnel_stage: awareness
+      voice_profile_version: brand-voice.md@1.2.0
+      required_fact_ids: []
+      disclosure_ids: []
+      prohibited_notes: []
+      asset_manifest_ref: null
+      constraints: {length_words: [170, 200], deadline: null}
+      model_tier_escalation: none
+      state: polishing
+  - why: "cross_project block missing required reason (Phase 3 §3.4)"
+    record:
+      task_id: T-2026-0710-005
+      run_id: 2026-07-10-ben-drop-002
+      parent_run: null
+      project_id: benowitz-wealth
+      cross_project: {authorized_by: wes, second_project: ducat-private-wealth, records_permitted: [F-DUC-0001]}
+      deliverable: {type: script, format: reel-90s, platform: instagram-reels, spec: "x"}
+      objective: webinar-registration
+      audience_ref: audience.md#frs-50plus
+      funnel_stage: awareness
+      voice_profile_version: brand-voice.md@1.2.0
+      required_fact_ids: []
+      disclosure_ids: []
+      prohibited_notes: []
+      asset_manifest_ref: null
+      constraints: {length_words: [170, 200], deadline: null}
+      model_tier_escalation: none
+      state: intake
+  - why: "unknown top-level field (additionalProperties: false — validators reject, not guess)"
+    record:
+      task_id: T-2026-0710-006
+      run_id: 2026-07-10-ben-drop-003
+      parent_run: null
+      project_id: benowitz-wealth
+      cross_project: null
+      deliverable: {type: script, format: reel-90s, platform: instagram-reels, spec: "x"}
+      objective: webinar-registration
+      audience_ref: audience.md#frs-50plus
+      funnel_stage: awareness
+      voice_profile_version: brand-voice.md@1.2.0
+      required_fact_ids: []
+      disclosure_ids: []
+      prohibited_notes: []
+      asset_manifest_ref: null
+      constraints: {length_words: [170, 200], deadline: null}
+      model_tier_escalation: none
+      state: intake
+      brand_voice_text: "inlined voice text — forbidden; the pin is the reference"

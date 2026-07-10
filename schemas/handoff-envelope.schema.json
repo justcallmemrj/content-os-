@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/handoff-envelope@1.0.0",
+  "title": "Handoff envelope (Phase 5 §6.1)",
+  "description": "runs/<id>/handoffs/<seq>.yaml — one per transition; artifacts carry paths + checksums, never inline content (D1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "seq", "stage", "agents", "artifacts", "skills_used", "gate_results", "concerns", "confidence", "approvals", "feedback_ref", "escalations"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "seq": {"type": "integer", "minimum": 1},
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to"],
+      "properties": {"from": {"$ref": "#/$defs/state"}, "to": {"$ref": "#/$defs/state"}}
+    },
+    "agents": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to"],
+      "properties": {"from": {"$ref": "#/$defs/party"}, "to": {"$ref": "#/$defs/party"}}
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "version": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "skills_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "version"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^SK-[ABC]\\d+$"},
+          "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"}
+        }
+      }
+    },
+    "gate_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate", "pass"],
+        "properties": {"gate": {"type": "string"}, "pass": {"type": "boolean"}, "detail": {"type": "string"}}
+      }
+    },
+    "concerns": {"type": "array", "items": {"type": "string"}},
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "basis"],
+      "properties": {
+        "value": {"type": "string", "enum": ["low", "medium", "high"]},
+        "basis": {"type": "string"}
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate", "by", "decision", "at"],
+        "properties": {
+          "gate": {"type": "string", "pattern": "^H[1-7]$"},
+          "by": {"type": "string"},
+          "decision": {"type": "string", "enum": ["approved", "rejected", "killed", "override-confirmed", "override-declined"]},
+          "at": {"type": "string"}
+        }
+      }
+    },
+    "feedback_ref": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "escalations": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "state": {
+      "type": "string",
+      "enum": ["requested", "intake", "context_loaded", "brief", "research", "draft", "fact_check", "revision", "voice_edit", "fact_delta", "compliance", "qa", "manager_review", "human_review", "approved", "done", "archived", "escalated"]
+    },
+    "party": {
+      "type": "string",
+      "enum": ["ORCH", "RSRCH", "FACT", "COMPL", "QA", "MEMC", "ANLYT", "STRAT", "WRITE", "VOICE", "VDIR", "REMO", "HYPF", "loader", "system", "wes"]
+    }
+  }
+}

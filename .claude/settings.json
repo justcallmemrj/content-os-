@@ -1,0 +1,17 @@
+{
+  "env": {
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
+  },
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Write(./.env)",
+      "Write(./.env.*)",
+      "Edit(./.env)",
+      "Edit(./.env.*)",
+      "Write(./docs/architecture/**)",
+      "Edit(./docs/architecture/**)"
+    ]
+  }
+}

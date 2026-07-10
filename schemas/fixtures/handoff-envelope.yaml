@@ -1,0 +1,64 @@
+# Fixtures for handoff-envelope.schema.json — valid case is the Phase 5 §6.1 seq-7 example (checksums filled)
+valid:
+  - why: "Phase 5 §6.1 seq-7 envelope (voice_edit → fact_delta)"
+    record:
+      run_id: 2026-07-10-ben-drop-001
+      seq: 7
+      stage: {from: voice_edit, to: fact_delta}
+      agents: {from: VOICE, to: FACT}
+      artifacts:
+        - {path: voice/drop-reel-v3.md, sha256: "a3f1c2d4e5b6978081920304a5b6c7d8e9f0a1b2c3d4e5f60718293a4b5c6d7e", version: 3}
+        - {path: voice/change-log.md, sha256: "b4e2d3c5f6a7089192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f809"}
+        - {path: voice/claim-diff.yaml, sha256: "c5d3e4f6a7b8190a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f70819a"}
+      skills_used: [{id: SK-B9, version: 1.0.0}, {id: SK-B2, version: 1.0.0}]
+      gate_results: [{gate: "G-V:claim-diff-present", pass: true}]
+      concerns: ["beat 3 runs long read aloud; cut marked, not made"]
+      confidence: {value: high, basis: "profile match; zero disclosure touches"}
+      approvals: []
+      feedback_ref: null
+      escalations: []
+invalid:
+  - why: "artifact missing sha256 (D1: version without checksum can't detect tampering — both or neither)"
+    record:
+      run_id: 2026-07-10-ben-drop-001
+      seq: 8
+      stage: {from: fact_delta, to: compliance}
+      agents: {from: FACT, to: COMPL}
+      artifacts:
+        - {path: factcheck/ledger.yaml, version: 2}
+      skills_used: []
+      gate_results: []
+      concerns: []
+      confidence: {value: high, basis: "delta clean"}
+      approvals: []
+      feedback_ref: null
+      escalations: []
+  - why: "inline content smuggled into the envelope (unknown field; D1 forbids paraphrase-in-envelope)"
+    record:
+      run_id: 2026-07-10-ben-drop-001
+      seq: 9
+      stage: {from: compliance, to: qa}
+      agents: {from: COMPL, to: QA}
+      artifacts: []
+      draft_text: "Here is the full script so you don't have to read the file..."
+      skills_used: []
+      gate_results: []
+      concerns: []
+      confidence: {value: medium, basis: "x"}
+      approvals: []
+      feedback_ref: null
+      escalations: []
+  - why: "human approval entry on a non-H gate id"
+    record:
+      run_id: 2026-07-10-ben-drop-001
+      seq: 10
+      stage: {from: manager_review, to: human_review}
+      agents: {from: ORCH, to: wes}
+      artifacts: []
+      skills_used: []
+      gate_results: []
+      concerns: []
+      confidence: {value: high, basis: "package complete"}
+      approvals: [{gate: G-M, by: wes, decision: approved, at: "2026-07-10T18:00:00"}]
+      feedback_ref: null
+      escalations: []

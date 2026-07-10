@@ -1,0 +1,69 @@
+# Fixtures for claim-ledger.schema.json — valid case is the Phase 3 §4.4 example (placeholders filled)
+valid:
+  - why: "Phase 3 §4.4 CL-07 example with history timestamps filled"
+    record:
+      run: 2026-07-10-ben-drop-001
+      deliverable: drafts/drop-reel-script.md
+      version: 3
+      passes:
+        - {type: full, by: FACT, at: "2026-07-10T14:22"}
+        - {type: delta, by: FACT, at: "2026-07-10T16:05", trigger: "VOICE claim diff"}
+      claims:
+        - id: CL-07
+          text: "Many Special Risk members can access their pension earlier than age 62."
+          location: {file: drafts/drop-reel-script.md, anchor: beat-3}
+          risk: high
+          declared_by: WRITE
+          status: verified-with-qualification
+          evidence: F-BEN-0019
+          qualification: "Special Risk normal retirement differs; do not state a single age."
+          on_screen: true
+          history:
+            - {at: "2026-07-10T13:40", event: declared, by: WRITE}
+            - {at: "2026-07-10T14:22", event: verified, by: FACT, against: "RP-2026-0710-03/c4"}
+            - {at: "2026-07-10T15:50", event: edited, by: VOICE, diff: "you can → many Special Risk members can"}
+            - {at: "2026-07-10T16:05", event: delta-verified, by: FACT}
+      blocking_summary: {high_risk_non_verified: 0}
+invalid:
+  - why: "status outside the seven-status taxonomy (D8: 'probably true' is not a status)"
+    record:
+      run: 2026-07-10-ben-drop-001
+      deliverable: drafts/drop-reel-script.md
+      version: 1
+      passes:
+        - {type: full, by: FACT, at: "2026-07-10T14:22"}
+      claims:
+        - id: CL-01
+          text: "x"
+          location: {file: drafts/drop-reel-script.md, anchor: beat-1}
+          risk: high
+          declared_by: WRITE
+          status: probably-true
+          on_screen: false
+          history:
+            - {at: "2026-07-10T13:40", event: declared, by: WRITE}
+  - why: "pass authored by someone other than FACT (only FACT adjudicates)"
+    record:
+      run: 2026-07-10-ben-drop-001
+      deliverable: drafts/drop-reel-script.md
+      version: 1
+      passes:
+        - {type: full, by: WRITE, at: "2026-07-10T14:22"}
+      claims: []
+  - why: "claim missing on_screen flag (D-016: on-screen mapping is mandatory ledger data)"
+    record:
+      run: 2026-07-10-ben-drop-001
+      deliverable: drafts/drop-reel-script.md
+      version: 1
+      passes:
+        - {type: full, by: FACT, at: "2026-07-10T14:22"}
+      claims:
+        - id: CL-02
+          text: "x"
+          location: {file: drafts/drop-reel-script.md, anchor: beat-2}
+          risk: low
+          declared_by: WRITE
+          status: verified
+          evidence: F-BEN-0012
+          history:
+            - {at: "2026-07-10T13:40", event: declared, by: WRITE}

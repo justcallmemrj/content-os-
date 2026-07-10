@@ -1,0 +1,21 @@
+# Secrets — never in the repo (D-069, HK5, pre-commit scan)
+.env
+.env.*
+*.pem
+*.key
+*_rsa
+*_rsa.*
+credentials*
+secrets/
+
+# Local-only instructions
+CLAUDE.local.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS noise
+.DS_Store
+Thumbs.db

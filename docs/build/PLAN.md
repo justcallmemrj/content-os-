@@ -2,25 +2,30 @@
 
 Governing documents: `claude-code-master-prompt.md` (operating rules), `claude-code-slice-prompt.md` (milestone 1 scope, steps 0–6), `phase-8-implementation-package.md` §4 (build sequence). This file tracks: the step we are on, its exit criteria, and what comes next. Updated every session.
 
-## Current step: 0 — Environment & re-verification (D-062)
+## Current step: 1 — Scaffold (tree, schemas, constitution, settings)
 
-**Status:** IN PROGRESS — environment inspected, doc surfaces re-verified, verification build-note drafted. **BLOCKED at the [WES] gate** on two items (see Open blockers).
+**Status:** BUILT — presented at the **[WES] gate** 2026-07-10. Step 0 is CLOSED
+(specs verified 7/7 SHA-256, DEC-BUILD-001 resolution; tag `build-step-0`).
 
-**Exit criteria (package §4, verbatim):** Verification build-note filed as a decision record; deps installed **[WES: review note]**.
-
-Slice-prompt refinements: HyperFrames pin *recorded but not built against*; Remotion license check deferred to step 9 and noted as such. Stop for acknowledgment.
+**Exit criteria (package §4):** tree matches spec (✓ Phase 7 §3.1 + Phase 3
+§5.1); schemas lint (✓ 10 schemas, 46 fixture checks, 0 failures —
+`python scripts/test_schemas.py`); constitution reviewed (**pending Wes** —
+CLAUDE.md v1.0.0, 98 lines); auto-memory disabled and demonstrated (✓ headless
+session produced no MEMORY.md).
 
 ## Open blockers (require Wes)
 
-1. **BLOCKER — the seven phase specifications (Phases 1–7) are not on this machine.** The package "ships with" them (§header, §10.2) and every step from 1 onward cites them as the binding source (tree = Phase 7 §3.1, schemas = Phase 3 §4, hooks = Phase 7 §5, Skills = Phase 4 §7, agent cards = Phase 2 §6…). `agents.zip` contained only the package + two prompts. Searched: Downloads (all zips), Documents, home. Deviation memo filed in the step-0 build note. **Nothing past step 0 can be built faithfully without them.**
-2. GitHub: private remote `content-os` + branch protection on `main` (package §10.1) — needs Wes's account. Also: `gh` CLI is not installed; proposal to install it is in the build note (needed for the H6 staging-PR flow).
+1. Constitution review = the step-1 gate itself.
+2. Real GitHub URL + `user.name` (last message carried literal `<MY-USERNAME>`/`<MY NAME>` placeholders) → then `git remote add origin` + push + PR-based flow live.
+3. Ratify DEC-BUILD-003 (jsonschema 4.26.0); confirm user-scope gh install is acceptable.
+4. Confirm project-slug assumption (ducat-private-wealth / trading-research / founder-brand) and the state/workflow.sqlite commit-vs-ignore proposal (LOG.md session 2, open Qs 4–5).
 
 ## Build sequence (package §4)
 
 | Step | Scope | Gate |
 |---|---|---|
-| **0** | **Environment & re-verification — CURRENT** | **[WES: review note]** |
-| 1 | Scaffold: tree, JSON Schemas, CLAUDE.md constitution, settings, auto-memory off | [WES] |
+| 0 | Environment & re-verification — DONE (tag `build-step-0`) | passed 2026-07-10 |
+| **1** | **Scaffold: tree, JSON Schemas, CLAUDE.md constitution, settings, auto-memory off — AT GATE** | **[WES]** |
 | 2 | Enforcement layer: HK1–HK9, transition.py, schema_validate.py, SQLite DDL | [WES: denial demo] |
 | 3 | Memory seeding (proposals-first, D-079); first H6 staging PR | [WES: inputs + merge] |
 | 4 | Slice Skills: SK-B2/B3 full; SK-A1–A3, B1, B9, B14, B15 to template | tests green |
@@ -30,4 +35,7 @@ Slice-prompt refinements: HyperFrames pin *recorded but not built against*; Remo
 
 ## Next after this step
 
-Step 1 (scaffold) — cannot start until (a) Wes acknowledges the step-0 note and (b) the Phase 1–7 specifications are provided and copied to `docs/architecture/` (then registered as protected paths, D-078).
+Step 2 (enforcement layer): HK1–HK9 hook scripts + deny/allow fixtures each;
+`load_context.py`; `transition.py`; index generators; `schema_validate.py`;
+SQLite DDL init (Phase 7 §4). Ends at [WES: watch the denial demo]. Starts only
+after the constitution passes the step-1 gate.

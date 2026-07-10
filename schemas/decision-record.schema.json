@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/decision-record@1.0.0",
+  "title": "Decision record frontmatter (Phase 3 §4.6)",
+  "description": "projects/<id>/decisions/DEC-*.md and docs/decisions/D-*.md YAML frontmatter",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "date", "project", "decision", "reason", "alternatives_considered", "approver", "effective_version", "related", "supersedes", "status"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^(D-\\d{3}|DEC-(BEN|DUC|TRD|FDR)-\\d{4})$"},
+    "date": {"type": "string"},
+    "project": {"type": "string", "enum": ["benowitz-wealth", "ducat-private-wealth", "trading-research", "founder-brand", "system"]},
+    "decision": {"type": "string"},
+    "reason": {"type": "string"},
+    "alternatives_considered": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["option", "rejected_because"],
+        "properties": {"option": {"type": "string"}, "rejected_because": {"type": "string"}}
+      }
+    },
+    "approver": {"type": "string"},
+    "effective_version": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "related": {"type": "array", "items": {"type": "string"}},
+    "supersedes": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "status": {"type": "string", "enum": ["active", "superseded"]}
+  }
+}

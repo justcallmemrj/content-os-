@@ -1,0 +1,45 @@
+# Fixtures for memory-proposal.schema.json — valid case is the Phase 3 §4.8 example verbatim
+valid:
+  - why: "Phase 3 §4.8 P-2026-0710-014 (voice-phrase; empty sources permitted for non-fact types)"
+    record:
+      id: P-2026-0710-014
+      run: 2026-07-10-ben-drop-001
+      origin_agent: VOICE
+      type: voice-phrase
+      target: "projects/benowitz-wealth/brand-voice.md#avoided_phrases"
+      payload: {add: "retirement journey"}
+      rationale: "Appeared in draft v1; matches the artificial-phrase pattern in the profile."
+      consequence_class: consequential
+      sources: []
+      sensitivity: S1
+      status: queued
+      memc: {triaged_at: null, notes: null, staged_in: null, resolved_by: null}
+invalid:
+  - why: "fact-new with empty sources (validator-enforced: REQUIRED non-empty when type is fact-*)"
+    record:
+      id: P-2026-0710-015
+      run: 2026-07-10-ben-drop-001
+      origin_agent: RSRCH
+      type: fact-new
+      target: "projects/benowitz-wealth/approved-facts/"
+      payload: {statement: "A fact with no source."}
+      rationale: "x"
+      consequence_class: consequential
+      sources: []
+      sensitivity: S1
+      status: queued
+      memc: {triaged_at: null, notes: null, staged_in: null, resolved_by: null}
+  - why: "S3 sensitivity — secrets never enter memory at any layer; auto-reject before MEMC"
+    record:
+      id: P-2026-0710-016
+      run: 2026-07-10-ben-drop-001
+      origin_agent: WRITE
+      type: other
+      target: "global/owner-profile.md"
+      payload: {note: "api key for later"}
+      rationale: "x"
+      consequence_class: consequential
+      sources: []
+      sensitivity: S3
+      status: queued
+      memc: {triaged_at: null, notes: null, staged_in: null, resolved_by: null}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/lesson-record@1.0.0",
+  "title": "Lesson record frontmatter (Phase 3 §4.7)",
+  "description": "projects/<id>/lessons/L-*.md YAML frontmatter. Activation is a diff, not a status flip: active requires implements_diff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "scope", "class", "statement", "status", "evidence", "sample_size", "contradicting_evidence", "risk", "expected_benefit", "side_effects", "eval_plan", "eval_results", "proposed_by", "approved_by", "activated_on", "implements_diff", "rollback", "superseded_by"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^L-(BEN|DUC|TRD|FDR|GLB)-\\d{4}$"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["project", "agents"],
+      "properties": {
+        "project": {"type": "string", "enum": ["benowitz-wealth", "ducat-private-wealth", "trading-research", "founder-brand", "global"]},
+        "agents": {"type": "array", "items": {"type": "string", "enum": ["ORCH", "RSRCH", "FACT", "COMPL", "QA", "MEMC", "ANLYT", "STRAT", "WRITE", "VOICE", "VDIR", "REMO", "HYPF"]}}
+      }
+    },
+    "class": {"type": "string", "enum": ["preference", "fact", "rule", "hypothesis"]},
+    "statement": {"type": "string"},
+    "status": {"type": "string", "enum": ["observed", "candidate", "under-review", "approved", "active", "rejected", "superseded", "archived"]},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "sample_size": {"type": "integer", "minimum": 0},
+    "contradicting_evidence": {"type": "array", "items": {"type": "string"}},
+    "risk": {"type": "string", "enum": ["low", "medium", "high"]},
+    "expected_benefit": {"type": "string"},
+    "side_effects": {"type": "string"},
+    "eval_plan": {"type": "string"},
+    "eval_results": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "proposed_by": {"type": "string"},
+    "approved_by": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "activated_on": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "implements_diff": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "rollback": {"type": "string"},
+    "superseded_by": {"anyOf": [{"type": "string"}, {"type": "null"}]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "active"}}},
+      "then": {
+        "properties": {
+          "implements_diff": {"type": "string"},
+          "approved_by": {"type": "string"},
+          "activated_on": {"type": "string"}
+        }
+      }
+    }
+  ]
+}
