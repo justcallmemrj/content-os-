@@ -172,3 +172,40 @@ Awaiting Wes's decision; will file as a decision record.
 **Tested:** the rejected push above (the whole point).
 **Deviations:** none.
 **Still open:** PR #1 merge (H6 #1) · tranche-2 source materials · user.name.
+
+---
+
+## Session 2026-07-10 (eighth) — identity set; tranche 2 built and staged as PR #3
+
+**Done:**
+- `git config user.name "justcallmemrj"` (repo-local; Wes's live answer).
+- Wes: "lets do it" → read as authorization to build tranche 2 from the
+  on-machine catalog proposed last session, with the PR as the review gate
+  (D-079 makes everything a proposal regardless). PR #1 deliberately NOT
+  merged by the build — H6 merges are Wes-only (DEC-BUILD-006).
+- Catalog located and read: `Webinar Scripts 2.zip` = five full fact-checked
+  webinar scripts incl. **01_DROP_Exit** (the D-006 slice source asset);
+  `Benowitz-Carousels.zip` = the published 30-post package with per-post
+  caption files.
+- **Live source verification (D-062):** FL Statute §121.091 fetched — 96-month
+  cap and terminate-all-employment requirement quoted from live text; IRS
+  rollover page fetched — 20% mandatory withholding + direct-rollover deferral
+  quoted; SSA Fairness Act page confirmed live (via Chrome; ssa.gov blocks the
+  fetcher); MyFRS.com confirmed official.
+- **Staged on `staging/2026-07-10-002` → PR #3**
+  (https://github.com/justcallmemrj/content-os-/pull/3): S-BEN-0001…0004,
+  F-BEN-0001…0010 (structural-first, review_by ≤12mo, compliance usage notes),
+  VX-BEN-0001…0005 (with recorded whys), webinar scripts + 30 caption files as
+  `assets/` with rights manifest (JPGs not vendored), `.gitattributes`
+  text-exceptions for asset records, curation digest (= PR body).
+- Validation: 14/14 records pass the schema router; indexes regenerate with
+  generated `cited_by`; loader dry-run namespace-clean (14 checks).
+
+**Tested:** as above. **Deviations:** none. Honest notes are IN the digest:
+`verified_by: seed-verification` (FACT doesn't exist yet); F-BEN-0009's
+statute not independently fetched (rests on fact-checked Post 10 + MyFRS
+routing); approved_by/on fields anticipate the merge.
+
+**Still open (Wes):** merge PR #1 and PR #3 (H6 #1 and #2) · Ducat
+evidence/exemplars + the three books (not on this machine) — tranche 3 ·
+then step 4 (slice Skills) begins.

@@ -9,19 +9,20 @@ https://github.com/justcallmemrj/content-os-/pull/1 (D-038 decomposition:
 envelope + four project scaffolds + BEN/DUC full sets + DEC-BEN-0001; digest is
 the PR body). Step 2 PASSED (tag `build-step-2`; DEC-BUILD-005 ratified).
 
-**Remaining for step-3 exit (package §4):** Wes merges ≥1 staging PR (H6);
-facts/disclosures/exemplars from the back catalog filed as proposals (tranche 2
-— BLOCKED on Wes's source materials); indexes regenerate post-merge;
-`benowitz-ducat-social` retirement record at cutover (after step 4).
+**Remaining for step-3 exit (package §4):** Wes merges the staging PRs (H6);
+indexes regenerate post-merge; `benowitz-ducat-social` retirement record at
+cutover (after step 4). Tranche 2 BUILT (PR #3): BEN facts/sources/exemplars
+from the back catalog, sources live-verified. D-068 hosted enforcement LIVE
+(ruleset active; direct push rejected in test); DEC-BUILD-006 defines PR
+classes (staging = Wes-only, build = self-merge until acceptance).
 
 ## Open blockers (require Wes)
 
-1. Merge (or annotate) PR #1 — flag: DUC voice sliders are derived, not ratified.
-2. Provide tranche-2 inputs: DROP/FRS source material + 10–20 approved pieces
-   per brand (on-machine candidates listed in LOG session 6).
-3. GitHub Pro still not visible to the API (403 on rulesets) — check billing;
-   ruleset retry queued.
-4. Real `git config user.name` value.
+1. **Merge PR #1** (scaffolds/envelope; DUC sliders flagged) and **PR #3**
+   (BEN evidence + exemplars; review flags in the digest).
+2. Tranche-3 inputs: Ducat evidence/exemplars (20-week curriculum, NIL decks),
+   the three Benowitz books — none found on this machine.
+3. Ratify DEC-BUILD-006 at the next gate.
 
 ## Build sequence (package §4)
 
