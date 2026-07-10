@@ -1,3 +1,23 @@
 generated: true
 project: benowitz-wealth
-claim_keys: {}
+claim_keys:
+  frs.drop.definition:
+  - F-BEN-0001
+  frs.drop.max-months:
+  - F-BEN-0002
+  frs.drop.termination-requirement:
+  - F-BEN-0003
+  frs.drop.exit-mechanics:
+  - F-BEN-0004
+  frs.drop.eligibility.pension-plan-only:
+  - F-BEN-0005
+  irs.rollover.mandatory-withholding:
+  - F-BEN-0006
+  irs.rollover.direct.tax-deferral:
+  - F-BEN-0007
+  ssa.wep-gpo.repeal:
+  - F-BEN-0008
+  frs.pension.cola.post-2011-service:
+  - F-BEN-0009
+  frs.drop.lump-sum.tax-treatment:
+  - F-BEN-0010

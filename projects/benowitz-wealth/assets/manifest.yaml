@@ -1,0 +1,20 @@
+# Asset manifest — Benowitz back catalog (rights fields mandatory, D-029)
+generated: false
+assets:
+  - id: AST-BEN-WEBINAR-SCRIPTS
+    path: webinar-scripts/
+    items: [01_DROP_Exit_Webinar_Script.md, 02_Pension_vs_Investment_Webinar_Script.md,
+            03_Social_Security_Timing_Webinar_Script.md, 04_2nd_Election_Webinar_Script.md,
+            05_Medicare_Webinar_Script.md]
+    type: webinar-script
+    rights: firm-owned
+    origin: "Downloads/Webinar Scripts 2.zip (owner back catalog, delivered/fact-checked)"
+    note: "01 is the ratified source asset for the vertical-slice DROP reel run (D-006)"
+  - id: AST-BEN-CAROUSEL-CAPTIONS
+    path: carousel-captions/
+    items: "30 caption files (Post 01–Post 30)"
+    type: published-social-captions
+    rights: firm-owned
+    origin: "Downloads/Benowitz-Carousels.zip — published 30-post package"
+    note: "slide JPGs NOT vendored (large binaries); they remain in the Downloads archive.
+           Captions are the voice-bearing text and the exemplar source."

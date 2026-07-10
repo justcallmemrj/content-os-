@@ -1,3 +1,49 @@
 generated: true
 project: benowitz-wealth
-sources: []
+sources:
+- id: S-BEN-0001
+  type: statute
+  tier: 1
+  status: active
+  stability: annual
+  cited_by:
+  - F-BEN-0001
+  - F-BEN-0002
+  - F-BEN-0003
+  - F-BEN-0004
+  - F-BEN-0005
+  file: S-BEN-0001.md
+  sha256: d8a41c3635d02b814367a0b41b98d567ce224a608da9571525d98261bd6eb905
+- id: S-BEN-0002
+  type: agency-publication
+  tier: 1
+  status: active
+  stability: annual
+  cited_by:
+  - F-BEN-0006
+  - F-BEN-0007
+  - F-BEN-0010
+  file: S-BEN-0002.md
+  sha256: ceed2059e1705560da3db662a283f11a50ebfdd89c4ad329e60d5f4418b6fd22
+- id: S-BEN-0003
+  type: agency-publication
+  tier: 1
+  status: active
+  stability: annual
+  cited_by:
+  - F-BEN-0008
+  file: S-BEN-0003.md
+  sha256: addcdff631d2a345c0927ed719ff7465c45c9a11d6af4827e4cc2f9858450f95
+- id: S-BEN-0004
+  type: agency-publication
+  tier: 1
+  status: active
+  stability: volatile
+  cited_by:
+  - F-BEN-0001
+  - F-BEN-0004
+  - F-BEN-0005
+  - F-BEN-0009
+  - F-BEN-0010
+  file: S-BEN-0004.md
+  sha256: 25d80a84b8ab4726e8fe695758e27d80689ae380254dc75b64b5de186473332f
