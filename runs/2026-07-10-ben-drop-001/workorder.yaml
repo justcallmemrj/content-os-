@@ -14,4 +14,4 @@ prohibited_notes: []
 asset_manifest_ref: "projects/benowitz-wealth/assets/manifest.yaml#AST-BEN-WEBINAR-SCRIPTS"
 constraints: {length_words: [170, 200], deadline: null}
 model_tier_escalation: none
-state: human_review
+state: done

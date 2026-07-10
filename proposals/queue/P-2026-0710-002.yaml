@@ -1,0 +1,19 @@
+id: P-2026-0710-002
+run: 2026-07-10-ben-drop-001
+origin_agent: QA
+type: lesson-observation
+target: validators/compliance_lint.py
+payload:
+  observation: 'lint TAX-referral check is placement-blind: accepts the referral line
+    anywhere incl. the spoken track; COMPL adjudicated spoken placement does not discharge
+    BEN-C5. Candidate improvement: placement-aware tax check.'
+rationale: COMPL finding in run ben-drop-001 (COMPL-1); recurring-failure class
+consequence_class: consequential
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null
