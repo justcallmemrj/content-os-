@@ -1,0 +1,157 @@
+# Claim list v2 — SK-B2 declare mode — run 2026-07-10-ben-drop-001
+# Deliverable: drafts/drop-reel-v2.md · Packet: RP-2026-0710-01
+# Revision of claim-list.yaml per factcheck/findings.md + factcheck/ledger.yaml (v1).
+# Claim ids STABLE across revision: where the sentence changed, the id keeps its
+# new text (CL-01, CL-03, CL-08, CL-12, CL-13, CL-16, CL-19). CL-16..CL-19 were
+# FOUND by FACT in v1 and are now declared by WRITE.
+claims:
+  - id: CL-01
+    text: "Your DROP payout arrives as a single check."
+    location: HOOK
+    risk: high
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+    note: >-
+      Reframed structurally per FACT (findings.md, blocking summary, exit 2):
+      magnitude superlative removed; the claim now asserts payout FORM only —
+      c2/F-BEN-0004: the accumulated DROP balance "becomes payable as a
+      one-time lump sum."
+  - id: CL-02
+    text: "It comes with a decision attached."
+    location: HOOK
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-03
+    text: "if you're in DROP, it ends on a date you already know"
+    location: STAKES
+    risk: medium
+    evidence: "RP-2026-0710-01/c1"
+    on_screen: false
+    note: "Text now conditional ('if you're in DROP') as part of the CL-16 fix; substance unchanged."
+  - id: CL-04
+    text: "you must leave FRS-covered work for that balance to pay out"
+    location: STAKES
+    risk: high
+    evidence: "RP-2026-0710-01/c1"
+    on_screen: false
+  - id: CL-05
+    text: "your monthly pension turns on by itself"
+    location: BEAT ONE
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-06
+    text: "The lump sum doesn't. It waits for your instruction."
+    location: BEAT ONE
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-07
+    text: "cash gets taxed as that year's ordinary income, stacked on everything else you earn"
+    location: BEAT TWO
+    risk: high
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+  - id: CL-08
+    text: "Any payout sent to you directly has twenty percent withheld for federal tax."
+    location: BEAT TWO
+    risk: high
+    evidence: "RP-2026-0710-01/c4"
+    on_screen: false
+    note: "Leading 'And' dropped for duration; claim substance identical to v1."
+  - id: CL-09
+    text: "A direct rollover is the other route."
+    location: BEAT THREE
+    risk: medium
+    evidence: "RP-2026-0710-01/c5"
+    on_screen: false
+  - id: CL-10
+    text: "The money moves trustee to trustee into an IRA or another qualified plan, nothing withheld, still tax-deferred."
+    location: BEAT THREE
+    risk: high
+    evidence: "RP-2026-0710-01/c5"
+    on_screen: false
+    note: "'qualified' restored per FACT qualification — matches F-BEN-0007's destination scope exactly."
+  - id: CL-11
+    text: "The timing becomes yours."
+    location: BEAT THREE
+    risk: medium
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+    note: >-
+      Unchanged; FACT's verified-with-qualification stands (deferral until later
+      withdrawal, not unlimited control). Read in context immediately after the
+      deferral sentence; not flagged for correction.
+  - id: CL-12
+    text: "Choose cash, and it's taxed in the year it pays out."
+    location: TURN
+    risk: high
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+    note: >-
+      Rewritten per FACT's CL-12 limits: now keys the tax year to the
+      DISTRIBUTION (payout) event, not the termination date, and is explicitly
+      scoped to the cash route ("Choose cash, and..."), so it no longer speaks
+      for the rollover path.
+  - id: CL-13
+    text: "You can see that year coming."
+    location: TURN
+    risk: medium
+    evidence: "RP-2026-0710-01/c1 (chain via c2: termination at the known DROP end date is what makes the balance payable)"
+    on_screen: false
+    note: "Replaces 'you know that date ahead of time'; same foreseeability teaching via the c1/c2 chain FACT accepted."
+  - id: CL-14
+    text: "Our free DROP Exit webinar walks through the whole decision."
+    location: CTA
+    risk: low
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+    note: "Publish-gate condition rides (producer confirms webinar live, free, link resolves)."
+  - id: CL-15
+    text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+    location: CTA
+    risk: high
+    evidence: "DISC-BEN-SHORT-01"
+    on_screen: true
+    note: "Publish-gate condition rides (DISC-BEN-FRS-01 full text in profile or first comment at publish)."
+  - id: CL-16
+    text: >-
+      [IMPLIED] Teachers, deputies, firefighters, and state staff WHO ARE IN
+      DROP face this payout decision — the address is conditional ("if you're
+      in DROP") and no longer implies DROP applies to every listener in those
+      occupations.
+    location: STAKES
+    risk: high
+    evidence: "RP-2026-0710-01/c1, c2; F-BEN-0005 (approved memory: DROP is Pension-Plan-only — the conditional scopes the address to members already in DROP, who are Pension Plan members by definition)"
+    on_screen: false
+    note: >-
+      FOUND by FACT in v1; now declared. Fix is the conditional address —
+      Investment Plan members in the same jobs are not told, or implied, that
+      DROP applies to them.
+  - id: CL-17
+    text: "Most members never hear it called a decision."
+    location: HOOK
+    risk: low
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+    note: "FOUND by FACT in v1; now declared. Low-risk texture; FACT ruled unverified its legitimate final state."
+  - id: CL-18
+    text: "Most members picture a payday."
+    location: BEAT ONE
+    risk: low
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+    note: "FOUND by FACT in v1; now declared. Same class as CL-17."
+  - id: CL-19
+    text: "Here's the part that rarely comes up:"
+    location: BEAT TWO
+    risk: low
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+    note: >-
+      Softened per FACT's suggested correction — secrecy frame ("nobody
+      mentions") removed; the rules it introduces are publicly documented on
+      the packet's own IRS source. Intervention note: the v1 wording is a
+      listed brand-voice transition (brand-voice.md@1.0.0 transitions); VOICE
+      may re-weigh, but WRITE adopted FACT's softening for this cycle.

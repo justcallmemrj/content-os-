@@ -1,0 +1,26 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 4
+stage:
+  from: fact_check
+  to: revision
+agents:
+  from: FACT
+  to: WRITE
+artifacts:
+- path: factcheck/ledger.yaml
+  sha256: 56e149f13f008b63e16ba2a59642c5681a3c9213aad542d824d68bc30d31352a
+- path: factcheck/findings.md
+  sha256: 9d33e62dc099260e5581c8a6f98a33ca4e438b597494306a9266677e35ad66d5
+skills_used:
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns:
+- CL-01 high-risk unverified blocks T7 (E1); CL-16 FOUND eligibility implication;
+  CL-10 one-word correction
+confidence:
+  value: high
+  basis: 19 claims adjudicated against opened evidence; blocking summary recomputed
+approvals: []
+feedback_ref: null
+escalations: []

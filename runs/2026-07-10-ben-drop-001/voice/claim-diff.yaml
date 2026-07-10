@@ -1,0 +1,70 @@
+# Claim diff — run 2026-07-10-ben-drop-001 — SK-B2 delta duty (emitted by VOICE)
+# Compares drafts/drop-reel-v2.md (fact-checked, ledger v2) -> voice/drop-reel-v3.md
+run: 2026-07-10-ben-drop-001
+old: "drafts/drop-reel-v2.md"
+new: "voice/drop-reel-v3.md"
+ledger: "factcheck/ledger.yaml"   # version 2
+by: VOICE
+at: "2026-07-10"
+
+differ:
+  command: >-
+    python .claude/skills/ev-claim-ledger/scripts/claim_diff.py
+    runs/2026-07-10-ben-drop-001/drafts/drop-reel-v2.md
+    runs/2026-07-10-ben-drop-001/voice/drop-reel-v3.md --json
+  output: "[]"
+  hits: 0
+
+# TOOL-BLINDNESS FINDING (reported, not suppressed — the opposite failure):
+# claim_diff.py's zero hits on this format is NOT evidence of no semantic
+# change. Its MARKER line-filter (^\s*(\[|>|#|\||-{3,})) discards every line
+# that BEGINS with a delivery marker before sentence extraction — and in the
+# reel format every spoken line begins with [TO CAMERA] or sits under a
+# [VO / B-ROLL] marker line. The differ therefore extracts ZERO sentences from
+# both files. Control check run to confirm: claim_diff.py on
+# drafts/drop-reel-v1.md -> drafts/drop-reel-v2.md — a pair with five
+# FACT-adjudicated semantic changes (CL-01, CL-10, CL-12, CL-16, CL-19) —
+# also returns [] (0 hits). voice_fingerprint.py and duration_check.py strip
+# INLINE markers first and see the spoken text; claim_diff.py does not.
+# The manual accounting below is therefore the substantive delta record for
+# this pass, verified against a byte-level diff of the two files.
+
+# Manual sentence-level accounting (byte-diff verified). Every touched
+# factual sentence is listed; nature below is VOICE's characterization only —
+# cosmetic-vs-semantic is FACT's call (D4/SK-B2).
+touches:
+  - cl: CL-04
+    anchor: STAKES
+    old: "The rule is hard: you must leave FRS-covered work for that balance to pay out."
+    new: "The rule is hard. You must leave FRS-covered work for that balance to pay out."
+    change: "colon -> period + sentence-case 'You' (breath point before the hard rule)"
+    nature: cosmetic-claimed   # word sequence identical; punctuation/case only
+  - cl: CL-05
+    anchor: BEAT ONE
+    old: "Half of that is right: your monthly pension turns on by itself."
+    new: "Half of that is right. Your monthly pension turns on by itself."
+    change: "colon -> period + sentence-case 'Your' (pause after the setup, claim stands alone)"
+    nature: cosmetic-claimed   # word sequence identical; punctuation/case only
+  - cl: CL-07
+    anchor: BEAT TWO
+    old: "Here's the part that rarely comes up: cash gets taxed as that year's ordinary income, stacked on everything else you earn."
+    new: "Here's the part that rarely comes up. Cash gets taxed as that year's ordinary income, stacked on everything else you earn."
+    change: "colon -> period + sentence-case 'Cash' (pause after the CL-19 transition; claim sentence stands alone)"
+    nature: cosmetic-claimed   # word sequence identical; punctuation/case only
+    note: >-
+      The transition wording itself ("Here's the part that rarely comes up")
+      is UNCHANGED — CL-19's FACT-softened form kept deliberately. The
+      brand-voice profile transition "Here's the part nobody mentions:" was
+      NOT restored: FACT adjudicated that exact wording as misleading
+      (secrecy frame) in v1, and the ledger marks any reversion as a
+      fact_check re-entry. Voice yielded to the standing adjudication.
+
+untouched_claims: [CL-01, CL-02, CL-03, CL-06, CL-08, CL-09, CL-10, CL-11,
+                   CL-12, CL-13, CL-14, CL-15, CL-16, CL-17, CL-18, CL-19]
+# CL-11 kept in position immediately after the deferral mechanics per its
+# qualification note; CL-15 on-screen text and the DISC-BEN-TAX-01 sentence
+# in the CTA are byte-identical to v2.
+
+non_claim_changes:
+  - "Title line: 'reel v2' -> 'reel v3' (metadata, not spoken)"
+  - "Provenance line: revises-field updated to drafts/drop-reel-v2.md per SK-B9 voice pass (metadata, not spoken)"

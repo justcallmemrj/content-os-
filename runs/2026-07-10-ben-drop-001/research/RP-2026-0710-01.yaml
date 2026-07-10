@@ -1,0 +1,171 @@
+# Research packet RP-2026-0710-01 — built by RSRCH per SK-B1 (ev-source-packet)
+# Evidence basis: approved facts F-BEN-0003/0004/0006/0007/0010 (all status: active,
+# pre-verified against tier-1 sources at seeding 2026-07-10). No web fetch performed;
+# all evidence on disk. Facts excluded as out of brief scope (packet precision):
+# F-BEN-0001/0002/0005 (DROP definition/window/eligibility), F-BEN-0008 (WEP/GPO),
+# F-BEN-0009 (COLA).
+id: RP-2026-0710-01
+run_id: 2026-07-10-ben-drop-001
+project: benowitz-wealth
+topic: >-
+  The DROP-exit lump-sum decision for FRS members — taking the accumulated
+  DROP balance as a cash distribution vs. moving it by direct rollover, and
+  how each path is taxed.
+intended_use: >-
+  Evidence base for T-2026-0710-004: a ~90-second Instagram reel script
+  (webinar-registration objective) teaching that cash vs. direct rollover is
+  a real decision that changes how and when the DROP lump sum is taxed.
+depth: standard
+claims:
+  - id: c1
+    statement: >-
+      To receive accumulated DROP benefits, a member must terminate all
+      FRS-covered employment relationships at the end of the DROP period,
+      with employer verification; failing to terminate voids the DROP
+      election. (F-BEN-0003, work-order-REQUIRED — state as the hard rule it
+      is; never soften to "you'll probably need to leave.")
+    source:
+      title: >-
+        Florida Statutes §121.091 — Benefits payable under the system
+        (incl. (13) Deferred Retirement Option Program)
+      publisher: Florida Legislature
+      url: "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0100-0199/0121/Sections/0121.091.html"
+      type: statute
+      source_record_id: S-BEN-0001
+      jurisdiction: FL
+    published: "2025-07-01"
+    effective: "1998-07-01"
+    accessed: "2026-07-10"
+    tier: 1
+    confidence: high
+    basis: direct
+    excerpt: >-
+      member must "terminate all employment relationships"; "the division
+      shall receive verification by the member's employer or employers"
+    time_sensitive: true
+    review_by: "2027-07-01"
+  - id: c2
+    statement: >-
+      At DROP exit, the member's lifetime monthly pension begins and the
+      accumulated DROP balance (payments plus interest) becomes payable as a
+      one-time lump sum, which may be taken as a distribution or rolled over.
+      (F-BEN-0004 — the fork the reel is about: one arrow is automatic, one
+      is a decision.)
+    source:
+      title: >-
+        Florida Statutes §121.091 — Benefits payable under the system
+        (incl. (13) Deferred Retirement Option Program)
+      publisher: Florida Legislature
+      url: "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0100-0199/0121/Sections/0121.091.html"
+      type: statute
+      source_record_id: S-BEN-0001
+      jurisdiction: FL
+    published: "2025-07-01"
+    effective: "1998-07-01"
+    accessed: "2026-07-10"
+    tier: 1
+    confidence: high
+    basis: direct
+    excerpt: >-
+      "your monthly pension turns on and your DROP money becomes a one-time
+      lump sum" (fact-checked webinar treatment of §121.091(13) payout
+      provisions)
+    time_sensitive: true
+    review_by: "2027-07-10"
+  - id: c3
+    statement: >-
+      The DROP lump sum is generally pre-tax money; taken as a cash
+      distribution, it is treated as ordinary income in the year of
+      distribution (stacking on top of other income for that year), whereas a
+      properly executed direct rollover defers taxation until later
+      withdrawal. (F-BEN-0010, work-order-REQUIRED — frame as a
+      consideration; never quantify the tax cost for a stranger.)
+    source:
+      title: Rollovers of retirement plan and IRA distributions
+      publisher: Internal Revenue Service
+      url: "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions"
+      type: agency-publication
+      source_record_id: S-BEN-0002
+      jurisdiction: US
+    published: "2025-01-01"
+    effective: "2025-01-01"
+    accessed: "2026-07-10"
+    tier: 1
+    confidence: high
+    basis: direct
+    excerpt: >-
+      "cash now means taxes now, possibly at higher rates. A direct rollover
+      preserves tax deferral" (fact-checked webinar, Slide 8 takeaway; IRS
+      rollover mechanics verified via S-BEN-0002)
+    time_sensitive: true
+    review_by: "2027-07-10"
+  - id: c4
+    statement: >-
+      A retirement plan distribution paid directly to the participant is
+      subject to mandatory 20% federal income tax withholding, even if the
+      participant intends to roll it over later. (F-BEN-0006 — supporting;
+      tax content, carries DISC-BEN-TAX-01.)
+    source:
+      title: Rollovers of retirement plan and IRA distributions
+      publisher: Internal Revenue Service
+      url: "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions"
+      type: agency-publication
+      source_record_id: S-BEN-0002
+      jurisdiction: US
+    published: "2025-01-01"
+    effective: "2025-01-01"
+    accessed: "2026-07-10"
+    tier: 1
+    confidence: high
+    basis: direct
+    excerpt: >-
+      "A retirement plan distribution paid to you is subject to mandatory
+      withholding of 20%, even if you intend to roll it over later."
+    time_sensitive: true
+    review_by: "2027-07-10"
+  - id: c5
+    statement: >-
+      A direct rollover (trustee-to-trustee transfer) of an eligible
+      retirement plan distribution to an IRA or another qualified plan
+      preserves the money's tax-deferred status, with no tax withheld on the
+      transfer. (F-BEN-0007 — supporting; frame as consideration, never
+      outcome — "preserves tax deferral" is fine, "save thousands" is a
+      performance claim.)
+    source:
+      title: Rollovers of retirement plan and IRA distributions
+      publisher: Internal Revenue Service
+      url: "https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions"
+      type: agency-publication
+      source_record_id: S-BEN-0002
+      jurisdiction: US
+    published: "2025-01-01"
+    effective: "2025-01-01"
+    accessed: "2026-07-10"
+    tier: 1
+    confidence: high
+    basis: direct
+    excerpt: >-
+      "No taxes will be withheld from your transfer amount" (direct
+      rollover/trustee-to-trustee transfer).
+    time_sensitive: true
+    review_by: "2027-07-10"
+uncertainty:
+  - >-
+    Member-specific figures are deliberately absent from this packet: an
+    individual's DROP window, termination date, accumulated balance, current
+    DROP interest rate, and personal tax outcome vary by hire date, role, and
+    legislation. Brand convention (and the source webinar) routes all such
+    specifics to MyFRS.com / the MyFRS Financial Guidance Line
+    (1-866-446-9377) — the reel must not state them.
+  - >-
+    The magnitude of the tax difference between cash and rollover depends
+    entirely on the individual's bracket, other income, and state of
+    residence; it cannot be stated for a general audience (F-BEN-0010 usage
+    note: never quantify the tax cost for a stranger). The packet supports
+    "taxed as ordinary income that year vs. deferred," nothing quantified.
+  - >-
+    S-BEN-0002 (the IRS rollovers page) carries no stable publication date;
+    its `published: 2025-01-01` is approximate per the source record.
+    Freshness rides on the citing facts' review_by dates (2027-07-10) —
+    within window as of access date 2026-07-10.
+outdated_facts_warnings: []

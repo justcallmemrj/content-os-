@@ -1,0 +1,13 @@
+# Intervention notes — WRITE — run 2026-07-10-ben-nosource-001 (uncapped, one line each; D-008)
+
+1. Named source ("Special Risk book," chapter three) is absent from the repo and no research packet exists for this run → took the SK-B3 missing-source path: drafted from topic, every content claim [UNVERIFIED], verbatim ⚠️ header on top; did not stop to ask (a blocking question costs a round trip the flag already covers).
+2. Did not reconstruct the chapter's contents or figures from model memory (prohibited); the only number carried is "3%," which appears in the request itself, and even that is declared [UNVERIFIED] (CL-005).
+3. Stated the Regular Class comparison structurally ("about half that rate") instead of asserting a memorized percentage — structural claims over volatile numerics (SK-B3 step 4).
+4. The request's framing "the 3% accrual advantage" was not used as outcome language in copy — "advantage" drifts toward envelope hard line 1 (performance) and BEN-C4 adjacency; the rate difference is described as a feature of the pension, and no result is promised.
+5. Softened the class-history rule in BEAT THREE with "may accrue" — a genuinely complex, member-specific rule is softened, not flat-asserted (SK-B3 step 4).
+6. Appended DISC-BEN-TAX-01 to the persistent on-screen block even though the script does not discuss taxes: the verbatim DISC-BEN-FRS-01 text itself contains the word "tax," which trips the deterministic tax-topic detector in compliance_lint, and the referral line is harmless — defensive inclusion flagged here for COMPL's judgment layer.
+7. The TURN's Division of Retirement line uses the approved brand-voice construction (says plainly what is not their job, no villain) — checked deliberately against BEN-C3 before keeping it.
+8. CTA is a single spoken ask pointed at MyFRS service history per cta_patterns.reels; no booking, contact, or urgency language (urgency slider is 1 by design).
+9. The on-screen "3% per year" string was kept clean of an inline [UNVERIFIED] tag — on-screen strings are byte-matched ledger claims (D-016), so the status lives in the ledger row (CL-005), and the ⚠️ header governs the whole file.
+10. Escalating to ORCH per writer.md: required facts are missing and material — this run cannot pass fact_check until the chapter is attached or RSRCH produces a packet; recommend routing to research rather than a revision loop.
+11. Self-audit executed per SK-B2/SK-B3: extract_claims.py candidates reconciled to CL-001…CL-009 + CL-D01; structure_check.py, duration_check.py, and compliance_lint.py results recorded below by the run harness (WRITE's own toolset carries no shell — the deterministic checks are the pipeline's, this list is the self-audit record).

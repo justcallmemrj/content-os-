@@ -152,6 +152,9 @@ Ask questions before you sign anything.
 Take a breath.
 """
 SEMANTIC_MARKERS = ["Special Risk", "60 months", "capital gains"]
+# conditional-removal regression (caught live in the delta-path fixture):
+COND_OLD = "[TO CAMERA] Teachers and deputies: if you're in DROP, it ends on a date you already know.\n"
+COND_NEW = "[TO CAMERA] Teachers and deputies: your DROP ends on a date you already know.\n"
 
 
 def test_delta() -> list[str]:
@@ -161,6 +164,28 @@ def test_delta() -> list[str]:
         (td / "old.md").write_text(OLD, encoding="utf-8")
         (td / "new.md").write_text(NEW, encoding="utf-8")
         hits = claim_diff.diff(td / "old.md", td / "new.md")
+        # REGRESSION (caught live by VOICE, run ben-drop-001): the same edits in
+        # delivery-marked script format MUST produce the same hits — the differ
+        # was blind to lines starting with [TO CAMERA].
+        marked_old = "\n".join(f"[TO CAMERA] {l}" if l.strip() else l for l in OLD.splitlines())
+        marked_new = "\n".join(f"[TO CAMERA] {l}" if l.strip() else l for l in NEW.splitlines())
+        (td / "mold.md").write_text(marked_old, encoding="utf-8")
+        (td / "mnew.md").write_text(marked_new, encoding="utf-8")
+        marked_hits = claim_diff.diff(td / "mold.md", td / "mnew.md")
+        marked_text = " | ".join((h["new"] or h["old"] or "") for h in marked_hits)
+        marked_missed = [m for m in SEMANTIC_MARKERS if m not in marked_text]
+        if marked_missed:
+            errors.append(f"marked-format regression MISSED {marked_missed} "
+                          f"(differ blind to [TO CAMERA] lines)")
+        else:
+            print(f"  delta marked-format regression: all {len(SEMANTIC_MARKERS)} markers covered ✓")
+        (td / "cold.md").write_text(COND_OLD, encoding="utf-8")
+        (td / "cnew.md").write_text(COND_NEW, encoding="utf-8")
+        cond_hits = claim_diff.diff(td / "cold.md", td / "cnew.md")
+        if not cond_hits:
+            errors.append("conditional-removal regression: eligibility conditional strip not flagged")
+        else:
+            print("  delta conditional-removal regression: flagged ✓")
     flagged_texts = " | ".join((h["new"] or h["old"] or "") for h in hits)
     missed = [m for m in SEMANTIC_MARKERS if m not in flagged_texts]
     if missed:

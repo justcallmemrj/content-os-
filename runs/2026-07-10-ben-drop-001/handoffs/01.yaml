@@ -1,0 +1,24 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 1
+stage:
+  from: brief
+  to: research
+agents:
+  from: WRITE
+  to: RSRCH
+artifacts:
+- path: drafts/brief.md
+  sha256: 8f7923d41ec52c18c8126d85f43796243b75b82b7f194ffacef795203feca221
+skills_used:
+- id: SK-B3
+  version: 1.0.0
+- id: SK-A2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: brief complete per template; no concept-level conflict
+approvals: []
+feedback_ref: null
+escalations: []

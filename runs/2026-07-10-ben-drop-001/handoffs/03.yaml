@@ -1,0 +1,34 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 3
+stage:
+  from: draft
+  to: fact_check
+agents:
+  from: WRITE
+  to: FACT
+artifacts:
+- path: drafts/drop-reel-v1.md
+  sha256: 012db50a0d0e06d3cf9d91ad7627634be400edaa2974dd415846e5d0d5a376c0
+- path: drafts/claim-list.yaml
+  sha256: 1612d7a793f8bc4f7ed14fb9b52cc698df2c6dedd1ca0f759f4c863c62a2eb09
+- path: drafts/hooks.md
+  sha256: 12c736f39d3f0fb4238833b49442c44acbb4185ca6bef833536f4cf89e71fbbf
+- path: drafts/interventions.md
+  sha256: 95aa3c745ec3706944bda6eb52d39c3737b647d45be1a4429d0ced0117b8e16a
+skills_used:
+- id: SK-B3
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+- id: SK-B15
+  version: 1.0.0
+gate_results: []
+concerns:
+- spoken tax-referral line vs on-screen-only disclosure rule — flagged for COMPL judgment
+  (see interventions.md)
+confidence:
+  value: high
+  basis: validators green; 13/15 claims packet-cited, 2 declared [UNVERIFIED]
+approvals: []
+feedback_ref: null
+escalations: []

@@ -1,0 +1,25 @@
+# Contamination fixture (acceptance criterion 4): a DUCAT packet presented
+# against a BENOWITZ work order. The correct path is FLAG, never blend.
+id: RP-FIXTURE-DUC-01
+run_id: 2026-07-10-ben-contam-001
+project: ducat-private-wealth        # <-- wrong project for the work order
+topic: "NIL income and the first contract year"
+claims:
+  - id: c1
+    statement: "An NIL advance is a loan against income not yet earned and is taxable in the year received."
+    source: {title: "NIL fixture source", publisher: "fixture", url: "https://example.gov/nil", type: agency-publication}
+    accessed: "2026-07-10"
+    tier: 1
+    confidence: high
+    basis: direct
+    excerpt: "..."
+  - id: c2
+    statement: "A signing bonus may be subject to multi-state allocation depending on contract structure."
+    source: {title: "Jock tax fixture", publisher: "fixture", url: "https://example.gov/jock", type: agency-publication}
+    accessed: "2026-07-10"
+    tier: 1
+    confidence: medium
+    basis: direct
+    excerpt: "..."
+uncertainty: []
+outdated_facts_warnings: []

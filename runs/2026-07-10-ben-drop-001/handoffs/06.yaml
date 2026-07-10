@@ -1,0 +1,26 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 6
+stage:
+  from: fact_check
+  to: voice_edit
+agents:
+  from: FACT
+  to: VOICE
+artifacts:
+- path: factcheck/ledger.yaml
+  sha256: 92b18908c3b8e1e248d3c7a7e2c5b6cdbe37774bf73149f4879e06b03d7a2252
+- path: factcheck/findings.md
+  sha256: 8470f9300cc4e6388da9664cd4180daadf096a584dc52427a5e7d8fbc6b5b567
+skills_used:
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns:
+- 'CL-19: v1 wording is a listed brand-voice transition; reverting it is a semantic
+  delta that re-enters fact_check'
+confidence:
+  value: high
+  basis: 19 claims, 0 high-risk non-verified, ledger v2 validated
+approvals: []
+feedback_ref: null
+escalations: []

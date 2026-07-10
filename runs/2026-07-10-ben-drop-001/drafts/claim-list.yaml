@@ -1,0 +1,95 @@
+# Claim list — SK-B2 declare mode — run 2026-07-10-ben-drop-001
+# Deliverable: drafts/drop-reel-v1.md · Packet: RP-2026-0710-01
+# Declared by WRITE while drafting; every stated, implied, numeric, on-screen,
+# and comparative claim ledgered per references/claim-taxonomy.md.
+claims:
+  - id: CL-01
+    text: "Your DROP payout may be the biggest check of your career."
+    location: HOOK
+    risk: high
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+  - id: CL-02
+    text: "It comes with a decision attached."
+    location: HOOK
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-03
+    text: "DROP ends on a date you already know."
+    location: STAKES
+    risk: medium
+    evidence: "RP-2026-0710-01/c1"
+    on_screen: false
+  - id: CL-04
+    text: "you must leave FRS-covered work for that balance to pay out"
+    location: STAKES
+    risk: high
+    evidence: "RP-2026-0710-01/c1"
+    on_screen: false
+  - id: CL-05
+    text: "your monthly pension turns on by itself"
+    location: BEAT ONE
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-06
+    text: "The lump sum doesn't. It waits for your instruction."
+    location: BEAT ONE
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-07
+    text: "cash gets taxed as that year's ordinary income, stacked on everything else you earn"
+    location: BEAT TWO
+    risk: high
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+  - id: CL-08
+    text: "And any payout sent to you directly has twenty percent withheld for federal tax."
+    location: BEAT TWO
+    risk: high
+    evidence: "RP-2026-0710-01/c4"
+    on_screen: false
+  - id: CL-09
+    text: "A direct rollover is the other route."
+    location: BEAT THREE
+    risk: medium
+    evidence: "RP-2026-0710-01/c5"
+    on_screen: false
+  - id: CL-10
+    text: "The money moves trustee to trustee into an IRA or another plan, nothing withheld, still tax-deferred."
+    location: BEAT THREE
+    risk: high
+    evidence: "RP-2026-0710-01/c5"
+    on_screen: false
+  - id: CL-11
+    text: "The timing becomes yours."
+    location: BEAT THREE
+    risk: medium
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+  - id: CL-12
+    text: "Your termination date decides which tax year that money lands in"
+    location: TURN
+    risk: high
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+  - id: CL-13
+    text: "you know that date ahead of time"
+    location: TURN
+    risk: medium
+    evidence: "RP-2026-0710-01/c1"
+    on_screen: false
+  - id: CL-14
+    text: "Our free DROP Exit webinar walks through the whole decision."
+    location: CTA
+    risk: low
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+  - id: CL-15
+    text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+    location: CTA
+    risk: high
+    evidence: "DISC-BEN-SHORT-01"
+    on_screen: true
