@@ -6,58 +6,58 @@ facts:
   status: active
   review_by: '2027-07-10'
   file: F-BEN-0001.md
-  sha256: 7f568ef7f4d7497719cb536485aa188fe9f25fce6e8072e939925ec40bcc698b
+  sha256: 3352535cec1e3f43592cc435cb825e61ea89d14921eef8640a0498a144c10271
 - id: F-BEN-0002
   claim_key: frs.drop.max-months
   status: active
   review_by: '2027-07-01'
   file: F-BEN-0002.md
-  sha256: 291d043e9e9c23b082f751c7d32a54d78cf334de3cb816d97f1b777cb38ace67
+  sha256: 5f2412d1cbd532e6a41cef49fde9d6446c6a19b239c122eea71ff1490ecb4e94
 - id: F-BEN-0003
   claim_key: frs.drop.termination-requirement
   status: active
   review_by: '2027-07-01'
   file: F-BEN-0003.md
-  sha256: 46cb85fe9a9937c5a482b98eae3500170518e61564b9872a9abf9a87060978fc
+  sha256: b03bd8c0c16c468b416158e37d54df3b0cfa0b5271f4289f8e5624cdfdb957c7
 - id: F-BEN-0004
   claim_key: frs.drop.exit-mechanics
   status: active
   review_by: '2027-07-10'
   file: F-BEN-0004.md
-  sha256: fe95c34b96b5209b20a5f8b8f8e7f6bc4a1e376d42c89af47ec3f56db7e2b6bb
+  sha256: be7bd11bbd0871f8623686278e624f19682ccb3cb4ba22decfaf41f0571d1904
 - id: F-BEN-0005
   claim_key: frs.drop.eligibility.pension-plan-only
   status: active
   review_by: '2027-07-10'
   file: F-BEN-0005.md
-  sha256: 786de50ff0df8e031f41602b6e166c7ccc55417befe22a6f65d6253d4e8ddedd
+  sha256: 785ca58a3ccbc014cd7ca71e40ce238d2427b308c87895544274c1b459ec866e
 - id: F-BEN-0006
   claim_key: irs.rollover.mandatory-withholding
   status: active
   review_by: '2027-07-10'
   file: F-BEN-0006.md
-  sha256: 1c90a1114af4227ae5e0ba4f1f8b0acaa783d60a5eee45822d4e54ee32097b07
+  sha256: fb3a83c4bbe32166162f23add0fdd6351688afa3b983820078198db9bda93be4
 - id: F-BEN-0007
   claim_key: irs.rollover.direct.tax-deferral
   status: active
   review_by: '2027-07-10'
   file: F-BEN-0007.md
-  sha256: 2d5e488c75c2940deb32aaeffdb3f0d964db943bfe8ab447d1adb2d8177403ba
+  sha256: c95dcb495f936d7e091be6df0738adbc10ee9cdd8f934c6a5da5104872121d55
 - id: F-BEN-0008
   claim_key: ssa.wep-gpo.repeal
   status: active
   review_by: '2027-07-10'
   file: F-BEN-0008.md
-  sha256: 5c8214325d2bb6d50626b66d1b9f87d61858072672baf84fa47166e61dd94806
+  sha256: 921835d1294e734f5fa54f6375c1a53d962874f46d41ca25ea7cbe5305049afa
 - id: F-BEN-0009
   claim_key: frs.pension.cola.post-2011-service
   status: active
   review_by: '2027-07-01'
   file: F-BEN-0009.md
-  sha256: f297745e07e9d6b3835ab10ab22f9d1e4005a90a772eeb06256923794453c64c
+  sha256: 90040ce7ed39017a24ac16104c7a2f2dbf946a1d1fabaaa140ad91b7a2ecc899
 - id: F-BEN-0010
   claim_key: frs.drop.lump-sum.tax-treatment
   status: active
   review_by: '2027-07-10'
   file: F-BEN-0010.md
-  sha256: 1951486f4f44b24f00d69a526efd6c913acd716e8fe209a278d01efb74f7fd83
+  sha256: d4693b703fd6d468dc2b8ace13e83972d1865f2f972832d78e53b6e9ff18361f

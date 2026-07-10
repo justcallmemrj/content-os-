@@ -2,7 +2,18 @@
 
 Governing documents: `claude-code-master-prompt.md` (operating rules), `claude-code-slice-prompt.md` (milestone 1 scope, steps 0–6), `phase-8-implementation-package.md` §4 (build sequence). This file tracks: the step we are on, its exit criteria, and what comes next. Updated every session.
 
-## Current step: 3 — Memory seeding (D-079)
+## Current step: 5 — Agent definitions (13 runtime files + adherence fixtures)
+
+**Status:** STARTING. Steps 3 and 4 are CLOSED: H6 #1/#2 merged (Wes-delegated,
+recorded), tag `build-step-3`; slice Skills built and ALL GREEN
+(`python scripts/test_skills.py` — SK-B2/B3 full suites + 7 template Skills +
+lexicon/compliance validators), tag `build-step-4` on the step-4 merge.
+
+**Step-5 exit (package §4):** `/agents` lists all 13; instruction-adherence
+fixtures green for slice agents; `model:` pins per D-071 (strong=opus-4-8 for
+ORCH/RSRCH/STRAT; mid=sonnet for the rest; pricing confirmed at build).
+
+## Previous: step 3 — Memory seeding (D-079)
 
 **Status:** TRANCHE 1 STAGED — **PR #1 open, awaiting Wes's H6 merge**:
 https://github.com/justcallmemrj/content-os-/pull/1 (D-038 decomposition:
