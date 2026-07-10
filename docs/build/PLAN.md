@@ -2,16 +2,21 @@
 
 Governing documents: `claude-code-master-prompt.md` (operating rules), `claude-code-slice-prompt.md` (milestone 1 scope, steps 0–6), `phase-8-implementation-package.md` §4 (build sequence). This file tracks: the step we are on, its exit criteria, and what comes next. Updated every session.
 
-## Current step: 5 — Agent definitions (13 runtime files + adherence fixtures)
+## Current step: 6 — Slice run & acceptance [WES]
 
-**Status:** STARTING. Steps 3 and 4 are CLOSED: H6 #1/#2 merged (Wes-delegated,
-recorded), tag `build-step-3`; slice Skills built and ALL GREEN
-(`python scripts/test_skills.py` — SK-B2/B3 full suites + 7 template Skills +
-lexicon/compliance validators), tag `build-step-4` on the step-4 merge.
+**Status:** READY TO START. Step 5 CLOSED: 13 definitions in .claude/agents/
+(D-071 pins exact), adherence fixtures for all 8 slice agents with
+deterministic shadows verified, `python scripts/test_agents.py` ALL GREEN
+(tag `build-step-5`).
 
-**Step-5 exit (package §4):** `/agents` lists all 13; instruction-adherence
-fixtures green for slice agents; `model:` pins per D-071 (strong=opus-4-8 for
-ORCH/RSRCH/STRAT; mid=sonnet for the rest; pricing confirmed at build).
+**Step-6 scope (slice prompt):** author remaining fixtures (contamination,
+injected-failure, missing-source, minimal compliance seeds) → execute the
+LIVE DROP-reel run through every trunk gate to H2 (Wes decides) → the
+ten-criterion acceptance battery (package §5) with evidence →
+`docs/build/slice-acceptance.md` → Wes signs → tag v1.0-slice. The acceptance
+commit also: deletes state/BUILD-MODE (DEC-BUILD-005 sunset), files the
+benowitz-ducat-social retirement record, ratifies DEC-BUILD-006.
+**Wes must be present for H2 and the sign-off.**
 
 ## Previous: step 3 — Memory seeding (D-079)
 
