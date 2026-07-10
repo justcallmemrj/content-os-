@@ -1,8 +1,0 @@
-Build-mode marker (DEC-BUILD-005). While this file exists, the MAIN SESSION may
-write to protected paths that the build itself must author (.claude/agents,
-.claude/skills, schemas, workflows, evaluations/rubrics, project scaffolds).
-Subagents are fully enforced regardless. docs/architecture/** and all secret
-paths are denied in every mode.
-
-This file is REMOVED at slice acceptance (step 6) — its deletion is part of the
-acceptance commit, flipping the main session to full runtime enforcement.
