@@ -1,0 +1,21 @@
+id: P-2026-0710-001
+run: 2026-07-10-ben-drop-001
+origin_agent: QA
+type: exemplar
+target: evaluations/goldens/benowitz-wealth/script/
+payload:
+  golden_candidate: runs/2026-07-10-ben-drop-001/voice/drop-reel-v3.md
+  sha256: 8ec534b3c7ef61d4e26d9c75525bdf4ef9f6b4fd8b6da901c5a6b5a3bc1aafd0
+  scorecard: runs/2026-07-10-ben-drop-001/qa/scorecard.yaml
+  h2: approved verbatim 2026-07-10
+rationale: 'First H2-approved output; QA proposes as golden #1 per acceptance criterion
+  10'
+consequence_class: consequential
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null
