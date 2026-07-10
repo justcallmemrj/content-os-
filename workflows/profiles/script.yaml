@@ -1,0 +1,21 @@
+# Trunk profile: script (Phase 5 §3.1) — the vertical-slice profile, PROTECTED
+profile: script
+machine: content-trunk
+version: 1.0.0
+stages: all                     # every trunk stage active
+pinned_skills:
+  brief:    [SK-B3, SK-A2]
+  research: [SK-B1, SK-A2, SK-A3]
+  draft:    [SK-B3, SK-B2, SK-B15, SK-A2]
+  fact_check: [SK-B2, SK-A2]
+  voice_edit: [SK-B9, SK-B2, SK-A2]
+  compliance: [SK-B14, SK-B15, SK-A2]
+  qa:       [SK-B18, SK-A2]
+format_validators:
+  duration: {script: "duration_check.py", bands: {reel-90s: [170, 200], reel-60s: [110, 135], reel-30s: [55, 70]}}
+  structure: "structure_check.py (7 beats, markers, single CTA, banned openings)"
+  disclosure: "disclosure_check.py (persistent on-screen placement)"
+  contamination: "lexicon_scan.py"
+  compliance_lint: "compliance_lint.py"
+rubric: RUB-SCRIPT-1
+notes: "190w ≈ 90s canon; delivery markers mandatory; disclosure never spoken-only"

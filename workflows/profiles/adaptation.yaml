@@ -1,0 +1,20 @@
+# Trunk profile: adaptation (Phase 5 §3.3, D-047) — PROTECTED
+profile: adaptation
+machine: content-trunk
+version: 1.0.0
+child_run: true                # enters the trunk at draft with SK-B5
+requires_work_order_fields: [parent_run, parent_artifact_hash]
+stages:
+  entry: draft                 # brief/research skipped; parent supplies both
+fact_check_scope: delta        # unchanged claims INHERIT parent ledger statuses
+                               # (hash-verified via inherit_ledger.py);
+                               # changed/new claims adjudicate fresh
+pinned_skills:
+  draft:      [SK-B5, SK-B4, SK-B2, SK-B15, SK-A2]
+  fact_check: [SK-B2, SK-A2]
+  voice_edit: [SK-B9, SK-B2, SK-A2]
+  compliance: [SK-B14, SK-B15, SK-A2]
+  qa:         [SK-B18, SK-A2]
+notes: "voice, compliance, QA, and H2 ALL still run — a LinkedIn version is a
+        new external-facing artifact, not a formality. This is how one approved
+        idea becomes eight assets without becoming unverified."
