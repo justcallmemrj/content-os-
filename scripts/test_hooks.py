@@ -33,9 +33,12 @@ CASES = [
     ("HK1 allow: agent writes its own run dir", "protect_paths.py",
      {"tool_name": "Write", "agent_id": "WRITE",
       "tool_input": {"file_path": "runs/2026-07-10-ben-drop-001/drafts/v1.md"}}, "allow"),
-    ("HK1 allow: main session writes schemas in build mode (DEC-BUILD-005)", "protect_paths.py",
+    # Regime-aware (DEC-BUILD-005): build mode allowed this; runtime mode denies it.
+    # BUILD-MODE was deleted at slice acceptance, so the expected decision flips.
+    ("HK1 main-session schema write follows the BUILD-MODE regime", "protect_paths.py",
      {"tool_name": "Write",
-      "tool_input": {"file_path": "schemas/new.schema.json"}}, "allow"),
+      "tool_input": {"file_path": "schemas/new.schema.json"}},
+     "allow" if (ROOT / "state" / "BUILD-MODE").exists() else "deny"),
     # ---- HK2 state_guard ---------------------------------------------------
     ("HK2 deny: direct write to workflow.sqlite", "state_guard.py",
      {"tool_name": "Write",

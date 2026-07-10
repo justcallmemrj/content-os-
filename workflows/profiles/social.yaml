@@ -1,0 +1,28 @@
+# Trunk profile: social (Phase 5 §3.2) — PROTECTED
+profile: social
+machine: content-trunk
+version: 1.0.0
+stages:
+  brief: "skipped when a ratified calendar row exists (calendar_ref on the work
+          order — the row IS the brief; validator confirms the row's
+          compliance-touchpoint flags carried over)"
+  research: "skipped for repurposing when the source asset is attached (its
+             facts arrive pre-checked, but SK-B2 declare still runs —
+             attached-source claims cite the asset; anything beyond it is
+             [UNVERIFIED])"
+  post_approval: "statics add visual_brief (VDIR, SK-B16-lite): designer/Canva
+                  spec whose on-image text is ledger-mapped (D-016 applies to
+                  statics too)"
+pinned_skills:
+  draft:      [SK-B4, SK-B2, SK-B15, SK-A2]
+  fact_check: [SK-B2, SK-A2]
+  voice_edit: [SK-B9, SK-B2, SK-A2]
+  compliance: [SK-B14, SK-B15, SK-A2]
+  qa:         [SK-B18, SK-A2]
+format_validators:
+  social_format: "social_format_check.py (carousel slide limits, caption shape, LinkedIn band)"
+  disclosure: "disclosure_check.py (final-slide/caption; LinkedIn first-comment stated)"
+  contamination: "lexicon_scan.py"
+  compliance_lint: "compliance_lint.py"
+rubric: RUB-SOCIAL-1
+notes: "on-image text ↔ caption consistency is a FACT check; hashtag policy per brand voice"
