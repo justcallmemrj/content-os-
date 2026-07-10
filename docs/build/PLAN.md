@@ -2,7 +2,22 @@
 
 Governing documents: `claude-code-master-prompt.md` (operating rules), `claude-code-slice-prompt.md` (milestone 1 scope, steps 0–6), `phase-8-implementation-package.md` §4 (build sequence). This file tracks: the step we are on, its exit criteria, and what comes next. Updated every session.
 
-## Current step: 6 — Slice run & acceptance [WES]
+## MILESTONE 1 COMPLETE — slice ACCEPTED and signed 2026-07-10 (tag v1.0-slice)
+
+All ten §5 criteria met with evidence (`docs/build/slice-acceptance.md`).
+H2 exercised live (approved verbatim, edit distance 0 → the north-star
+baseline). BUILD-MODE deleted at signature: the main session now runs under
+full protected-path enforcement; every merge to main is Wes's.
+
+## Next: step 7 — Social profile + adaptation child runs + calendar linkage [WES]
+
+Per package §4: adaptation delta-inheritance fixture green; one social run
+through H2. Needs SK-B4/B5/B12 authored (their format canon is already in the
+decomposed brand files). Also open: tranche-3 seeding (Ducat materials + the
+three books, from Wes) · MEMC batch for queued proposals → H6 · quarterly
+review cadences begin.
+
+## Previous: step 6 — Slice run & acceptance [WES]
 
 **Status:** READY TO START. Step 5 CLOSED: 13 definitions in .claude/agents/
 (D-071 pins exact), adherence fixtures for all 8 slice agents with

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | IMPLEMENTED 2026-07-10; presented for ratification at the next gate |
+| Status | RATIFIED by Wes's slice-acceptance signature 2026-07-10. The build/* self-merge class ENDED with that signature (BUILD-MODE deleted in the acceptance commit — the same commit this ratification ships in, the class's final act). All subsequent merges to main are Wes's. |
 | Type | Build decision (consequence of D-068 enforcement going live) |
 
 **Context:** ruleset `main-requires-prs` (id 18790482) is active: nothing

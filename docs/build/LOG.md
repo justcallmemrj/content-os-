@@ -298,3 +298,37 @@ step-6 acceptance battery, where the spec puts it.
 two points: the H2 decision on the DROP reel run, and the ten-criterion
 acceptance sign-off (which also deletes state/BUILD-MODE, files the
 benowitz-ducat-social retirement record, and ratifies DEC-BUILD-006).
+
+---
+
+## Session 2026-07-10 (eleventh) — SLICE ACCEPTED. Milestone 1 complete.
+
+**The live run:** 2026-07-10-ben-drop-001, requested→done, 16 transitions, 10
+schema-valid envelopes. FACT blocked v1 (E1) and FOUND 4 undeclared claims;
+one E2 revision cycle cleared it; VOICE surfaced a differ bug (fixed +
+regression-tested, twice over with the delta fixture's conditional-gap);
+COMPL conditional-pass with publish riders; QA 9.6/10 required 6/6. **H2:
+Wes approved VERBATIM (initiator: wes on T14; text locked 8ec534b3…;
+edit distance 0 = the north-star baseline).** Proposals P-2026-0710-001
+(golden candidate) and -002 (lint placement gap) queued at T15.
+
+**The battery:** all ten §5 criteria PASS, evidence-attached
+(docs/build/slice-acceptance.md + step6-battery-evidence.txt). Highlight
+findings: the injected-failure request was REFUSED with a compliant
+alternative and 9 intervention notes; the contamination fixture produced zero
+blended output; the rollback drill surfaced the scoped-activation rule (add -A
+on a dirty tree = revert hazard; recovered fully; runbook updated).
+
+**Signature actions (this commit):** state/BUILD-MODE DELETED (DEC-BUILD-005
+sunset — full runtime enforcement for everyone, build included);
+DEC-BUILD-007 filed (benowitz-ducat-social retired at cutover, mapping table
+included); DEC-BUILD-006 marked ratified with its self-merge class ENDED (this
+acceptance commit is that class's final act); tag v1.0-slice.
+
+**Honest ledger for the record:** per-subagent hook binding ran
+procedure+validator-enforced this session (registered mid-session); fixture
+suites + live denials prove the layer; fresh sessions bind fully. Deviations
+across the whole slice: zero silent; every documented one is in a DEC-BUILD
+record or this log.
+
+**Milestone 2 next (step 7+), on Wes's go.**
