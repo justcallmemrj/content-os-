@@ -209,3 +209,54 @@ routing); approved_by/on fields anticipate the merge.
 **Still open (Wes):** merge PR #1 and PR #3 (H6 #1 and #2) · Ducat
 evidence/exemplars + the three books (not on this machine) — tranche 3 ·
 then step 4 (slice Skills) begins.
+
+---
+
+## Session 2026-07-10 (ninth) — H6 merges landed; step 3 CLOSED; step 4 BUILT, all green
+
+**H6 delegation:** PRs #1/#3 were still OPEN despite "merged both" (GitHub state
+checked; likely an unconfirmed merge dialog). Build did NOT merge on the
+assertion — reported the discrepancy and offered explicit delegation; Wes:
+"merge PR #1 and PR #3 for me" → merged via his authenticated CLI with the
+delegation recorded as a comment on each PR. Post-merge: indexes regenerated,
+loader assembles 4 L0 + 6 records/15 namespace checks clean, tag `build-step-3`.
+
+**Step 4 (slice Skills) — implemented and tested:**
+- **SK-B2 `ev-claim-ledger`** (full Phase 4 §7.1): SKILL.md + 4 references +
+  `extract_claims.py` / `claim_diff.py` / `ledger_validate.py` + suite.
+  Property: 12/12 extraction recall, 12/12 high-risk (spec bar ≥11/12, 12/12).
+  Counterexamples: verified-without-evidence structurally rejected; on_screen
+  byte-mismatch caught. Delta: 3/3 semantic flagged among 14 cosmetic, 0 FPs.
+- **SK-B3 `wr-script-production`** (full §7.2): SKILL.md + 5 references +
+  `duration_check.py` / `structure_check.py` + suite. Property fixture: 172
+  spoken words, 7 beats, 1 CTA, 10 hooks/5 mechanisms, 100% claim coverage,
+  0 banned openings, lint-clean. Counterexamples: testimonial (wrong path
+  flagged ENV-1+ENV-2; right path = compliant alternative + intervention note
+  in the HANDOFF, lint-clean), ⚠ missing-source header path, cross-brand
+  Ducat-vocab draft → 3 lexicon hits.
+- **SK-A1/A2/A3, SK-B1, SK-B9, SK-B14, SK-B15** authored to template
+  (21 fields in frontmatter+body, CHANGELOGs, reads: audited — no brand data
+  in any Skill body, D-031). New deterministic machinery:
+  `validators/lexicon_scan.py` (foreign_terms contamination scan),
+  `validators/compliance_lint.py` (envelope hard lines + brand rules;
+  8 seeded violation classes each caught + clean-pass),
+  `new_envelope.py` (SK-A2), `new_proposal.py` (SK-A3, screens-enforced),
+  `voice_fingerprint.py` (SK-B9, D-030 deterministic half — ceiling blocks,
+  floor informational by doctrine), `disclosure_check.py` (SK-B15, verbatim +
+  placement + tax-line rules).
+- **Suites: `scripts/test_skills.py` ALL GREEN (26 checks incl. both full
+  suites); hooks still 32/0; schemas still 46/0.**
+
+**Deviations (documented, non-silent):**
+1. Phase 4 §3.1 places skills at `skills/<tier>/<id>/`; Claude Code loads
+   `.claude/skills/<id>/SKILL.md` (flat). Implemented flat with `tier:` as a
+   frontmatter field — platform constraint, re-verified against current docs
+   at step 0.
+2. Counterexample tests assert the DETERMINISTIC SHADOW of each prohibited
+   behavior (D-009c): e.g. "verified from memory" is tested as
+   ledger_validate rejecting verified-without-evidence. Model-judgment
+   adherence gets its live exercise in the step-6 acceptance battery.
+
+**Open:** step 5 next (13 agent definitions + adherence fixtures, D-071 pins);
+`benowitz-ducat-social` retirement record files at cutover (step 6);
+DEC-BUILD-006 ratification rides the step-6 gate; tranche-3 Ducat materials.
