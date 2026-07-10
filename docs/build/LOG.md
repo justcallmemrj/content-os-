@@ -56,3 +56,18 @@ Format per session: done / tested / deviations / open questions. Newest entry la
 3. The repo URL and `git config user.name` from your last message contained literal placeholders (`<MY-USERNAME>`, `<MY NAME>`) — send the real values; origin not added, user.name still "Derrick".
 4. ASSUMPTION (low-risk, please confirm): project directory slugs `ducat-private-wealth`, `trading-research`, `founder-brand` normalized from the brand names; only `benowitz-wealth` appears verbatim in the specs.
 5. `state/workflow.sqlite`: commit to git or ignore? Spec is silent (telemetry vs. repo-as-backup both argued). Proposal at step 2: commit the DDL as `.sql`, gitignore the live `.sqlite`, rely on the Phase 7 §8 backup legs for the binary. Will file as a decision record with your answer.
+
+---
+
+## Session 2026-07-10 (third) — gate follow-ups ratified; remote wired (push pending auth)
+
+**Done (Wes's live instructions):**
+- Wes ratified BOTH open assumptions: (1) project slugs `ducat-private-wealth` / `trading-research` / `founder-brand` are now the registered project IDs alongside `benowitz-wealth` — schema enums stand; (2) the SQLite handling proposal (commit DDL as `.sql`, gitignore the live binary, back up via Phase 7 §8 legs) — decision record files at step 2 with the DDL itself.
+- Remote `origin` added: `https://github.com/justcallmemrj/content-os-.git` (URL exactly as Wes supplied — note the trailing hyphen in the repo name; unverifiable anonymously since the repo is private; will confirm the name on first authenticated call and correct the remote if it 404s).
+- Account `justcallmemrj` confirmed to exist via public API; repo 404s anonymously = consistent with private.
+
+**Blocked / not done:**
+- **Push NOT executed:** gh CLI is installed but unauthenticated (`gh auth status`: not logged in). Wes runs `gh auth login` himself (his standing instruction). Pushing before that would trigger an interactive credential prompt this session can't answer. Push of `main` + tag `build-step-0` happens immediately after his auth.
+- Branch-protection verification (PRs required on `main`) — needs the authenticated API; queued behind auth.
+- `git config user.name` — real value still not supplied (placeholder in Wes's message); remains "Derrick".
+- Constitution review: not yet explicitly answered; step 2 does not start until it is (step-1 exit criterion).
