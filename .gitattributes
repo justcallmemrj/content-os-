@@ -6,6 +6,10 @@ docs/architecture/** -text
 
 # Git LFS: binary assets and renders (Phase 7 §3.1/§4; archive-out policy)
 projects/*/assets/** filter=lfs diff=lfs merge=lfs -text
+# ...except text records inside assets (scripts, captions, manifests) — reviewable in diffs
+projects/*/assets/**/*.md !filter !diff !merge text=auto
+projects/*/assets/**/*.txt !filter !diff !merge text=auto
+projects/*/assets/**/*.yaml !filter !diff !merge text=auto
 video/remotion/renders/** filter=lfs diff=lfs merge=lfs -text
 video/hyperframes/renders/** filter=lfs diff=lfs merge=lfs -text
 archive/renders/** filter=lfs diff=lfs merge=lfs -text
