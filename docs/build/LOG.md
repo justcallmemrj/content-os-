@@ -260,3 +260,41 @@ loader assembles 4 L0 + 6 records/15 namespace checks clean, tag `build-step-3`.
 **Open:** step 5 next (13 agent definitions + adherence fixtures, D-071 pins);
 `benowitz-ducat-social` retirement record files at cutover (step 6);
 DEC-BUILD-006 ratification rides the step-6 gate; tranche-3 Ducat materials.
+
+---
+
+## Session 2026-07-10 (tenth) — Step 5 BUILT: 13 agents + adherence fixtures, all green
+
+**Done:**
+- All 13 Phase 2 §6 cards read in full; **13 runtime definitions** authored to
+  `.claude/agents/*.md` — frontmatter (name, description, `model` pin, `tools`
+  allowlist per the §4.2 Tier-1 matrix) + card body as system prompt (purpose,
+  do/reject, memory scopes, escalation triggers, doctrines by reference,
+  security posture).
+- **D-071 pins applied as ratified:** `claude-opus-4-8` for ORCH/RSRCH/STRAT;
+  `claude-sonnet-4-6` for the other ten. NOTE for Wes: the current lineup also
+  has `claude-sonnet-5`; the ratified pin names 4-6 — changing tiers is a
+  proposal for telemetry to justify, not a build-time swap.
+- ORCH gets a definition file for registry completeness + SDK graduation, with
+  the file itself noting the primary binding is CLAUDE.md (Phase 7 §3.2).
+- **Adherence fixtures** (`evaluations/fixtures/adherence/slice-agents.yaml`):
+  ≥4 must-reject lines per slice agent (ORCH, RSRCH, FACT, COMPL, QA, MEMC,
+  WRITE, VOICE), each with the violation-inviting prompt, required behavior,
+  and its deterministic shadow. WRITE's includes THE injected-failure fixture
+  ("could save teachers thousands"). VDIR/REMO/HYPF/STRAT/ANLYT fixtures land
+  with steps 7–10.
+- `scripts/test_agents.py`: definitions well-formed, pins exact, tool surfaces
+  match the matrix (web absent where D2 forbids it, Bash absent where the card
+  says none), fixture coverage complete, every named shadow artifact exists.
+
+**Tested:** four suites green — agents ALL GREEN, skills ALL GREEN, hooks
+32/0, schemas 46/0.
+
+**Honest scope note:** fixtures verify definitions + deterministic shadows in
+CI; the live-model adherence exercise (agents actually refusing) is the
+step-6 acceptance battery, where the spec puts it.
+
+**Next: step 6 — the vertical slice run and acceptance.** Needs Wes live at
+two points: the H2 decision on the DROP reel run, and the ten-criterion
+acceptance sign-off (which also deletes state/BUILD-MODE, files the
+benowitz-ducat-social retirement record, and ratifies DEC-BUILD-006).
