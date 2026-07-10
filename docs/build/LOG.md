@@ -118,3 +118,33 @@ protection on main makes Tier 2 hosted-enforced") does not currently hold —
 (c) proceed with convention-only PRs — H6 still works procedurally (staging
 branches + PRs + Wes merges) but nothing hosted blocks a direct push.
 Awaiting Wes's decision; will file as a decision record.
+
+---
+
+## Session 2026-07-10 (sixth) — Step-2 gate PASSED; step-3 tranche 1 staged as PR #1
+
+**Gate events:** Wes: "I upgraded to github pro, demo acknowledged, DEC-BUILD-005 ratified — continue." Step 2 CLOSED, tag `build-step-2` pushed. DEC-BUILD-005 status updated to ratified.
+
+**GitHub Pro discrepancy:** branch-protection AND ruleset APIs still return the 403 Pro-upsell after Wes reported upgrading — the upgrade has not propagated or landed on another account. Ruleset creation retried and still refused. NOT blocking the PR flow; retry queued (task list). The intended rule, for when it works: PRs required on main (0 approvals — sole operator must self-merge), no force-push, no deletion.
+
+**Done (step 3, tranche 1 — D-038 decomposition, proposals-first per D-079):**
+- Both seed skills located (claude.ai-hosted, local base dirs found) and read in full: `benowitz-ducat-social` (SKILL.md + references/benowitz.md, ducat.md, compliance.md) and `institutional-trading-research`.
+- Staging branch `staging/2026-07-10-001` → **PR #1**: https://github.com/justcallmemrj/content-os-/pull/1
+  - `projects/_shared/ria-compliance-envelope.md` (four hard lines + firm rules, verbatim-where-verbatim)
+  - BEN: profile (§8.1 frontmatter verbatim) · brand-voice (§4.5 sample sliders; skill's banned/avoided lists verbatim) · audience · compliance (BEN-C1–C6) · disclosures (3 DISC records verbatim) · DEC-BEN-0001 (fee-only hold; schema-valid)
+  - DUC: full set; ⚠ tone sliders/sentence targets are DERIVED (flagged PROPOSED in-file and in the digest — Wes calibrates)
+  - TRD: profile + compliance seeded from the 12 SK-C4 guardrails + DISC-TRD-01
+  - FDR: thin scaffold, conservative envelope-included default
+  - foreign_terms cross-populated all four ways (package §9)
+  - Curation digest: `docs/build/staging-2026-07-10-001-digest.md` (= PR body)
+- Validation: DEC-BEN-0001 passes schema route; indexes regenerate; loader dry-run assembles 4 L0 + 6 BEN records, namespace-clean.
+
+**Tested:** as above; suites from steps 1–2 unchanged (46/0, 32/0).
+
+**Deviations:** none. Deliberately NOT in PR #1: facts, sources, exemplars (need Wes's back-catalog inputs), Skill bodies (step 4), agent files (step 5), skill retirement record (at cutover).
+
+**Open (for Wes):**
+1. **Merge PR #1** (H6 #1) — or drop/annotate sections; DUC voice numbers especially.
+2. **Tranche 2 inputs** (slice prompt's step-3 ask): DROP/FRS source material to seed F-*/S-* records, 10–20 approved pieces per brand for VX-* exemplars. Candidates already on this machine (confirm which are approved catalog): `~/benowitz-drop-exit` (DROP Exit webinar, 33 comps + scripts, delivered 2026-07-10), Downloads: `FRS Retirement Workshop Series*.zip`, `MaxImize Your Social Security Workshop.zip`, `Webinar Scripts 2.zip`, `Benowitz-Carousels.zip`, the FRS plan template, plus the books and 60-post package the skill references (locations unknown — provide).
+3. GitHub Pro not visible to the API yet — check billing/account; I retry the ruleset after.
+4. `git config user.name` still "Derrick".

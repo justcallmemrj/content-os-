@@ -2,26 +2,26 @@
 
 Governing documents: `claude-code-master-prompt.md` (operating rules), `claude-code-slice-prompt.md` (milestone 1 scope, steps 0–6), `phase-8-implementation-package.md` §4 (build sequence). This file tracks: the step we are on, its exit criteria, and what comes next. Updated every session.
 
-## Current step: 2 — Enforcement layer
+## Current step: 3 — Memory seeding (D-079)
 
-**Status:** BUILT — presented at the **[WES: watch the denial demo] gate**
-2026-07-10. Step 1 PASSED (constitution approved verbatim; tag `build-step-1`).
-Slugs + SQLite decisions ratified (DEC-BUILD-004).
+**Status:** TRANCHE 1 STAGED — **PR #1 open, awaiting Wes's H6 merge**:
+https://github.com/justcallmemrj/content-os-/pull/1 (D-038 decomposition:
+envelope + four project scaffolds + BEN/DUC full sets + DEC-BEN-0001; digest is
+the PR body). Step 2 PASSED (tag `build-step-2`; DEC-BUILD-005 ratified).
 
-**Exit criteria (package §4):** every hook fixture green (✓ 32 cases 0 failures,
-`python scripts/test_hooks.py`); scripted protected-path write demonstrably
-denied (✓ live demo in `docs/build/step2-denial-demo.txt`: compliance.md edit
-denied, spec edit denied every-mode, WRITE web fetch denied, direct state write
-denied, loader refuses ambiguous project, transition.py sole state writer with
-audit rows). **Pending Wes:** watch/acknowledge the demo; ratify DEC-BUILD-005
-(build-mode phasing).
+**Remaining for step-3 exit (package §4):** Wes merges ≥1 staging PR (H6);
+facts/disclosures/exemplars from the back catalog filed as proposals (tranche 2
+— BLOCKED on Wes's source materials); indexes regenerate post-merge;
+`benowitz-ducat-social` retirement record at cutover (after step 4).
 
 ## Open blockers (require Wes)
 
-1. Step-2 gate: acknowledge the denial demo; ratify DEC-BUILD-005.
-2. GitHub push still queued: `gh auth login` did not stick (no hosts.yml on this
-   machine — likely a stale-PATH terminal). Re-run in a NEW terminal; also
-   confirm the trailing hyphen in `content-os-` and supply the real user.name.
+1. Merge (or annotate) PR #1 — flag: DUC voice sliders are derived, not ratified.
+2. Provide tranche-2 inputs: DROP/FRS source material + 10–20 approved pieces
+   per brand (on-machine candidates listed in LOG session 6).
+3. GitHub Pro still not visible to the API (403 on rulesets) — check billing;
+   ruleset retry queued.
+4. Real `git config user.name` value.
 
 ## Build sequence (package §4)
 
