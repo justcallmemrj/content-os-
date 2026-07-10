@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | IMPLEMENTED at step 2; presented for ratification at the step-2 gate |
+| Status | RATIFIED by Wes 2026-07-10 (step-2 gate: "demo acknowledged, DEC-BUILD-005 ratified") |
 | Type | Build decision on a spec-tension point (documented, not silent — §1 rule) |
 
 **The tension:** Phase 2 §4.4 protects `.claude/agents/**`, `.claude/skills/**`,
