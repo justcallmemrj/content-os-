@@ -148,3 +148,27 @@ Awaiting Wes's decision; will file as a decision record.
 2. **Tranche 2 inputs** (slice prompt's step-3 ask): DROP/FRS source material to seed F-*/S-* records, 10–20 approved pieces per brand for VX-* exemplars. Candidates already on this machine (confirm which are approved catalog): `~/benowitz-drop-exit` (DROP Exit webinar, 33 comps + scripts, delivered 2026-07-10), Downloads: `FRS Retirement Workshop Series*.zip`, `MaxImize Your Social Security Workshop.zip`, `Webinar Scripts 2.zip`, `Benowitz-Carousels.zip`, the FRS plan template, plus the books and 60-post package the skill references (locations unknown — provide).
 3. GitHub Pro not visible to the API yet — check billing/account; I retry the ruleset after.
 4. `git config user.name` still "Derrick".
+
+---
+
+## Session 2026-07-10 (seventh) — GitHub Pro completed; D-068 RESTORED and proven
+
+**Done (Wes's live instruction: "use my chrome to make the changes needed"):**
+- Billing page (his Chrome, his session) showed the truth: account was still
+  GitHub Free — the earlier upgrade had stalled at the payment form. Opened the
+  upgrade checkout ($4.00/mo, billing address on file), **stopped at the card
+  field** (credentials are never entered by the build), handed off; Wes
+  completed the purchase himself and confirmed.
+- Ruleset `main-requires-prs` created via API, enforcement ACTIVE (id 18790482):
+  PRs required on the default branch (0 required approvals — sole operator
+  self-merges his own staging PRs), deletion blocked, non-fast-forward blocked.
+- **Proven live:** an empty probe commit pushed directly to main was REJECTED —
+  "Changes must be made through a pull request." Local reset to origin/main.
+  D-068's hosted-enforcement premise holds again.
+- DEC-BUILD-006 filed: PR discipline split — `staging/*` = H6, Wes-only merges;
+  `build/*` = self-merged journal/step work until slice acceptance (parallel to
+  DEC-BUILD-005's BUILD-MODE sunset). For ratification at the next gate.
+
+**Tested:** the rejected push above (the whole point).
+**Deviations:** none.
+**Still open:** PR #1 merge (H6 #1) · tranche-2 source materials · user.name.
