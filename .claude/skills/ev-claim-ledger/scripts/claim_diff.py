@@ -17,8 +17,15 @@ from pathlib import Path
 
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
 MARKER = re.compile(r"^\s*(\[|>|#|\||-{3,})")
+# Strip inline delivery markers BEFORE the structure filter — spoken lines in
+# script format START with [TO CAMERA]; discarding them made the differ blind
+# to the entire deliverable (caught live by VOICE in run 2026-07-10-ben-drop-001).
+DELIVERY_MARKER = re.compile(r"\[(TO CAMERA|VO / B-ROLL:[^\]]*)\]", re.I)
+ON_SCREEN = re.compile(r"\[TEXT ON SCREEN:\s*\"?([^\"\]]+)\"?\]", re.I)
 COSMETIC_STRIP = re.compile(r"[^a-z0-9$%]+")
-FACTUAL_TOKEN = re.compile(r"\d|%|\$|\b(all|only|must|may|can|cannot|never|always|most|many|some|no|not)\b")
+# quantifiers AND conditionals — removing "if/unless" changes who a claim
+# applies to (caught live: eligibility conditional stripped in a voice edit)
+FACTUAL_TOKEN = re.compile(r"\d|%|\$|\b(all|only|must|may|can|cannot|never|always|most|many|some|no|not|if|unless|until|once|except)\b")
 STOPWORDS = {"the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "at",
              "for", "with", "as", "is", "are", "was", "be", "it", "its", "your",
              "you", "that", "this", "so", "up", "out"}
@@ -27,9 +34,13 @@ STOPWORDS = {"the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "at",
 def sentences(path: Path) -> list[str]:
     out = []
     for line in path.read_text(encoding="utf-8").splitlines():
-        if MARKER.match(line):
+        # on-screen strings are claims (D-016) — they diff like sentences
+        for m in ON_SCREEN.finditer(line):
+            out.append(m.group(1).strip())
+        clean = ON_SCREEN.sub("", DELIVERY_MARKER.sub("", line))
+        if MARKER.match(clean):
             continue
-        out.extend(s.strip() for s in SENTENCE_SPLIT.split(line.strip()) if s.strip())
+        out.extend(s.strip() for s in SENTENCE_SPLIT.split(clean.strip()) if s.strip())
     return out
 
 

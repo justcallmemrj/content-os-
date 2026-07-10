@@ -1,0 +1,344 @@
+# Claim ledger — DELTA-MODE FIXTURE (demonstration COPY; the real run's
+# ledger at runs/2026-07-10-ben-drop-001/factcheck/ledger.yaml is untouched).
+# v1: full adversarial pass on drop-reel-v1.md (2026-07-10T18:04:49-04:00).
+# v2: full re-adjudication on drop-reel-v2.md after revision cycle 1 (E2).
+# v3 (delta, SK-B2 delta-protocol): VOICE claim diff flagged exactly one hit —
+# the STAKES sentence lost its eligibility conditional ("if you're in DROP, it
+# ends..." -> "your DROP ends..."). Only the touched claims (CL-03, CL-16) are
+# re-adjudicated; every other claim's entry is byte-identical to v2 — that is
+# the point of delta. Blocking summary recomputed by ledger_validate.py.
+run: 2026-07-10-ben-drop-001
+deliverable: "drop-reel-v3-edited.md"
+version: 3
+passes:
+  - type: full
+    by: FACT
+    at: "2026-07-10T18:04:49-04:00"
+  - type: full
+    by: FACT
+    at: "2026-07-10T18:13:25-04:00"
+    trigger: "revision cycle 1"
+  - type: delta
+    by: FACT
+    at: "2026-07-10T18:52:15-04:00"
+    trigger: "VOICE claim diff (fixture)"
+claims:
+  - id: CL-01
+    text: "Your DROP payout arrives as a single check."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "HOOK"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c2 (F-BEN-0004)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "RP-2026-0710-01 (full packet) — v1 magnitude claim ('biggest check of your career') had no supporting evidence; uncertainty section excludes member-specific figures by design",
+         note: "v1 status: unverified (high-risk — the sole E1 blocker)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "'Your DROP payout may be the biggest check of your career.' -> 'Your DROP payout arrives as a single check.' (magnitude superlative removed; claim now asserts payout FORM only — FACT findings exit 2)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: verified, by: FACT,
+         against: "F-BEN-0004 opened: accumulated DROP balance 'becomes payable as a one-time lump sum' — a single check is a direct restatement of the one-time payout form; no magnitude asserted",
+         note: "v1 blocker resolved by reframe, not by re-sourcing"}
+  - id: CL-02
+    text: "It comes with a decision attached."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "HOOK"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c2 (F-BEN-0004)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0004 opened: lump sum 'may be taken as a distribution or rolled over' — a member election, i.e. a decision"}
+  - id: CL-03
+    text: "your DROP ends on a date you already know"
+    location: {file: "drop-reel-v3-edited.md", anchor: "STAKES"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c1 (F-BEN-0003; period fixed at election per F-BEN-0002)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0003 opened: termination required 'at the end of the DROP period'; F-BEN-0002 opened: participation elected for a defined period (max 96 months) — end date known in advance"}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "'DROP ends on a date you already know.' -> 'if you're in DROP, it ends on a date you already know' (conditional added as part of the CL-16 fix)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: verified, by: FACT,
+         against: "Same evidence chain (c1/F-BEN-0003 + F-BEN-0002); the conditional narrows the claim — substance unchanged, still supported"}
+      - {at: "2026-07-10T18:52:15-04:00", event: edited, by: "VOICE (fixture)",
+         diff: "'if you're in DROP, it ends on a date you already know' -> 'your DROP ends on a date you already know' (eligibility conditional removed by voice pass)"}
+      - {at: "2026-07-10T18:52:15-04:00", event: delta-verified, by: FACT,
+         against: "c1/F-BEN-0003 + F-BEN-0002 re-checked: the date-known substance is unchanged and still supported — verified stands for THIS claim. The 'your DROP' possessive packaging re-creates the eligibility implication adjudicated at CL-16 (misleading, this pass); the defect is ledgered there, not here."}
+  - id: CL-04
+    text: "you must leave FRS-covered work for that balance to pay out"
+    location: {file: "drafts/drop-reel-v2.md", anchor: "STAKES"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c1 (F-BEN-0003, S-BEN-0001 §121.091(13))"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0003 opened: member must 'terminate all employment relationships' with employer verification to receive accumulated DROP benefits; draft states it as the hard rule per the fact's usage note (work-order-REQUIRED framing honored)"}
+  - id: CL-05
+    text: "your monthly pension turns on by itself"
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT ONE"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c2 (F-BEN-0004)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0004 opened: 'At DROP exit, the member's lifetime monthly pension begins' — no member election attached to that arm; excerpt 'your monthly pension turns on'"}
+  - id: CL-06
+    text: "The lump sum doesn't. It waits for your instruction."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT ONE"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c2 (F-BEN-0004)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0004 opened: balance 'becomes payable as a one-time lump sum, which may be taken as a distribution or rolled over' — the payout form is the member's election"}
+  - id: CL-07
+    text: "cash gets taxed as that year's ordinary income, stacked on everything else you earn"
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT TWO"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c3 (F-BEN-0010, S-BEN-0002)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0010 opened: cash distribution 'treated as ordinary income in the year of distribution (stacking on top of other income for that year)' — direct restatement; draft does not quantify the cost (usage-note prohibition respected)"}
+  - id: CL-08
+    text: "Any payout sent to you directly has twenty percent withheld for federal tax."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT TWO"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c4 (F-BEN-0006, S-BEN-0002)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0006 opened: IRS verbatim 'A retirement plan distribution paid to you is subject to mandatory withholding of 20%, even if you intend to roll it over later' — matches; DISC-BEN-TAX-01 rides along per usage note and is present verbatim in CTA"}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "Leading 'And ' dropped for duration; claim substance identical"}
+      - {at: "2026-07-10T18:13:25-04:00", event: adjudicated, by: FACT,
+         against: "F-BEN-0006 — cosmetic-only change confirmed; verified stands"}
+  - id: CL-09
+    text: "A direct rollover is the other route."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT THREE"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c5 (F-BEN-0007; two-route fork per F-BEN-0004)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "F-BEN-0007 and F-BEN-0004 opened: payout taken 'as a distribution or rolled over' — the rollover is the second of the two routes"}
+  - id: CL-10
+    text: "The money moves trustee to trustee into an IRA or another qualified plan, nothing withheld, still tax-deferred."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT THREE"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c5 (F-BEN-0007, S-BEN-0002)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "F-BEN-0007 opened: mechanics matched but v1's 'another plan' loosened the evidence's 'another qualified plan'",
+         note: "v1 status: verified-with-qualification"}
+      - {at: "2026-07-10T18:04:49-04:00", event: qualified, by: FACT,
+         note: "'another plan' must read 'another qualified plan' to match the evidence"}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "'into an IRA or another plan' -> 'into an IRA or another qualified plan' (FACT's one-word correction adopted)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: verified, by: FACT,
+         against: "F-BEN-0007 opened: 'direct rollover (trustee-to-trustee transfer)... to an IRA or another qualified plan preserves the money's tax-deferred status, with no tax withheld' — now an exact scope match; qualification discharged"}
+  - id: CL-11
+    text: "The timing becomes yours."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT THREE"}
+    risk: medium
+    declared_by: WRITE
+    status: verified-with-qualification
+    evidence: "RP-2026-0710-01/c3 (F-BEN-0010)"
+    qualification: >-
+      True as qualified: the evidence supports "defers taxation until later
+      withdrawal" — the member gains discretion over when taxable withdrawal
+      occurs, relative to a forced this-year cash event. The evidence does NOT
+      support unconditional control of timing; distribution rules still govern
+      retirement accounts, and the packet contains nothing on those limits.
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "F-BEN-0010 opened: 'a properly executed direct rollover defers taxation until later withdrawal' — deferral supported; absolute timing control is a stretch beyond the evidence"}
+      - {at: "2026-07-10T18:04:49-04:00", event: qualified, by: FACT,
+         note: "Supported as deferral-until-withdrawal, not unlimited control; text unchanged in v2 by design — reads in context immediately after the deferral mechanics"}
+  - id: CL-12
+    text: "Choose cash, and it's taxed in the year it pays out."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "TURN"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c3 (F-BEN-0010, S-BEN-0002)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "F-BEN-0010 + F-BEN-0003/0004 opened: v1 keyed the tax year to the termination date and swept in both routes",
+         note: "v1 status: verified-with-qualification (distribution date is the technical trigger; rollover path defers the question)"}
+      - {at: "2026-07-10T18:04:49-04:00", event: qualified, by: FACT,
+         note: "Distribution date, not termination date, is the technical tax trigger; rollover path defers the question entirely"}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "'Your termination date decides which tax year that money lands in' -> 'Choose cash, and it's taxed in the year it pays out.' (keyed to the distribution event; explicitly scoped to the cash route)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: verified, by: FACT,
+         against: "F-BEN-0010 opened: cash distribution 'treated as ordinary income in the year of distribution' — the rewrite states exactly that: cash route only, taxed in the payout (distribution) year; both v1 qualification limits respected"}
+  - id: CL-13
+    text: "You can see that year coming."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "TURN"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "RP-2026-0710-01/c1 (F-BEN-0003; chain via c2/F-BEN-0004 and F-BEN-0002)"
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: verified, by: FACT,
+         against: "v1 text 'you know that date ahead of time' — F-BEN-0003 (termination pegged to DROP period end) + F-BEN-0002 (period fixed at election)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "'you know that date ahead of time' -> 'You can see that year coming.' (follows the CL-12 rewrite; same foreseeability teaching)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: verified, by: FACT,
+         against: "Chain re-checked: DROP end date fixed at election (F-BEN-0002) -> termination at that date makes the balance payable (F-BEN-0003/0004) -> cash payout taxed in that distribution year (F-BEN-0010) — the payout year is foreseeable; supported"}
+  - id: CL-14
+    text: "Our free DROP Exit webinar walks through the whole decision."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "CTA"}
+    risk: low
+    declared_by: WRITE
+    status: unverified
+    on_screen: false
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "RP-2026-0710-01 — packet contains no evidence about the webinar's existence, price, or scope; low-risk operational claim, unverified is its legitimate final state",
+         note: "Producer should confirm webinar is live and free before publish (QA/publish checklist, not a ledger blocker)"}
+  - id: CL-15
+    text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "CTA / TEXT ON SCREEN"}
+    risk: high
+    declared_by: WRITE
+    status: verified-with-qualification
+    evidence: "DISC-BEN-SHORT-01 (projects/benowitz-wealth/disclosures.md@1.0.0)"
+    qualification: >-
+      The first three sentences match DISC-BEN-SHORT-01 verbatim, and "Full
+      disclosures in profile." satisfies the short-format condition that the
+      deliverable explicitly say where the full disclosure lives. The sentence
+      is only TRUE if DISC-BEN-FRS-01 is actually placed in the profile or
+      first comment at publish — that placement is a hard publish-gate
+      condition, not verifiable from the draft.
+    on_screen: true
+    history:
+      - {at: "2026-07-10", event: declared, by: WRITE}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "disclosures.md opened: DISC-BEN-SHORT-01 verbatim match confirmed; short-format conditions read; on-screen text byte-checked against draft"}
+      - {at: "2026-07-10T18:04:49-04:00", event: qualified, by: FACT,
+         note: "Conditional on DISC-BEN-FRS-01 actually appearing in profile/first comment at publish; unchanged in v2, byte-presence re-checked"}
+  - id: CL-16
+    text: >-
+      [IMPLIED] Teachers, deputies, firefighters, and state staff each have a
+      DROP that is ending ("your DROP ends...") — the possessive address
+      asserts DROP applies to every listener in those occupations.
+    location: {file: "drop-reel-v3-edited.md", anchor: "STAKES"}
+    risk: high
+    declared_by: FOUND
+    status: misleading
+    evidence: "F-BEN-0005 (controlling: DROP is available only to FRS Pension Plan members; Investment Plan members are not eligible)"
+    suggested_correction: >-
+      Restore the v2 conditional: "Teachers, deputies, firefighters, state
+      staff: if you're in DROP, it ends on a date you already know." — the
+      conditional was the ratified fix for exactly this implication (ledger v2,
+      2026-07-10T18:13:25-04:00) and D5 routes its removal back through
+      fact_check, which is this finding.
+    on_screen: false
+    history:
+      - {at: "2026-07-10T18:04:49-04:00", event: found, by: FACT}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "F-BEN-0005 opened: 'DROP is available only to FRS Pension Plan members; Investment Plan members are not eligible' — v1's unconditional occupational address implied broader DROP applicability",
+         note: "v1 status: verified-with-qualification; flagged to COMPL"}
+      - {at: "2026-07-10T18:04:49-04:00", event: qualified, by: FACT,
+         note: "Pension-Plan-only boundary applies; audience self-selection mitigates"}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "STAKES address made conditional: 'Teachers, deputies, firefighters, state staff: if you're in DROP, it ends on a date...' — claim now declared by WRITE in claim-list-v2.yaml"}
+      - {at: "2026-07-10T18:13:25-04:00", event: verified, by: FACT,
+         against: "F-BEN-0005 re-checked: the conditional scopes the address to members already in DROP, who are Pension Plan members by definition — no eligibility implication remains for Investment Plan members in the same occupations; qualification discharged"}
+      - {at: "2026-07-10T18:52:15-04:00", event: edited, by: "VOICE (fixture)",
+         diff: "Conditional removed AND possessive introduced: 'if you're in DROP, it ends...' -> 'your DROP ends...'"}
+      - {at: "2026-07-10T18:52:15-04:00", event: adjudicated, by: FACT,
+         against: "F-BEN-0005 re-opened: DROP is Pension-Plan-only; Investment Plan members are not eligible",
+         note: "Deception mechanism: 'your DROP' addressed cold to the occupational list asserts that every teacher/deputy/firefighter/state-staff listener HAS a DROP — stronger than v1's implication (v1 merely implied applicability; the possessive asserts possession). Technically defensible for the actual-DROP-member audience, practically deceptive for Investment Plan members in the same jobs. Status: misleading. High-risk -> blocks; the v2 fix must be restored or the finding escalates (E1)."}
+  - id: CL-17
+    text: "Most members never hear it called a decision."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "HOOK"}
+    risk: low
+    declared_by: FOUND
+    status: unverified
+    on_screen: false
+    history:
+      - {at: "2026-07-10T18:04:49-04:00", event: found, by: FACT}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "RP-2026-0710-01 — no evidence on what members hear or how the choice is communicated to them; low-risk texture with a factual shadow ('most members'), unverified is its legitimate final state",
+         note: "Declared by WRITE from v2 onward (declaration-coverage fix); declared_by preserves the v1 discovery record"}
+  - id: CL-18
+    text: "Most members picture a payday."
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT ONE"}
+    risk: low
+    declared_by: FOUND
+    status: unverified
+    on_screen: false
+    history:
+      - {at: "2026-07-10T18:04:49-04:00", event: found, by: FACT}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "RP-2026-0710-01 — no evidence on member expectations; low-risk texture claim, unverified is its legitimate final state",
+         note: "Declared by WRITE from v2 onward; declared_by preserves the v1 discovery record"}
+  - id: CL-19
+    text: "Here's the part that rarely comes up:"
+    location: {file: "drafts/drop-reel-v2.md", anchor: "BEAT TWO"}
+    risk: low
+    declared_by: FOUND
+    status: unverified
+    on_screen: false
+    history:
+      - {at: "2026-07-10T18:04:49-04:00", event: found, by: FACT}
+      - {at: "2026-07-10T18:04:49-04:00", event: adjudicated, by: FACT,
+         against: "S-BEN-0002 (via F-BEN-0006/0010, opened): v1's 'nobody mentions' framed publicly documented IRS rules as hidden knowledge",
+         note: "v1 status: misleading (secrecy frame). VOICE may re-weigh the transition wording per brand-voice; any reversion re-enters fact_check as a delta."}
+      - {at: "2026-07-10T18:13:25-04:00", event: edited, by: WRITE,
+         diff: "'Here's the part nobody mentions:' -> 'Here's the part that rarely comes up:' (FACT's suggested softening adopted; secrecy frame removed)"}
+      - {at: "2026-07-10T18:13:25-04:00", event: adjudicated, by: FACT,
+         against: "RP-2026-0710-01 — deception mechanism removed; what remains is low-risk texture ('rarely comes up') with no packet evidence either way; unverified is its legitimate final state"}
+blocking_summary:
+  high_risk_non_verified: 1
+  notes: >-
+    BLOCKING (delta fixture). The voice edit's single diff hit re-opened the
+    CL-16 eligibility implication: removing the "if you're in DROP"
+    conditional and introducing the possessive ("your DROP ends") asserts
+    DROP possession to every listener in the named occupations — contrary to
+    F-BEN-0005 (Pension-Plan-only). CL-16 is high-risk and now misleading ->
+    blocks. CL-03 (same sentence) re-verified: the date-known substance is
+    intact. All 17 other claims untouched from v2, statuses byte-identical.
+    Suggested correction: restore the v2 conditional (the ratified fix for
+    exactly this implication); a cosmetic-sounding voice edit undoing a
+    fact_check fix is precisely what delta mode exists to catch (D5).

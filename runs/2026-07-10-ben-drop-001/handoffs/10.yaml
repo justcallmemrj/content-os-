@@ -1,0 +1,25 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 10
+stage:
+  from: manager_review
+  to: human_review
+agents:
+  from: ORCH
+  to: wes
+artifacts:
+- path: final-package.md
+  sha256: ac51f6594e05679927904f2f25dc258ca8bb80275614fe322bed7e41918baa57
+- path: voice/drop-reel-v3.md
+  sha256: 7fe19134d8a0c20439849c1057c02943c5e4fd42dfccd3aeb46d2ccbbeb6091e
+skills_used:
+- id: SK-A2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: request-match checklist complete; all flags resolved or documented; nothing
+    waived
+approvals: []
+feedback_ref: null
+escalations: []

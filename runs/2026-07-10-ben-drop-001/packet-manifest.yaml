@@ -1,0 +1,39 @@
+run: 2026-07-10-ben-drop-001
+assembled_at: '2026-07-10T21:46:47+00:00'
+project: benowitz-wealth
+project_code: BEN
+work_order_sha256: 5c4ed621be691b456237f446efb4a3e6e7daa244c835f4db0b809b21dda2fc01
+l0:
+- path: global/owner-profile.md
+  sha256: 1d651f4773636c76e38a682388c475d7d2f004140ea04a7c59c338caace5fb7a
+- path: global/general-voice.md
+  sha256: 24cb3184b42b4bf0e8d99974c3d32d9a700c4cb7fe182decb218e5a1c013f8fd
+- path: global/workflow-preferences.md
+  sha256: ae1d14b0133459d071834753812129eb62b90f3de0fd6f14d3f2b6ae940a9031
+- path: global/approval-rules.md
+  sha256: cd3c47d1ec9b99d198fadf42bc91a4290a01152e9ddc83c2198e7f3978c31031
+project_records:
+- path: projects/benowitz-wealth/project-profile.md
+  sha256: ce41de1447fffcd5b83a224629c01a3697722eed54c697c5c8b41d6e46ccc8c5
+- path: projects/benowitz-wealth/audience.md
+  sha256: f8180687955144de4e24db14f139127a63c70faa8f8351f754bffa5ce405c7c4
+- path: projects/benowitz-wealth/brand-voice.md
+  sha256: 597e359592f278d2910bfe05d91edc69ee5949fcfe11de96c24fbd098165e8e3
+- path: projects/benowitz-wealth/compliance.md
+  sha256: 27966ad70b665545ff5a719db7baf820f1f4d91e8991ef70aba7c2c7f754bc80
+- path: projects/benowitz-wealth/disclosures.md
+  sha256: e6cf1a89dc41d3288ad96878bfdb0a3a0c84c08717d996011cc7049c22bfb5cf
+- path: projects/_shared/ria-compliance-envelope.md
+  sha256: fe8919c2adaebb664974ad5b2eeddefc04f6a7cf84b7d355151c5bc46da5e2c9
+  via: explicit include from compliance.md
+indexes:
+- path: projects/benowitz-wealth/approved-facts/_index.yaml
+  sha256: 280c25ac518127f05dc206d5df533a2eaf9bd6356bee26b260af4f8302d5d819
+- path: projects/benowitz-wealth/approved-facts/_claim-keys.yaml
+  sha256: a8961db0e886952436797b70fb08318920649c4a1e0e3d39587a1302f4edb449
+- path: projects/benowitz-wealth/sources/_index.yaml
+  sha256: 7da75976a262fe594dfadd09d93f4c4b2ae0b6a6be9a22ca809b021b78101ed5
+cross_project: []
+namespace_assertions:
+  checked: 15
+  violations: []

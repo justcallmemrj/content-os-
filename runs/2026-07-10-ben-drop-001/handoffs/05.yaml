@@ -1,0 +1,28 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 5
+stage:
+  from: revision
+  to: fact_check
+agents:
+  from: WRITE
+  to: FACT
+artifacts:
+- path: drafts/drop-reel-v2.md
+  sha256: 879da012e213c331cbe0ade38363fd4491be033d3ef2f78d58fdbffe374b8fed
+- path: drafts/claim-list-v2.yaml
+  sha256: 5146e36995d67f9411cfc31bd3f3f5a231bae5adaeae38359b616ff788894604
+- path: drafts/revision-change-log.md
+  sha256: 9b0e9e39280238c10998aad777905eb33a5c8ffc782cfd88a7c2683933810117
+skills_used:
+- id: SK-B3
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: every finding addressed point-by-point; validators green
+approvals: []
+feedback_ref: null
+escalations: []

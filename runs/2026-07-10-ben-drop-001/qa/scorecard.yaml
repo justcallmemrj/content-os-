@@ -1,0 +1,39 @@
+# QA scorecard — run 2026-07-10-ben-drop-001 — RUB-SCRIPT-1 applied by QA
+# Validators run 2026-07-10 by QA (results read, not re-derived where chain-fed).
+# Anchor rationale per dimension: qa/qa-notes.md. No low-confidence scores; all
+# nine dimensions included in the composite.
+run: 2026-07-10-ben-drop-001
+rubric: RUB-SCRIPT-1
+target: voice/drop-reel-v3.md
+required:
+  R1_facts: "pass(ledger_validate VALID, 0 violations against v3; blocking_summary CLEAR — high_risk_non_verified: 0; all 8 high-risk claims verified or verified-with-qualification; on_screen byte-presence holds in v3)"
+  R2_compliance: "pass(COMPL verdict CONDITIONAL PASS — text passes as written, 2 minor flags fix-optional; compliance_lint 0 findings; publish-gate conditions 1-3 ride to H2/H5, not blockers here)"
+  R3_duration: "pass(197 spoken words, band 170-200 for reel-90s, ~93s est — top of band)"
+  R4_disclosure: "pass(disclosure_check --short-format 0 violations; DISC-BEN-SHORT-01 byte-match on-screen + location statement; persistence verified at H5 per COMPL condition 3)"
+  R5_structure: "pass(structure_check 0 findings — beats present, single CTA, markers on every block)"
+  R6_contamination: "pass(lexicon_scan 0 foreign-term hits)"
+scores:
+  hook: 4
+  clarity: 5
+  flow: 5
+  educational: 5
+  voice: 5
+  cadence: 4
+  platform_fit: 5
+  cta: 5
+  source_quality: 5
+composite: 9.6
+golden_comparison: >-
+  No goldens exist for the script profile yet (evaluations/goldens/ is empty
+  scaffold) — no nearest-golden citation or delta narrative is possible. This
+  run is golden-candidate #1: if it clears H2, QA proposes it as the first
+  script-profile golden via proposals/queue/.
+observations:
+  - "MEMC/publish-checklist: COMPL publish-gate conditions 1-3 are HARD and ride to H2/H5 — (1) profile/first comment carries DISC-BEN-FRS-01 with DISC-BEN-TAX-01 APPENDED (FRS-01 alone insufficient, tax content); (2) webinar confirmed live and free, registration link resolves (CL-14 is legitimately unverified); (3) on-screen disclosure block renders persistent full-runtime, verified at H5."
+  - "MEMC/validator-gap: compliance_lint's TAX-referral rule is placement-blind (accepts the line in the spoken track), so a clean lint carries no information about disclosure placement — COMPL adjudicated placement manually. Candidate lint improvement lesson."
+  - "MEMC/pattern: the v1 hook blocker (CL-01 magnitude superlative) was resolved by reframing to payout FORM rather than re-sourcing — verifiability was preserved at a one-point hook cost (flat first sentence, grab deferred to sentence three). Reframe-not-resource is a reusable fix pattern; the hook tradeoff is its known price."
+  - "MEMC/voice: brand signature transition 'Here's the part nobody mentions:' was compliance-softened to 'rarely comes up' (CL-19 secrecy frame); VOICE deliberately did not restore it. If this recurs, the brand-voice transitions list may want a compliant variant ratified."
+  - "Cadence: CL-10 sentence ('trustee to trustee ... still tax-deferred', ~19 words with two appended fragments) and the STAKES occupational-list sentence each need a breath the text doesn't mark — producer can direct pauses at the commas; no text change required."
+  - "Optional (not required, verdict-neutral): COMPL-2 residual BEN-C3 adjacency in HOOK sentence three; COMPL's suggested swap 'Few members think of it as a decision.' would re-enter at fact_check as a delta (D5) if adopted."
+  - "Duration is at the top of the band (197/200): any future text additions (e.g., COMPL's optional on-screen TAX-01 append is on-screen only, safe) must not add spoken words without a cut elsewhere."
+verdict: pass

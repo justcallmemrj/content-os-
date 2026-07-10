@@ -1,0 +1,22 @@
+run_id: 2026-07-10-ben-resume-001
+seq: 1
+stage:
+  from: draft
+  to: fact_check
+agents:
+  from: WRITE
+  to: FACT
+artifacts:
+- path: drafts/fixture.md
+  sha256: d07c75cd0263ccbe01a765169eddd9e92f3c432d43a9c9a17a122b90b652bfae
+skills_used:
+- id: SK-B3
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: fixture
+approvals: []
+feedback_ref: null
+escalations: []

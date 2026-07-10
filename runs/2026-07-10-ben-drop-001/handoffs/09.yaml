@@ -1,0 +1,24 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 9
+stage:
+  from: qa
+  to: manager_review
+agents:
+  from: QA
+  to: ORCH
+artifacts:
+- path: qa/scorecard.yaml
+  sha256: f17bdd502d5a337a9f6fd7b70a10bbe1c02bb572eee89d876baa7d8305f8a4ea
+- path: qa/qa-notes.md
+  sha256: 63b3443d95c7ba3d37df84eb0c83ebf00240256a370de6948a0dc29bfeb59f8b
+skills_used:
+- id: SK-B18
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: R1-R6 all pass validator-fed; composite 9.6
+approvals: []
+feedback_ref: null
+escalations: []

@@ -1,0 +1,24 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 2
+stage:
+  from: research
+  to: draft
+agents:
+  from: RSRCH
+  to: WRITE
+artifacts:
+- path: research/RP-2026-0710-01.yaml
+  sha256: 051c4fed36e0a9caeb305d28f7ddf6f0db0f52f037f1ef5fa543f8575068e9c6
+skills_used:
+- id: SK-B1
+  version: 1.0.0
+- id: SK-A2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: 5 tier-1 claims from pre-verified approved facts; both required F-ids covered
+approvals: []
+feedback_ref: null
+escalations: []

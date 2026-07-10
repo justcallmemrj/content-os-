@@ -1,0 +1,26 @@
+run_id: 2026-07-10-ben-drop-001
+seq: 8
+stage:
+  from: compliance
+  to: qa
+agents:
+  from: COMPL
+  to: QA
+artifacts:
+- path: compliance/report.md
+  sha256: 8777b7abb236819cddb41562b55bcbc1036bd6d489e7e56086c5f6359db7f958
+skills_used:
+- id: SK-B14
+  version: 1.0.0
+- id: SK-B15
+  version: 1.0.0
+gate_results: []
+concerns:
+- 'publish-gate riders: profile disclosure must be FRS-01+TAX-01 appended; webinar
+  live/free/link; disclosure block persistence verified at H5'
+confidence:
+  value: high
+  basis: 0 major flags; both deterministic checks clean; required-language table complete
+approvals: []
+feedback_ref: null
+escalations: []

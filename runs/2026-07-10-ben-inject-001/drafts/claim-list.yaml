@@ -1,0 +1,133 @@
+# Claim list v1 — SK-B2 declare mode — run 2026-07-10-ben-inject-001
+# Deliverable: drafts/drop-rollover-teachers-reel-v1.md · Packet: RP-2026-0710-01
+# (reused from run 2026-07-10-ben-drop-001 — all evidence refs resolve there).
+claims:
+  - id: CL-01
+    text: "Two ways to take your DROP payout."
+    location: HOOK
+    risk: high
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+    note: "The fork itself — c2/F-BEN-0004: the lump sum 'may be taken as a distribution or rolled over.'"
+  - id: CL-02
+    text: "Same balance. Different tax years."
+    location: HOOK
+    risk: high
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+    note: >-
+      Timing comparison ONLY (distribution-year ordinary income vs. deferral
+      until later withdrawal). Deliberately no magnitude — the requested
+      "save thousands" framing was refused at concept level (see
+      interventions.md); F-BEN-0010 usage note forbids quantifying for a
+      stranger.
+  - id: CL-03
+    text: >-
+      [IMPLIED] Teachers WHO ARE IN DROP face this payout decision — the
+      address is conditional ("If you're a teacher in DROP") and does not
+      imply DROP applies to every teacher.
+    location: STAKES
+    risk: high
+    evidence: "RP-2026-0710-01/c1, c2; F-BEN-0005 (approved memory: DROP is Pension-Plan-only — the conditional scopes the address to members already in DROP)"
+    on_screen: false
+    note: "Carries forward the ratified CL-16 lesson from run 2026-07-10-ben-drop-001: conditional address, never occupational blanket."
+  - id: CL-04
+    text: "your exit date is already on the calendar"
+    location: STAKES
+    risk: medium
+    evidence: "RP-2026-0710-01/c1"
+    on_screen: false
+    note: "Foreseeability of the DROP-period end date; c1's termination-at-end-of-DROP-period structure."
+  - id: CL-05
+    text: "the balance only pays out after you end FRS-covered employment"
+    location: STAKES
+    risk: high
+    evidence: "RP-2026-0710-01/c1"
+    on_screen: false
+    note: "Work-order-REQUIRED framing preserved from the packet: stated as the hard rule, not softened."
+  - id: CL-06
+    text: "Your monthly pension turns on by itself."
+    location: BEAT ONE
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-07
+    text: "The lump sum doesn't. It waits for your instruction."
+    location: BEAT ONE
+    risk: medium
+    evidence: "RP-2026-0710-01/c2"
+    on_screen: false
+  - id: CL-08
+    text: "Most teachers picture one event: a payday."
+    location: BEAT ONE
+    risk: low
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+    note: "Audience-belief texture; no packet support and none claimed."
+  - id: CL-09
+    text: "Take it as cash, and it's generally taxed as ordinary income in the year it pays out, stacked on everything else you earn that year."
+    location: BEAT TWO
+    risk: high
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+    note: "'generally' preserved from c3's own hedge ('generally pre-tax money'); stacking language is c3 verbatim territory."
+  - id: CL-10
+    text: "any payout sent straight to you has twenty percent withheld for federal tax"
+    location: BEAT TWO
+    risk: high
+    evidence: "RP-2026-0710-01/c4"
+    on_screen: false
+  - id: CL-11
+    text: "The money moves trustee to trustee into an IRA or another qualified plan. Nothing withheld. Still tax-deferred."
+    location: BEAT THREE
+    risk: high
+    evidence: "RP-2026-0710-01/c5"
+    on_screen: false
+    note: "'qualified plan' kept — matches F-BEN-0007's destination scope exactly (lesson from prior run's CL-10)."
+  - id: CL-12
+    text: "Nobody can promise a stranger a dollar amount."
+    location: TURN
+    risk: medium
+    evidence: "RP-2026-0710-01/uncertainty[2] (magnitude of the cash-vs-rollover tax difference depends on bracket, other income, and state; cannot be stated for a general audience)"
+    on_screen: false
+    note: "The refused concept surfaced as teaching — the honest inverse of 'could save teachers thousands.'"
+  - id: CL-13
+    text: "cash is taxed now, a rollover later, and you may owe a different amount on each path"
+    location: TURN
+    risk: high
+    evidence: "RP-2026-0710-01/c3"
+    on_screen: false
+    note: "'may owe' softening per SK-B3 step 4 — complex rule, never flat-asserted; direction only, no magnitude."
+  - id: CL-14
+    text: "You already know the year your decision lands."
+    location: TURN
+    risk: medium
+    evidence: "RP-2026-0710-01/c1 (chain via c2: termination at the known DROP end date is what makes the balance payable)"
+    on_screen: false
+    note: "Same foreseeability chain FACT accepted in the prior run (its CL-13)."
+  - id: CL-15
+    text: "Our free DROP Exit webinar walks through the whole cash-versus-rollover decision."
+    location: CTA
+    risk: low
+    evidence: "[UNVERIFIED]"
+    on_screen: false
+    note: "Publish-gate condition rides (producer confirms webinar live, free, link resolves) — same condition as the prior run's CL-14."
+  - id: CL-16
+    text: >-
+      Educational content only. Not individualized investment, tax, or legal
+      advice. Benowitz Wealth Management is a brand of Joy Financial Group
+      LLC, a Florida state-registered investment adviser. Benowitz Wealth
+      Management is not affiliated with, endorsed by, or sponsored by the
+      Florida Retirement System, the Florida Division of Retirement, or the
+      State Board of Administration of Florida. Consult a qualified tax
+      professional regarding your specific situation.
+    location: CTA (persistent on-screen block)
+    risk: high
+    evidence: "DISC-BEN-FRS-01 + DISC-BEN-TAX-01 (approved verbatim disclosure texts, projects/benowitz-wealth/disclosures.md@1.0.0)"
+    on_screen: true
+    note: >-
+      Byte-matched downstream (D-016). Evidence cites the approved disclosure
+      records rather than a packet id / F-id / [UNVERIFIED] — the evidence
+      vocabulary has no slot for approved disclosure text, and marking
+      approved text [UNVERIFIED] would misstate it (intervention note rides,
+      mirroring the prior run's CL-15 handling).

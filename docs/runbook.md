@@ -20,3 +20,12 @@ gate is a PR) is what un-blocks the next step.
 - Running reports (step 10)
 - The rollback drill (step 6, rehearsed at acceptance)
 - Kill/resume a run mid-flight (step 2, HK7)
+
+## Lesson activation / rollback (drilled 2026-07-10, criterion 9)
+
+Activation = a SCOPED commit: `git add <lesson-file> <changed-artifact>` ONLY —
+never `add -A`, never on a dirty tree (the drill proved a revert then destroys
+unrelated work). Sequence: staging branch -> scoped activation commit
+(message: `activate(lesson): L-X -> artifact@version`) -> dependent fixtures
+green -> H6 PR -> Wes merges. Rollback: `git revert <activation-commit>` ->
+re-run dependent fixtures -> update lesson status; post-mortem note.
