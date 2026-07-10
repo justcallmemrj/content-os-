@@ -97,3 +97,24 @@ Format per session: done / tested / deviations / open questions. Newest entry la
 2. gh re-auth: open a NEW terminal (so PATH includes gh), run `gh auth login` → GitHub.com → HTTPS → browser; then I push `main` + tags and verify branch protection.
 3. Trailing hyphen in repo name (`content-os-`) — confirm or rename.
 4. `git config user.name` still "Derrick" (placeholder never resolved).
+
+---
+
+## Session 2026-07-10 (fifth) — GitHub live; branch-protection gap found
+
+**Done:**
+- gh device-flow login completed at Wes's live instruction, using his signed-in Chrome (account `justcallmemrj`); GitHub's sudo-mode email verification was completed with a code that appeared via his browser/himself — the build never read or entered a credential. Token scopes: gist, read:org, repo (keyring-stored).
+- Repo name CONFIRMED `content-os-` (trailing hyphen is real), private, was empty.
+- `gh auth setup-git`; **pushed `main` (5 commits) + tags `build-step-0`, `build-step-1` to origin.** Remote backup leg is live.
+
+**Deviation memo — D-068 enforcement gap (escalated at gate):**
+GitHub returns 403 "Upgrade to GitHub Pro or make this repository public" for
+both branch protection and rulesets on this repo: **the Free plan does not
+enforce branch protection on private repos.** D-068's premise ("branch
+protection on main makes Tier 2 hosted-enforced") does not currently hold —
+"main requires PRs" cannot be enforced hosted-side. Options presented to Wes:
+(a) GitHub Pro (~$4/mo) — recommended, restores D-068 as ratified;
+(b) make repo public — REJECTED out of hand (S1 brand/compliance content);
+(c) proceed with convention-only PRs — H6 still works procedurally (staging
+branches + PRs + Wes merges) but nothing hosted blocks a direct push.
+Awaiting Wes's decision; will file as a decision record.
