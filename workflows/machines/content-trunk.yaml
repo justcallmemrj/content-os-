@@ -1,0 +1,29 @@
+# Content trunk state machine — Phase 5 §2 encoded (PROTECTED)
+# transition.py is the only consumer that may act on this file; hooks reject
+# state writes from anyone else (HK2).
+machine: content-trunk
+version: 1.0.0
+states: [requested, intake, context_loaded, brief, research, draft, fact_check,
+         revision, voice_edit, fact_delta, compliance, qa, manager_review,
+         human_review, approved, done, archived]
+substates: [escalated]   # enterable from any state; exits via human_review or logged ORCH rule application (E3)
+transitions:
+  - {id: T1,  from: requested,      to: [intake],                initiator: ORCH,   gate: null}
+  - {id: T2,  from: intake,         to: [context_loaded],        initiator: ORCH,   gate: G-V,          entry: "project resolved >=0.8 conf or human answer; work order schema-valid"}
+  - {id: T3,  from: context_loaded, to: [brief, draft],          initiator: ORCH,   gate: G-V,          entry: "packet assembled; namespace assertions pass; pinned Skills resolvable"}
+  - {id: T4,  from: brief,          to: [research, draft],       initiator: ORCH,   gate: G-V+G-M,      entry: "brief complete per SK-B3; concept-level compliance conflict absent"}
+  - {id: T5,  from: research,       to: [draft],                 initiator: ORCH,   gate: G-V,          entry: "packet schema-valid; uncertainty section present"}
+  - {id: T6,  from: draft,          to: [fact_check],            initiator: ORCH,   gate: G-V,          entry: "draft + claim list; duration/format validators pass; banned-openings scan clean"}
+  - {id: T7,  from: fact_check,     to: [voice_edit, revision],  initiator: ORCH,   gate: G-R:FACT,     entry: "voice_edit requires zero high-risk non-verified claims + ledger complete; else revision"}
+  - {id: T8,  from: revision,       to: [fact_check],            initiator: ORCH,   gate: G-V,          entry: "findings addressed point-by-point; cycle counter < 2 (E2/E5)"}
+  - {id: T9,  from: voice_edit,     to: [fact_delta, compliance],initiator: ORCH,   gate: G-V,          entry: "clean version + change log + claim diff present; empty diff skips delta"}
+  - {id: T10, from: fact_delta,     to: [compliance, revision],  initiator: ORCH,   gate: G-R:FACT,     entry: "touched claims re-adjudicated; no new high-risk non-verified"}
+  - {id: T11, from: compliance,     to: [qa, revision],          initiator: ORCH,   gate: G-R:COMPL,    entry: "verdict pass; conditional goes to revision with flags"}
+  - {id: T12, from: qa,             to: [manager_review, revision], initiator: ORCH, gate: G-R:QA+G-V,  entry: "verdict pass; required criteria all pass; contamination scan clean"}
+  - {id: T13, from: manager_review, to: [human_review],          initiator: ORCH,   gate: G-M,          entry: "package complete; request-match checklist pass"}
+  - {id: T14, from: human_review,   to: [approved, revision, archived], initiator: wes, gate: G-H:H2,   entry: "Wes's decision; his edits re-enter at T6; killed goes to archived"}
+  - {id: T15, from: approved,       to: [done, video],           initiator: ORCH,   gate: G-V,          entry: "text locked (hash recorded); proposals filed to queue"}
+rollback:
+  pre_approval: "any pre-approval state may roll back ONE state via ORCH with logged reason (audit event: rollback)"
+  post_approval: "approved never silently rolls back; changes are a new version entering at T6 (D-5, D-048)"
+  integrity: "checksum failure on resume rolls back one state (audit event: integrity-rollback) and re-executes"

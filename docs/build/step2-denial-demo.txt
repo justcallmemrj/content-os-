@@ -1,0 +1,40 @@
+=== 1. transition.py owns state (allow path) ===
+OK: 2026-07-10-ben-demo-001 -> requested (seq 1)
+OK: 2026-07-10-ben-demo-001 requested -> intake (T1, seq 2)
+
+=== 2. illegal jump intake->qa DENIED by the machine ===
+DENY: no transition intake -> qa in the ratified machine
+exit=1
+
+=== 3. wrong initiator DENIED (T14 is Wes's, not ORCH's) ===
+DENY: T2 may only be initiated by ORCH, not WRITE
+exit=1
+=== 4. loader REFUSES a missing work order ===
+REFUSED: no work order at C:\Users\Mrder\content-os\runs\2026-07-10-ben-ghost-001\workorder.yaml � the loader does not run on a missing work order
+exit=1
+
+=== 5. loader assembles the packet for a valid one-project order ===
+REFUSED: no work order at C:\Users\Mrder\content-os\runs\2026-07-10-ben-demo-001\workorder.yaml � the loader does not run on a missing work order
+exit=1
+
+=== 6. loader REFUSES a missing/ambiguous project_id (no guess mode) ===
+REFUSED: work order has no project_id � escalate to human (no guess mode)
+exit=1
+=== 5 (rerun). loader assembles the packet for a valid one-project order ===
+OK: packet assembled for benowitz-wealth (BEN); 4 L0 + 0 project records, 0 namespace checks clean; manifest at runs\2026-07-10-ben-demo-001\packet-manifest.yaml
+exit=0
+
+=== 7. schema_validate accepts the demo work order ===
+OK    runs/2026-07-10-ben-demo-001/workorder.yaml [work-order]
+exit=0
+=== 8. HK1 live: scripted attempt to edit compliance.md -> DENIED ===
+{"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny", "permissionDecisionReason": "HK1: 'projects/benowitz-wealth/compliance.md' is a protected path (Phase 2 \u00a74.4) \u2014 human-commit only; agent WRITE must file a proposal instead"}}
+=== 9. HK1 live: main session attempts spec edit -> DENIED even in build mode (D-078) ===
+{"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny", "permissionDecisionReason": "HK1: 'docs/architecture/phase-2-agent-architecture.md' is a ratified specification (D-078) \u2014 read-only to the build and the system, every mode"}}
+=== 10. HK4 live: WRITE-agent web fetch -> DENIED ===
+{"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny", "permissionDecisionReason": "HK4: agent WRITE has no web access (Phase 2 \u00a74.2 \u2014 evidence enters through RSRCH)"}}
+=== 11. HK2 live: direct state write -> DENIED ===
+{"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny", "permissionDecisionReason": "HK2: state/workflow.sqlite is written only by scripts/transition.py \u2014 direct state writes are structurally forbidden (D-041)"}}
+=== 12. rollback with logged reason; SQLite audit trail ===
+OK: rollback intake -> requested (seq 3, reason logged)
+[[1, null, "requested", "ORCH", "transition"], [2, "requested", "intake", "ORCH", "T1"], [3, "intake", "requested", "ORCH", "rollback"]]

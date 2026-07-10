@@ -1,0 +1,20 @@
+run: 2026-07-10-ben-demo-001
+assembled_at: '2026-07-10T20:03:34+00:00'
+project: benowitz-wealth
+project_code: BEN
+work_order_sha256: 487b3133adaa735eb5764ede5da9397ded887d9a4c08aea1199f10fad02f3704
+l0:
+- path: global/owner-profile.md
+  sha256: 1d651f4773636c76e38a682388c475d7d2f004140ea04a7c59c338caace5fb7a
+- path: global/general-voice.md
+  sha256: 24cb3184b42b4bf0e8d99974c3d32d9a700c4cb7fe182decb218e5a1c013f8fd
+- path: global/workflow-preferences.md
+  sha256: ae1d14b0133459d071834753812129eb62b90f3de0fd6f14d3f2b6ae940a9031
+- path: global/approval-rules.md
+  sha256: cd3c47d1ec9b99d198fadf42bc91a4290a01152e9ddc83c2198e7f3978c31031
+project_records: []
+indexes: []
+cross_project: []
+namespace_assertions:
+  checked: 0
+  violations: []

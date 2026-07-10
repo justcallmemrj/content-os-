@@ -71,3 +71,29 @@ Format per session: done / tested / deviations / open questions. Newest entry la
 - Branch-protection verification (PRs required on `main`) — needs the authenticated API; queued behind auth.
 - `git config user.name` — real value still not supplied (placeholder in Wes's message); remains "Derrick".
 - Constitution review: not yet explicitly answered; step 2 does not start until it is (step-1 exit criterion).
+
+---
+
+## Session 2026-07-10 (fourth) — Step 1 gate PASSED; Step 2 built, at gate
+
+**Gate events:** Wes approved the constitution verbatim ("constitution approved") → step-1 exit criteria complete → tag `build-step-1`. Wes said he ran `gh auth login`, but no credentials exist on this machine (no `%APPDATA%\GitHub CLI\hosts.yml`; only user profile is Mrder) — likely a stale-PATH terminal that couldn't find `gh`. Push queued; NOT executed (would hang on interactive credential prompt). Remote `origin` remains set.
+
+**Done (step 2 — enforcement layer):**
+- `workflows/machines/content-trunk.yaml`: Phase 5 §2.2 transition table encoded (T1–T15, initiators, gates, rollback rules).
+- `state/ddl.sql`: Phase 7 §4 DDL verbatim; live DB + checkpoints gitignored (DEC-BUILD-004, ratified).
+- `scripts/transition.py`: sole state writer — machine-validated edges, initiator checks, escalated-substate entry, one-state rollback (pre-approval only, reason logged), first-transition run creation, SQLite + work-order `state:` rewrite. 
+- `scripts/load_context.py`: one-project packet assembly via indexes; refuses missing work order / missing/ambiguous/unknown project_id; namespace assertions (stray project code = hard fail); cross-project only via the explicit §3.4 block; `_shared` envelope pinned by explicit-include rule; emits `packet-manifest.yaml`.
+- `scripts/generate_indexes.py`: `_index.yaml` + `_claim-keys.yaml` + sources index with generated `cited_by`; active-claim_key collision = exit 1 (Phase 3 §7 case 1). cited_by written to the generated index, NOT into protected S-*.md files (choice documented in script header).
+- `scripts/schema_validate.py`: path→schema routing + Phase 3 §9.1 queue screens (S3/secret patterns, unsourced facts, instruction payloads D6, PII).
+- **HK1–HK9** in `.claude/hooks/` (+ `_common.py`), registered in `.claude/settings.json`: protect_paths, state_guard, bash_policy, web_policy, secret_guard, schema_gate (HK6→schema_validate), resume_check (HK7 SessionStart+checksums), cost_log (HK8), checkpoint (HK9 PreCompact).
+- **DEC-BUILD-005**: build-mode vs runtime-mode phasing — subagents fully enforced always; main session governed by `state/BUILD-MODE` marker (deleted in the step-6 acceptance commit); docs/architecture + secrets denied in every mode. PRESENTED for ratification.
+
+**Tested:** `scripts/test_hooks.py` — **32 cases, 0 failures** (deny + allow per hook, incl. MEMC staging exception, engine jails, FACT cited-URL rule, D6 instruction-payload block). `scripts/test_schemas.py` still 46/0. Live demo captured to `docs/build/step2-denial-demo.txt`: transition allow/deny/initiator-deny, loader refusals + packet manifest, HK1/HK2/HK4 live denials, rollback with audit trail (SQLite rows shown).
+
+**Deviations:** none. DEC-BUILD-005 is a documented decision on a spec tension (build must author protected paths), not a silent workaround — awaiting Wes's ratification.
+
+**Open questions (step-2 gate):**
+1. Ratify DEC-BUILD-005 (build-mode phasing) — the one substantive judgment call in this step.
+2. gh re-auth: open a NEW terminal (so PATH includes gh), run `gh auth login` → GitHub.com → HTTPS → browser; then I push `main` + tags and verify branch protection.
+3. Trailing hyphen in repo name (`content-os-`) — confirm or rename.
+4. `git config user.name` still "Derrick" (placeholder never resolved).

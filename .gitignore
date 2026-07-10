@@ -11,6 +11,11 @@ secrets/
 # Local-only instructions
 CLAUDE.local.md
 
+# Live workflow DB + snapshots: DDL is versioned (state/ddl.sql); binary is not
+# (DEC-BUILD-004, ratified 2026-07-10). Backups via Phase 7 §8 legs.
+state/*.sqlite
+state/checkpoints/
+
 # Python
 __pycache__/
 *.pyc
