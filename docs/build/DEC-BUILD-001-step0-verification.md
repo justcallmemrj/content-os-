@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | PRESENTED — awaiting Wes acknowledgment (step-0 [WES] gate) |
+| Status | CLOSED — acknowledged by Wes 2026-07-10; resolution in §6 |
 | Date | 2026-07-10 |
 | Covers | Package §4 step 0: environment inspection + documentation re-verification (D-062) |
 | Author | Claude Code (implementation engineer) |
@@ -61,3 +61,15 @@ Index: code.claude.com/docs/en/claude_code_docs_map.md. All four surfaces confir
 - Implemented and tested: environment inspection; `git lfs install`; repo init; doc re-verification against live docs (14 of 15 items confirmed; 1 flagged gap noted above).
 - Implemented, untested: none.
 - Not implemented: everything from step 1 onward — correctly, per the gate structure and the missing-specs blocker.
+
+## 6. Resolution (2026-07-10, closing note)
+
+Wes acknowledged the verification note and resolved every open item:
+
+1. **Specs delivered** via `content-os-design-bundle.zip` (v1.0.1, inside `agents for claude.zip`). Integrity verified two ways: all seven full SHA-256 hashes match Wes's stated prefixes AND the bundle's `CHECKSUMS.sha256` — 0 mismatches. Copied to `docs/architecture/` with the checksum file; `docs/START-HERE.md` retained. Protected-path registration (D-078) is a step-1 deliverable (`.claude/settings.json` deny rules now; HK1 hook enforcement at step 2).
+2. **Master-prompt delta:** the bundle's `claude-code-master-prompt.md` differs from the `agents.zip` copy in exactly one paragraph — §1 now lists Phase 1 among the binding specifications. Newer checksummed delivery adopted; committed over the old copy.
+3. **GitHub repo** created by Wes (private, PRs required on `main`). ⚠ The URL as transmitted contains a literal placeholder (`<MY-USERNAME>`) — remote NOT added; awaiting the real URL. Same for `git config user.name "<MY NAME>"` — left as "Derrick" pending the real value.
+4. **gh CLI install APPROVED** — logged as DEC-BUILD-002; authentication reserved to Wes.
+5. Repo location `C:\Users\Mrder\content-os` and gmail commit identity confirmed.
+
+Step 0 exit criteria met; gate passed. → Step 1.
