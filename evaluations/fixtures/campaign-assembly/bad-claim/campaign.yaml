@@ -1,0 +1,32 @@
+campaign_id: fixture-cmp-001
+task_id: T-2026-0711-099
+project_id: benowitz-wealth
+state: assembly_review
+brief:
+  objective: Fill the DROP Exit webinar (registrations)
+  audience_ref: audience.md#frs-50plus
+  message: The DROP payout is a decision with a deadline you can see coming
+  offer:
+    text: Free live DROP Exit webinar - register at the link
+    verbatim: true
+  conversion_event: webinar-registration
+  measurement_plan:
+    metrics:
+    - registrations
+    review_after_days: 14
+    experiment: null
+  stop_criteria:
+  - webinar date passes
+children:
+- run_id: child-ad-001
+  deliverable_type: reel
+  role: ad
+  state: done
+  ledger: evaluations/fixtures/campaign-assembly/bad-claim/runs/child-ad-001/factcheck/ledger.yaml
+  offer_text_path: evaluations/fixtures/campaign-assembly/bad-claim/runs/child-ad-001/voice/final.md
+- run_id: child-lp-001
+  deliverable_type: landing-page
+  role: landing
+  state: done
+  ledger: evaluations/fixtures/campaign-assembly/bad-claim/runs/child-lp-001/factcheck/ledger.yaml
+  offer_text_path: evaluations/fixtures/campaign-assembly/bad-claim/runs/child-lp-001/voice/final.md

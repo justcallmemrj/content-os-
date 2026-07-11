@@ -1,0 +1,18 @@
+run: child-ad-001
+version: 1
+claims:
+- id: CL-01
+  claim_key: drop-single-check
+  text: Your DROP payout arrives as a single check.
+  risk: high
+  status: verified
+- id: CL-02
+  claim_key: drop-20pct-withholding
+  text: Any payout sent to you directly has twenty percent withheld for federal tax.
+  risk: high
+  status: verified
+- id: CL-09
+  claim_key: cola-claim
+  text: Your pension includes an automatic cost of living adjustment.
+  risk: high
+  status: verified

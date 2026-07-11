@@ -1,0 +1,31 @@
+# Campaign parent workflow — Phase 5 §4 encoded (PROTECTED)
+# A campaign run (profile: campaign) is the PARENT: child deliverables are
+# ordinary trunk runs with parent_run set (their work-order stubs come from
+# deliverable_planning). transition.py is the only consumer (HK2).
+# The assembly gate is the campaign's reason to exist: individually compliant
+# pieces can still disagree with each other; ledger-ID set comparison
+# (validators/assembly_check.py) catches that mechanically.
+# Failure edges C4f/C6f/C7f are ASSUMPTION-tagged (the §4 table is linear;
+# rejections need somewhere to go) — ratification rides the step-10 PR.
+machine: campaign-parent
+version: 1.0.0
+entry: campaign_requested
+states: [campaign_requested, strategy_brief, strategy_review,
+         deliverable_planning, children_active, assembly_review, launch_ready,
+         live, performance_review, closed, archived]
+substates: [escalated]   # E3, same semantics as the trunk
+transitions:
+  - {id: C1,  from: campaign_requested,  to: [strategy_brief],       initiator: ORCH,  gate: null,      entry: "campaign work order schema-valid; STRAT briefs via SK-B10 (objective, audience, message, offer, conversion event, measurement plan, stop criteria)"}
+  - {id: C2,  from: strategy_brief,      to: [strategy_review],      initiator: ORCH,  gate: G-M,       entry: "brief complete per SK-B10; every field present, stop criteria concrete"}
+  - {id: C3,  from: strategy_review,     to: [deliverable_planning, strategy_brief, closed], initiator: wes, gate: G-H:H1, entry: "campaign strategy is a consequential class - NOTHING spawns before this; revise returns to strategy_brief; kill goes to closed"}
+  - {id: C4,  from: deliverable_planning, to: [children_active],     initiator: ORCH,  gate: G-V,       entry: "child-run manifest complete: every deliverable a schema-valid work-order stub with parent_run set"}
+  - {id: C5,  from: children_active,     to: [assembly_review],      initiator: ORCH,  gate: G-V,       entry: "every child at done (text) or human_signoff+ (video); parent tracked their states throughout"}
+  - {id: C5f, from: assembly_review,     to: [children_active],      initiator: ORCH,  gate: null,      entry: "assembly failure route (ASSUMPTION): offending children revise as new versions in their own trunks; parent re-assembles"}
+  - {id: C6,  from: assembly_review,     to: [launch_ready],         initiator: ORCH,  gate: G-V,       entry: "assembly_check green: ad claims ⊆ landing claims (ledger-ID sets); offer language identical everywhere; disclosure coverage complete; RUB-MKTG-1 pass"}
+  - {id: C7,  from: launch_ready,        to: [live],                 initiator: wes,   gate: G-H:H4,    entry: "launch checklist presented; WES executes publication/spend (E6 - the system has no tools for it); state recorded after the fact"}
+  - {id: C7f, from: launch_ready,        to: [assembly_review, closed], initiator: wes, gate: null,     entry: "H4 rejection routes (ASSUMPTION): back to assembly with notes, or kill"}
+  - {id: C8,  from: live,                to: [performance_review],   initiator: ANLYT, gate: null,      entry: "scheduled per the measurement plan; report → hypothesis log → candidate lessons (SK-B13 guardrails)"}
+  - {id: C9,  from: performance_review,  to: [closed],               initiator: ORCH|ANLYT, gate: G-M,  entry: "decision record on outcome vs stop criteria"}
+  - {id: C10, from: closed,              to: [archived],             initiator: ORCH,  gate: null,      entry: "archive sweep per Phase 3 §8"}
+rollback:
+  policy: "no generic rollback - failure routes are explicit edges (C5f/C7f); child revisions happen in the children's own trunks (D5 semantics per child)"

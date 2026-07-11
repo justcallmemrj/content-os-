@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/campaign@1.0.0",
+  "title": "Campaign work order (Phase 5 §4; SK-B10 brief fields)",
+  "description": "runs/<campaign-id>/campaign.yaml — the parent record: SK-B10 strategy brief + the child-run manifest built at deliverable_planning. Nothing spawns before H1 approves the brief.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["campaign_id", "task_id", "project_id", "state", "brief", "children"],
+  "properties": {
+    "campaign_id": {"type": "string"},
+    "task_id": {"type": "string", "pattern": "^T-\\d{4}-\\d{4}-\\d{3}$"},
+    "project_id": {"enum": ["benowitz-wealth", "ducat-private-wealth", "trading-research", "founder-brand"]},
+    "state": {
+      "type": "string",
+      "enum": ["campaign_requested", "strategy_brief", "strategy_review", "deliverable_planning", "children_active", "assembly_review", "launch_ready", "live", "performance_review", "closed", "archived", "escalated"]
+    },
+    "brief": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objective", "audience_ref", "message", "offer", "conversion_event", "measurement_plan", "stop_criteria"],
+      "properties": {
+        "objective": {"type": "string", "minLength": 1},
+        "audience_ref": {"type": "string", "minLength": 1},
+        "message": {"type": "string", "minLength": 1, "description": "the one thing every deliverable must agree on"},
+        "offer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text", "verbatim"],
+          "properties": {
+            "text": {"type": "string", "minLength": 1},
+            "verbatim": {"const": true, "description": "offer language is identical everywhere - the assembly gate compares this string byte-wise across children"}
+          }
+        },
+        "conversion_event": {"type": "string", "minLength": 1},
+        "measurement_plan": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["metrics", "review_after_days", "experiment"],
+          "properties": {
+            "metrics": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+            "review_after_days": {"type": "integer", "minimum": 1},
+            "experiment": {"type": ["object", "null"],
+              "additionalProperties": false,
+              "required": ["hypothesis", "arms", "min_n_per_arm", "success_criteria"],
+              "properties": {
+                "hypothesis": {"type": "string"},
+                "arms": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+                "min_n_per_arm": {"type": "integer", "minimum": 20, "description": "SK-B13 guardrail: n >= 20 per comparison arm"},
+                "success_criteria": {"type": "string", "description": "pre-registered - causal verbs are reserved for designed experiments"}
+              }
+            }
+          }
+        },
+        "stop_criteria": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "concrete conditions that end the campaign - a campaign without stop criteria never closes"}
+      }
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["run_id", "deliverable_type", "role", "state"],
+        "properties": {
+          "run_id": {"type": "string"},
+          "deliverable_type": {"type": "string", "description": "e.g. ad, landing-page, email, reel, carousel"},
+          "role": {"enum": ["ad", "landing", "email", "content", "video"], "description": "assembly semantics: every 'ad' child's claims must be a subset of some 'landing' child's claims"},
+          "state": {"type": "string"},
+          "ledger": {"type": "string", "description": "path to the child's claim ledger (assembly reads it)"},
+          "offer_text_path": {"type": "string", "description": "path to the file carrying the offer language in this child"}
+        }
+      }
+    },
+    "launch_checklist": {"type": "array", "items": {"type": "string"}},
+    "outcome": {"type": ["string", "null"]}
+  }
+}

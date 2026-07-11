@@ -9,7 +9,17 @@ H2 exercised live (approved verbatim, edit distance 0 → the north-star
 baseline). BUILD-MODE deleted at signature: the main session now runs under
 full protected-path enforcement; every merge to main is Wes's.
 
-## Current: step 9 — Video, Remotion binding — BUILT (PR pending)
+## Current: step 10 — Campaign parent + STRAT/ANLYT + reports — BUILT (PR pending)
+
+Campaign machine (H1/H4 wes-only), campaign schema, SK-B10/B11/B13,
+RUB-MKTG-1 ⚑, assembly_check (ad⊆landing / offer verbatim / disclosure
+coverage), weekly digest + monthly review generators (run live). **Exit
+criterion MET: fixture campaign green, 3 counterexamples fail (9/0).**
+H1/H4 exercise on the FIRST REAL campaign (§4 rider). Exit needs: Wes merges
+the step-10 PR → tag build-step-10. Next: step 11 Ducat activation —
+blocked on tranche-3 inputs from Wes.
+
+## Previous: step 9 — Video, Remotion binding — COMPLETE (tag build-step-9)
 
 License gate RATIFIED (DEC-BUILD-008: ≤3 employees attested, free tier,
 pin remotion@4.0.487 = 2e8037fe). SK-C2 authored (props-injection verbatim

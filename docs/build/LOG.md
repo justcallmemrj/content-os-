@@ -501,3 +501,50 @@ SK-C2 12/0.
 record → tag build-step-9); V10 on the reel when Wes reports it live;
 6 proposals → MEMC batch → H6; tranche-3 inputs; next: step 10 (campaign
 parent + STRAT/ANLYT + reports) on Wes's go.
+
+## Session 2026-07-11 (sixteenth) — STEP 10 BUILT: campaign parent + STRAT/ANLYT + reports
+
+**Machinery (branch build/2026-07-11-step10-campaign):**
+campaign-machine.yaml (Phase 5 §4: C1–C10; H1 at strategy_review — NOTHING
+spawns before it; H4 at launch — Wes executes publication/spend, E6; failure
+edges C5f/C7f ⚑ ASSUMPTION, the §4 table is linear); transition.py profile
+'campaign' + campaign.yaml as the run's state-bearing record;
+campaign-machine tests 18/0 (H1/H4 wes-only proven, revise/kill routes,
+C5f loop). schemas/campaign.schema.json (SK-B10's seven brief fields;
+verbatim-locked offer; n≥20/arm floor schema-enforced; empty stop_criteria
+blocked) + fixtures → schema suite 61/0.
+
+**Skills:** SK-B10 st-campaign-briefs (one message, locked offer, concrete
+stop criteria, nothing-spawns-before-H1), SK-B11 st-positioning-offers
+(offers = access/education value, never outcome promises), SK-B13
+st-experiments (Phase 6 §7 guardrails verbatim: n≥20/arm, 2-window
+persistence, confound checklist, causal-verb reservation, insufficient-data
+is a complete answer). RUB-MKTG-1 authored from the §5 registry line ⚑.
+
+**Assembly gate (the campaign's reason to exist):** validators/
+assembly_check.py — ad claims ⊆ landing claims (claim_key else canonical
+text, supporting statuses only), offer verbatim in every child, DISC-*
+coverage per child. **Exit criterion MET: fixture campaign GREEN + three
+counterexamples (unsupported ad claim / offer drift / missing disclosure)
+each fail with the named violation — test_step10_campaign 9/0.** Honest
+catch during authoring: the campaign schema route initially matched only
+runs/<id>/campaign.yaml so fixture validation SKIPped as a silent no-op
+green — route widened, test now rejects SKIP.
+
+**Reports (Phase 6 §11, script-assembled — nobody hand-writes):**
+report_weekly_digest.py (sections mirror §16.4 exactly; sources: SQLite
+evals/transitions/runs, proposals/queue, git log; run LIVE: digest-2026-W28
+correctly lists 6 queued proposals, the open human gates, the merge history)
+and report_monthly.py (hypothesis-log status, threshold proposals from the
+queue, cost/latency by week, per-rubric calibration; empty sections say
+insufficient-data — a complete answer). Output: evaluations/reports/.
+
+**All twelve suites green:** schemas 61/0 · hooks 32/0 · skills · agents ·
+step7 · step8 13/0 · video-machine 23/0 · campaign-machine 18/0 ·
+comparability 7/0 · step10 9/0 · SK-C1 29/0 · SK-C2 12/0.
+
+**Open at break:** step-10 PR (Wes's merge ratifies machine + schema + skills
++ RUB-MKTG-1 ⚑ → tag build-step-10). H1/H4 remain unexercised until the
+first REAL campaign (the §4 row-10 [WES] rider). Then: step 11 Ducat
+activation — BLOCKED on tranche-3 inputs (Ducat 20-wk curriculum, NIL decks,
+three books). V10 on the reel still open; 6 proposals → MEMC batch.
