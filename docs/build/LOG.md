@@ -434,3 +434,23 @@ held procedurally + validator-enforced, per the session-eleven convention.
 5 proposals queued (…-001..005) → MEMC batch → H6; tranche-3 inputs;
 publish riders on the three approved text pieces. Next build step: 9
 (Remotion binding + license gate) on Wes's go.
+
+## Session 2026-07-11 (fourteenth) — steps 7+8 MERGED+TAGGED; H5 APPROVED
+
+Wes's PR #11 click landed (ad25115) → tag `build-step-7` pushed. PR #12
+conflicted on LOG/PLAN (both branches edited them); build resolved (LOG =
+chronological union of sessions twelve/thirteen; PLAN reconciled), pushed
+4860cf3; Wes's merge landed on top (69eee24, main verified clean) → tag
+`build-step-8` pushed. The merge ratified all step-8 ⚑ flags.
+
+**H5: APPROVED 2026-07-11, no notes** (render delivered in-session; full
+8-flag register accepted). Record: runs/2026-07-10-ben-dropvid-001/
+h5-signoff.md. Render v1 (e26f4e39…) is now an approved render — versioned,
+never overwritten. Golden proposal P-2026-0711-006 queued (video-lane golden
+#1, carries its four conditions per QA observation 1). **Run holds at
+`human_signoff` until Wes reports the piece live; V10 → published recorded
+after the fact (E6), publish riders apply then** (full profile disclosures,
+live webinar link).
+
+Open: V10 on Wes's publish report; 6 proposals queued → MEMC batch → H6;
+tranche-3 inputs; step 9 (Remotion binding + license gate) on Wes's go.
