@@ -30,14 +30,15 @@ placement, polish notes).
 (ratifies flagged items) · then tag `build-step-8`. V10/V11 (publish →
 performance_review) are Wes-side post-H5.
 
-## Previous: step 7 — Social profile + adaptation + calendar [WES] — COMPLETE, PR #11 OPEN
+## Previous: step 7 — Social profile + adaptation + calendar [WES] — CLOSED
 
-Both social runs H2-approved and locked; RUB-SOCIAL-1 authored. **PR #11 still
-awaits Wes's merge click** (verified OPEN this session; the build's delegated
-merge was blocked by the permission layer — the click must be Wes's own).
-Tag `build-step-7` immediately after it lands. Also open: tranche-3 seeding
-(Ducat materials + the three books, from Wes) · MEMC batch for the now-5
-queued proposals → H6 · quarterly review cadences begin.
+Exit criteria MET: adaptation delta-inheritance fixture green (+id-schema
+regression); two social runs through H2 (LinkedIn adaptation 9.4 approved
+verbatim; carousel 9.7 approved with the caption fix, executed + verified);
+calendar linkage proven; RUB-SOCIAL-1 authored. **PR #11 MERGED by Wes
+2026-07-11 (ad25115); tag `build-step-7` pushed.** Also open: tranche-3
+seeding (Ducat materials + the three books, from Wes) · MEMC batch for the
+now-5 queued proposals → H6 · quarterly review cadences begin.
 
 ## Previous: step 6 — Slice run & acceptance [WES]
 

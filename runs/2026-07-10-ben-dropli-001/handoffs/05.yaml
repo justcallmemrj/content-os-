@@ -1,0 +1,24 @@
+run_id: 2026-07-10-ben-dropli-001
+seq: 5
+stage:
+  from: qa
+  to: manager_review
+agents:
+  from: QA
+  to: ORCH
+artifacts:
+- path: qa/scorecard.yaml
+  sha256: 55087fa1a1e3e3369580a1d9fba8fc5d923c8e979100fb9b97eef65483855e41
+- path: qa/qa-notes.md
+  sha256: 18575b68ef143fc7802dea48260c03368e0fc563dc6a38135f300b4e5ebd470d
+skills_used:
+- id: SK-B18
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: required 6/6, composite 9.4
+approvals: []
+feedback_ref: null
+escalations: []

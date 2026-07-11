@@ -1,0 +1,41 @@
+# QA scorecard — run 2026-07-10-ben-carous-001 — RUB-SOCIAL-1 applied by QA
+# Two-surface deliverable scored as the published unit: voice/drop-carousel-v2.md
+# (8 slides, on-image) + voice/caption-v2.md. Validators run 2026-07-10 by QA
+# (chain outputs read, not re-derived where validator-fed). Anchor rationale per
+# dimension: qa/qa-notes.md. No low-confidence scores; all seven dimensions
+# included in the composite.
+run: 2026-07-10-ben-carous-001
+rubric: RUB-SOCIAL-1
+target: voice/drop-carousel-v2.md + voice/caption-v2.md
+required:
+  R1_facts: "pass(ledger_validate --deliverable voice/drop-carousel-v2.md -> VALID, 0 violations; recomputed high_risk_non_verified: 0; 13 high-risk claims all verified or verified-with-qualification; 4 vwq entries (CL-13/16/23/27) carry qualification text, incl. the twice-adapted parent 'timing becomes yours' limit; 6 unverified all low-risk texture/operational)"
+  R2_visual_copy: "pass(all 16 on-image strings are on_screen: true ledger entries CL-01..CL-16, byte-presence enforced by the same ledger_validate run against drop-carousel-v2.md — VALID; slide-caption contradiction check performed by QA on the FINAL files, not inherited: caption is a strict superset (adds CL-19 termination rule + CL-22 stacking clause), zero contradictions either direction; CL-28's implied comparative carrier structure (slides 5-7 order, fork framing, 'still tax-deferred') intact in v2 per claim-diff)"
+  R3_compliance: "pass(COMPL verdict PASS — 0 blocked/major, 3 minor flags fix-optional; compliance_lint re-run by QA: drop-carousel-v2.md 0 findings, caption-v2.md 0 findings, exit 0 both)"
+  R4_disclosure: "pass(disclosure_check --short-format --tax re-run by QA on BOTH surfaces: carousel-v2 PASS 0 violations, caption-v2 PASS 0 violations; DISC-BEN-SHORT-01 + DISC-BEN-TAX-01 byte-verbatim on the final slide AND in the caption; 'Full disclosures in profile.' location statement on both; DISC-BEN-FRS-01+TAX-01 actually in the profile at publish is COMPL publish-gate condition 3, not verifiable from drafts)"
+  R5_format: "pass(social_format_check --format carousel on drop-carousel-v2.md: PASS 0 findings — 8 slides, one idea <=25 words per body slide, final slide CTA + disclosure; social_format_check --format caption on caption-v2.md: PASS 0 findings — 16-word hook under the 20-word fold rule, disclosure present)"
+  R6_contamination: "pass(lexicon_scan --project benowitz-wealth: 0 foreign-term hits on both files)"
+scores:
+  audience_relevance: 5
+  originality: 4
+  clarity: 5
+  brand_fit: 5
+  platform_fit: 5
+  engagement: 5
+  cta: 5
+composite: 9.7
+golden_comparison: >-
+  No goldens exist for the social profile (the rubric records "goldens: none
+  yet for social — the first approved social run becomes golden-candidate #2")
+  — no nearest-golden citation or delta narrative is possible. This is
+  golden-candidate territory: this run and 2026-07-10-ben-dropli-001 both sit
+  at qa today; whichever clears H2 first is the natural candidate, and QA
+  would propose it via proposals/queue/ (D-079). Until a social golden and a
+  rejected negative exist, regression detection for this profile has no
+  baseline.
+observations:
+  - "MEMC/publish-checklist: COMPL publish-gate conditions 1-4 are HARD and ride to H2 — (1) webinar confirmed live and free (CL-14/CL-24 unverified; 'free' is on-image); (2) registration link actually in profile at publish (CL-15/CL-25); (3) DISC-BEN-FRS-01 with the TAX-01 rider actually placed in the profile at publish and for the life of the post (CL-16/CL-27 qualifications); (4) slide and caption text locked (D5) — re-typesetting that alters the Slide 8 disclosure line re-enters at fact_check. Production legibility rider: the Slide 8 disclosure line is on_screen ledger text (CL-16) and must render as the persistent readable bottom block exactly as written."
+  - "QA judgment on FACT F5 / COMPL FLAG-2 (as invited): the slides-alone omission of the termination rule is acceptable as drafted — the platform unit is slides + caption, the rule sits above the caption fold, and no slide implies the contrary, so no required criterion is touched. The captionless-screenshot residual is real, and COMPL's 13-word Slide 4 kicker is a cheap hardening H2 may want (it re-enters at fact_check as an addition, D5). Verdict-neutral either way."
+  - "MEMC/profile-gap (seconding COMPL PG-1): no rule states which disclosure RECORD a carousel carries — SHORT-01 posture was resolved by parent precedent + judgment. The stronger posture is free on the caption side (FLAG-1: append FRS-01 verbatim to the caption; publish-gate condition 3 then shrinks). Supports the proposed explicit carousel row in the compliance mapping."
+  - "MEMC/pattern — tool-sight controls applied on BOTH file pairs (planted-change controls produced exactly 1 hit each; the '**Slide N:**' marker-parse concern was checked, not assumed). The drop-001 lesson is holding as standing practice."
+  - "Verdict-neutral: COMPL FLAG-3 (Slide 1 'Most members never hear it called a decision.' — unverified low-risk texture, distinguished from the parent's rejected secrecy frame) rides to H2 with the distinction made explicit; CL-03/CL-04 remain categorical unverified (D8). FACT F1 (WRITE's CC-/CP- id scheme vs the ledger's CL- pattern) is a process note for WRITE's declare mode, no content impact."
+verdict: pass

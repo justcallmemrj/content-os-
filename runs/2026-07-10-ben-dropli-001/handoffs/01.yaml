@@ -1,0 +1,32 @@
+run_id: 2026-07-10-ben-dropli-001
+seq: 1
+stage:
+  from: draft
+  to: fact_check
+agents:
+  from: WRITE
+  to: FACT
+artifacts:
+- path: drafts/drop-linkedin-v1.md
+  sha256: a299a0660c030aac00dbf60668cf45d108f03e6bf4efe8090ecd27ff2aec166f
+- path: drafts/first-comment.md
+  sha256: 3f158e41c9750a35a6aa60f7d8f145de63e1f07392949b7bd55e4129e5d526c6
+- path: drafts/interventions.md
+  sha256: 713eca3d81fdf69f4829b0f3c5e47101ee0f09e42878c6cce002bf143bc559dd
+- path: factcheck/ledger.yaml
+  sha256: 3a2d745c5320ba01a925d5122cc9d43c94713c8a4ebb3d9f458866a736523d80
+skills_used:
+- id: SK-B5
+  version: 1.0.0
+- id: SK-B4
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: 10 inherited hash-verified, 7 fresh declared; validators green
+approvals: []
+feedback_ref: null
+escalations: []

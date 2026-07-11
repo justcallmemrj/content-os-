@@ -61,11 +61,14 @@ def main() -> int:
                  "note": f"inherited from {args.parent_run} (parent hash verified)"}]
             claims.append(c)
             inherited += 1
+    # fresh ids CONTINUE the parent's numbering — ledger schema pattern is
+    # ^CL-\d{2,}$ (defect caught live by FACT in run ben-dropli-001: CL-NNA invalid)
+    max_parent = max((int(c["id"].split("-")[1]) for c in parent_ledger["claims"]), default=0)
     for spec in args.new_claim:
         text, _, risk = spec.partition("::")
         fresh += 1
         claims.append({
-            "id": f"CL-{len(claims)+1:02d}A",
+            "id": f"CL-{max_parent + fresh:02d}",
             "text": text, "location": {"file": Path(args.child_draft).name, "anchor": "adaptation"},
             "risk": risk or "medium", "declared_by": "WRITE", "status": "unverified",
             "on_screen": False,

@@ -333,6 +333,43 @@ record or this log.
 
 **Milestone 2 next (step 7+), on Wes's go.**
 
+---
+
+## Session 2026-07-10 (twelfth) — STEP 7 COMPLETE: both social runs H2-approved
+
+**PR #10 merged** (Wes-directed after the recurring confirm-dialog slip; comment
+on PR records it). RUB-SOCIAL-1 authored from the ratified Phase 6 §5 registry
+line per the RUB-SCRIPT-1 pattern — ⚑ ratification rides PR #11.
+
+**Run A — 2026-07-10-ben-dropli-001 (LinkedIn adaptation, D-047 child):**
+inherit_ledger against locked parent 8ec534b3: 10 inherited hash-verified /
+7 fresh; FACT delta adjudicated only the fresh (+1 FOUND) and spot-audited
+inheritance — CAUGHT a real defect (fresh ids CL-NNA violate the ledger schema;
+normalized in-ledger; tool FIXED this session + regression). VOICE 2 edits,
+diff empty control-verified, inheritance intact. COMPL pass (2 minor). QA 9.4,
+required 6/6. **H2: approved verbatim; locked; done (12 transitions).**
+
+**Run B — 2026-07-10-ben-carous-001 (carousel via calendar row 1):** STRAT
+5-row calendar (zero "New", tax touchpoints carried to the work order —
+calendar linkage proven); brief+research legitimately skipped per social
+profile; 28-claim ledger (1 FOUND comparative), 13 high-risk all verified;
+zero slide edits at voice; COMPL pass (3 minor, FLAG-1 costless fix offered).
+QA 9.7, required 6/6. **H2: approved WITH the caption fix** — FRS-01 appended
+verbatim to caption (Wes-directed edit, deterministically verified by
+disclosure_check, ledger v3 CL-29); locked; done.
+
+**Step-7 exit criteria: MET.** Adaptation delta-inheritance fixture green
+(now also id-schema regression); TWO social runs through H2. Proposals filed:
+P-2026-0710-003 (COMPL PG-1 carousel disclosure-selection row) and -004 (QA
+rubric-gap: LinkedIn dual-CTA anchor).
+
+**Open at break:** PR #11 (this session's artifacts) awaits Wes's merge; tag
+`build-step-7` after merge. Publish riders on all three approved pieces
+(profile FRS-01+TAX-01, webinar live/free/link, LinkedIn first comment posted
+first). Tranche-3 seeding still needs Ducat materials + the three books.
+MEMC batch for 4 queued proposals → H6. Next build step: 8 (HyperFrames
+binding — pin 6152437/v0.7.49 recorded; V1–V11; [WES: H5]).
+
 ## Session 2026-07-10 (thirteenth) — STEP 8 BUILT: HyperFrames binding; first video run AT H5
 
 **PR #11 first:** verified OPEN (`gh pr view 11` — the confirm-dialog slip
