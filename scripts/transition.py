@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "state" / "workflow.sqlite"
 DDL = ROOT / "state" / "ddl.sql"
 MACHINES = ROOT / "workflows" / "machines"
-MACHINE_BY_PROFILE = {"video": "video-machine.yaml"}
+MACHINE_BY_PROFILE = {"video": "video-machine.yaml", "campaign": "campaign-machine.yaml"}
 DEFAULT_MACHINE = "content-trunk.yaml"
 
 PRE_APPROVAL = ["requested", "intake", "context_loaded", "brief", "research", "draft",
@@ -64,7 +64,11 @@ def initiator_ok(edge_initiator: str, initiator: str) -> bool:
 
 
 def workorder_path(run_id: str) -> Path:
-    return ROOT / "runs" / run_id / "workorder.yaml"
+    """The run's state-bearing record: workorder.yaml, or campaign.yaml for a campaign parent."""
+    wo = ROOT / "runs" / run_id / "workorder.yaml"
+    if wo.exists():
+        return wo
+    return ROOT / "runs" / run_id / "campaign.yaml"
 
 
 def rewrite_workorder_state(run_id: str, new_state: str) -> None:
@@ -180,6 +184,7 @@ def main() -> int:
                   file=sys.stderr)
             return 1
         from_state = "approved" if machine["machine"] == "video-production" else None
+        # (a campaign parent enters at campaign_requested with from_state None)
         seq = record(conn, args.run, from_state, entry, args.initiator, args.event,
                      json.loads(args.gate_results), json.loads(args.artifact_hashes),
                      args.task_id, args.project, args.profile, args.parent_run)

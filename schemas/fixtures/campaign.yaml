@@ -1,0 +1,75 @@
+# Fixtures for campaign.schema.json
+valid:
+  - why: "complete SK-B10 brief + two-child manifest (ad + landing)"
+    record:
+      campaign_id: 2026-07-11-ben-webinar-cmp-001
+      task_id: T-2026-0711-010
+      project_id: benowitz-wealth
+      state: strategy_brief
+      brief:
+        objective: "Fill the DROP Exit webinar (registrations)"
+        audience_ref: audience.md#frs-50plus
+        message: "The DROP payout is a decision with a deadline you can see coming"
+        offer:
+          text: "Free live DROP Exit webinar - register at the link"
+          verbatim: true
+        conversion_event: webinar-registration
+        measurement_plan:
+          metrics: [registrations, reel-view-through, link-clicks]
+          review_after_days: 14
+          experiment: null
+        stop_criteria:
+          - "webinar date passes"
+          - "registrations >= 100"
+      children:
+        - {run_id: child-ad-001, deliverable_type: reel, role: ad, state: requested, ledger: runs/child-ad-001/factcheck/ledger.yaml, offer_text_path: runs/child-ad-001/voice/final.md}
+        - {run_id: child-lp-001, deliverable_type: landing-page, role: landing, state: requested, ledger: runs/child-lp-001/factcheck/ledger.yaml, offer_text_path: runs/child-lp-001/voice/final.md}
+invalid:
+  - why: "no stop criteria (a campaign without stop criteria never closes)"
+    record:
+      campaign_id: c
+      task_id: T-2026-0711-010
+      project_id: benowitz-wealth
+      state: strategy_brief
+      brief:
+        objective: o
+        audience_ref: a
+        message: m
+        offer: {text: t, verbatim: true}
+        conversion_event: e
+        measurement_plan: {metrics: [x], review_after_days: 14, experiment: null}
+        stop_criteria: []
+      children: []
+  - why: "experiment with n below the SK-B13 guardrail (20/arm)"
+    record:
+      campaign_id: c
+      task_id: T-2026-0711-010
+      project_id: benowitz-wealth
+      state: strategy_brief
+      brief:
+        objective: o
+        audience_ref: a
+        message: m
+        offer: {text: t, verbatim: true}
+        conversion_event: e
+        measurement_plan:
+          metrics: [x]
+          review_after_days: 14
+          experiment: {hypothesis: h, arms: [a, b], min_n_per_arm: 5, success_criteria: s}
+        stop_criteria: [done]
+      children: []
+  - why: "offer not marked verbatim (assembly cannot compare drifting offers)"
+    record:
+      campaign_id: c
+      task_id: T-2026-0711-010
+      project_id: benowitz-wealth
+      state: strategy_brief
+      brief:
+        objective: o
+        audience_ref: a
+        message: m
+        offer: {text: t, verbatim: false}
+        conversion_event: e
+        measurement_plan: {metrics: [x], review_after_days: 14, experiment: null}
+        stop_criteria: [done]
+      children: []

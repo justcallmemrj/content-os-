@@ -1,0 +1,18 @@
+run: child-lp-001
+version: 1
+claims:
+- id: CL-01
+  claim_key: drop-single-check
+  text: Your DROP payout arrives as a single check.
+  risk: high
+  status: verified
+- id: CL-02
+  claim_key: drop-20pct-withholding
+  text: Any payout sent to you directly has twenty percent withheld for federal tax.
+  risk: high
+  status: verified
+- id: CL-03
+  claim_key: rollover-trustee
+  text: A direct rollover moves trustee to trustee, nothing withheld.
+  risk: high
+  status: verified-with-qualification
