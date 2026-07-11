@@ -1,0 +1,39 @@
+manifest_id: RM-2026-0711-01
+run_id: step9-fixture
+engine: remotion
+engine_version: 4.0.487
+upstream_pin: 2e8037fec3cad711a8becf1252ed3af61f09a1fa
+storyboard:
+  path: .claude/skills/en-hyperframes/tests/fixtures/storyboard-fixture.yaml
+  sha256: d4b3b9ac2a13ad9175b709d11273e6d88e1a50fb39e3f25579e423f5a4729084
+composition:
+- path: video/remotion/fixtures/drop-fixture/src/DropFixture.jsx
+  sha256: 2e46230a4d994e7428053597d33a509298f46ca7d9d024be12f7625c4b0e0930
+- path: video/remotion/fixtures/drop-fixture/src/Root.jsx
+  sha256: f5d470a642c98bae5745dcf83733518e64360ab0af2d4136ec9021b50c0e8497
+- path: video/remotion/fixtures/drop-fixture/src/SafeArea.jsx
+  sha256: 2b8224ee94a330109c3c938905f324157156fba8e6ac95ce5442ff5affedf518
+settings:
+  resolution: 1080x1920
+  fps: 30.0
+  duration_s: 10.048
+  aspect_ratio: '9:16'
+  preset: fixture-local-v1
+inputs:
+- path: video/remotion/fixtures/drop-fixture/props.json
+  sha256: 94d28cd07003b83174e2d074fdbd70a4257126c84897385e4eba8da4119b422d
+- path: video/remotion/fixtures/drop-fixture/src/tokens.js
+  sha256: feb2355a8db13843d057074c31c5ab7e2dc9a4c5928aef942edfa0221ebe8832
+output:
+  path: video/remotion/fixtures/drop-fixture/renders/v2/drop-fixture.mp4
+  sha256: 61b1b76f62131e13fa57c0f8484c4b90d4b971189936338b245b6fca4f352a88
+  duration_s: 10.048
+  size_bytes: 525487
+environment:
+  node: 24.16.0
+  ffmpeg: 8.1.1-full_build-www.gyan.dev
+  os: Windows 11 10.0.26200
+rendered_at: '2026-07-11T16:56:36+00:00'
+cloud_render: false
+notes: step-9 comparability fixture render; v1 (blank fallback defect) superseded
+  and removed - defect documented in LOG session fifteen + Root.jsx comment

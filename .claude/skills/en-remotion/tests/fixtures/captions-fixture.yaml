@@ -1,0 +1,6 @@
+# SK-C2 test fixture — caption track companion to en-hyperframes' storyboard-fixture.yaml
+segments:
+  - id: CAP-01
+    start_s: 0.0
+    end_s: 4.0
+    text: "Your DROP payout arrives as a single check."

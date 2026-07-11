@@ -24,3 +24,6 @@ __pycache__/
 # OS noise
 .DS_Store
 Thumbs.db
+
+# Engine workspace node_modules (Phase 7; the pin lives in package.json, DEC-BUILD-008)
+video/*/node_modules/
