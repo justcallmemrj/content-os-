@@ -1,0 +1,35 @@
+# Video production machine — Phase 5 §5 encoded (PROTECTED)
+# Chained at trunk T15: a video run is a child run (parent_run = the trunk run
+# whose approved script it implements; profile: video) entering at `storyboard`
+# via V1 — entry requires the parent's LOCKED script hash + generated asset
+# manifest. transition.py is the only consumer that may act on this file (HK2).
+# Engine bindings: hyperframes pins SK-C1 (+ vendored upstream set) at V4/V6;
+# remotion pins SK-C2. Same gates, validators, rubric either way (Phase 4 §7.3).
+machine: video-production
+version: 1.0.0
+entry: storyboard
+states: [storyboard, engine_routing, build, preview_review, render, technical_qc,
+         judgment_qc, delivery_ready, human_signoff, published,
+         performance_review, archived]
+substates: [escalated]   # E3, same semantics as the trunk
+transitions:
+  - {id: V1,  from: approved,        to: [storyboard],            initiator: ORCH,      gate: G-V,      entry: "locked script hash (parent T15 record); asset manifest generated (intake script); manifest errors halt"}
+  - {id: V2,  from: storyboard,      to: [engine_routing],        initiator: ORCH,      gate: G-V,      entry: "scenes sum to duration ± tol; 100% on-screen text ID-mapped; assets resolved or GAP; rights fields present; failure returns to storyboard"}
+  - {id: V2f, from: engine_routing,  to: [storyboard],            initiator: ORCH,      gate: null,     entry: "V2 failure route: back to storyboard"}
+  - {id: V3,  from: engine_routing,  to: [build],                 initiator: ORCH,      gate: G-M,      entry: "SK-B17 matrix scored + rationale logged; close call → G-H (H3) override gate — Wes chooses"}
+  - {id: V4,  from: build,           to: [preview_review],        initiator: HYPF|REMO, gate: G-V,      entry: "lint clean (or exceptions documented); preview artifact exists; 2 diagnosis cycles → escalated (E5)"}
+  - {id: V5,  from: preview_review,  to: [render],                initiator: VDIR,      gate: G-R:VDIR, entry: "preview matches storyboard scene-by-scene; deviations zero or escalated"}
+  - {id: V5f, from: preview_review,  to: [build],                 initiator: VDIR,      gate: null,     entry: "V5 failure route: back to build with direction"}
+  - {id: V6,  from: render,          to: [technical_qc],          initiator: HYPF|REMO, gate: G-V,      entry: "render manifest complete (schema-valid); output hashed; render error loops to V4"}
+  - {id: V6f, from: render,          to: [build],                 initiator: HYPF|REMO, gate: null,     entry: "V6 failure route: render error → V4 loop"}
+  - {id: V7,  from: technical_qc,    to: [judgment_qc],           initiator: ORCH,      gate: G-V,      entry: "validators: res/fps/duration/AR; text byte-match 100%; caption CPS/line/timing; loudness/clipping; safe areas; no blank frames"}
+  - {id: V7f, from: technical_qc,    to: [build],                 initiator: ORCH,      gate: null,     entry: "V7 failure route: back to build, validator report attached"}
+  - {id: V8,  from: judgment_qc,     to: [delivery_ready],        initiator: QA,        gate: G-R:QA,   entry: "RUB-VIDEO-1 pass: pacing, b-roll fit, caption placement judgment, brand consistency"}
+  - {id: V8f, from: judgment_qc,     to: [build, storyboard],     initiator: QA,        gate: null,     entry: "V8 failure routes: revise → build; storyboard flaw → storyboard (rare; logged)"}
+  - {id: V9,  from: delivery_ready,  to: [human_signoff],         initiator: ORCH,      gate: G-M,      entry: "delivery package: render, manifest, QC reports, thumbnail/cover if requested"}
+  - {id: V10, from: human_signoff,   to: [published],             initiator: wes,       gate: G-H:H5,   entry: "Wes's sign-off; Wes publishes (E6); state recorded after the fact"}
+  - {id: V10f, from: human_signoff,  to: [build, storyboard],     initiator: wes,       gate: null,     entry: "V10 rejection routes: to build or storyboard with Wes's notes"}
+  - {id: V11a, from: published,      to: [performance_review],    initiator: ANLYT,     gate: null,     entry: "per Phase 3 §8"}
+  - {id: V11b, from: performance_review, to: [archived],          initiator: ORCH|ANLYT, gate: null,    entry: "archive sweep per Phase 3 §8"}
+rollback:
+  policy: "no generic rollback in the video machine — every failure route is an explicit edge (V2f/V5f/V6f/V7f/V8f/V10f); the script itself is locked (D5) and never re-enters here"

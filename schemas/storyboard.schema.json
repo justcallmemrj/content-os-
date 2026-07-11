@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/storyboard@1.0.0",
+  "title": "Video storyboard (Phase 5 §5 V1–V2; Phase 2 §6.11 VDIR output format)",
+  "description": "runs/<id>/storyboard/storyboard.yaml — scenes with timecodes, ID-mapped on-screen text (verbatim, D-016), asset refs or GAP with rights fields, engine recommendation with scored factors. V2 validators: scenes sum to duration ± tolerance; 100% text ID-mapped; assets resolved or GAP; rights present.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "parent_run", "script_ref", "platform_spec", "scenes", "engine_recommendation", "asset_gaps"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "parent_run": {"type": ["string", "null"], "description": "the trunk run whose locked script this storyboard implements"},
+    "script_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$", "description": "must equal the locked hash recorded at trunk T15 (D5)"}
+      }
+    },
+    "platform_spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "aspect_ratio", "resolution", "fps", "duration_s", "tolerance_s"],
+      "properties": {
+        "platform": {"type": "string"},
+        "aspect_ratio": {"type": "string", "pattern": "^\\d+:\\d+$"},
+        "resolution": {"type": "string", "pattern": "^\\d+x\\d+$"},
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "tolerance_s": {"type": "number", "minimum": 0}
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "start_s", "duration_s", "type", "on_screen_text", "assets", "direction"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^SC-\\d{2}$"},
+          "start_s": {"type": "number", "minimum": 0},
+          "duration_s": {"type": "number", "exclusiveMinimum": 0},
+          "type": {"enum": ["to-camera", "b-roll", "motion-graphic", "text-card"]},
+          "on_screen_text": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["text_id", "text"],
+              "properties": {
+                "text_id": {"type": "string", "pattern": "^(CL-\\d+|DISC-[A-Z]+-[A-Z0-9-]+|CAP-\\d{2})$", "description": "claim-ledger ID, approved disclosure ID, or caption-segment ID (captions carry script text verbatim)"},
+                "text": {"type": "string", "minLength": 1, "description": "verbatim string — byte-match target for V7"},
+                "placement": {"type": "string"},
+                "persistent": {"type": "boolean", "description": "true = on screen for the scene range given, e.g. the disclosure block"}
+              }
+            }
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["ref", "rights"],
+              "properties": {
+                "ref": {"type": "string", "description": "asset-manifest ref, or the literal GAP"},
+                "rights": {"type": "string", "minLength": 1, "description": "rights/licensing field; unknown = GAP-equivalent (never omitted)"},
+                "gap_note": {"type": "string"}
+              }
+            }
+          },
+          "transition": {"type": "string"},
+          "direction": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "engine_recommendation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["choice", "factors", "rationale", "close_call", "override"],
+      "properties": {
+        "choice": {"enum": ["hyperframes", "remotion", "human", "hybrid"]},
+        "factors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "score", "note"],
+            "properties": {
+              "name": {"type": "string"},
+              "score": {"type": "integer", "minimum": 1, "maximum": 5},
+              "note": {"type": "string"}
+            }
+          }
+        },
+        "rationale": {"type": "string", "minLength": 1},
+        "close_call": {"type": "boolean", "description": "true routes V3 through H3 (human override gate)"},
+        "override": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["value", "by", "reason"],
+          "properties": {
+            "value": {"enum": ["hyperframes", "remotion", "human", "hybrid"]},
+            "by": {"type": "string"},
+            "reason": {"type": "string"}
+          }
+        }
+      }
+    },
+    "asset_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["scene_id", "description", "suggestion", "accepted_as_placeholder"],
+        "properties": {
+          "scene_id": {"type": "string"},
+          "description": {"type": "string"},
+          "suggestion": {"type": "string"},
+          "accepted_as_placeholder": {"type": "boolean", "description": "true only when the work order accepts placeholders (SK-C1 prerequisite)"}
+        }
+      }
+    }
+  }
+}

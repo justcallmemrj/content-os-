@@ -1,0 +1,35 @@
+# SK-C1 test fixture — minimal schema-valid storyboard
+run_id: test-vid-fixture
+parent_run: test-parent
+script_ref:
+  path: runs/test-parent/voice/script.md
+  sha256: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+platform_spec:
+  platform: instagram-reels
+  aspect_ratio: "9:16"
+  resolution: 1080x1920
+  fps: 30
+  duration_s: 10
+  tolerance_s: 1
+scenes:
+  - id: SC-01
+    start_s: 0
+    duration_s: 10
+    type: text-card
+    on_screen_text:
+      - text_id: CAP-01
+        text: "Your DROP payout arrives as a single check."
+      - text_id: DISC-BEN-FRS-01
+        text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+        persistent: true
+    assets: []
+    transition: none
+    direction: "hook card + persistent disclosure"
+engine_recommendation:
+  choice: hyperframes
+  factors:
+    - {name: one-off, score: 5, note: fixture}
+  rationale: fixture
+  close_call: false
+  override: null
+asset_gaps: []

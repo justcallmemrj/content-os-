@@ -1,0 +1,9 @@
+:root {
+  --brand-navy: #0E2A47;
+  --brand-gold: #C8A35C;
+  --paper: #FBF7EE;
+  --safe-top: 220px;
+  --safe-bottom: 320px;
+  --safe-x: 64px;
+}
+.hf-safe { position: absolute; inset: var(--safe-top) var(--safe-x) var(--safe-bottom); }
