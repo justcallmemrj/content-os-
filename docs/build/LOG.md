@@ -548,3 +548,39 @@ comparability 7/0 · step10 9/0 · SK-C1 29/0 · SK-C2 12/0.
 first REAL campaign (the §4 row-10 [WES] rider). Then: step 11 Ducat
 activation — BLOCKED on tranche-3 inputs (Ducat 20-wk curriculum, NIL decks,
 three books). V10 on the reel still open; 6 proposals → MEMC batch.
+
+## Session 2026-07-11 (seventeenth) — STEP 11: tranche-3 seeded (PR #16, H6); contamination suite GREEN
+
+**Tranche-3 inputs arrived** (Wes pointed at Desktop post/ad dirs + the cover
+zip; Downloads held the rest): the 20-week caption set (scope correction: 36
+posts, not the remembered "12-week/24" — matches Ducat_.md §3; 4 folders
+shipped empty), both curriculum handoffs, DUCAT_BTS Book 1 + memo + launch
+kits, the NIL pptx, Ducat typography spec, and the THREE BWM_FRB book
+manuscripts.
+
+**Seeding (staging/2026-07-11-003 → PR #16, H6 Wes-only):** 46 text assets
+vendored (JPEGs/ads/pptx/covers referenced-not-vendored with origin paths);
+S-DUC-0001..0010 (Fla. Stat. §1006.74 + three IRS pages live-verified 4/4);
+S-BEN-0005..0007 (the books); F-DUC-0001..0007 structural facts (1 medium-
+confidence caption-only mechanism flagged); VX-DUC-0001..0010 = Wes's
+slider-calibration set (DUC sliders still PROPOSED from tranche 1). Schema
+suites green; ORCH audited before commit. **Material compliance finding
+flagged not resolved: fee-only vs fee-based is 3-way inconsistent (captions
+vs BTS books vs DUC-C6 hold; the books' own memo names it) + 6
+disclosure-wording drifts + 6 caption rider families absent from
+disclosures.md — all in the PR #16 digest for Wes.**
+
+**Contamination suite (scripts/test_step11_contamination.py, 25/0 GREEN):**
+synthetic cross-brand plants caught both directions (BEN vocab in DUC context,
+DUC vocab in BEN context); REAL-corpus sweep — all 36 DUC captions clean of
+BEN/TRD vocabulary, full BEN corpus (locked reel + exemplars + facts) clean of
+DUC/TRD vocabulary; loader isolation proven both directions (zero cross-brand
+records in either packet manifest); TRD/FDR scaffolds confirmed (FDR has no
+compliance.md BY DESIGN — scaffold only).
+
+**Open at break:** Wes merges PR #16 (H6) → then the contamination-suite PR
+(this branch, rebased) → tag build-step-11 — WHICH COMPLETES THE ENTIRE
+PACKAGE §4 BUILD SEQUENCE. The fee-only/fee-based inconsistency deserves
+Wes's decision soon (it gates any DUC publishing). Standing: reel V10;
+6 queued proposals + tranche-3 records → future MEMC batches; H1/H4 on the
+first real campaign.
