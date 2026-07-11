@@ -1,5 +1,5 @@
 ---
-version: 1.0.0
+version: 1.1.0
 project: ducat-private-wealth
 includes: [projects/_shared/ria-compliance-envelope.md]   # explicit reference — Phase 3 §3.5
 ---
@@ -23,8 +23,8 @@ includes: [projects/_shared/ria-compliance-envelope.md]   # explicit reference �
 - **DUC-C5 — Tax content carries the tax referral disclosure** (DISC-DUC-TAX-01);
   jock-tax and multi-state content uses softened constructions ("may owe,"
   "the rules are different") — rules vary by state and contract structure.
-- **DUC-C6 — "fee-only" hold** per `projects/benowitz-wealth/decisions/DEC-BEN-0001.md`
-  (firm-wide); use "fiduciary."
+- **DUC-C6 — "fee-only" PERMITTED** per `projects/benowitz-wealth/decisions/DEC-BEN-0002.md`
+  (firm-wide lift, 2026-07-11, ADV-verified); "fiduciary" remains equally available.
 
 ## Disclosure mapping
 

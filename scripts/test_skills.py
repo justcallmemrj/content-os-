@@ -109,7 +109,6 @@ CASES = [
     ("ENV-1-performance", "Rolling over could save you thousands. " + DISCLOSURE),
     ("ENV-2-testimonial", "One of my clients said it changed everything. " + DISCLOSURE),
     ("ENV-3-individualized", "You should take the lump sum this year. " + DISCLOSURE),
-    ("DEC-BEN-0001-fee-only", "We are a fee-only fiduciary firm. " + DISCLOSURE),
     ("VOICE-urgency", "Book now — spots vanish fast. " + DISCLOSURE),
     ("BEN-C2-solvency-fear", "The pension is going broke, so act accordingly. " + DISCLOSURE),
     ("ENV-4-disclosure", "A perfectly compliant sentence with no disclosure at all."),

@@ -14,7 +14,7 @@ sources:
   - F-DUC-0005
   - F-DUC-0006
   file: S-DUC-0001.md
-  sha256: 4c24ab46272ad0f146abddffad293b393f0b30cea9eb6b91cd30c8744a462646
+  sha256: 22b530b207d209697aaac55fe62736cb3b1bf193634739f396cf77bd43ef85ce
 - id: S-DUC-0002
   type: practitioner
   tier: 3
@@ -22,7 +22,7 @@ sources:
   stability: static
   cited_by: []
   file: S-DUC-0002.md
-  sha256: 088bd578b1ec6ef7509599343dd55661bf072f7d75371c2cda223622fd8064b5
+  sha256: 88c8acfca16e191f7c50cf1a1fccfa3271189ec996137a4de009261aa9b51152
 - id: S-DUC-0003
   type: practitioner
   tier: 3
@@ -30,7 +30,7 @@ sources:
   stability: static
   cited_by: []
   file: S-DUC-0003.md
-  sha256: e498588000322be4123ec84a183b2554013ac626780db496cbccde01c31e38f4
+  sha256: 20061084bf79a02430489777dfeef333475baa7e86b72ce52eb27c5a315fd55f
 - id: S-DUC-0004
   type: practitioner
   tier: 3
@@ -38,7 +38,7 @@ sources:
   stability: annual
   cited_by: []
   file: S-DUC-0004.md
-  sha256: daeb6f33a310da9eb106abebfa37237d1e84a992a119f8d0ee224b5d0d16f522
+  sha256: 0d31572935b9d3c2c0bb08ecceae5f85bf813970f2c800847ca213efaad6eb1f
 - id: S-DUC-0005
   type: practitioner
   tier: 3
@@ -46,7 +46,7 @@ sources:
   stability: static
   cited_by: []
   file: S-DUC-0005.md
-  sha256: 5c02b189e943013bf6e871dd1eca349f3c6747b2fd4dbb8d835c24cbf748e620
+  sha256: 0548d7770634aaa78c65db20c90bee1dded0236db31a48125b2ec9e1064693c8
 - id: S-DUC-0006
   type: practitioner
   tier: 3
@@ -54,7 +54,7 @@ sources:
   stability: static
   cited_by: []
   file: S-DUC-0006.md
-  sha256: 55d748b24c7b8ddbff76ba51c26395fdc0b63e6045f952491f081711845bacc2
+  sha256: e4fa2d8d8f74f9cda6d64556bfc3657d58e34d9a27af15b6eb549a0cf65df6a3
 - id: S-DUC-0007
   type: statute
   tier: 1
@@ -65,7 +65,7 @@ sources:
   - F-DUC-0002
   - F-DUC-0007
   file: S-DUC-0007.md
-  sha256: 6a89dab20b05447e2eae963be6cd856657bdde76ba89d830f21f1cbb52012a59
+  sha256: 9b754f86f85a5fd3e97888a97dad208daae6624579b4a665213ed803865d5cf7
 - id: S-DUC-0008
   type: agency-publication
   tier: 1
@@ -75,7 +75,7 @@ sources:
   - F-DUC-0003
   - F-DUC-0004
   file: S-DUC-0008.md
-  sha256: 37b277f7d0d10e9105af18e79972544ed1c4adaf2eab649140f604eeadc8a5f9
+  sha256: 3e3667743a3a6ed0a3d7976bb33627fe3fbaa2cec48874362c199d4725c078d4
 - id: S-DUC-0009
   type: agency-publication
   tier: 1
@@ -84,7 +84,7 @@ sources:
   cited_by:
   - F-DUC-0005
   file: S-DUC-0009.md
-  sha256: 37010cf91d3812e5e934c7b5661481c0392f30fcd6d7760d35ac8184ead9d706
+  sha256: 16be85205804b92bec064e8c394db7d4048894d71ad6c320e81617f8edb8b6fd
 - id: S-DUC-0010
   type: agency-publication
   tier: 1
@@ -93,4 +93,4 @@ sources:
   cited_by:
   - F-DUC-0005
   file: S-DUC-0010.md
-  sha256: ed4982f4502828502518583dc5cf4d51e0051d4bd09c0835376844b58f7327ae
+  sha256: 157aad1bb8ecd505e7e45e4761558e43d872788acd85020bc7d80f91cf8ef7a1

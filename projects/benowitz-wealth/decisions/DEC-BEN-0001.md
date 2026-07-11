@@ -10,7 +10,7 @@ approver: wes
 effective_version: compliance.md@1.0.0
 related: [projects/_shared/ria-compliance-envelope.md]
 supersedes: null
-status: active
+status: superseded   # by DEC-BEN-0002, 2026-07-11
 ---
 
 # DEC-BEN-0001 — "fee-only" wording hold

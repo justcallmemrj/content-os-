@@ -38,7 +38,8 @@ ADVICE = [
     re.compile(r"(?i)\btake\s+the\s+lump\s+sum\s+and\s+roll\b"),
 ]
 # Standing rules
-FEE_ONLY = re.compile(r"(?i)\bfee-only\b")                       # DEC-BEN-0001 hold
+# FEE_ONLY rule RETIRED by DEC-BEN-0002 (hold lifted 2026-07-11, ADV-verified);
+# the pattern lives in git history should a future decision re-impose it.
 URGENCY = [
     re.compile(r"(?i)\b(act|call|book)\s+now\b"),
     re.compile(r"(?i)\bbefore\s+it'?s\s+too\s+late\b"),
@@ -73,9 +74,6 @@ def lint(text: str, project: str, tax: bool | None = None) -> list[dict]:
         "testimonial/endorsement pattern (envelope hard line 2)")
     hit(ADVICE, "ENV-3-individualized", "major",
         "individualized-advice framing (envelope hard line 3)")
-    if FEE_ONLY.search(text):
-        findings.append({"rule": "DEC-BEN-0001-fee-only", "severity": "major",
-                         "match": "fee-only", "why": "'fee-only' on hold pending ADV review; use 'fiduciary'"})
     hit(URGENCY, "VOICE-urgency", "minor", "manufactured urgency (urgency slider is 1 by design)")
     if project == "benowitz-wealth":
         hit(SOLVENCY_FEAR, "BEN-C2-solvency-fear", "major", "pension-solvency fear as persuasion")
