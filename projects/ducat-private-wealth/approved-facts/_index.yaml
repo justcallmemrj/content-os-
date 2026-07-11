@@ -6,40 +6,40 @@ facts:
   status: active
   review_by: '2027-07-01'
   file: F-DUC-0001.md
-  sha256: 8e2491966865015ebd3716c788596e7f44d974585d1e96b4f34d102f3f26fe4d
+  sha256: 9d185200a3cc3f2fd4e9e3b3613dfba6d5e25a3df937ea25f49abd2bcec844d5
 - id: F-DUC-0002
   claim_key: nil.rules.vary-by-state-school-level
   status: active
   review_by: '2027-07-01'
   file: F-DUC-0002.md
-  sha256: aec64af1892ad6e3d38d377fccac199a2491e57e984fbf2276ad9b1de340a67f
+  sha256: 335f8e350ba0eb1e00800969c0abd57e4029a72fdaa00de9d13a6f1ec3e0de2d
 - id: F-DUC-0003
   claim_key: tax.pay-as-you-go.quarterly-estimated
   status: active
   review_by: '2027-07-11'
   file: F-DUC-0003.md
-  sha256: 5692e23abae013fd85938de6eed7861599ee1faca22cbe486ee427248a5efcac
+  sha256: 565797daf07df2f149730bb152f8b0fb2543dcfd047c4c8e7815bf7eca74a66f
 - id: F-DUC-0004
   claim_key: tax.1099.no-withholding
   status: active
   review_by: '2027-07-11'
   file: F-DUC-0004.md
-  sha256: 4f3db627ecfa3ee8323eb3dab2dcf637c857e8633bfbc60c4534792fe78bd11a
+  sha256: e8172659e6a06c31a347ab5de22866d6c48fab98d72cf489f58ac9f43658ee04
 - id: F-DUC-0005
   claim_key: ira.roth.requires-taxable-compensation
   status: active
   review_by: '2027-07-11'
   file: F-DUC-0005.md
-  sha256: 3113820257489682c2608a54454a1828f12af4d35666b9b030efc2145ddbbc9f
+  sha256: ff5d7296e4e29e54eacafcc5ff237f6d5fc9455733bfb424443e2cb08f757f3d
 - id: F-DUC-0006
   claim_key: practice.separate-business-personal-accounts
   status: active
   review_by: '2027-07-11'
   file: F-DUC-0006.md
-  sha256: 4980a42edaf24aa4df5eb62ea101c8c454d8f4b67419071d72e498a7d329125f
+  sha256: 38766fe12d5d8ae34d37a8ef92f178d6d7f49c3906a15e38f03900cc43c95bbd
 - id: F-DUC-0007
   claim_key: nil.fl.statutory-right-and-workshops
   status: active
   review_by: '2027-07-01'
   file: F-DUC-0007.md
-  sha256: ba0467ec5884ce20fed03d5d2453d58f815298a44a2dd12ca471a17013b38640
+  sha256: 03a6c7af801749dce56fb7ab55849bd90e7a25614fd1fc14f4975701eb9c7ccc

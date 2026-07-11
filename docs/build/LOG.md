@@ -584,3 +584,30 @@ PACKAGE §4 BUILD SEQUENCE. The fee-only/fee-based inconsistency deserves
 Wes's decision soon (it gates any DUC publishing). Standing: reel V10;
 6 queued proposals + tranche-3 records → future MEMC batches; H1/H4 on the
 first real campaign.
+
+## Session 2026-07-11 (eighteenth) — fee-only RESOLVED: DEC-BEN-0002, hold lifted firm-wide
+
+Wes directed fee-only in-session; DEC-BEN-0001's own lifting procedure was
+executed FIRST: Form ADV verified across both brands (one filing — Joy
+Financial Group LLC, two trade names, ADV 2B Item 4). Chain: Item 5 advisory
+fees only + no commissions in advisory accounts; Item 6 no performance fees;
+Item 10 no other financial-industry registrations; 2B Item 4 outside
+activities not investment-related (FRS Information, Amplify); 2B Item 5 no
+outside economic benefit for advisory. Item 14's Schwab custodial support =
+standard disclosed custodian arrangement. CAVEAT recorded: the filed ADV
+never uses the literal phrase "fee-only" — substantively supported, not
+verbatim-anchored; CCO follow-up recommended (add the phrase at next ADV
+amendment).
+
+Changes (staging/2026-07-11-004): DEC-BEN-0002 (supersedes DEC-BEN-0001,
+now status: superseded); BEN-C6 + DUC-C6 flipped to PERMITTED, both
+compliance.md → 1.1.0; compliance_lint FEE_ONLY rule RETIRED (+ its
+test_skills seeded-violation case removed; verified: fee-only sentence now
+lints clean with proper disclosure, all other rule classes still fire).
+NOT changed: the BTS book manuscripts (vendored provenance) — their
+"fee-based" wording is Wes's manuscript-workflow correction, flagged in
+DEC-BEN-0002. Suites: skills ALL GREEN, schemas 61/0, hooks 32/0,
+contamination 25/0.
+
+Consequence: the 36-caption DUC catalog's fee-only disclosures are now
+permissible — DUC publishing unblocked once Wes merges this PR (H6).

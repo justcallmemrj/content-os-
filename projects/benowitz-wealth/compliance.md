@@ -1,5 +1,5 @@
 ---
-version: 1.0.0
+version: 1.1.0
 project: benowitz-wealth
 includes: [projects/_shared/ria-compliance-envelope.md]   # explicit reference — Phase 3 §3.5
 ---
@@ -24,7 +24,8 @@ includes: [projects/_shared/ria-compliance-envelope.md]   # explicit reference �
   pension is the pension; what's decidable is everything around it.
 - **BEN-C5 — Tax content carries the tax referral disclosure** (DISC-BEN-TAX-01
   appended to DISC-BEN-FRS-01).
-- **BEN-C6 — "fee-only" hold** per DEC-BEN-0001; use "fiduciary."
+- **BEN-C6 — "fee-only" PERMITTED** per DEC-BEN-0002 (hold lifted 2026-07-11,
+  ADV-verified); "fiduciary" remains equally available.
 
 ## Disclosure mapping
 
