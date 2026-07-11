@@ -1,0 +1,72 @@
+# Asset manifest — Ducat back catalog (rights fields mandatory, D-029)
+generated: false
+assets:
+  - id: AST-DUC-SOCIAL-CAPTIONS
+    path: social-captions/
+    items: "36 caption files (W01-A … W20-B; 4 of the 40 export folders shipped without a caption file: W06-B, W08-B, W12-A, W18-B)"
+    type: published-social-captions
+    rights: firm-owned
+    origin: "Downloads/Ducat Wealth Soical Posts/…/Ducat-Athlete-Education/Week-01..Week-20 (owner back catalog, delivered 2026-07-11; each file carries its own FACT-CHECK LOG + disclosures)"
+    note: "Post JPGs (IG/FB 1080x1350 + LinkedIn 1200x1200 per post) NOT vendored — they
+           remain in the Downloads export tree. Captions are the voice-bearing text and
+           the exemplar source. NOTE: the export self-describes as the Weeks 1-20 build
+           (Ducat_.md §3 'up to 40 posts'), not the 24-post/12-week variant."
+  - id: AST-DUC-BOOKS-BTS
+    path: books/
+    items: [DUCAT_BTS_Book1_Manuscript_v1.md, DUCAT_BTS_Compliance_Review_Memo.md,
+            DUCAT_BTS_Launch_Kits_Books1-3.md]
+    type: book-manuscript
+    rights: firm-owned
+    origin: "Downloads/ (owner back catalog, delivered 2026-07-11; 'Beyond the Season' Book 1 of 3 — Books 2-3 manuscripts not found on this machine)"
+    note: "Manuscript vendored for provenance; facts NOT extracted at seeding — future
+           runs extract on demand through the normal evidence path. The compliance memo's
+           §1.5-equivalent posture ('fee-based') conflicts with the caption set ('fee-only')
+           — see staging digest ⚑."
+  - id: AST-DUC-CURRICULUM
+    path: curriculum/
+    items: [Ducat_.md, Ducat_Student-Athlete_Holistic-Education_ClaudeDesign_Handoff.md]
+    type: curriculum-handoff
+    rights: firm-owned
+    origin: "Downloads/ (owner back catalog, delivered 2026-07-11)"
+    note: "Two variants of the same Claude Design handoff: Ducat_.md is the Weeks 1-20 /
+           up-to-40-posts holistic edition (matches the shipped caption set);
+           Ducat_Student-Athlete_…_Handoff.md is the earlier 24-post/12-week edition.
+           Both are production specs (roles, brand tokens, fact-check protocol, CTA lock),
+           not published content."
+  - id: AST-DUC-TYPOGRAPHY-SPEC
+    path: Ducat_Typography_Spec.md
+    items: [Ducat_Typography_Spec.md]
+    type: visual-identity-spec
+    rights: firm-owned
+    origin: "Downloads/Ducat_Typography_Spec.md (owner-delivered 2026-07-11)"
+    note: "Playfair Display + Inter launch system, brand tokens; visual-identity source
+           for any DUC design work."
+  - id: AST-DUC-POST-IMAGES-REF
+    path: null
+    items: "25 feed JPEGs (extracted) + Ducat_25_feed_JPEGs.zip / Ducat_25_square_JPEGs.zip / Ducat_25_story_JPEGs.zip"
+    type: image-set-reference
+    rights: firm-owned
+    origin: "C:/Users/Mrder/OneDrive/Desktop/Benowitz and Ducat Post/Ducat/{Feed,Square,Story}/"
+    note: "REFERENCED, NOT VENDORED (large binaries). Feed set extracted on disk; square
+           and story sets remain zipped at origin."
+  - id: AST-DUC-AD-CREATIVES-REF
+    path: null
+    items: "25 x 4 ad creatives (Facebook-Feed-1080x1080, Facebook-Story-1080x1920, Instagram-Feed-1080x1350, Instagram-Story-1080x1920 — 25 each)"
+    type: image-set-reference
+    rights: firm-owned
+    origin: "C:/Users/Mrder/OneDrive/Desktop/Benowitz and Ducat ads/benowitz-ducat-ads/Ducat/"
+    note: "REFERENCED, NOT VENDORED (large binaries)."
+  - id: AST-DUC-NIL-DECK-REF
+    path: null
+    items: [Ducat_NIL_Workshop_01_Football.pptx]
+    type: workshop-deck-reference
+    rights: firm-owned
+    origin: "C:/Users/Mrder/Downloads/Ducat_NIL_Workshop_01_Football.pptx (~1.9 MB binary)"
+    note: "REFERENCED, NOT VENDORED (binary). Source record S-DUC-0006 points here."
+  - id: AST-DUC-COVER-DIRECTIONS-REF
+    path: null
+    items: "1 zip (three cover directions for 'The Student-Athlete Wealth Foundation')"
+    type: design-exploration-reference
+    rights: firm-owned
+    origin: "C:/Users/Mrder/Downloads/# Beyond the Season_ Ducat Series Cover Directions__I'm ready to develop three distinct cover directions for _The Student-Athlete Wealth Foundation.zip"
+    note: "REFERENCED, NOT VENDORED."

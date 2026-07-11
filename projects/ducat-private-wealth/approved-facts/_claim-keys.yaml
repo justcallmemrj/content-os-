@@ -1,3 +1,17 @@
 generated: true
 project: ducat-private-wealth
-claim_keys: {}
+claim_keys:
+  nil.definition.business-income:
+  - F-DUC-0001
+  nil.rules.vary-by-state-school-level:
+  - F-DUC-0002
+  tax.pay-as-you-go.quarterly-estimated:
+  - F-DUC-0003
+  tax.1099.no-withholding:
+  - F-DUC-0004
+  ira.roth.requires-taxable-compensation:
+  - F-DUC-0005
+  practice.separate-business-personal-accounts:
+  - F-DUC-0006
+  nil.fl.statutory-right-and-workshops:
+  - F-DUC-0007
