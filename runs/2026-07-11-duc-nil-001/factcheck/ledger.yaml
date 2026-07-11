@@ -1,0 +1,228 @@
+# Claim ledger — run 2026-07-11-duc-nil-001 — SK-B2 adjudicate
+# v1: full adversarial pass on nil-reel-v1.md (2026-07-11T14:19:20-04:00).
+# v2: delta re-adjudication on voice/nil-reel-v2.md after voice edit —
+#     claim-diff touched CL-08 only (2026-07-11T14:29:18-04:00); differ re-run
+#     by FACT (1 hit, matches VOICE) + independent byte-presence audit of all
+#     13 untouched claim texts against v2 (all intact — verified, not trusted).
+# Evidence base: approved facts only (no research packet; work order pins
+# F-DUC-0001/0002; F-DUC-0004 cited from active approved memory) + cited
+# S-DUC sources opened. Claim ids stable for life (D3); blocking summary
+# recomputed by ledger_validate.py.
+run: 2026-07-11-duc-nil-001
+deliverable: "voice/nil-reel-v2.md"
+version: 2
+passes:
+  - type: full
+    by: FACT
+    at: "2026-07-11T14:19:20-04:00"
+  - type: delta
+    by: FACT
+    at: "2026-07-11T14:29:18-04:00"
+    trigger: "voice edit — claim-diff on CL-08 only (voice/claim-diff.yaml)"
+claims:
+  - id: CL-01
+    text: "Your first NIL check is not a paycheck."
+    location: {file: "voice/nil-reel-v2.md", anchor: "HOOK"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0001 (S-DUC-0007); W-2 contrast per F-DUC-0004"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: adjudicated, by: FACT,
+         note: "Risk reclassified medium -> high by FACT: 'not a paycheck' carries a tax/withholding-character shadow (risk-classification.md — tax treatment is high regardless of framing)"}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0001 opened: NIL compensation is 'not a salary from the school... not free money' — the not-a-paycheck negation is a direct restatement; F-DUC-0004 opened: 'unlike W-2 wages where the employer withholds tax from each paycheck' supplies the paycheck contrast the hook trades on"}
+  - id: CL-02
+    text: "It's tempting to file it as salary. Money from the school. A reward for playing well. None of that is what this is."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT ONE"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0001 (S-DUC-0007)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0001 opened: explicitly negates 'a salary from the school, not part of a scholarship, and not free money'; the 'reward for playing well' negation is entailed by the commercial-use definition (payment is for use of name/image/likeness, not athletic performance — §1006.74 via S-DUC-0007)"}
+  - id: CL-03
+    text: "NIL money is payment for the commercial use of your name, image, or likeness."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT TWO"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0001 (S-DUC-0007 §1006.74)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0001 opened: 'NIL compensation is payment for the commercial use of an athlete's name, image, or likeness' — verbatim-grade match; S-DUC-0007 opened: statute language 'control and profit from the commercial use of her or his name, image, or likeness' confirmed. Usage-note condition honored: the vary-by-state caveat (F-DUC-0002) is paired in BEAT THREE (CL-10)"}
+  - id: CL-04
+    text: "A company is renting who you are."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT TWO"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0001 (S-DUC-0001 W01-A LinkedIn variant)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0001 commercial-use definition; S-DUC-0001/W01-A LinkedIn opened: 'you're licensing something you own' — 'renting' is the same licensing-of-identity mechanism in plainer register, immediately anchored by the precise definition in the preceding sentence (CL-03)"}
+  - id: CL-05
+    text: "That makes it business income."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT TWO"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0001 (S-DUC-0001 W01-A; tax character per F-DUC-0004/S-DUC-0008)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0001 opened: 'it is business income with contracts and tax obligations attached' — direct restatement; the business-income tax character chains to IRS treatment of self-employment income (F-DUC-0004, S-DUC-0008 opened)"}
+  - id: CL-06
+    text: "There's a contract underneath it."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT TWO"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0001 (S-DUC-0001, S-DUC-0007)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0001 opened: 'business income with contracts and tax obligations attached'; also carries the B-roll visual (plain contract on a table, BEAT THREE) — visual and spoken claim consistent"}
+  - id: CL-07
+    text: "And the tax generally isn't taken out before it reaches you."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT TWO"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0004 (S-DUC-0008)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0004 opened: 1099 income 'arrives with no employer withholding' and 1099 is 'the form behind most NIL payments'; S-DUC-0008 opened: IRS lists self-employment income among income types with no withholding. The 'generally' hedge preserves the fact's own 'most NIL payments' scope and satisfies DUC-C5 softened-construction discipline"}
+  - id: CL-08
+    text: "Usually nobody withholds for you. The full amount lands in your account."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT THREE"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0004 (S-DUC-0008)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: adjudicated, by: FACT,
+         against: "F-DUC-0004 opened: 'the full gross amount is paid out' matches sentence two exactly; sentence one drops the 'most NIL payments' scope the fact itself carries",
+         note: "v1 status: verified-with-qualification — universal 'Nobody withholds' stretched the fact's 'most NIL payments' scope; FACT suggested minimal softening ('Usually nobody withholds for you.')"}
+      - {at: "2026-07-11T14:19:20-04:00", event: qualified, by: FACT,
+         note: "v1 qualification: true as scoped to 1099 independent-contractor income (most, not all, NIL payments); non-blocking, flagged for VOICE/WRITE; any wording change re-enters as a delta"}
+      - {at: "2026-07-11T14:29:18-04:00", event: edited, by: VOICE,
+         diff: "'Nobody withholds for you.' -> 'Usually nobody withholds for you.' (FACT's v1 suggested_correction adopted verbatim; sentence two byte-identical)"}
+      - {at: "2026-07-11T14:29:18-04:00", event: delta-verified, by: FACT,
+         against: "F-DUC-0004 re-opened: no-withholding is scoped to 1099 income, 'the form behind most NIL payments' — 'Usually' restores exactly that most-not-all scope; 'The full amount lands in your account' remains a verbatim-grade match to 'the full gross amount is paid out' (S-DUC-0008: self-employment income listed among no-withholding income types). DUC-C5 softened-construction discipline now carried in the line itself, not borrowed from CL-07's context. v1 qualification discharged; plain verified"}
+  - id: CL-09
+    text: "Part of it may already be owed."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT THREE"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0004 (S-DUC-0008)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0004 opened: 'the recipient remains responsible for the income tax and, generally, self-employment tax owed on it'; S-DUC-0008 opened: IRS pay-as-you-go — 'Taxes must be paid as you earn or receive income during the year' — supports 'already' at receipt; 'may' hedge keeps the claim inside the evidence and DUC-C5. The both-halves SE-tax mechanism F-DUC-0004's usage note firewalls is NOT restated — scope honesty respected"}
+  - id: CL-10
+    text: "And the rules are not the same everywhere. They vary by state, by school, by level. They change often."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT THREE"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0002 (S-DUC-0007 amendment history)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0002 opened: 'NIL and collegiate-compensation rules vary by state, school, and level, and change frequently' — direct restatement; S-DUC-0007 opened: §1006.74 history line (ch. 2020-28; 2021-35; 2021-217; 2023-4) evidences the change-often half. Usage-note honored: the draft states no specific state/school/level rule"}
+  - id: CL-11
+    text: "Your school's compliance office is the first stop before any deal."
+    location: {file: "voice/nil-reel-v2.md", anchor: "BEAT THREE"}
+    risk: high
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0002 (S-DUC-0001 standing discipline)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0002 opened: 'the athlete's school compliance office is the first checkpoint before any deal' — 'first stop' for 'first checkpoint' is a register change, not a substance change; caption set (S-DUC-0001, W01-A opened) carries the identical routing"}
+  - id: CL-12
+    text: "You didn't receive free money. You started a small business. The check was just its first sale."
+    location: {file: "voice/nil-reel-v2.md", anchor: "TURN"}
+    risk: medium
+    declared_by: WRITE
+    status: verified
+    evidence: "F-DUC-0001 (S-DUC-0001 W01-A LinkedIn variant; SE-tax character per F-DUC-0004)"
+    on_screen: false
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: verified, by: FACT,
+         against: "F-DUC-0001 opened: 'not free money' verbatim negation + 'it is business income'; S-DUC-0001/W01-A LinkedIn opened: 'works less like a paycheck and more like running a small business: you're licensing something you own' — the caption frames small-business as a simile where the draft asserts it, but the tax character (self-employment income per F-DUC-0004) makes the assertion sound as a reframe of business income; 'first sale' is rhetorical extension of the same frame, asserting no new fact"}
+  - id: CL-13
+    text: "Educational only. Not advice. See profile for full disclosures."
+    location: {file: "voice/nil-reel-v2.md", anchor: "TEXT ON SCREEN (persistent)"}
+    risk: high
+    declared_by: WRITE
+    status: verified-with-qualification
+    evidence: "DISC-DUC-SHORT-01 (projects/ducat-private-wealth/disclosures.md@1.0.0)"
+    qualification: >-
+      The on-screen text byte-matches DISC-DUC-SHORT-01 exactly, and "See
+      profile for full disclosures." satisfies the short-format condition
+      that the deliverable explicitly say where the full text lives. The
+      sentence is only TRUE if DISC-DUC-01 verbatim plus DISC-DUC-TAX-01
+      (the script touches taxes — DUC-C5) actually appear in the profile or
+      first comment at publish. The draft's production notes route exactly
+      that; the placement itself is a hard publish-gate condition, not
+      verifiable from the draft.
+    on_screen: true
+    history:
+      - {at: "2026-07-11", event: declared, by: WRITE}
+      - {at: "2026-07-11T14:19:20-04:00", event: adjudicated, by: FACT,
+         against: "disclosures.md opened: DISC-DUC-SHORT-01 verbatim byte-match confirmed against the draft's TEXT ON SCREEN block; short-format conditions read; production notes correctly demand DISC-DUC-01 + DISC-DUC-TAX-01 in caption/profile and persistent on-screen (not spoken) placement per the video row of the disclosure mapping"}
+      - {at: "2026-07-11T14:19:20-04:00", event: qualified, by: FACT,
+         note: "Conditional on DISC-DUC-01 + DISC-DUC-TAX-01 actually placed in profile/first comment at publish — rides to COMPL and the publish checklist"}
+  - id: CL-14
+    text: "The money showed up. The instructions didn't."
+    location: {file: "voice/nil-reel-v2.md", anchor: "STAKES"}
+    risk: low
+    declared_by: FOUND
+    status: unverified
+    on_screen: false
+    history:
+      - {at: "2026-07-11T14:19:20-04:00", event: found, by: FACT}
+      - {at: "2026-07-11T14:19:20-04:00", event: adjudicated, by: FACT,
+         against: "Approved-fact set — no evidence on what guidance typically accompanies NIL payments; the sentence pair is scene-setting texture with a factual shadow (payments arrive without accompanying tax handling). The withholding half of that shadow is separately ledgered and verified at CL-07/CL-08; the no-guidance half has no evidence either way. Low-risk texture; unverified is its legitimate final state"}
+blocking_summary:
+  high_risk_non_verified: 0
+  notes: >-
+    CLEAR for T10 (fact_delta pass). Delta re-adjudication touched CL-08 only:
+    VOICE adopted FACT's v1 suggested softening verbatim ('Usually nobody
+    withholds for you.'), which restores F-DUC-0004's most-not-all scope —
+    v1 qualification discharged, CL-08 now plain verified. FACT re-ran the
+    differ independently (1 hit, matches voice/claim-diff.yaml) and
+    byte-audited all 13 untouched claim texts against voice/nil-reel-v2.md:
+    all intact, old CL-08 wording absent, on-screen DISC-DUC-SHORT-01
+    byte-identical. All nine high-risk claims verified (8) or
+    verified-with-qualification (1: CL-13 disclosure placement conditional
+    on publish). One FOUND claim (CL-14, low-risk texture, unverified —
+    legitimate final state; WRITE to declare from v2 onward per finding F-1).
+    Remaining rider: CL-13's DISC-DUC-01 + DISC-DUC-TAX-01
+    profile/first-comment placement is a publish-gate condition.
+    v1 extraction note preserved: extract_claims.py flagged only 1 candidate
+    on this deliberately hedged script; the manual adversarial sweep is the
+    extraction of record.

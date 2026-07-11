@@ -1,0 +1,68 @@
+# Claim diff — run 2026-07-11-duc-nil-001 — SK-B2 delta duty (emitted by VOICE)
+# Compares drafts/nil-reel-v1.md (fact-checked, ledger v1) -> voice/nil-reel-v2.md
+run: 2026-07-11-duc-nil-001
+old: "drafts/nil-reel-v1.md"
+new: "voice/nil-reel-v2.md"
+ledger: "factcheck/ledger.yaml"   # version 1 (full pass, CLEAR for T7)
+by: VOICE
+at: "2026-07-11"
+
+differ:
+  command: >-
+    python .claude/skills/ev-claim-ledger/scripts/claim_diff.py
+    runs/2026-07-11-duc-nil-001/drafts/nil-reel-v1.md
+    runs/2026-07-11-duc-nil-001/voice/nil-reel-v2.md --json
+  output: '[{"kind": "edited", "old": "Nobody withholds for you.", "new": "Usually nobody withholds for you."}]'
+  hits: 1
+  # Tool-sight control (BEN dropli-001 precedent — a low count is verified,
+  # never assumed): scratch copy of v2 with a planted semantic change
+  # ("business income" -> "salary income") run through the same differ
+  # produces exactly 2 hits (the plant + the real edit). The differ sees the
+  # [TO CAMERA] script format end to end; the 1 above is a real 1.
+
+# NOT an empty diff: one claim sentence was edited, deliberately.
+touches:
+  - cl: CL-08
+    old: "Nobody withholds for you. The full amount lands in your account."
+    new: "Usually nobody withholds for you. The full amount lands in your account."
+    change: >-
+      Fact-anchored softening — adopts the ledger's own CL-08 rider / FACT
+      finding F-3 suggested minimal fix: F-DUC-0004 scopes no-withholding to
+      1099 income ("most NIL payments"), and the universal "Nobody" stretched
+      that scope. "Usually" restores it. Sentence two byte-identical (matches
+      F-DUC-0004 "the full gross amount is paid out" verbatim-grade).
+    differ: "1 hit — 'usually' is a content-word insertion, correctly flagged"
+    disposition: >-
+      Re-enters as fact_delta on CL-08 only (per ledger history note:
+      "any wording change re-enters as a delta"). VOICE maps the hit;
+      cosmetic-vs-semantic and the expected verified re-adjudication are
+      FACT's call, not asserted here.
+
+# "No other factual sentences touched" — CHECKED assertion, not an
+# assumption: differ 1 hit (mapped above) + byte-presence audit of every
+# ledger claim text against v2.
+untouched_claims: [CL-01, CL-02, CL-03, CL-04, CL-05, CL-06, CL-07, CL-09,
+                   CL-10, CL-11, CL-12, CL-13, CL-14]
+# Byte-presence audit result: all 13 literal claim texts present in v2
+# exactly as ledgered (CL-02 and CL-10 are multi-sentence texts — present
+# whole; CL-12's preceding non-claim sentence changed, CL-12 itself intact).
+# CL-07's "generally" hedge untouched — CL-08's context-mitigation argument
+# in the ledger survives, now reinforced rather than relied on.
+# CL-13 / disclosure: on-screen text byte-identical to v1 and to
+# DISC-DUC-SHORT-01 (disclosures.md@1.0.0). Never smoothed. Production-notes
+# block (DISC-DUC-01 + DISC-DUC-TAX-01 routing) byte-identical.
+# CL-14 ("The money showed up. The instructions didn't.") survives voice
+# edit byte-identical — per FACT F-1, WRITE should declare it from v2 onward
+# (declaration-coverage hygiene rides forward with this note).
+
+# Non-claim changes (differ-invisible or marker-line, listed for the record):
+non_claim_changes:
+  - old: "So here's the real shift."
+    new: "Here's the real shift."
+    cl: null      # sentence carries no ledger claim; CL-12 starts next sentence
+    change: "register — throat-clearing 'So' opener dropped (composed / fewer words)"
+    differ: "no hit (changed token 'so' is a stopword — cosmetic by the differ's own classification)"
+  - old: "# NIL reel v1 — 2026-07-11-duc-nil-001"
+    new: "# NIL reel v2 (voice) — 2026-07-11-duc-nil-001"
+    cl: null
+    change: "header metadata; marker line, outside spoken copy and differ scope"

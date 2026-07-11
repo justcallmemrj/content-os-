@@ -1,0 +1,17 @@
+task_id: T-2026-0711-008
+run_id: 2026-07-11-duc-nil-001
+parent_run: null
+project_id: ducat-private-wealth
+cross_project: null
+deliverable: {type: script, format: reel-90s, platform: instagram-reels, spec: "First Ducat trunk run (Wes's direction, in-session 2026-07-11): a fresh 90-second reel script on what NIL money actually is - business income with contracts and taxes attached, not a salary, not free money. FRESH SPOKEN SCRIPT, not a rewrite of the W01-A caption; the catalog is voice/fact reference. Education-first per the curriculum north star: understanding before action - reflection CTA + save prompt, NO lead-gen."}
+objective: education
+audience_ref: audience.md#pre-money
+funnel_stage: awareness
+voice_profile_version: brand-voice.md@1.0.0
+required_fact_ids: [F-DUC-0001, F-DUC-0002]
+disclosure_ids: [DISC-DUC-01]
+prohibited_notes: ["no lead-gen CTA (curriculum north star)", "no sports metaphors applied to money (voice profile)", "no school marks or real-athlete likenesses"]
+asset_manifest_ref: "projects/ducat-private-wealth/assets/manifest.yaml#AST-DUC-SOCIAL-CAPTIONS"
+constraints: {length_words: [170, 200], deadline: null}
+model_tier_escalation: none
+state: done

@@ -611,3 +611,27 @@ contamination 25/0.
 
 Consequence: the 36-caption DUC catalog's fee-only disclosures are now
 permissible — DUC publishing unblocked once Wes merges this PR (H6).
+
+## Session 2026-07-11 (nineteenth) — FIRST DUCAT RUN: H2 APPROVED VERBATIM
+
+**Run 2026-07-11-duc-nil-001** (90s NIL reel script, pre-money audience,
+education-first): full trunk walk, 14 transitions, 8 schema-valid envelopes.
+WRITE 13 claims declared zero-UNVERIFIED → FACT adversarial (14 extracted,
+1 low-risk FOUND, caught the CL-08 universal-quantifier stretch) → VOICE 2
+edits (CL-08 soften; fingerprint 0 violations, kin VX-DUC-0002) → FACT delta
+(CL-08 → verified, untouched claims byte-audited) → COMPL conditional-pass
+(rider-only; lexicon 0 foreign terms) → QA 9.3/10 required 6/6 →
+**H2: Wes approved VERBATIM (initiator wes on T14; locked f311bf0f…; DUC
+edit-distance baseline = 0, matching BEN's).** Done at T15.
+
+Proposals queued: P-2026-0711-007 (DUC golden #1) · -008 (lint/disclosure
+--caption companion input — every compliant short-format tax piece exits 1
+by construction today) · -009 (ratify DUC tone sliders with the five
+Wes-validated register readings — the tranche-1 PROPOSED flag's closure
+path). Riders to publish: full DISC-DUC-01 + TAX-01 in profile/first
+comment; safe-area block at production; caption artifact through
+disclosure_check --tax pre-publish.
+
+Multi-project proof in operation: the loader, lexicon scans (x2), and the
+whole gate chain ran DUC-native with zero BEN bleed — the step-11 promise
+holding under a real run.

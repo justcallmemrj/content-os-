@@ -1,0 +1,89 @@
+# Claim list — SK-B2 declare mode — run 2026-07-11-duc-nil-001
+# Deliverable: drafts/nil-reel-v1.md · Evidence base: approved facts (no packet;
+# work order pins F-DUC-0001/0002; F-DUC-0004 cited from active approved memory)
+# Declared by WRITE while drafting; every stated, implied, numeric, on-screen,
+# and comparative claim ledgered per references/claim-taxonomy.md.
+claims:
+  - id: CL-01
+    text: "Your first NIL check is not a paycheck."
+    location: HOOK
+    risk: medium
+    evidence: "F-DUC-0001"
+    on_screen: false
+  - id: CL-02
+    text: "It's tempting to file it as salary. Money from the school. A reward for playing well. None of that is what this is."
+    location: BEAT ONE
+    risk: medium
+    evidence: "F-DUC-0001"
+    on_screen: false
+    note: "implied negation — not a salary from the school, not scholarship, not free money"
+  - id: CL-03
+    text: "NIL money is payment for the commercial use of your name, image, or likeness."
+    location: BEAT TWO
+    risk: high
+    evidence: "F-DUC-0001"
+    on_screen: false
+  - id: CL-04
+    text: "A company is renting who you are."
+    location: BEAT TWO
+    risk: medium
+    evidence: "F-DUC-0001"
+    on_screen: false
+    note: "licensing-of-identity restatement of the commercial-use definition"
+  - id: CL-05
+    text: "That makes it business income."
+    location: BEAT TWO
+    risk: high
+    evidence: "F-DUC-0001"
+    on_screen: false
+  - id: CL-06
+    text: "There's a contract underneath it."
+    location: BEAT TWO
+    risk: medium
+    evidence: "F-DUC-0001"
+    on_screen: false
+  - id: CL-07
+    text: "And the tax generally isn't taken out before it reaches you."
+    location: BEAT TWO
+    risk: high
+    evidence: "F-DUC-0004"
+    on_screen: false
+    note: "softened with 'generally' per DUC-C5; F-DUC-0004 no-withholding statement"
+  - id: CL-08
+    text: "Nobody withholds for you. The full amount lands in your account."
+    location: BEAT THREE
+    risk: high
+    evidence: "F-DUC-0004"
+    on_screen: false
+  - id: CL-09
+    text: "Part of it may already be owed."
+    location: BEAT THREE
+    risk: high
+    evidence: "F-DUC-0004"
+    on_screen: false
+    note: "softened 'may' — recipient remains responsible for income tax and, generally, self-employment tax"
+  - id: CL-10
+    text: "And the rules are not the same everywhere. They vary by state, by school, by level. They change often."
+    location: BEAT THREE
+    risk: high
+    evidence: "F-DUC-0002"
+    on_screen: false
+  - id: CL-11
+    text: "Your school's compliance office is the first stop before any deal."
+    location: BEAT THREE
+    risk: high
+    evidence: "F-DUC-0002"
+    on_screen: false
+  - id: CL-12
+    text: "You didn't receive free money. You started a small business. The check was just its first sale."
+    location: TURN
+    risk: medium
+    evidence: "F-DUC-0001"
+    on_screen: false
+    note: "business-income reframe; 'small business' framing consistent with the approved W01-A LinkedIn caption"
+  - id: CL-13
+    text: "Educational only. Not advice. See profile for full disclosures."
+    location: "TEXT ON SCREEN (persistent)"
+    risk: high
+    evidence: "DISC-DUC-SHORT-01"
+    on_screen: true

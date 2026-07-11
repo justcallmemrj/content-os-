@@ -1,0 +1,39 @@
+run: 2026-07-11-duc-nil-001
+assembled_at: '2026-07-11T18:09:42+00:00'
+project: ducat-private-wealth
+project_code: DUC
+work_order_sha256: 900ef8d4df4d9aa6e0935ceb3958212eee9294c8c4c718279f38aa717d84103f
+l0:
+- path: global/owner-profile.md
+  sha256: 1d651f4773636c76e38a682388c475d7d2f004140ea04a7c59c338caace5fb7a
+- path: global/general-voice.md
+  sha256: 24cb3184b42b4bf0e8d99974c3d32d9a700c4cb7fe182decb218e5a1c013f8fd
+- path: global/workflow-preferences.md
+  sha256: ae1d14b0133459d071834753812129eb62b90f3de0fd6f14d3f2b6ae940a9031
+- path: global/approval-rules.md
+  sha256: cd3c47d1ec9b99d198fadf42bc91a4290a01152e9ddc83c2198e7f3978c31031
+project_records:
+- path: projects/ducat-private-wealth/project-profile.md
+  sha256: 5969ee4c7fe6dfcbbca2c4f66dd81bd6161a2f0180bd7260e7db63aed7db99c7
+- path: projects/ducat-private-wealth/audience.md
+  sha256: 8ee767e5d5388858f61cdb7c5668c1e9c1eb9d185dc6b9e95f7059ac8786018f
+- path: projects/ducat-private-wealth/brand-voice.md
+  sha256: 579fee85b3f15524fa89e018d90cef27f8c3eebdc4eaa93f6c3c34299a0f2388
+- path: projects/ducat-private-wealth/compliance.md
+  sha256: 0110072152896b60880552669882d3b90dc939044ab494f673edae726272e544
+- path: projects/ducat-private-wealth/disclosures.md
+  sha256: cb81916a95ee8daca2b6cc7e3c5c5647f3c6169222c3a370bc290618f44f37a4
+- path: projects/_shared/ria-compliance-envelope.md
+  sha256: fe8919c2adaebb664974ad5b2eeddefc04f6a7cf84b7d355151c5bc46da5e2c9
+  via: explicit include from compliance.md
+indexes:
+- path: projects/ducat-private-wealth/approved-facts/_index.yaml
+  sha256: 13b07ab8f730a95ecf0381f393b832c23bb7e1292952ae3efaa9a3d586eee61e
+- path: projects/ducat-private-wealth/approved-facts/_claim-keys.yaml
+  sha256: 5669f40fa8ef6c8be7d2dd33a6eaea0ec202363fbf99dff95231edd7312582ef
+- path: projects/ducat-private-wealth/sources/_index.yaml
+  sha256: 618e3f5e0d3dcb77160c17e98737990f0269a0e69ac8588f0d1adc0b88b78954
+cross_project: []
+namespace_assertions:
+  checked: 17
+  violations: []

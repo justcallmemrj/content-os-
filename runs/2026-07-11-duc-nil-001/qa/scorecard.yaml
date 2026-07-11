@@ -1,0 +1,44 @@
+# QA scorecard — run 2026-07-11-duc-nil-001 — RUB-SCRIPT-1 applied by QA
+# First Ducat script through this gate: these scores are the DUC lane baseline.
+# Validators: chain-fed results read where recorded; ledger_validate,
+# duration_check, structure_check, lexicon_scan re-run by QA 2026-07-11.
+# Anchor rationale per dimension: qa/qa-notes.md. No low-confidence scores;
+# all nine dimensions included in the composite.
+run: 2026-07-11-duc-nil-001
+rubric: RUB-SCRIPT-1
+target: voice/nil-reel-v2.md
+required:
+  R1_facts: "pass(ledger v2 blocking_summary CLEAR — high_risk_non_verified: 0; all 9 high-risk claims verified (8) or verified-with-qualification (1: CL-13, publish-placement conditional); QA re-ran ledger_validate --deliverable vs v2: VALID, 0 violations; CL-14 unverified is low-risk texture, legitimate final state)"
+  R2_compliance: "pass(COMPL verdict CONDITIONAL-PASS — no hard-line violation, no material flag against the text as written; lint exit 1 with 2 findings BOTH adjudicated by COMPL as authorized short-format-path residue, explained not waived, carried by blocking publish-gate Rider R1 + minor R2/R3 — rides to H2/H5, not a blocker here; validator has no short-format mode, see O-2)"
+  R3_duration: "pass(duration_check QA-run: 191 spoken words, band 170-200 for reel-90s, ~90s est; VOICE hand-count 190 — tokenizer difference, in-band either way)"
+  R4_disclosure: "pass(DISC-DUC-SHORT-01 byte-verbatim on screen — FACT-audited CL-13 + ledger_validate byte-presence; location statement present; persistent 0:00-end never-spoken spec matches mapping video row; disclosure_check --short-format --tax residue = in-file tax line only, routed to caption by design, carried by Rider R1 blocking at publish)"
+  R5_structure: "pass(structure_check QA-run: 0 findings — beats present, single CTA, timecode + delivery markers on every block)"
+  R6_contamination: "pass(lexicon_scan QA-run: 0 foreign-term hits, exit 0 — no BEN/FRS/TRD/FDR vocabulary; load-bearing for the first live DUC piece)"
+scores:
+  hook: 5
+  clarity: 5
+  flow: 4
+  educational: 5
+  voice: 5
+  cadence: 4
+  platform_fit: 5
+  cta: 4
+  source_quality: 5
+composite: 9.3
+golden_comparison: >-
+  No Ducat golden exists — the goldens registry holds only
+  GOLDEN-BEN-SCRIPT-001 (benowitz-wealth), a different brand register and
+  therefore not a valid voice comparator for a DUC piece; it serves as
+  structural/format precedent only (same rubric, same reel-90s beat
+  architecture). Golden comparison for DUC: none yet. This run is DUC
+  golden candidate #1 — if it clears H2, QA proposes it as the first
+  ducat-private-wealth script-profile golden via proposals/queue/,
+  mirroring how BEN's first run handled the empty registry.
+observations:
+  - "MEMC/publish-checklist HARD: COMPL Rider R1 blocks publish — profile/first comment MUST carry DISC-DUC-01 verbatim AND DISC-DUC-TAX-01, matching the on-screen pointer; same condition as ledger CL-13 qualification (one condition, two ledgers). Rides to H2 with R2 (short block in Reels safe area, legible 0:00-end, verify at H5) and R3 (caption text becomes an on-disk run artifact and passes disclosure_check --tax before H2 sees the package)."
+  - "MEMC/validator-gap: a fully compliant short-format tax piece exits 1 on compliance_lint AND disclosure_check --short-format by design (in-file absence of caption-routed disclosures), so RUB-SCRIPT-1 R2's 'lint clean' is literally unattainable for this deliverable class. Candidate lesson: --caption companion input for the validators, and/or rubric wording distinguishing 'lint clean' from 'lint findings adjudicated as authorized-path residue'. Until closed, R2 needs hand-explanation on every DUC reel — standing instability risk."
+  - "MEMC/rubric-ambiguity CTA: the curriculum-locked pattern (reflection question + save prompt) reads as two imperatives against anchor-1's 'two asks'; QA scored 4 not 5 rather than treating the work-order mandate as a rubric override. If this pattern is permanent, ratify whether a mechanical save prompt counts as an ask (weight/anchor changes are medium-tier lessons)."
+  - "MEMC/calibration: VOICE's five slider-calibration notes for Wes stand (DUC sliders are PROPOSED, not ratified); QA scored against the prose profile + exemplars where sliders diverge (warmth aside kept; median 7 vs target 9 treated as exemplar-consistent, ceiling-shaped). Minor: change-log word count 190 vs duration_check 191 — a canonical counting rule would keep future band-edge calls clean."
+  - "Flow note for the producer, verdict-neutral: BEAT THREE's interior pivot (withholding -> rules variance) is joined by a bare 'And'; a beat of visual punctuation at 1:05 would mark the thread change. Text change not required (would re-enter at fact_check per D5 for zero factual gain)."
+  - "Cadence note for the video machine: 'None of that is what this is.' needs directed emphasis (VOICE's delivery note: beat before 'is what this is') — one spot, no text change."
+verdict: pass

@@ -1,0 +1,24 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 3
+stage:
+  from: fact_check
+  to: voice_edit
+agents:
+  from: FACT
+  to: VOICE
+artifacts:
+- path: factcheck/ledger.yaml
+  sha256: 98fc0b654c8e489e139bb3d1865b0466d4d72d29bef72c7ffc33954007a4e624
+- path: factcheck/findings.md
+  sha256: 8cf6d589993d2bae2917439ad1c1f93f6870466f78d957281cce82e39ea475e7
+skills_used:
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: every verification record-anchored; adversarial extraction of record
+approvals: []
+feedback_ref: null
+escalations: []

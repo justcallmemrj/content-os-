@@ -1,0 +1,22 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 1
+stage:
+  from: brief
+  to: draft
+agents:
+  from: WRITE
+  to: WRITE
+artifacts:
+- path: drafts/brief.md
+  sha256: bcbac85811a7263dc19c00d238aa4a46a42f667014aff541356bc0e81a436ace
+skills_used:
+- id: SK-B3
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: brief complete, claim anchors ratified memory
+approvals: []
+feedback_ref: null
+escalations: []
