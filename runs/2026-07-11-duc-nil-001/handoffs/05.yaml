@@ -1,0 +1,24 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 5
+stage:
+  from: fact_delta
+  to: compliance
+agents:
+  from: FACT
+  to: COMPL
+artifacts:
+- path: factcheck/ledger.yaml
+  sha256: bea764474e95f930657dae761aeab747fe7f7530a021bed78f16e6c6db4b6df1
+- path: voice/nil-reel-v2.md
+  sha256: f311bf0f53131d7742420916a7145daf3d2655f9dd60ae69f92add2b1eec6a5e
+skills_used:
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: delta scoped to CL-08, independently differ-verified
+approvals: []
+feedback_ref: null
+escalations: []

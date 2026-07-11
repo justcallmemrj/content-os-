@@ -1,0 +1,24 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 7
+stage:
+  from: qa
+  to: manager_review
+agents:
+  from: QA
+  to: ORCH
+artifacts:
+- path: qa/scorecard.yaml
+  sha256: 4e4515df977463b61360a308b73824dcd1509cf0a648cdcac14934059ebf73dc
+- path: qa/qa-notes.md
+  sha256: 2c95a2ebac699ee60f1147e03574b80ea6f57df13681c2aac150be5c94e08380
+skills_used:
+- id: SK-B18
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: anchors held against DUC register; first-baseline honesty stated
+approvals: []
+feedback_ref: null
+escalations: []

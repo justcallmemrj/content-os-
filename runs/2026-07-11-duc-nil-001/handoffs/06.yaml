@@ -1,0 +1,24 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 6
+stage:
+  from: compliance
+  to: qa
+agents:
+  from: COMPL
+  to: QA
+artifacts:
+- path: compliance/report.md
+  sha256: 6b76f3bb79d9fbdb0aa3636a0be09d4fa51ccffd55ea7964b1ae78e86e99fc82
+skills_used:
+- id: SK-B14
+  version: 1.0.0
+- id: SK-B15
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: deterministic tier + judgment tier both run; riders enumerated
+approvals: []
+feedback_ref: null
+escalations: []

@@ -1,0 +1,28 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 4
+stage:
+  from: voice_edit
+  to: fact_delta
+agents:
+  from: VOICE
+  to: FACT
+artifacts:
+- path: voice/nil-reel-v2.md
+  sha256: f311bf0f53131d7742420916a7145daf3d2655f9dd60ae69f92add2b1eec6a5e
+- path: voice/change-log.md
+  sha256: 17a12742c7d364c1c6648133b4807d28193c5438f6b362bc2090e64966af94d0
+- path: voice/claim-diff.yaml
+  sha256: f86dddc397ac05eca11701022556efed0e23ec8b31afa81c4c9a6f3f8889951b
+skills_used:
+- id: SK-B9
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: 2 edits, differ control-verified, disclosure byte-locked
+approvals: []
+feedback_ref: null
+escalations: []

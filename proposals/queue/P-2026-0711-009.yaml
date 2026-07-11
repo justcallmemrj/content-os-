@@ -1,0 +1,27 @@
+id: P-2026-0711-009
+run: 2026-07-11-duc-nil-001
+origin_agent: VOICE
+type: other
+target: projects/ducat-private-wealth/brand-voice.md#tone
+payload:
+  proposal: "ratify the DUC tone sliders (warmth 2, formality 3, directness 5,
+    humor 1, urgency 1) WITH the five register readings Wes's verbatim H2
+    approval just validated: (1) 'Usually' over 'Generally' at formality 3;
+    (2) earned intensifiers permitted ('the real shift'); (3) audience-aside
+    warmth may flex to ~3 for pre-money family framing; (4) direct-challenge
+    CTA at directness 5 stands; (5) sentence-median 9 is a ceiling-shaped
+    guide, not a target (this piece ran median 7, exemplar-consistent)"
+  evidence: "sliders were PROPOSED (derived, not ratified) since tranche 1;
+    VX-DUC-0001..0010 + this verbatim approval are the calibration set the
+    flag has been waiting for"
+rationale: 'First DUC voice pass completed with zero escalations and a verbatim
+  H2; the five close calls are now Wes-validated data, not guesses.'
+consequence_class: consequential
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null

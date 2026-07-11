@@ -1,0 +1,30 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 2
+stage:
+  from: draft
+  to: fact_check
+agents:
+  from: WRITE
+  to: FACT
+artifacts:
+- path: drafts/nil-reel-v1.md
+  sha256: a3980b29ba28f7fb33c8d7386d42e74a3228c027fb002807973c3da108d08257
+- path: drafts/claim-list.yaml
+  sha256: 67ac9b2992df1a22a1e659f40fc02cdd564f60820219388b3642d9ad7f201cee
+- path: drafts/hooks.md
+  sha256: 05287be3c97ddd5e2fd2a0dbe501febd8398aa30967365ca4b0f9eea35b93f54
+- path: drafts/interventions.md
+  sha256: 9f352d75c24cb4dea6c54f40633fe9f6daafcc8586917c5463e37f8bbe40d0fc
+skills_used:
+- id: SK-B3
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: 13 claims declared zero UNVERIFIED, both deterministic checks pass
+approvals: []
+feedback_ref: null
+escalations: []

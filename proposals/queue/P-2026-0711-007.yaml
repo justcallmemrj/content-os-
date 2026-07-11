@@ -1,0 +1,21 @@
+id: P-2026-0711-007
+run: 2026-07-11-duc-nil-001
+origin_agent: QA
+type: exemplar
+target: evaluations/goldens/ducat-private-wealth/script/
+payload:
+  golden_candidate: runs/2026-07-11-duc-nil-001/voice/nil-reel-v2.md
+  sha256: f311bf0f53131d7742420916a7145daf3d2655f9dd60ae69f92add2b1eec6a5e
+  scorecard: runs/2026-07-11-duc-nil-001/qa/scorecard.yaml
+  h2: approved verbatim 2026-07-11 (edit distance 0)
+rationale: 'First H2-approved Ducat output, approved verbatim - DUC golden #1 and
+  the DUC edit-distance baseline (mirrors GOLDEN-BEN-SCRIPT-001 / P-2026-0710-001).'
+consequence_class: consequential
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null

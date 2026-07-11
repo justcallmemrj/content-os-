@@ -1,0 +1,24 @@
+id: P-2026-0711-008
+run: 2026-07-11-duc-nil-001
+origin_agent: COMPL
+type: other
+target: validators/compliance_lint.py + co-disclosure-management/scripts/disclosure_check.py
+payload:
+  problem: "the deterministic tier has no short-format awareness: every COMPLIANT
+    short-format tax piece (the designed DUC reel pattern) exits 1 on both tools
+    by construction (ENV-4 + TAX-referral fire on the deliverable because the
+    full texts ride the caption/profile), forcing hand-explanation at every gate"
+  candidate_fix: "a --caption companion-file input: the tools evaluate deliverable
+    + caption as the published unit; short-format conditions (SHORT-01 verbatim +
+    location statement + full texts in companion) become deterministically checkable"
+rationale: 'COMPL observation O1 from the first DUC run, endorsed by QA (observation
+  2): R2 "lint clean" is unattainable for this deliverable class as tooled.'
+consequence_class: low-risk
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null

@@ -1,0 +1,22 @@
+run_id: 2026-07-11-duc-nil-001
+seq: 8
+stage:
+  from: human_review
+  to: approved
+agents:
+  from: wes
+  to: ORCH
+artifacts:
+- path: voice/nil-reel-v2.md
+  sha256: f311bf0f53131d7742420916a7145daf3d2655f9dd60ae69f92add2b1eec6a5e
+skills_used:
+- id: SK-A2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: H2 verbatim, initiator wes on T14, text locked f311bf0f
+approvals: []
+feedback_ref: null
+escalations: []
