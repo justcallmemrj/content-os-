@@ -1,0 +1,32 @@
+manifest_id: HF-2026-0710-01
+run_id: 2026-07-10-ben-dropvid-001
+engine: hyperframes
+engine_version: 0.7.49
+upstream_pin: 6152437d2a5c2c05e51b43d53f0f6cb6acdd9a79
+storyboard:
+  path: runs/2026-07-10-ben-dropvid-001/storyboard/storyboard.yaml
+  sha256: 0ad0d26d2331e56a4ee039a3c05a685d7744cb1089ba41c080214094fa682abf
+composition:
+- path: video/hyperframes/benowitz-wealth/drop-reel/index.html
+  sha256: 24ad26401d83c85fa5ccf8fcc22370e93806f607aa548dda04ef28439afc4a1d
+settings:
+  resolution: 1080x1920
+  fps: 30.0
+  duration_s: 90.0
+  aspect_ratio: '9:16'
+  preset: reels-local-v1
+inputs:
+- path: video/hyperframes/benowitz-wealth/drop-reel/tokens.css
+  sha256: 319f905bd0b413b277dafc4d4c12fc47c642e992f8ee6a86472f1f6aa517a7b7
+output:
+  path: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/drop-reel.mp4
+  sha256: e26f4e39f13a80a5e6aad4fee60ae57dae44a26ea60f68107f55a199e98b0493
+  duration_s: 90.0
+  size_bytes: 4351500
+environment:
+  node: 24.16.0
+  ffmpeg: 8.1.1-full_build-www.gyan.dev
+  os: Windows 11 10.0.26200
+rendered_at: '2026-07-11T01:55:21+00:00'
+cloud_render: false
+notes: 'deviations: zero'

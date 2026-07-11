@@ -25,6 +25,8 @@ ROUTES = [
     (re.compile(r"runs/[^/]+/research/RP-[^/]+\.ya?ml$"), "research-packet"),
     (re.compile(r"runs/[^/]+/factcheck/ledger.*\.ya?ml$"), "claim-ledger"),
     (re.compile(r"runs/[^/]+/qa/scorecard.*\.ya?ml$"), "scorecard"),
+    (re.compile(r"runs/[^/]+/storyboard/storyboard\.ya?ml$"), "storyboard"),
+    (re.compile(r"video/[^/]+/.+/renders/.+/manifest\.ya?ml$"), "render-manifest"),
     (re.compile(r"proposals/(queue|resolved)/P-[^/]+\.ya?ml$"), "memory-proposal"),
     (re.compile(r"projects/[^/]+/approved-facts/F-[^/]+\.md$"), "fact-record"),
     (re.compile(r"projects/[^/]+/sources/S-[^/]+\.md$"), "source-record"),

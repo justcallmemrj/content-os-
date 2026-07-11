@@ -1,0 +1,32 @@
+run_id: 2026-07-10-ben-dropvid-001
+seq: 4
+stage:
+  from: preview_review
+  to: render
+agents:
+  from: VDIR
+  to: HYPF
+artifacts:
+- path: video/hyperframes/benowitz-wealth/drop-reel/previews/preview-v1.mp4
+  sha256: d6469a4eb2498d6acc31ebcfd30aeafe2468725d064fc2500fd3284cf443e817
+- path: runs/2026-07-10-ben-dropvid-001/storyboard/storyboard.yaml
+  sha256: 0ad0d26d2331e56a4ee039a3c05a685d7744cb1089ba41c080214094fa682abf
+skills_used:
+- id: SK-B16
+  version: 1.0.0
+- id: SK-C3
+  version: 1.0.0
+gate_results:
+- gate: G-R
+  pass: true
+  detail: "VDIR preview review: 12 frames vs storyboard scene-by-scene, 7/7 scenes pass; verdict RENDER; zero text/timing deviations"
+concerns:
+- "SC-03 transient envelope/caption overlap 15.4-17.0s: readability preserved, logged as polish for any rebuild (start drift >=16.2s)"
+- "motion feel judged at medium confidence from static draft frames - the residue H5's human viewing covers"
+- "font-fidelity note: brand faces not installed; if Wes wants them, install is a proposal and the render re-versions after ratification"
+confidence:
+  value: high
+  basis: "12/12 frames consistent with authored timing; deterministic gates green (29/29 verbatim, 0 safe-area, 90.000s/2700 frames)"
+approvals: []
+feedback_ref: null
+escalations: []

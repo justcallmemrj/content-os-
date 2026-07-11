@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>drop-reel</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      /* ============================================================
+         drop-reel — 2026-07-10-ben-dropvid-001 (V4 build, HYPF)
+         Monolithic composition (hyperframes-core contract): silent
+         9:16 caption-led reel. Scene backgrounds cut on the marker
+         grid (track 1); captions flow at reading pace (track 2);
+         persistent disclosure (track 3). All on-screen text is
+         INJECTED from the storyboard YAMLs by scripts/inject_text.py
+         between the HF-INJECT sentinels — never edited by hand.
+         ============================================================ */
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #000; }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--brand-navy);
+      }
+
+      .clip { position: absolute; inset: 0; }
+
+      /* ---------- safe-area + caption zones (wrapper-rules §2) ---------- */
+      .hf-safe {
+        position: absolute;
+        top: var(--safe-top);
+        bottom: var(--safe-bottom);
+        left: var(--safe-x);
+        right: var(--safe-x);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .zone-upper    { justify-content: flex-start; padding-top: 110px; }
+      .zone-upperlow { justify-content: flex-start; padding-top: 330px; }
+      .zone-lower    { justify-content: flex-end;  padding-bottom: 175px; }
+
+      /* ---------- caption system (visual-brief: type IS the delivery) --- */
+      .cap { z-index: 20; }
+      .cap-card {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 46px;
+        line-height: 1.3;
+        color: var(--paper-cream);
+        text-align: center;
+        white-space: pre-line;      /* renders the storyboard's authored \n */
+        max-width: 100%;
+        letter-spacing: 0.01em;
+      }
+      .rollcall {
+        font-family: var(--font-ui);
+        text-transform: uppercase;  /* styling only — source text untouched */
+        font-weight: 600;
+        font-size: 40px;
+        letter-spacing: 0.12em;
+        line-height: 1.55;
+      }
+      .beat-xl { font-size: 84px; font-weight: 600; line-height: 1.15; }
+      .ink     { color: var(--ink); }
+      .rider   {
+        font-family: var(--font-ui);
+        font-weight: 400;
+        font-size: 33px;
+        line-height: 1.4;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+      }
+      /* gold hairline under the "as a single check." line (styling only) */
+      .u-gold { border-bottom: 3px solid var(--brand-gold); padding-bottom: 5px; }
+      /* gold accent on the word "runway." (SC-06 sits on paper -> deep gold
+         for >=3:1 large-text contrast; emphasis is color only, no scale) */
+      .au-gold { color: var(--gold-deep); }
+
+      /* ---------- disclosure band (wrapper-rules §3 / SK-B15) ----------- */
+      .disc { z-index: 30; }
+      .disc-band {
+        position: absolute;
+        bottom: 0;                  /* bottom of hf-safe = above --safe-bottom */
+        left: 0;
+        right: 0;
+        background: var(--scrim);   /* scrim token: >=4.5:1 on every backdrop */
+        border-radius: 10px;
+        padding: 20px 30px;
+        font-family: var(--font-ui);
+        font-weight: 500;
+        font-size: 27px;            /* >= 26px minimum at 1080-wide */
+        line-height: 1.45;
+        color: var(--paper-cream);
+        text-align: center;
+        white-space: pre-line;
+        letter-spacing: 0.02em;
+      }
+
+      /* ---------- scene fields (track 1) ---------- */
+      .scene { z-index: 1; }
+      #sc-01 { background: var(--brand-navy); }
+      #sc-02 { background: var(--brand-navy-dark); }
+      #sc-03 { background: var(--brand-navy); }
+      #sc-04 { background: var(--brand-navy); }
+      #sc-05 { background: var(--brand-navy); }
+      #sc-06 { background: var(--paper); }
+      #sc-07 { background: var(--paper-warm); }
+
+      /* SC-01: barely-visible paper-grain vignette */
+      #sc01-vig {
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(ellipse 90% 60% at 50% 42%, rgba(251, 247, 238, 0.05), transparent 65%),
+          radial-gradient(ellipse 140% 110% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.28) 100%);
+      }
+
+      /* SC-02: gold-rule vertical wipe + exit rule (match-cut seed) */
+      #sc02-wipe {
+        position: absolute; top: 0; left: 0;
+        width: 100%; height: 8px;
+        background: var(--brand-gold);
+        transform: translateY(-40px);
+      }
+      #sc02-rule {
+        position: absolute; top: 748px; left: 300px;
+        width: 480px; height: 4px;
+        background: var(--brand-gold);
+        opacity: 0;
+      }
+
+      /* SC-03: envelope beat — gold line-work over a paper-tone table plane */
+      #sc03-table {
+        position: absolute; left: 0; right: 0; top: 1360px; bottom: 0;
+        background: linear-gradient(to bottom, var(--paper-cream), var(--paper-warm));
+      }
+      #sc03-envelope { position: absolute; left: 300px; top: 700px; }
+      #sc03-envelope .env-stroke { fill: none; stroke: var(--brand-gold); stroke-width: 4; }
+      #sc03-envelope .env-edge   { stroke: var(--brand-gold); stroke-width: 6; }
+      /* split visuals flank the envelope in the middle third — kept clear
+         of the disclosure band's region (nothing may crowd or occlude it) */
+      #sc03-pulse {
+        position: absolute; left: 80px; top: 1240px;
+        width: 200px; height: 6px; border-radius: 3px;
+        background: var(--brand-gold);
+        transform-origin: left center;
+        opacity: 0;
+      }
+      #sc03-lump {
+        position: absolute; left: 830px; top: 1180px;
+        width: 96px; height: 96px; border-radius: 8px;
+        background: var(--brand-navy-soft);
+        border: 4px solid var(--brand-gold);
+        opacity: 0;
+      }
+
+      /* SC-04: income-stack beat — neutral blocks, gold top block shears */
+      /* stack sits between the caption zone and the disclosure band —
+         bottom block clears the band's top edge (~1482px) */
+      .sc04-block {
+        position: absolute; left: 280px;
+        width: 520px; height: 72px; border-radius: 10px;
+        opacity: 0;
+      }
+      #sc04-b1 { top: 1380px; background: var(--paper-cream); }
+      #sc04-b2 { top: 1300px; background: var(--paper-warm); }
+      #sc04-b3 { top: 1220px; background: var(--paper-cream); }
+      #sc04-b4 { top: 1140px; background: var(--paper-warm); }
+      #sc04-b5 { top: 1060px; background: var(--brand-gold); }
+
+      /* SC-05: rollover route — one unbroken gold line, trustee to trustee */
+      #sc05-art { position: absolute; inset: 0; width: 100%; height: 100%; }
+      #sc05-art .vessel { fill: var(--brand-navy-soft); stroke: var(--brand-gold); stroke-width: 3; opacity: 0; }
+      #sc05-route {
+        stroke: var(--brand-gold); stroke-width: 5; stroke-linecap: round;
+        stroke-dasharray: 440; stroke-dashoffset: 440;
+      }
+      #sc05-dot {
+        position: absolute; left: 746px; top: 1256px;
+        width: 28px; height: 28px; border-radius: 50%;
+        background: var(--brand-gold);
+        transform: scale(0);
+      }
+
+      /* SC-07: CTA end-card hairline (no wordmark text — see BUILD-NOTE) */
+      #sc07-rule {
+        position: absolute; left: 380px; top: 620px;
+        width: 320px; height: 3px;
+        background: var(--gold-deep);
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="drop-reel"
+      data-width="1080"
+      data-height="1920"
+      data-start="0"
+      data-duration="90"
+      data-fps="30"
+    >
+      <!-- ============ track 1: scene fields (cut on the marker grid) ============ -->
+      <section id="sc-01" class="clip scene" data-start="0" data-duration="5" data-track-index="1">
+        <div id="sc01-vig"></div>
+      </section>
+
+      <section id="sc-02" class="clip scene" data-start="5" data-duration="10" data-track-index="1">
+        <div id="sc02-rule"></div>
+        <div id="sc02-wipe"></div>
+      </section>
+
+      <section id="sc-03" class="clip scene" data-start="15" data-duration="20" data-track-index="1">
+        <div id="sc03-table"></div>
+        <svg id="sc03-envelope" width="480" height="340" viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg">
+          <rect class="env-stroke" x="10" y="50" width="460" height="280" rx="12"></rect>
+          <line class="env-edge" x1="10" y1="50" x2="470" y2="50"></line>
+          <polyline class="env-stroke" points="10,54 240,205 470,54"></polyline>
+        </svg>
+        <div id="sc03-pulse"></div>
+        <div id="sc03-lump"></div>
+      </section>
+
+      <section id="sc-04" class="clip scene" data-start="35" data-duration="20" data-track-index="1">
+        <div id="sc04-b1" class="sc04-block"></div>
+        <div id="sc04-b2" class="sc04-block"></div>
+        <div id="sc04-b3" class="sc04-block"></div>
+        <div id="sc04-b4" class="sc04-block"></div>
+        <div id="sc04-b5" class="sc04-block"></div>
+      </section>
+
+      <section id="sc-05" class="clip scene" data-start="55" data-duration="20" data-track-index="1">
+        <svg id="sc05-art" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+          <rect id="sc05-v1" class="vessel" x="120" y="1150" width="200" height="240" rx="18"></rect>
+          <rect id="sc05-v2" class="vessel" x="760" y="1150" width="200" height="240" rx="18"></rect>
+          <line id="sc05-route" x1="320" y1="1270" x2="760" y2="1270"></line>
+        </svg>
+        <div id="sc05-dot"></div>
+      </section>
+
+      <section id="sc-06" class="clip scene" data-start="75" data-duration="10" data-track-index="1"></section>
+
+      <section id="sc-07" class="clip scene" data-start="85" data-duration="5" data-track-index="1">
+        <div id="sc07-rule"></div>
+      </section>
+
+      <!-- ============ tracks 2 + 3: captions + disclosure ============
+           GENERATED by scripts/inject_text.py from the storyboard YAMLs.
+           Do not edit between the sentinels — rerun the script instead. -->
+      <!-- HF-INJECT:CAPTIONS:BEGIN -->
+      <div id="clip-CAP-01" class="clip cap" data-start="0" data-duration="2.9" data-track-index="2">
+        <div class="hf-safe zone-upper">
+          <div id="card-CAP-01" class="cap-card" data-text-id="CAP-01">Your DROP payout arrives
+<span class="u-gold">as a single check.</span></div>
+        </div>
+      </div>
+      <div id="clip-CAP-02" class="clip cap" data-start="2.9" data-duration="2.3" data-track-index="2">
+        <div class="hf-safe zone-upper">
+          <div id="card-CAP-02" class="cap-card" data-text-id="CAP-02">It comes with a decision attached.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-03" class="clip cap" data-start="5.2" data-duration="3" data-track-index="2">
+        <div class="hf-safe zone-upper">
+          <div id="card-CAP-03" class="cap-card" data-text-id="CAP-03">Most members never hear it
+called a decision.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-04" class="clip cap" data-start="8.2" data-duration="3.1" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-04" class="cap-card rollcall" data-text-id="CAP-04">Teachers, deputies, firefighters,
+state staff:</div>
+        </div>
+      </div>
+      <div id="clip-CAP-05" class="clip cap" data-start="11.3" data-duration="3.7" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-05" class="cap-card" data-text-id="CAP-05">if you're in DROP, it ends
+on a date you already know.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-06" class="clip cap" data-start="15" data-duration="1.2" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-06" class="cap-card beat-xl" data-text-id="CAP-06">The rule is hard.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-07" class="clip cap" data-start="16.2" data-duration="4.1" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-07" class="cap-card" data-text-id="CAP-07">You must leave FRS-covered work
+for that balance to pay out.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-08" class="clip cap" data-start="20.3" data-duration="2.9" data-track-index="2">
+        <div class="hf-safe zone-upperlow">
+          <div id="card-CAP-08" class="cap-card" data-text-id="CAP-08">Most members picture a payday.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-09" class="clip cap" data-start="23.2" data-duration="2.4" data-track-index="2">
+        <div class="hf-safe zone-upperlow">
+          <div id="card-CAP-09" class="cap-card" data-text-id="CAP-09">Half of that is right.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-10" class="clip cap" data-start="25.6" data-duration="3.8" data-track-index="2">
+        <div class="hf-safe zone-upperlow">
+          <div id="card-CAP-10" class="cap-card" data-text-id="CAP-10">Your monthly pension turns on by itself.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-11" class="clip cap" data-start="29.4" data-duration="2.2" data-track-index="2">
+        <div class="hf-safe zone-upperlow">
+          <div id="card-CAP-11" class="cap-card" data-text-id="CAP-11">The lump sum doesn't.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-12" class="clip cap" data-start="31.6" data-duration="3.2" data-track-index="2">
+        <div class="hf-safe zone-upperlow">
+          <div id="card-CAP-12" class="cap-card" data-text-id="CAP-12">It waits for your instruction.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-13" class="clip cap" data-start="35" data-duration="3.4" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-13" class="cap-card" data-text-id="CAP-13">Here's the part that rarely comes up.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-14" class="clip cap" data-start="38.4" data-duration="4.3" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-14" class="cap-card" data-text-id="CAP-14">Cash gets taxed as that year's
+ordinary income,</div>
+        </div>
+      </div>
+      <div id="clip-CAP-15" class="clip cap" data-start="42.7" data-duration="3.3" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-15" class="cap-card" data-text-id="CAP-15">stacked on everything else you earn.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-16" class="clip cap" data-start="46" data-duration="6.9" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-16" class="cap-card" data-text-id="CAP-16">Any payout sent to you directly has
+twenty percent withheld for federal tax.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-17" class="clip cap" data-start="55" data-duration="3.2" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-17" class="cap-card" data-text-id="CAP-17">A direct rollover is the other route.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-18" class="clip cap" data-start="58.2" data-duration="6.2" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-18" class="cap-card" data-text-id="CAP-18">The money moves trustee to trustee
+into an IRA or another qualified plan,</div>
+        </div>
+      </div>
+      <div id="clip-CAP-19" class="clip cap" data-start="64.4" data-duration="3.1" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-19" class="cap-card" data-text-id="CAP-19">nothing withheld, still tax-deferred.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-20" class="clip cap" data-start="67.5" data-duration="2.2" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-20" class="cap-card" data-text-id="CAP-20">The timing becomes yours.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-21" class="clip cap" data-start="69.7" data-duration="2.1" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-21" class="cap-card" data-text-id="CAP-21">But that's not the real question.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-22" class="clip cap" data-start="71.8" data-duration="3.4" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-22" class="cap-card" data-text-id="CAP-22">Choose cash, and it's taxed
+in the year it pays out.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-23" class="clip cap" data-start="75.2" data-duration="1.9" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-23" class="cap-card ink" data-text-id="CAP-23">You can see that year coming.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-24" class="clip cap" data-start="77.1" data-duration="1.4" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-24" class="cap-card beat-xl ink" data-text-id="CAP-24">That's not a deadline.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-25" class="clip cap" data-start="78.5" data-duration="0.9" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-25" class="cap-card beat-xl ink" data-text-id="CAP-25">That's <span class="au-gold">runway.</span></div>
+        </div>
+      </div>
+      <div id="clip-CAP-26" class="clip cap" data-start="79.4" data-duration="3.8" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-26" class="cap-card ink" data-text-id="CAP-26">Our free DROP Exit webinar
+walks through the whole decision.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-27" class="clip cap" data-start="83.2" data-duration="2.3" data-track-index="2">
+        <div class="hf-safe zone-center">
+          <div id="card-CAP-27" class="cap-card ink" data-text-id="CAP-27">Register at the link in our profile.</div>
+        </div>
+      </div>
+      <div id="clip-CAP-28" class="clip cap" data-start="85.5" data-duration="4.5" data-track-index="2">
+        <div class="hf-safe zone-lower">
+          <div id="card-CAP-28" class="cap-card rider" data-text-id="CAP-28">Consult a qualified tax professional
+regarding your specific situation.</div>
+        </div>
+      </div>
+      <div id="clip-disc" class="clip disc" data-start="5" data-duration="85" data-track-index="3">
+        <div class="hf-safe">
+          <div id="disc-band" class="disc-band" data-text-id="DISC-BEN-FRS-01">Educational only. Not advice. Not affiliated with FRS.
+Full disclosures in profile.</div>
+        </div>
+      </div>
+      <!-- HF-INJECT:CAPTIONS:END -->
+    </div>
+
+    <!-- caption timing data — GENERATED by scripts/inject_text.py -->
+    <!-- HF-INJECT:TIMING:BEGIN -->
+    <script type="application/json" id="hf-cap-timing">
+[
+  {
+    "id": "CAP-01",
+    "start": 0.0,
+    "end": 2.9
+  },
+  {
+    "id": "CAP-02",
+    "start": 2.9,
+    "end": 5.2
+  },
+  {
+    "id": "CAP-03",
+    "start": 5.2,
+    "end": 8.2
+  },
+  {
+    "id": "CAP-04",
+    "start": 8.2,
+    "end": 11.3
+  },
+  {
+    "id": "CAP-05",
+    "start": 11.3,
+    "end": 15.0
+  },
+  {
+    "id": "CAP-06",
+    "start": 15.0,
+    "end": 16.2
+  },
+  {
+    "id": "CAP-07",
+    "start": 16.2,
+    "end": 20.3
+  },
+  {
+    "id": "CAP-08",
+    "start": 20.3,
+    "end": 23.2
+  },
+  {
+    "id": "CAP-09",
+    "start": 23.2,
+    "end": 25.6
+  },
+  {
+    "id": "CAP-10",
+    "start": 25.6,
+    "end": 29.4
+  },
+  {
+    "id": "CAP-11",
+    "start": 29.4,
+    "end": 31.6
+  },
+  {
+    "id": "CAP-12",
+    "start": 31.6,
+    "end": 34.8
+  },
+  {
+    "id": "CAP-13",
+    "start": 35.0,
+    "end": 38.4
+  },
+  {
+    "id": "CAP-14",
+    "start": 38.4,
+    "end": 42.7
+  },
+  {
+    "id": "CAP-15",
+    "start": 42.7,
+    "end": 46.0
+  },
+  {
+    "id": "CAP-16",
+    "start": 46.0,
+    "end": 52.9
+  },
+  {
+    "id": "CAP-17",
+    "start": 55.0,
+    "end": 58.2
+  },
+  {
+    "id": "CAP-18",
+    "start": 58.2,
+    "end": 64.4
+  },
+  {
+    "id": "CAP-19",
+    "start": 64.4,
+    "end": 67.5
+  },
+  {
+    "id": "CAP-20",
+    "start": 67.5,
+    "end": 69.7
+  },
+  {
+    "id": "CAP-21",
+    "start": 69.7,
+    "end": 71.8
+  },
+  {
+    "id": "CAP-22",
+    "start": 71.8,
+    "end": 75.2
+  },
+  {
+    "id": "CAP-23",
+    "start": 75.2,
+    "end": 77.1
+  },
+  {
+    "id": "CAP-24",
+    "start": 77.1,
+    "end": 78.5
+  },
+  {
+    "id": "CAP-25",
+    "start": 78.5,
+    "end": 79.4
+  },
+  {
+    "id": "CAP-26",
+    "start": 79.4,
+    "end": 83.2
+  },
+  {
+    "id": "CAP-27",
+    "start": 83.2,
+    "end": 85.5
+  },
+  {
+    "id": "CAP-28",
+    "start": 85.5,
+    "end": 90.0
+  }
+]
+    </script>
+    <!-- HF-INJECT:TIMING:END -->
+
+    <script>
+      /* Single paused timeline, built synchronously, keyed to the root
+         data-composition-id (hyperframes-core determinism contract). */
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* Brand tokens consumed via tokens.css custom properties only. */
+      const cssVar = (name) =>
+        getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+      const INK = cssVar("--ink");
+
+      /* ---------- caption track (data injected from captions.yaml) ----------
+         Enter: 150ms fade/rise (8px). Exit: 100ms fade. No bounces, no
+         per-word karaoke (visual-brief caption system). */
+      const capTiming = JSON.parse(
+        document.getElementById("hf-cap-timing").textContent
+      );
+      for (const c of capTiming) {
+        const sel = "#card-" + c.id;
+        tl.fromTo(
+          sel,
+          { opacity: 0, y: 8 },
+          { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" },
+          c.start
+        );
+        if (c.end < 89.95) {
+          tl.to(sel, { opacity: 0, duration: 0.1 }, c.end - 0.1);
+        }
+        /* Captions that ride across the 75s navy->paper inversion swap to
+           ink at the cut so they stay readable on both fields. */
+        if (c.start < 75 && c.end > 75 && INK) {
+          tl.set(sel, { color: INK }, 75);
+        }
+      }
+
+      /* ---------- disclosure: enters 5.0s, persists to 90.0s ---------- */
+      tl.fromTo(
+        "#disc-band",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.15, ease: "power1.out" },
+        5.0
+      );
+
+      /* ---------- SC-02 (5-15): gold-rule vertical wipe in; exit rule ---------- */
+      tl.fromTo(
+        "#sc02-wipe",
+        { y: -40 },
+        { y: 1980, duration: 0.3, ease: "power2.inOut" },
+        5.0
+      );
+      tl.fromTo(
+        "#sc02-rule",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power1.out" },
+        14.6
+      );
+
+      /* ---------- SC-03 (15-35): envelope drifts down, lands ~17s;
+         pension pulse animates on by itself, lump sum holds still ---------- */
+      tl.fromTo(
+        "#sc03-envelope",
+        { y: 0 },
+        { y: 320, duration: 1.6, ease: "power1.inOut" },
+        15.4
+      );
+      tl.to("#sc03-envelope", { y: 312, duration: 0.12, ease: "power1.out" }, 17.0);
+      tl.to("#sc03-envelope", { y: 320, duration: 0.14, ease: "power1.in" }, 17.12);
+      tl.fromTo(
+        "#sc03-pulse",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power1.out" },
+        18.0
+      );
+      /* steady pulse — finite repeat count (determinism: no repeat: -1).
+         cycle 1.2s over the 18.0-33.6 window -> repeat: 12 (13 iterations). */
+      tl.fromTo(
+        "#sc03-pulse",
+        { scaleX: 0.15 },
+        { scaleX: 1, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 12 },
+        18.0
+      );
+      tl.fromTo(
+        "#sc03-lump",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power1.out" },
+        18.4
+      );
+
+      /* ---------- SC-04 (35-55): blocks stack; gold top block shears away
+         on the withholding sentence (CAP-16) ---------- */
+      const stack = [
+        ["#sc04-b1", 38.6],
+        ["#sc04-b2", 40.4],
+        ["#sc04-b3", 42.2],
+        ["#sc04-b4", 44.0],
+        ["#sc04-b5", 45.4],
+      ];
+      for (const [sel, at] of stack) {
+        tl.fromTo(
+          sel,
+          { y: -420, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+          at
+        );
+      }
+      tl.to(
+        "#sc04-b5",
+        { x: 760, y: -60, rotation: 9, opacity: 0, duration: 2.2, ease: "power2.in" },
+        46.8
+      );
+
+      /* ---------- SC-05 (55-75): one unbroken gold line, trustee to
+         trustee; resolves to a still point; calm from ~69.7s ---------- */
+      tl.fromTo("#sc05-v1", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 55.2);
+      tl.fromTo("#sc05-v2", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 55.4);
+      tl.fromTo(
+        "#sc05-route",
+        { strokeDashoffset: 440 },
+        { strokeDashoffset: 0, duration: 6.0, ease: "power1.inOut" },
+        58.2
+      );
+      tl.fromTo(
+        "#sc05-dot",
+        { scale: 0 },
+        { scale: 1, duration: 0.3, ease: "power2.out" },
+        64.2
+      );
+      tl.to("#sc05-route", { opacity: 0.35, duration: 1.0, ease: "power1.inOut" }, 73.5);
+
+      /* ---------- SC-07 (85-90): CTA end-card hairline ---------- */
+      tl.fromTo(
+        "#sc07-rule",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power1.out" },
+        85.3
+      );
+
+      window.__timelines["drop-reel"] = tl;
+    </script>
+  </body>
+</html>

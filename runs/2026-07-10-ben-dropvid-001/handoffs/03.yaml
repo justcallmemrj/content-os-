@@ -1,0 +1,42 @@
+run_id: 2026-07-10-ben-dropvid-001
+seq: 3
+stage:
+  from: build
+  to: preview_review
+agents:
+  from: HYPF
+  to: VDIR
+artifacts:
+- path: video/hyperframes/benowitz-wealth/drop-reel/index.html
+  sha256: 24ad26401d83c85fa5ccf8fcc22370e93806f607aa548dda04ef28439afc4a1d
+- path: video/hyperframes/benowitz-wealth/drop-reel/tokens.css
+  sha256: 319f905bd0b413b277dafc4d4c12fc47c642e992f8ee6a86472f1f6aa517a7b7
+- path: video/hyperframes/benowitz-wealth/drop-reel/previews/preview-v1.mp4
+  sha256: d6469a4eb2498d6acc31ebcfd30aeafe2468725d064fc2500fd3284cf443e817
+- path: video/hyperframes/benowitz-wealth/drop-reel/BUILD-NOTE.md
+  sha256: 97b84e845976b62a69d07e41f961099eb2be2ada7dc52e7996a08d047d56ff47
+skills_used:
+- id: SK-C1
+  version: 1.0.0
+- id: SK-C3
+  version: 1.0.0
+gate_results:
+- gate: G-V
+  pass: true
+  detail: "pinned lint (0.7.49) clean; 3 advisory warnings documented in BUILD-NOTE (monolithic architecture is the text-verbatim-compliant choice); validate 0 errors/0 contrast failures"
+- gate: G-V
+  pass: true
+  detail: "preview artifact exists: previews/preview-v1.mp4, 90.000s, 2700 frames decode-verified"
+- gate: G-V
+  pass: true
+  detail: "builder self-check: text-verbatim 29/29; safe-area 0 violations"
+concerns:
+- "brand faces not installed: documented system fallbacks (Palatino Linotype/Georgia, Segoe UI) - render-time font fetching banned; H5 flag"
+- "brief's muted-on-navy disclosure failed its own 4.5:1 floor (2.9:1); built with scrim+cream at 8.5-14:1 per the brief's own scrim option"
+confidence:
+  value: high
+  basis: "deterministic gates green at the ratified pin; every deviation documented or escalated"
+approvals: []
+feedback_ref: null
+escalations:
+- "SC-07 wordmark: no text_id class maps a brand wordmark string (CL/DISC/CAP only) - built WITHOUT the wordmark; VDIR to adjudicate at V5"

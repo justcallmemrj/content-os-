@@ -332,3 +332,68 @@ across the whole slice: zero silent; every documented one is in a DEC-BUILD
 record or this log.
 
 **Milestone 2 next (step 7+), on Wes's go.**
+
+## Session 2026-07-10 (thirteenth) — STEP 8 BUILT: HyperFrames binding; first video run AT H5
+
+**PR #11 first:** verified OPEN (`gh pr view 11` — the confirm-dialog slip
+again). The recorded delegated-click was attempted and **blocked by the
+Claude Code permission layer** (never-self-merge boundary); not routed
+around. The click is Wes's; `build-step-7` tags after it lands.
+
+**Machinery (branch build/2026-07-10-step8-video, commit c94227a + this
+session's run commit):** video-machine.yaml (Phase 5 §5 V1–V11 verbatim,
+explicit failure edges, `entry: storyboard`; ASSUMPTION: video production of
+a done script run = CHILD run with parent_run, chaining at T15 per the D-047
+pattern); transition.py machine-by-profile + pipe-alternative initiators
+(HYPF|REMO), video-machine tests 23/0 incl. trunk regression. Schemas:
+storyboard + render-manifest (+fixtures; suite 56/0 — also extended
+work-order + handoff-envelope state enums with the video states ⚑).
+SK-C1 FULL per Phase 4 §7.3: upstream vendored at pin
+6152437d2a5c…/v0.7.49, byte-verified diff -r clean; 8 framework skills
+vendored, 13 end-to-end workflow routers EXCLUDED (D6 rationale in
+vendor/VENDOR.md ⚑); wrapper-rules (safe-area px table ⚑ ASSUMPTION; brand
+tokens ⚑ DERIVED from the owner-approved benowitz-drop-exit kit →
+P-2026-0710-005); text_verbatim/safe_area/render_manifest scripts; SK-C1
+suite 29/0 (property + paraphrase counterexample + upstream-pin file-count
+integrity + D-036 pin-refusal). SK-B16 (+storyboard_check = V2 gate),
+SK-B17 (matrix with the D-070 licensing factor + H3 close-call duty +
+"remotion verdict = escalation until step 9"), SK-C3 (+caption_check = V7
+caption gate, thresholds ⚑); step-8 validator tests 13/0. RUB-VIDEO-1 +
+RUB-VIDEO-BUILD-1 from the §5 registry lines ⚑. Machine pin drift caught:
+floating npx resolves 0.7.51 — everything invokes hyperframes@0.7.49
+explicitly; render_manifest.py REFUSES a non-pin version (tested).
+
+**Live run 2026-07-10-ben-dropvid-001 (child of ben-drop-001, locked
+8ec534b3 verified byte-exact against the T14 record):** V1 manifest (5
+demands: 3 GAP — footage/b-roll/VO — placeholders accepted by work order) →
+V2 VDIR storyboard 7 scenes/90.0s/28 verbatim CAP segments (concat == spoken
+script, proven VDIR-side AND ORCH-side) → V3 routing hyperframes (matrix 25
+vs 10, not close) → V4 HYPF build: lint clean at pin, preview 90.000s/2700
+frames decode-verified, **one real escalation: SC-07 wordmark unrepresentable
+(no CL/DISC/CAP class maps a brand string) — built WITHOUT it rather than
+gaming the gate** → V5 VDIR frame-by-frame review (12 frames): RENDER, 7/7
+scenes, wordmark adjudicated accept-with-H5-flag → V6 final local render
+1080x1920@30 90.000s, manifest HF-2026-0710-01 schema-valid → V7 battery ALL
+GREEN: **text byte-match 29/29 = 100% (the §4 exit criterion)**, safe-area 0,
+captions 0, spec-exact, 0 blank runs, hash chain intact, audio 0 streams =
+declared silent-by-design → V8 QA RUB-VIDEO-1: required 7/7, composite
+8.3/10 PASS (brand honestly 3: fallback fonts, no wordmark, derived tokens)
+→ V9 package → **state human_signoff, STOPPED AT H5.** 9 transitions, 7
+envelopes, all schema-valid.
+
+**Defects found and fixed this session:** schema_validate ROUTES had no
+storyboard/render-manifest routes (V2/V6 schema gates were no-ops — caught
+by VDIR); .gitattributes LFS patterns missed the video/<engine>/<project>/…
+nesting (renders would have committed raw). Doc-vs-reality drift (D-062 log):
+sys-handoff-contracts cites scripts/new_envelope.py — it does not exist;
+envelopes are hand-authored + schema-validated (as steps 6–7 did).
+Honest ledger: platform ingest/device playback untested; full-speed motion
+feel judged from static frames only (H5's human viewing covers it); hooks
+not harness-bound in this session (launched from parent dir) — enforcement
+held procedurally + validator-enforced, per the session-eleven convention.
+
+**Open at break:** PR #11 merge (Wes) → tag build-step-7; step-8 PR merge
+(Wes, ratifies all ⚑ items) → H5 decision on the render → tag build-step-8;
+5 proposals queued (…-001..005) → MEMC batch → H6; tranche-3 inputs;
+publish riders on the three approved text pieces. Next build step: 9
+(Remotion binding + license gate) on Wes's go.

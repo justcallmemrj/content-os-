@@ -1,0 +1,32 @@
+run_id: 2026-07-10-ben-dropvid-001
+seq: 7
+stage:
+  from: delivery_ready
+  to: human_signoff
+agents:
+  from: ORCH
+  to: wes
+artifacts:
+- path: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/drop-reel.mp4
+  sha256: e26f4e39f13a80a5e6aad4fee60ae57dae44a26ea60f68107f55a199e98b0493
+- path: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/manifest.yaml
+  sha256: 26326c15145688ffd12c554ab34fd72a41008992bcbc851fa7949f002118acc0
+- path: runs/2026-07-10-ben-dropvid-001/qa/scorecard.yaml
+  sha256: 6cd6a749e0e1265c9c58d57352a588ad82eda06352ea995e12191b30c8e07996
+- path: runs/2026-07-10-ben-dropvid-001/final-package.md
+  sha256: 9d8d3d412902b4eb74212f645d048591298bf71bc6fff3bf05faabe6502493b7
+skills_used:
+- id: SK-A2
+  version: 1.0.0
+gate_results:
+- gate: G-M
+  pass: true
+  detail: "delivery package complete: render + manifest + QC reports (V7 battery + V8 scorecard/notes) + flag register; thumbnail not requested"
+concerns:
+- "8 H5 items enumerated in final-package.md - the complete flag set, nothing withheld"
+confidence:
+  value: high
+  basis: "every package element hash-pinned; gate history complete in SQLite + envelopes"
+approvals: []
+feedback_ref: null
+escalations: []

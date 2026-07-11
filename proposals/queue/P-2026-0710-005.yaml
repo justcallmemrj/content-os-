@@ -1,0 +1,27 @@
+id: P-2026-0710-005
+run: 2026-07-10-ben-dropvid-001
+origin_agent: HYPF
+type: profile-gap
+target: projects/benowitz-wealth/visual-identity.md
+payload:
+  proposed_record: |
+    Benowitz visual identity v1 (derived): navy #0E2A47 / #081A2D / #1B3A5F,
+    ink #0B1E33; gold #C8A35C / #DDC18A / #A78443; paper #FBF7EE, warm #F7F1E6,
+    cream #F1E9D7, muted #7A6E55. Display: Cormorant (serif); UI: Manrope;
+    numeric/mono: JetBrains Mono. Consumed by video work only via tokens.css
+    custom properties.
+  derivation: owner-approved benowitz-drop-exit webinar kit (46 final renders
+    accepted 2026-07-10) — approved-by-use, never ratified as project memory
+rationale: 'Step-8 video build needed brand tokens; none exist in project memory.
+  Derived set used with DERIVED flag (wrapper-rules §4, DUC-sliders precedent);
+  this proposal is the ratification path. Until merged, every render carries the
+  flag at H5.'
+consequence_class: consequential
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null

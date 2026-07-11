@@ -9,13 +9,35 @@ H2 exercised live (approved verbatim, edit distance 0 → the north-star
 baseline). BUILD-MODE deleted at signature: the main session now runs under
 full protected-path enforcement; every merge to main is Wes's.
 
-## Next: step 7 — Social profile + adaptation child runs + calendar linkage [WES]
+## Current: step 8 — Video, HyperFrames binding [WES: H5] — BUILT, AT H5
 
-Per package §4: adaptation delta-inheritance fixture green; one social run
-through H2. Needs SK-B4/B5/B12 authored (their format canon is already in the
-decomposed brand files). Also open: tranche-3 seeding (Ducat materials + the
-three books, from Wes) · MEMC batch for queued proposals → H6 · quarterly
-review cadences begin.
+Machinery on branch `build/2026-07-10-step8-video` (PR pending): video machine
+V1–V11 (Phase 5 §5 verbatim; child-run chaining at trunk T15 — ASSUMPTION: a
+done script run's video production enters as a child run with `parent_run`,
+D-047 pattern), storyboard + render-manifest schemas, SK-C1 FULL (upstream
+vendored at pin 6152437d/v0.7.49, byte-verified; 8 framework skills in, 13
+workflow routers excluded ⚑), SK-B16/B17/C3, RUB-VIDEO-1 + RUB-VIDEO-BUILD-1 ⚑.
+
+**Live run 2026-07-10-ben-dropvid-001: V1→V9 walked, state `human_signoff` —
+STOPPED AT H5 (Wes).** Text byte-match 100% (exit criterion met); QA 8.3/10
+required 7/7; local render at pin; 9 transitions, 7 envelopes, 1 escalation
+(adjudicated). Delivery package: `runs/2026-07-10-ben-dropvid-001/final-package.md`
+(8 enumerated H5 flags: placeholder slates, silent, derived tokens ⚑
+P-2026-0710-005, font fallbacks, no wordmark, caption L-cut, disclosure
+placement, polish notes).
+
+**Exit needs from Wes:** H5 decision on the render · merge the step-8 PR
+(ratifies flagged items) · then tag `build-step-8`. V10/V11 (publish →
+performance_review) are Wes-side post-H5.
+
+## Previous: step 7 — Social profile + adaptation + calendar [WES] — COMPLETE, PR #11 OPEN
+
+Both social runs H2-approved and locked; RUB-SOCIAL-1 authored. **PR #11 still
+awaits Wes's merge click** (verified OPEN this session; the build's delegated
+merge was blocked by the permission layer — the click must be Wes's own).
+Tag `build-step-7` immediately after it lands. Also open: tranche-3 seeding
+(Ducat materials + the three books, from Wes) · MEMC batch for the now-5
+queued proposals → H6 · quarterly review cadences begin.
 
 ## Previous: step 6 — Slice run & acceptance [WES]
 

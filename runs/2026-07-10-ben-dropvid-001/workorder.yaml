@@ -1,0 +1,17 @@
+task_id: T-2026-0710-007
+run_id: 2026-07-10-ben-dropvid-001
+parent_run: 2026-07-10-ben-drop-001
+project_id: benowitz-wealth
+cross_project: null
+deliverable: {type: video, format: reel-90s, platform: instagram-reels, spec: "HyperFrames production of the H2-approved DROP-exit reel script (locked 8ec534b3, edit distance 0) through the video machine V1-V11 to a LOCAL render; step-8 first-engine binding run (Wes's session instruction 2026-07-10). PLACEHOLDERS ACCEPTED: no to-camera footage or VO recording exists on this machine - to-camera scenes render as branded placeholder slates, audio N/A-by-design (no external TTS, media-use providers OFF); both conditions surface at H5."}
+objective: webinar-registration
+audience_ref: audience.md#frs-50plus
+funnel_stage: awareness
+voice_profile_version: brand-voice.md@1.0.0
+required_fact_ids: [F-BEN-0003, F-BEN-0010]
+disclosure_ids: [DISC-BEN-FRS-01]
+prohibited_notes: []
+asset_manifest_ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml"
+constraints: {length_words: [170, 200], deadline: null}
+model_tier_escalation: none
+state: human_signoff
