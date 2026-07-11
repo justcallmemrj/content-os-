@@ -9,7 +9,12 @@ H2 exercised live (approved verbatim, edit distance 0 → the north-star
 baseline). BUILD-MODE deleted at signature: the main session now runs under
 full protected-path enforcement; every merge to main is Wes's.
 
-## Current: step 8 — Video, HyperFrames binding [WES: H5] — BUILT, AT H5
+## Current: step 8 — Video, HyperFrames binding — COMPLETE (tag build-step-8); H5 APPROVED 2026-07-11
+
+V10 (published) records after Wes publishes (E6). Next: step 9 (Remotion
+binding + license gate) on Wes's go.
+
+## Step-8 build detail (merged via PR #12)
 
 Machinery on branch `build/2026-07-10-step8-video` (PR pending): video machine
 V1–V11 (Phase 5 §5 verbatim; child-run chaining at trunk T15 — ASSUMPTION: a

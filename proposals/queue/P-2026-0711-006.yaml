@@ -1,0 +1,25 @@
+id: P-2026-0711-006
+run: 2026-07-10-ben-dropvid-001
+origin_agent: QA
+type: exemplar
+target: evaluations/goldens/benowitz-wealth/video/
+payload:
+  golden_candidate: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/drop-reel.mp4
+  sha256: e26f4e39f13a80a5e6aad4fee60ae57dae44a26ea60f68107f55a199e98b0493
+  scorecard: runs/2026-07-10-ben-dropvid-001/qa/scorecard.yaml
+  h5: approved 2026-07-11 (h5-signoff.md)
+  conditions: "carries four conditions or the lane baseline normalizes placeholder
+    craft: placeholder slates (no footage), silent-by-design, derived tokens,
+    fallback faces (QA observation 1)"
+rationale: 'First H5-approved video output; QA proposed as video-lane golden #1
+  at V8, conditional on H5 approval - now given. The conditions ride the golden
+  record verbatim.'
+consequence_class: consequential
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null
