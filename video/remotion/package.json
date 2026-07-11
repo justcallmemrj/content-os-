@@ -1,0 +1,11 @@
+{
+  "name": "content-os-remotion-workspace",
+  "private": true,
+  "description": "REMO engine workspace - remotion pinned at 4.0.487 (DEC-BUILD-008); version bumps are proposals, never run-time upgrades",
+  "dependencies": {
+    "@remotion/cli": "4.0.487",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.487"
+  }
+}

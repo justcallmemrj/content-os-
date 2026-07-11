@@ -9,7 +9,17 @@ H2 exercised live (approved verbatim, edit distance 0 → the north-star
 baseline). BUILD-MODE deleted at signature: the main session now runs under
 full protected-path enforcement; every merge to main is Wes's.
 
-## Current: step 8 — Video, HyperFrames binding — COMPLETE (tag build-step-8); H5 APPROVED 2026-07-11
+## Current: step 9 — Video, Remotion binding — BUILT (PR pending)
+
+License gate RATIFIED (DEC-BUILD-008: ≤3 employees attested, free tier,
+pin remotion@4.0.487 = 2e8037fe). SK-C2 authored (props-injection verbatim
+mechanism, same safe-area table, RM- manifests, floated-version refusals);
+comparability eval GREEN — same fixture, both engines, 7/0; fixture render
+frame-verified at the pin (RM-2026-0711-01). Exit needs: Wes merges the
+step-9 PR → tag build-step-9. Then: step 10 (campaign parent + STRAT/ANLYT
++ reports) on Wes's go.
+
+## Previous: step 8 — Video, HyperFrames binding — COMPLETE (tag build-step-8); H5 APPROVED 2026-07-11
 
 V10 (published) records after Wes publishes (E6). Next: step 9 (Remotion
 binding + license gate) on Wes's go.

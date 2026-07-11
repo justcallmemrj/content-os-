@@ -454,3 +454,50 @@ live webinar link).
 
 Open: V10 on Wes's publish report; 6 proposals queued → MEMC batch → H6;
 tranche-3 inputs; step 9 (Remotion binding + license gate) on Wes's go.
+
+## Session 2026-07-11 (fifteenth) — STEP 9 BUILT: Remotion binding; both engines comparable
+
+**License gate first (named escalation, master prompt §6):** verified live on
+two surfaces (LICENSE.md + remotion.pro): free tier = individuals or
+for-profit ≤3 employees, commercial use expressly granted; 4+ = Company
+License ($25/seat Creators; $100/mo-min Automators — the plausible bracket
+for THIS pipeline if headcount ever crosses). **Wes attested ≤3 employees and
+approved pin remotion@4.0.487 in-session → DEC-BUILD-008 RATIFIED.** Standing
+tripwire unchanged: person #4 → licensing review.
+
+**Machinery (branch build/2026-07-11-step9-remotion):** remotion +
+@remotion/cli installed exact at 4.0.487 in video/remotion/ (workspace
+package.json is the pin record; node_modules gitignored; upstream tag commit
+2e8037fe recorded). SK-C2 en-remotion authored against docs verified at build
+(composition registration, frame model, --props=file render contract).
+Text-verbatim mechanism = PROPS INJECTION: gen_props.py (storyboard+captions
+→ props.json, the only text source) · props_verbatim_check.py (byte-match,
+same canonical form as SK-C1) · tsx_static_check.py (no literal prose in JSX,
+data-text-id must sit inside <SafeArea>, exact safe-area tokens — same px
+table; lexical scan, documented limitation) · render_manifest.py (RM- prefix,
+refuses floated versions at flag AND package.json layers). SK-C2 suite 12/0.
+
+**Comparability (the §4 row-9 exit criterion):** scripts/
+test_step9_comparability.py runs the SAME storyboard fixture through both
+engines' full deterministic lanes + both paraphrase counterexamples — 7/0,
+BOTH ENGINES GREEN. RUB-VIDEO-BUILD-1 applies identically (nothing else
+differs, Phase 5 §5).
+
+**Render proof at the pin, with a caught defect:** first fixture render
+exited 0 but frame inspection showed BLANK NAVY — the CLI's --props overrides
+top-level input props while the component read a nested `data` prop, so the
+empty defaultProps fallback rendered. Exactly the REMO-card failure mode
+("claiming render health from a successful build rather than an inspected
+output"); fixed by matching the component contract to gen_props' top-level
+shape (comment in Root.jsx), re-rendered v2, frame-verified (texts + caption
++ disclosure band in safe area), manifest RM-2026-0711-01 schema-valid,
+10.048s 1080x1920@30. Defective v1 removed (never approved; documented here).
+
+**All ten suites green:** schemas 56/0 · hooks 32/0 · skills · agents ·
+step7 · step8 13/0 · video-machine 23/0 · comparability 7/0 · SK-C1 29/0 ·
+SK-C2 12/0.
+
+**Open at break:** step-9 PR (Wes's merge → ratifies SK-C2 ⚑ + DEC-BUILD-008
+record → tag build-step-9); V10 on the reel when Wes reports it live;
+6 proposals → MEMC batch → H6; tranche-3 inputs; next: step 10 (campaign
+parent + STRAT/ANLYT + reports) on Wes's go.
