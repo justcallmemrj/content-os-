@@ -9,7 +9,17 @@ H2 exercised live (approved verbatim, edit distance 0 → the north-star
 baseline). BUILD-MODE deleted at signature: the main session now runs under
 full protected-path enforcement; every merge to main is Wes's.
 
-## Current: step 10 — Campaign parent + STRAT/ANLYT + reports — BUILT (PR pending)
+## Current: step 11 — Ducat activation — SEEDED (PR #16 at H6) + contamination suite GREEN
+
+Tranche-3 staged as PR #16 (Wes's H6 merge): 36-post/20-week DUC caption set,
+10 S-DUC (4 live-verified externals), 7 F-DUC, 10 VX-DUC (slider-calibration
+set), 3 BEN book sources. ⚑ FEE-ONLY vs FEE-BASED 3-way inconsistency flagged
+for Wes (gates DUC publishing). Contamination suite 25/0 GREEN across both
+live brands (synthetic + real-corpus + loader isolation both directions);
+TRD/FDR scaffolds confirmed. Exit needs: Wes merges #16, then the suite PR →
+tag build-step-11 → **the package §4 sequence is COMPLETE.**
+
+## Previous: step 10 — Campaign parent + STRAT/ANLYT + reports — COMPLETE (tag build-step-10)
 
 Campaign machine (H1/H4 wes-only), campaign schema, SK-B10/B11/B13,
 RUB-MKTG-1 ⚑, assembly_check (ad⊆landing / offer verbatim / disclosure
