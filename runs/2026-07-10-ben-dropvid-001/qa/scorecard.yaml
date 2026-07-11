@@ -1,0 +1,41 @@
+# QA scorecard — run 2026-07-10-ben-dropvid-001 — RUB-VIDEO-1 applied by QA (V8)
+# Required criteria validator-fed at V7 (transition log seq 7) — read, not re-run.
+# Anchor rationale per dimension with frame citations: qa/qa-notes.md. No
+# low-confidence exclusions; all eight dimensions included in the composite.
+run: 2026-07-10-ben-dropvid-001
+rubric: RUB-VIDEO-1
+target: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/drop-reel.mp4
+required:
+  R1_script_alignment: "pass(text_verbatim_check 29/29 IDs 100% byte-match against storyboard ID-mapped strings — V7)"
+  R2_caption_accuracy: "pass(caption_check 28 segments clean CPS/line/timing; caption-concat == spoken script proven twice, VDIR + ORCH independent — V7)"
+  R3_audio: "pass(N/A-by-design per RUB-VIDEO-1 R3 clause: zero audio streams; silence is a DECLARED work-order condition — no VO exists, DEM-05 GAP, external TTS OFF; pointers: run work order, storyboard.yaml header, BUILD-NOTE 'Not implemented' — recorded at V7, not an unnoticed defect)"
+  R4_technical: "pass(0 blank runs; full-decode 0 errors; duration 90.000s exact, 2700 frames — V7)"
+  R5_platform_specs: "pass(1080x1920, 30fps, 9:16 == instagram-reels export spec — V7)"
+  R6_rendering_integrity: "pass(output + composition hashes match manifest HF-2026-0710-01; engine at ratified pin hyperframes 0.7.49; cloud_render false per D-070 — V7)"
+  R7_safe_disclosure: "pass(safe_area_check 0 violations; DISC-BEN-FRS-01 persistent 5.0-90.0s on scrim, measured 8.5-14:1, inside bottom safe region; frames corroborate incl. correct absence at t2.5 — V7)"
+scores:
+  story_clarity: 5
+  pacing: 4
+  visual_quality: 4
+  brand_consistency: 3
+  caption_placement: 4
+  audio_judgment: 5
+  motion_quality: 4
+  accessibility: 4
+composite: 8.3
+golden_comparison: >-
+  No video goldens exist (first video-machine run; evaluations/goldens/ has no
+  video profile) — no nearest-golden citation or delta narrative is possible.
+  This render is video golden-candidate #1: if it clears H5, QA proposes it via
+  proposals/queue/ with its four conditions attached (placeholder slate,
+  system-font fallback, silent render, derived tokens) so future footage/font/
+  audio-bearing pieces are not regressed against placeholder conditions as if
+  they were targets. The golden's transferable value is the caption system,
+  disclosure band, safe-area discipline, and motion grammar.
+observations:
+  - "MEMC/golden-conditioning: golden-candidate #1 carries four explicit conditions (placeholder slate, fallback fonts, silent, derived tokens) — record them ON the golden if ratified, or the video lane's first baseline normalizes placeholder craft as the target."
+  - "MEMC/brand-gap: piece contains zero brand identification in 90s (wordmark omission adjudicated at V5, rides to H5). Cheapest 3->5 brand path with no locked-text impact: ratify a vendored-font proposal (Cormorant/Manrope local install) + add one ID-mapped wordmark string to the storyboard; re-render re-versions as v2."
+  - "MEMC/storyboard-pattern: the L-cut caption flow correctly rescued a CPS impossibility without touching text (D5), but the root cause is upstream — script marker windows were timed for speech, not reading. Silent/caption-led scripts should budget words-per-beat against CPS<=17 at the beat's own duration (validator candidate at script stage), keeping captions and backdrops in semantic sync (at t20, STAKES text rides BEAT ONE's envelope)."
+  - "MEMC/end-card-pattern: with one-segment-at-a-time captions, ordering the compliance rider (CAP-28) last leaves the final ~3s (t87=t89.5, static) holding compliance text with the register ask off-screen. Future CTA storyboards: persist the ask as a second register (like the disclosure band) or order rider before ask."
+  - "H5 restated (verdict-neutral): SC-03 transient envelope/caption overlap 15.4-17.0s — VDIR's fix is drift start >=16.2s in any rebuild; motion feel at full speed verified only from stills/low-res preview (H5's human viewing covers); silent-by-design on Reels is a distribution risk H5 owns — if BGM is ever added, R3 goes live and the audio dimension here does not transfer."
+verdict: pass

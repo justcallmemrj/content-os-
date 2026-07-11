@@ -1,0 +1,38 @@
+# Caption track — 2026-07-10-ben-dropvid-001 (SK-C3)
+# Verbatim script text, segmented at sentence/clause boundaries only — never
+# rewritten (D5/D-016). Silent render: this track IS the delivery timing.
+# Limits obeyed: CPS<=17 (design target ~15-16), <=2 lines, <=42 chars/line,
+# 0.8-7.0s per segment, no overlaps, all inside 90s.
+# PACING FLAG (mirrors storyboard.yaml header): the track flows continuously
+# across scene cuts where the script's marker windows under-allocate reading
+# time at CPS<=17 (HOOK, STAKES, TURN->CTA). Scene visual cuts stay on the
+# markers; text offset vs. its scene cut peaks at ~5.6s (CAP-26).
+segments:
+  - {id: CAP-01, start_s: 0.0,  end_s: 2.9,  text: "Your DROP payout arrives\nas a single check."}
+  - {id: CAP-02, start_s: 2.9,  end_s: 5.2,  text: "It comes with a decision attached."}
+  - {id: CAP-03, start_s: 5.2,  end_s: 8.2,  text: "Most members never hear it\ncalled a decision."}
+  - {id: CAP-04, start_s: 8.2,  end_s: 11.3, text: "Teachers, deputies, firefighters,\nstate staff:"}
+  - {id: CAP-05, start_s: 11.3, end_s: 15.0, text: "if you're in DROP, it ends\non a date you already know."}
+  - {id: CAP-06, start_s: 15.0, end_s: 16.2, text: "The rule is hard."}
+  - {id: CAP-07, start_s: 16.2, end_s: 20.3, text: "You must leave FRS-covered work\nfor that balance to pay out."}
+  - {id: CAP-08, start_s: 20.3, end_s: 23.2, text: "Most members picture a payday."}
+  - {id: CAP-09, start_s: 23.2, end_s: 25.6, text: "Half of that is right."}
+  - {id: CAP-10, start_s: 25.6, end_s: 29.4, text: "Your monthly pension turns on by itself."}
+  - {id: CAP-11, start_s: 29.4, end_s: 31.6, text: "The lump sum doesn't."}
+  - {id: CAP-12, start_s: 31.6, end_s: 34.8, text: "It waits for your instruction."}
+  - {id: CAP-13, start_s: 35.0, end_s: 38.4, text: "Here's the part that rarely comes up."}
+  - {id: CAP-14, start_s: 38.4, end_s: 42.7, text: "Cash gets taxed as that year's\nordinary income,"}
+  - {id: CAP-15, start_s: 42.7, end_s: 46.0, text: "stacked on everything else you earn."}
+  - {id: CAP-16, start_s: 46.0, end_s: 52.9, text: "Any payout sent to you directly has\ntwenty percent withheld for federal tax."}
+  - {id: CAP-17, start_s: 55.0, end_s: 58.2, text: "A direct rollover is the other route."}
+  - {id: CAP-18, start_s: 58.2, end_s: 64.4, text: "The money moves trustee to trustee\ninto an IRA or another qualified plan,"}
+  - {id: CAP-19, start_s: 64.4, end_s: 67.5, text: "nothing withheld, still tax-deferred."}
+  - {id: CAP-20, start_s: 67.5, end_s: 69.7, text: "The timing becomes yours."}
+  - {id: CAP-21, start_s: 69.7, end_s: 71.8, text: "But that's not the real question."}
+  - {id: CAP-22, start_s: 71.8, end_s: 75.2, text: "Choose cash, and it's taxed\nin the year it pays out."}
+  - {id: CAP-23, start_s: 75.2, end_s: 77.1, text: "You can see that year coming."}
+  - {id: CAP-24, start_s: 77.1, end_s: 78.5, text: "That's not a deadline."}
+  - {id: CAP-25, start_s: 78.5, end_s: 79.4, text: "That's runway."}
+  - {id: CAP-26, start_s: 79.4, end_s: 83.2, text: "Our free DROP Exit webinar\nwalks through the whole decision."}
+  - {id: CAP-27, start_s: 83.2, end_s: 85.5, text: "Register at the link in our profile."}
+  - {id: CAP-28, start_s: 85.5, end_s: 90.0, text: "Consult a qualified tax professional\nregarding your specific situation."}

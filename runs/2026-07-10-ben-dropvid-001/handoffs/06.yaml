@@ -1,0 +1,29 @@
+run_id: 2026-07-10-ben-dropvid-001
+seq: 6
+stage:
+  from: judgment_qc
+  to: delivery_ready
+agents:
+  from: QA
+  to: ORCH
+artifacts:
+- path: runs/2026-07-10-ben-dropvid-001/qa/scorecard.yaml
+  sha256: 6cd6a749e0e1265c9c58d57352a588ad82eda06352ea995e12191b30c8e07996
+- path: runs/2026-07-10-ben-dropvid-001/qa/qa-notes.md
+  sha256: d4cd65f2bdd881d307883e0bfaae2a64422fecd987ed1792a9d25eb58a6bbfb8
+skills_used:
+- id: SK-C3
+  version: 1.0.0
+gate_results:
+- gate: G-R
+  pass: true
+  detail: "RUB-VIDEO-1: required 7/7 (R3 pass-N/A-by-design with work-order pointer); composite 8.3/10; verdict PASS, no revise route"
+concerns:
+- "brand_consistency scored 3 honestly: fallback faces, no wordmark, derived tokens - the cheapest 3->5 is font ratification + one ID-mapped wordmark string (proposal territory)"
+- "golden-candidate #1 for the video lane must carry its four conditions or the baseline normalizes placeholder craft"
+confidence:
+  value: high
+  basis: "12 full-res frames + complete gate history; anchors held without inflation"
+approvals: []
+feedback_ref: null
+escalations: []

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """transition.py — the ONLY writer of workflow state (D-041, HK2).
 
-Validates a requested transition against workflows/machines/content-trunk.yaml
-(state exists, edge allowed, initiator matches), then atomically:
+Validates a requested transition against the run's machine — content-trunk.yaml
+by default; video-machine.yaml when the run's profile is `video` (Phase 5 §5,
+chained at trunk T15 via a child run) — (state exists, edge allowed, initiator
+matches), then atomically:
   1. inserts a row into state/workflow.sqlite `transitions`
   2. updates `runs.state` (creating the run row on the first transition)
   3. rewrites the work order's `state:` field
@@ -26,7 +28,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "state" / "workflow.sqlite"
 DDL = ROOT / "state" / "ddl.sql"
-MACHINE = ROOT / "workflows" / "machines" / "content-trunk.yaml"
+MACHINES = ROOT / "workflows" / "machines"
+MACHINE_BY_PROFILE = {"video": "video-machine.yaml"}
+DEFAULT_MACHINE = "content-trunk.yaml"
 
 PRE_APPROVAL = ["requested", "intake", "context_loaded", "brief", "research", "draft",
                 "fact_check", "revision", "voice_edit", "fact_delta", "compliance",
@@ -44,8 +48,19 @@ def open_db() -> sqlite3.Connection:
     return conn
 
 
-def load_machine() -> dict:
-    return yaml.safe_load(MACHINE.read_text(encoding="utf-8"))
+def load_machine(profile=None) -> dict:
+    name = MACHINE_BY_PROFILE.get(profile or "", DEFAULT_MACHINE)
+    return yaml.safe_load((MACHINES / name).read_text(encoding="utf-8"))
+
+
+def run_profile(conn: sqlite3.Connection, run_id: str):
+    row = conn.execute("SELECT profile FROM runs WHERE run_id=?", (run_id,)).fetchone()
+    return row[0] if row else None
+
+
+def initiator_ok(edge_initiator: str, initiator: str) -> bool:
+    """Machine edges may list pipe-separated alternatives (e.g. HYPF|REMO)."""
+    return initiator in edge_initiator.split("|")
 
 
 def workorder_path(run_id: str) -> Path:
@@ -120,7 +135,7 @@ def main() -> int:
     args = ap.parse_args()
 
     conn = open_db()
-    machine = load_machine()
+    machine = load_machine(args.profile or run_profile(conn, args.run))
     state = current_state(conn, args.run)
 
     if args.status:
@@ -152,17 +167,23 @@ def main() -> int:
 
     if state is None:
         # First transition of a run must be the machine's entry.
-        if args.to != "requested":
-            print(f"DENY: run '{args.run}' has no state; first transition must be to 'requested'",
-                  file=sys.stderr)
+        entry = machine.get("entry", "requested")
+        if args.to != entry:
+            print(f"DENY: run '{args.run}' has no state; first transition must be to '{entry}'"
+                  f" (machine {machine['machine']})", file=sys.stderr)
             return 1
         if not (args.task_id and args.project):
             print("DENY: first transition requires --task-id and --project", file=sys.stderr)
             return 1
-        seq = record(conn, args.run, None, "requested", args.initiator, args.event,
+        if machine["machine"] == "video-production" and not args.parent_run:
+            print("DENY: a video run enters at V1 from a parent's approved script — --parent-run required (Phase 5 §5)",
+                  file=sys.stderr)
+            return 1
+        from_state = "approved" if machine["machine"] == "video-production" else None
+        seq = record(conn, args.run, from_state, entry, args.initiator, args.event,
                      json.loads(args.gate_results), json.loads(args.artifact_hashes),
                      args.task_id, args.project, args.profile, args.parent_run)
-        print(f"OK: {args.run} -> requested (seq {seq})")
+        print(f"OK: {args.run} -> {entry} (seq {seq})")
         return 0
 
     edge = next((t for t in machine["transitions"] if t["from"] == state and args.to in t["to"]), None)
@@ -175,7 +196,7 @@ def main() -> int:
     if edge is None:
         print(f"DENY: no transition {state} -> {args.to} in the ratified machine", file=sys.stderr)
         return 1
-    if edge["initiator"] != args.initiator:
+    if not initiator_ok(edge["initiator"], args.initiator):
         print(f"DENY: {edge['id']} may only be initiated by {edge['initiator']}, not {args.initiator}",
               file=sys.stderr)
         return 1

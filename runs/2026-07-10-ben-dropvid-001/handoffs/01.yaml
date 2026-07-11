@@ -1,0 +1,31 @@
+run_id: 2026-07-10-ben-dropvid-001
+seq: 1
+stage:
+  from: approved
+  to: storyboard
+agents:
+  from: ORCH
+  to: VDIR
+artifacts:
+- path: runs/2026-07-10-ben-drop-001/voice/drop-reel-v3.md
+  sha256: 8ec534b3c7ef61d4e26d9c75525bdf4ef9f6b4fd8b6da901c5a6b5a3bc1aafd0
+- path: runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml
+  sha256: bf96917714de4761ca31fd9b8e979f1ffc06e037e65fdaed96b4dd2e2def883f
+skills_used:
+- id: SK-A2
+  version: 1.0.0
+gate_results:
+- gate: G-V
+  pass: true
+  detail: "locked-hash: recomputed sha256 == T14 approved record"
+- gate: G-V
+  pass: true
+  detail: "asset-manifest-generated: 5 demands, 3 GAP (placeholders accepted), 1 resolved, 1 resolved-derived"
+concerns:
+- "3 GAP demands (presenter footage, b-roll, VO) — work order accepts placeholders; all surface at H5"
+confidence:
+  value: high
+  basis: "hash recomputed byte-exact vs T14 approved record; manifest enumerates every script marker"
+approvals: []
+feedback_ref: null
+escalations: []

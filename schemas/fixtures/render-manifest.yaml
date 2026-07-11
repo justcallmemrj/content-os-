@@ -1,0 +1,83 @@
+# Fixtures for render-manifest.schema.json — valid case mirrors HYPF's card example (HF-2026-0710-01 style)
+valid:
+  - why: "local HyperFrames render at the ratified pin, everything hashed"
+    record:
+      manifest_id: HF-2026-0710-01
+      run_id: 2026-07-10-ben-dropvid-001
+      engine: hyperframes
+      engine_version: 0.7.49
+      upstream_pin: 6152437d2a5c2c05e51b43d53f0f6cb6acdd9a79
+      storyboard:
+        path: runs/2026-07-10-ben-dropvid-001/storyboard/storyboard.yaml
+        sha256: "1111111111111111111111111111111111111111111111111111111111111111"
+      composition:
+        - path: video/hyperframes/benowitz-wealth/drop-reel/index.html
+          sha256: "2222222222222222222222222222222222222222222222222222222222222222"
+      settings:
+        resolution: 1080x1920
+        fps: 30
+        duration_s: 90
+        aspect_ratio: "9:16"
+        preset: reels-local-v1
+      inputs:
+        - path: video/hyperframes/benowitz-wealth/drop-reel/assets/tokens.css
+          sha256: "3333333333333333333333333333333333333333333333333333333333333333"
+      output:
+        path: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/drop-reel.mp4
+        sha256: "4444444444444444444444444444444444444444444444444444444444444444"
+        duration_s: 90.03
+        size_bytes: 10485760
+      environment: {node: 24.16.0, ffmpeg: 8.1.1, os: "Windows 11 Pro 10.0.26200"}
+      rendered_at: "2026-07-10T23:00:00Z"
+      cloud_render: false
+      notes: "build-note: video/hyperframes/benowitz-wealth/drop-reel/BUILD-NOTE.md; deviations: zero"
+invalid:
+  - why: "cloud_render true is not schema-expressible (D-070 — the const makes the violation visible)"
+    record:
+      manifest_id: HF-2026-0710-01
+      run_id: r
+      engine: hyperframes
+      engine_version: 0.7.49
+      upstream_pin: 6152437d
+      storyboard: {path: p, sha256: "1111111111111111111111111111111111111111111111111111111111111111"}
+      composition:
+        - {path: c, sha256: "2222222222222222222222222222222222222222222222222222222222222222"}
+      settings: {resolution: 1080x1920, fps: 30, duration_s: 90, aspect_ratio: "9:16", preset: p}
+      inputs: []
+      output: {path: o, sha256: "4444444444444444444444444444444444444444444444444444444444444444", duration_s: 90, size_bytes: 1}
+      environment: {node: n, ffmpeg: f, os: o}
+      rendered_at: t
+      cloud_render: true
+      notes: n
+  - why: "output missing its hash (V6 entry requires output hashed)"
+    record:
+      manifest_id: HF-2026-0710-01
+      run_id: r
+      engine: hyperframes
+      engine_version: 0.7.49
+      upstream_pin: 6152437d
+      storyboard: {path: p, sha256: "1111111111111111111111111111111111111111111111111111111111111111"}
+      composition:
+        - {path: c, sha256: "2222222222222222222222222222222222222222222222222222222222222222"}
+      settings: {resolution: 1080x1920, fps: 30, duration_s: 90, aspect_ratio: "9:16", preset: p}
+      inputs: []
+      output: {path: o, duration_s: 90, size_bytes: 1}
+      environment: {node: n, ffmpeg: f, os: o}
+      rendered_at: t
+      notes: n
+  - why: "manifest_id off-pattern"
+    record:
+      manifest_id: render-1
+      run_id: r
+      engine: hyperframes
+      engine_version: 0.7.49
+      upstream_pin: 6152437d
+      storyboard: {path: p, sha256: "1111111111111111111111111111111111111111111111111111111111111111"}
+      composition:
+        - {path: c, sha256: "2222222222222222222222222222222222222222222222222222222222222222"}
+      settings: {resolution: 1080x1920, fps: 30, duration_s: 90, aspect_ratio: "9:16", preset: p}
+      inputs: []
+      output: {path: o, sha256: "4444444444444444444444444444444444444444444444444444444444444444", duration_s: 90, size_bytes: 1}
+      environment: {node: n, ffmpeg: f, os: o}
+      rendered_at: t
+      notes: n

@@ -1,0 +1,36 @@
+# Asset manifest — 2026-07-10-ben-dropvid-001 (V1 intake of locked script 8ec534b3…)
+# ORCH-generated inventory of every visual/audio demand the script makes vs.
+# what exists on this machine. Rights fields mandatory (D-029).
+generated: true
+script: {path: runs/2026-07-10-ben-drop-001/voice/drop-reel-v3.md, sha256: "8ec534b3c7ef61d4e26d9c75525bdf4ef9f6b4fd8b6da901c5a6b5a3bc1aafd0"}
+demands:
+  - id: DEM-01
+    marker: "[TO CAMERA] x7 blocks (hook, stakes, beats 1-3, turn, CTA)"
+    need: presenter footage (Derrick, 9:16)
+    status: GAP
+    rights: none-recorded
+    note: "not filmed; work order accepts branded placeholder slates (surfaces at H5)"
+  - id: DEM-02
+    marker: "[VO / B-ROLL: a single envelope landing on a kitchen table] (0:15)"
+    need: b-roll clip
+    status: GAP
+    rights: none-recorded
+    note: "no b-roll library on machine; suggestion: licensed stock or motion-graphic treatment"
+  - id: DEM-03
+    marker: "[TEXT ON SCREEN: disclosure] (persistent)"
+    need: DISC-BEN-FRS-01 verbatim text
+    status: RESOLVED
+    rights: firm-owned
+    ref: projects/benowitz-wealth/disclosures.md#DISC-BEN-FRS-01
+  - id: DEM-04
+    marker: "brand visual tokens (palette, type)"
+    need: visual identity
+    status: RESOLVED-DERIVED
+    rights: firm-owned
+    note: "⚑ DERIVED from owner-approved benowitz-drop-exit webinar kit (46 renders accepted 2026-07-10); not ratified project memory — proposal rides step-8 PR"
+  - id: DEM-05
+    marker: "spoken track (script is a spoken reel)"
+    need: VO recording
+    status: GAP
+    rights: none-recorded
+    note: "no recording; external TTS is OFF (media-use providers = proposals only); work order declares audio N/A-by-design — surfaces at H5"

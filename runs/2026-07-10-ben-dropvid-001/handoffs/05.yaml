@@ -1,0 +1,31 @@
+run_id: 2026-07-10-ben-dropvid-001
+seq: 5
+stage:
+  from: render
+  to: technical_qc
+agents:
+  from: HYPF
+  to: ORCH
+artifacts:
+- path: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/drop-reel.mp4
+  sha256: e26f4e39f13a80a5e6aad4fee60ae57dae44a26ea60f68107f55a199e98b0493
+- path: video/hyperframes/benowitz-wealth/drop-reel/renders/v1/manifest.yaml
+  sha256: 26326c15145688ffd12c554ab34fd72a41008992bcbc851fa7949f002118acc0
+skills_used:
+- id: SK-C1
+  version: 1.0.0
+gate_results:
+- gate: G-V
+  pass: true
+  detail: "render manifest HF-2026-0710-01 complete and schema-valid at pin; output hashed e26f4e39f13a..."
+- gate: G-V
+  pass: true
+  detail: "ffprobe 1080x1920 30fps 90.000s 2700 frames; full-decode exit 0; composition byte-identical to V5-reviewed state"
+concerns:
+- "platform ingest / device playback untested (labeled untested in BUILD-NOTE)"
+confidence:
+  value: high
+  basis: "spec-exact probe; zero diagnosis cycles; local render at ratified pin"
+approvals: []
+feedback_ref: null
+escalations: []

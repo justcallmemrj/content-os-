@@ -9,25 +9,36 @@ H2 exercised live (approved verbatim, edit distance 0 → the north-star
 baseline). BUILD-MODE deleted at signature: the main session now runs under
 full protected-path enforcement; every merge to main is Wes's.
 
-## STEP 7 COMPLETE (2026-07-10) — pending PR #11 merge + tag build-step-7
+## Current: step 8 — Video, HyperFrames binding [WES: H5] — BUILT, AT H5
+
+Machinery on branch `build/2026-07-10-step8-video` (PR pending): video machine
+V1–V11 (Phase 5 §5 verbatim; child-run chaining at trunk T15 — ASSUMPTION: a
+done script run's video production enters as a child run with `parent_run`,
+D-047 pattern), storyboard + render-manifest schemas, SK-C1 FULL (upstream
+vendored at pin 6152437d/v0.7.49, byte-verified; 8 framework skills in, 13
+workflow routers excluded ⚑), SK-B16/B17/C3, RUB-VIDEO-1 + RUB-VIDEO-BUILD-1 ⚑.
+
+**Live run 2026-07-10-ben-dropvid-001: V1→V9 walked, state `human_signoff` —
+STOPPED AT H5 (Wes).** Text byte-match 100% (exit criterion met); QA 8.3/10
+required 7/7; local render at pin; 9 transitions, 7 envelopes, 1 escalation
+(adjudicated). Delivery package: `runs/2026-07-10-ben-dropvid-001/final-package.md`
+(8 enumerated H5 flags: placeholder slates, silent, derived tokens ⚑
+P-2026-0710-005, font fallbacks, no wordmark, caption L-cut, disclosure
+placement, polish notes).
+
+**Exit needs from Wes:** H5 decision on the render · merge the step-8 PR
+(ratifies flagged items) · then tag `build-step-8`. V10/V11 (publish →
+performance_review) are Wes-side post-H5.
+
+## Previous: step 7 — Social profile + adaptation + calendar [WES] — CLOSED
 
 Exit criteria MET: adaptation delta-inheritance fixture green (+id-schema
 regression); two social runs through H2 (LinkedIn adaptation 9.4 approved
-verbatim; carousel 9.7 approved with the caption fix, executed + verified).
-Calendar linkage proven (ratified row = brief; touchpoints carried).
-
-## Next: step 8 — Video: HyperFrames binding [WES: H5]
-
-Manifest script, VDIR + SK-B16/B17/C3/C1, byte-match/safe-area validators;
-first render through H5. Upstream pinned 6152437d (v0.7.49, DEC-BUILD-001).
-
-## Previous: step 7 — Social profile + adaptation child runs + calendar linkage [WES]
-
-Per package §4: adaptation delta-inheritance fixture green; one social run
-through H2. Needs SK-B4/B5/B12 authored (their format canon is already in the
-decomposed brand files). Also open: tranche-3 seeding (Ducat materials + the
-three books, from Wes) · MEMC batch for queued proposals → H6 · quarterly
-review cadences begin.
+verbatim; carousel 9.7 approved with the caption fix, executed + verified);
+calendar linkage proven; RUB-SOCIAL-1 authored. **PR #11 MERGED by Wes
+2026-07-11 (ad25115); tag `build-step-7` pushed.** Also open: tranche-3
+seeding (Ducat materials + the three books, from Wes) · MEMC batch for the
+now-5 queued proposals → H6 · quarterly review cadences begin.
 
 ## Previous: step 6 — Slice run & acceptance [WES]
 

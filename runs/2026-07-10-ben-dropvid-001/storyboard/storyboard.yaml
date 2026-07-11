@@ -1,0 +1,396 @@
+# Storyboard — 2026-07-10-ben-dropvid-001 (V1→V2, SK-B16)
+# VDIR output. Script text immutable (D5); every on-screen string ID-mapped
+# verbatim (D-016). Scene starts are the locked script's own timecode markers.
+# Silent render by work order (no VO exists, external TTS OFF) — the caption
+# track carries the spoken words; caption timing lives in captions.yaml.
+# PACING FLAG (H5): at CPS<=17 the marker windows under-allocate HOOK
+# (122 chars / 5s = 24.4 CPS needed), STAKES (180/10 = 18.0) and CTA
+# (169/5 = 33.8); the caption track therefore flows continuously across the
+# scene cuts (max offset vs. its scene cut ~5.6s at CTA). No script text was
+# altered; scene-locked captions would require re-timed markers = a script
+# change = re-entry at fact_check (D5).
+run_id: 2026-07-10-ben-dropvid-001
+parent_run: 2026-07-10-ben-drop-001
+script_ref:
+  path: runs/2026-07-10-ben-drop-001/voice/drop-reel-v3.md
+  sha256: 8ec534b3c7ef61d4e26d9c75525bdf4ef9f6b4fd8b6da901c5a6b5a3bc1aafd0
+platform_spec:
+  platform: instagram-reels
+  aspect_ratio: "9:16"
+  resolution: 1080x1920
+  fps: 30
+  duration_s: 90
+  tolerance_s: 3
+
+scenes:
+  - id: SC-01
+    start_s: 0
+    duration_s: 5
+    type: text-card
+    on_screen_text:
+      - text_id: CAP-01
+        text: "Your DROP payout arrives\nas a single check."
+        placement: caption stage, upper-center of hf-safe
+      - text_id: CAP-02
+        text: "It comes with a decision attached."
+        placement: caption stage, upper-center of hf-safe
+      - text_id: CAP-03
+        text: "Most members never hear it\ncalled a decision."
+        placement: caption stage, upper-center of hf-safe
+    assets:
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-01 presenter footage (Derrick, 9:16) not filmed — branded placeholder slate accepted by work order; surfaces at H5"
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-04"
+        rights: firm-owned
+        gap_note: "brand tokens are DERIVED (benowitz-drop-exit webinar kit), not ratified — flagged per wrapper-rules §4"
+    transition: "hard cut on the word-change beat (no dissolve — hook must snap)"
+    direction: >-
+      HOOK. Placeholder-slate treatment standing in for to-camera: navy paper
+      field, oversized Cormorant serif caption cards, gold underline accent on
+      "single check" card (styling only — no added words). CAP-03 flows ~3.2s
+      past this scene's cut into SC-02 (pacing flag above); the background
+      treatment cuts on the marker, the type carries through. No disclosure in
+      the hook window; it enters at 5s. Silent render — type IS the delivery.
+
+  - id: SC-02
+    start_s: 5
+    duration_s: 10
+    type: text-card
+    on_screen_text:
+      - text_id: CAP-04
+        text: "Teachers, deputies, firefighters,\nstate staff:"
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-05
+        text: "if you're in DROP, it ends\non a date you already know."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-06
+        text: "The rule is hard."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-07
+        text: "You must leave FRS-covered work\nfor that balance to pay out."
+        placement: caption stage, center of hf-safe
+      - text_id: DISC-BEN-FRS-01
+        text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+        placement: disclosure band, pinned at bottom of hf-safe (above --safe-bottom 320px), >=26px, scrim token behind
+        persistent: true
+    assets:
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-01 presenter footage not filmed — branded placeholder slate accepted by work order; surfaces at H5"
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-03"
+        rights: firm-owned
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-04"
+        rights: firm-owned
+        gap_note: "derived tokens, not ratified — flagged"
+    transition: "vertical wipe in brand gold rule, 300ms"
+    direction: >-
+      STAKES. Placeholder slate, darker navy (--brand-navy-dark). The
+      occupational address (CAP-04) sets as a roll-call stack — each word of
+      the list weighted equally, Manrope caps; the conditional clause CAP-05
+      is the load-bearing compliance scoping (CL-16 discharge) and must never
+      be visually separated from CAP-04's address — hold both in sequence at
+      full contrast. CAP-06 gets a full-frame beat (17 chars, let it breathe).
+      Disclosure block DISC-BEN-FRS-01 enters here at 5s and persists to end
+      of piece (short-format fallback string per DISC-BEN-SHORT-01 conditions;
+      the full-disclosure-in-profile condition is a recorded publish rider,
+      CL-15 qualification). Caption track runs ~3.2-5.3s behind the marker cut
+      through this scene (pacing flag).
+
+  - id: SC-03
+    start_s: 15
+    duration_s: 20
+    type: motion-graphic
+    on_screen_text:
+      - text_id: CAP-08
+        text: "Most members picture a payday."
+        placement: caption stage, lower third of upper hf-safe zone
+      - text_id: CAP-09
+        text: "Half of that is right."
+        placement: caption stage, lower third of upper hf-safe zone
+      - text_id: CAP-10
+        text: "Your monthly pension turns on by itself."
+        placement: caption stage, lower third of upper hf-safe zone
+      - text_id: CAP-11
+        text: "The lump sum doesn't."
+        placement: caption stage, lower third of upper hf-safe zone
+      - text_id: CAP-12
+        text: "It waits for your instruction."
+        placement: caption stage, lower third of upper hf-safe zone
+      - text_id: DISC-BEN-FRS-01
+        text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+        placement: disclosure band, pinned at bottom of hf-safe, >=26px, scrim token behind
+        persistent: true
+    assets:
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-02 b-roll (envelope landing on kitchen table) — no b-roll library on machine; rendered as a motion-graphic envelope treatment instead; GAP recorded honestly, licensed stock remains the acquisition alternative"
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-01 presenter footage for the [TO CAMERA] balance of this beat — placeholder treatment accepted by work order; surfaces at H5"
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-03"
+        rights: firm-owned
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-04"
+        rights: firm-owned
+        gap_note: "derived tokens, not ratified — flagged"
+    transition: "match cut: gold rule becomes the envelope's edge"
+    direction: >-
+      BEAT ONE. The script's b-roll moment (envelope on a kitchen table)
+      becomes the piece's one drawn motion graphic: a flat vector envelope in
+      gold line-work drifts down onto a paper-tone table plane and lands on
+      the marker beat; a subtle split follows — one path (pension) animates on
+      by itself as a steady pulse line, the other (lump sum) holds still,
+      waiting. Purely abstract shapes; NO text beyond the mapped CAP/DISC
+      strings — the graphic must not assert anything the captions don't say.
+      Caption track re-syncs to the scene grid by the end of this beat.
+
+  - id: SC-04
+    start_s: 35
+    duration_s: 20
+    type: motion-graphic
+    on_screen_text:
+      - text_id: CAP-13
+        text: "Here's the part that rarely comes up."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-14
+        text: "Cash gets taxed as that year's\nordinary income,"
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-15
+        text: "stacked on everything else you earn."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-16
+        text: "Any payout sent to you directly has\ntwenty percent withheld for federal tax."
+        placement: caption stage, center of hf-safe
+      - text_id: DISC-BEN-FRS-01
+        text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+        placement: disclosure band, pinned at bottom of hf-safe, >=26px, scrim token behind
+        persistent: true
+    assets:
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-01 presenter footage not filmed — abstract stacking graphic + caption treatment accepted by work order; surfaces at H5"
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-03"
+        rights: firm-owned
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-04"
+        rights: firm-owned
+        gap_note: "derived tokens, not ratified — flagged"
+    transition: "blocks settle, then hard cut"
+    direction: >-
+      BEAT TWO. Abstract "stacking" motion: neutral paper-tone blocks pile up
+      one on another as CAP-14/CAP-15 run (income stacking made literal in
+      shape only — no numerals, no percentages drawn as figures, no dollar
+      signs; the twenty-percent fact lives ONLY in CAP-16's verbatim words,
+      mapped to spoken claim CL-08 via the ledger). On CAP-16 the top block
+      shears away in gold. In sync with scene grid. Keep motion under the
+      captions — readability beats spectacle (SK-C3).
+
+  - id: SC-05
+    start_s: 55
+    duration_s: 20
+    type: motion-graphic
+    on_screen_text:
+      - text_id: CAP-17
+        text: "A direct rollover is the other route."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-18
+        text: "The money moves trustee to trustee\ninto an IRA or another qualified plan,"
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-19
+        text: "nothing withheld, still tax-deferred."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-20
+        text: "The timing becomes yours."
+        placement: caption stage, center of hf-safe
+      - text_id: DISC-BEN-FRS-01
+        text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+        placement: disclosure band, pinned at bottom of hf-safe, >=26px, scrim token behind
+        persistent: true
+    assets:
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-01 presenter footage not filmed — route-line motion graphic + caption treatment accepted by work order; surfaces at H5"
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-03"
+        rights: firm-owned
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-04"
+        rights: firm-owned
+        gap_note: "derived tokens, not ratified — flagged"
+    transition: "route line resolves to a still point; cut on marker"
+    direction: >-
+      BEAT THREE. A single unbroken gold line travels left-to-right between
+      two navy vessels (trustee to trustee) — smooth, uninterrupted, nothing
+      falls out of it (the visual argument of "nothing withheld" carried by
+      the mapped words, not by invented labels — no account names, no
+      institution marks, no figures). CAP-20 ("The timing becomes yours.") is
+      verified-with-qualification in the ledger (CL-11): keep its treatment
+      quiet and matter-of-fact — no triumphant styling that would inflate the
+      claim beyond deferral. NOTE: TURN captions CAP-21/CAP-22 begin flowing
+      at ~69.7s, over the tail of this scene's backdrop (pacing flag).
+
+  - id: SC-06
+    start_s: 75
+    duration_s: 10
+    type: text-card
+    on_screen_text:
+      - text_id: CAP-21
+        text: "But that's not the real question."
+        placement: caption stage, dead center of hf-safe
+      - text_id: CAP-22
+        text: "Choose cash, and it's taxed\nin the year it pays out."
+        placement: caption stage, dead center of hf-safe
+      - text_id: CAP-23
+        text: "You can see that year coming."
+        placement: caption stage, dead center of hf-safe
+      - text_id: CAP-24
+        text: "That's not a deadline."
+        placement: caption stage, dead center of hf-safe
+      - text_id: CAP-25
+        text: "That's runway."
+        placement: caption stage, dead center of hf-safe
+      - text_id: DISC-BEN-FRS-01
+        text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+        placement: disclosure band, pinned at bottom of hf-safe, >=26px, scrim token behind
+        persistent: true
+    assets:
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-01 presenter footage not filmed — typographic turn card accepted by work order; surfaces at H5"
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-03"
+        rights: firm-owned
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-04"
+        rights: firm-owned
+        gap_note: "derived tokens, not ratified — flagged"
+    transition: "paper field brightens under the CTA (navy -> warm paper inversion)"
+    direction: >-
+      TURN. The pattern interrupt: invert the palette — warm paper field, navy
+      Cormorant type, the only inversion in the piece. CAP-24/CAP-25 land as
+      two separate full-frame beats ("deadline" / "runway"), gold accent on
+      "runway" (emphasis styling only; judged at V8 — it must not distort
+      meaning). CTA captions CAP-26/CAP-27 begin flowing at ~79.4s over this
+      scene's tail (pacing flag); the visual cut to SC-07 stays on the 85s
+      marker.
+
+  - id: SC-07
+    start_s: 85
+    duration_s: 5
+    type: text-card
+    on_screen_text:
+      - text_id: CAP-26
+        text: "Our free DROP Exit webinar\nwalks through the whole decision."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-27
+        text: "Register at the link in our profile."
+        placement: caption stage, center of hf-safe
+      - text_id: CAP-28
+        text: "Consult a qualified tax professional\nregarding your specific situation."
+        placement: caption stage, center of hf-safe, above disclosure band, visually distinct from CTA ask
+      - text_id: DISC-BEN-FRS-01
+        text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+        placement: disclosure band, pinned at bottom of hf-safe, >=26px, scrim token behind
+        persistent: true
+    assets:
+      - ref: GAP
+        rights: none-recorded
+        gap_note: "DEM-01 presenter footage not filmed — branded CTA end-card accepted by work order; surfaces at H5"
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-03"
+        rights: firm-owned
+      - ref: "runs/2026-07-10-ben-dropvid-001/assets-manifest.yaml#DEM-04"
+        rights: firm-owned
+        gap_note: "derived tokens, not ratified — flagged"
+    direction: >-
+      CTA end-card. Warm paper continues from the TURN inversion; Benowitz
+      wordmark treatment in navy (type-set from brand tokens — no logo file
+      exists in the manifest, so the "wordmark" is typography, not an asset).
+      CAP-27 (the register ask) holds centered through the 85s cut; CAP-28
+      (the CL-08 rider disclosure sentence, spoken text) sets smaller and
+      quieter than the ask, above the persistent DISC band — two distinct
+      disclosure registers must read as two elements. CAP-26/27 start before
+      this scene's cut (pacing flag); CAP-28 ends exactly at 90.0s. Webinar
+      live/free/link condition rides the publish gate (CL-14), not this
+      storyboard.
+
+engine_recommendation:
+  choice: hyperframes
+  factors:
+    - name: "variant-structure / hyperframes"
+      score: 5
+      note: "one-off piece — no data-driven or batch-personalized variants demanded"
+    - name: "variant-structure / remotion"
+      score: 1
+      note: "typed-prop variant machinery buys nothing for a single reel"
+    - name: "composition-type / hyperframes"
+      score: 5
+      note: "caption-led typographic package + one-off branded motion graphics = the HF column"
+    - name: "composition-type / remotion"
+      score: 2
+      note: "no complex programmatic sequencing, no reusable component library demanded"
+    - name: "reuse-fit / hyperframes"
+      score: 2
+      note: "video/hyperframes/ is empty — nothing to reuse yet; this build seeds the library"
+    - name: "reuse-fit / remotion"
+      score: 1
+      note: "video/remotion/ is empty — no components exist here"
+    - name: "licensing / hyperframes"
+      score: 5
+      note: "Apache-2.0, no company-size threshold (D-070)"
+    - name: "licensing / remotion"
+      score: 3
+      note: "free at current headcount; standing watch on hiring person #4"
+    - name: "engine-maturity / hyperframes"
+      score: 4
+      note: "first-engine path (D-006); this run IS the step-8 binding run"
+    - name: "engine-maturity / remotion"
+      score: 1
+      note: "SK-C2 builder binding does not exist until step 9 — a remotion verdict is an escalation, not a build"
+    - name: "determinism-ops / hyperframes"
+      score: 4
+      note: "local headless-Chrome + FFmpeg loop proven on this machine"
+    - name: "determinism-ops / remotion"
+      score: 2
+      note: "node/npm build chain unproven in this repo"
+  rationale: >-
+    HyperFrames 25 vs Remotion 10 across the six ratified factors, and no
+    single factor favors Remotion. The piece is a one-off, silent,
+    caption-led typographic reel — squarely the HyperFrames column of the
+    matrix — on the D-006 first-engine roadmap, with Apache-2.0 licensing and
+    a proven local render loop; Remotion additionally has no bound builder
+    until step 9, so routing there would be an escalation by rule, not a
+    build. The human/traditional lane was considered and rejected: the gap is
+    unfilmed footage, not editing capability — handing the piece to a human
+    editor supplies no asset the machine lacks. Hybrid buys nothing for a
+    single-lane 90s piece. Scored before the verdict was stated.
+  close_call: false
+  override: null
+
+asset_gaps:
+  - scene_id: SC-01
+    description: "Presenter to-camera footage (DEM-01), HOOK block — not filmed, no rights recorded"
+    suggestion: "Film Derrick 9:16 to-camera; until then render the branded typographic placeholder slate per visual-brief.md (work order accepts; surfaces at H5)"
+    accepted_as_placeholder: true
+  - scene_id: SC-02
+    description: "Presenter to-camera footage (DEM-01), STAKES block — not filmed"
+    suggestion: "Same acquisition as SC-01; placeholder slate treatment stands in"
+    accepted_as_placeholder: true
+  - scene_id: SC-03
+    description: "B-roll: a single envelope landing on a kitchen table (DEM-02) — no b-roll library on machine, no rights recorded"
+    suggestion: "Licensed stock clip (record license in manifest before swap) or keep the motion-graphic envelope treatment specified in visual-brief.md"
+    accepted_as_placeholder: true
+  - scene_id: SC-03
+    description: "Presenter to-camera footage (DEM-01), BEAT ONE balance of the beat — not filmed"
+    suggestion: "Same acquisition as SC-01; motion-graphic treatment stands in"
+    accepted_as_placeholder: true
+  - scene_id: SC-04
+    description: "Presenter to-camera footage (DEM-01), BEAT TWO — not filmed"
+    suggestion: "Same acquisition as SC-01; abstract stacking motion graphic stands in"
+    accepted_as_placeholder: true
+  - scene_id: SC-05
+    description: "Presenter to-camera footage (DEM-01), BEAT THREE — not filmed"
+    suggestion: "Same acquisition as SC-01; route-line motion graphic stands in"
+    accepted_as_placeholder: true
+  - scene_id: SC-06
+    description: "Presenter to-camera footage (DEM-01), TURN — not filmed"
+    suggestion: "Same acquisition as SC-01; inverted typographic turn card stands in"
+    accepted_as_placeholder: true
+  - scene_id: SC-07
+    description: "Presenter to-camera footage (DEM-01), CTA — not filmed"
+    suggestion: "Same acquisition as SC-01; branded CTA end-card stands in"
+    accepted_as_placeholder: true

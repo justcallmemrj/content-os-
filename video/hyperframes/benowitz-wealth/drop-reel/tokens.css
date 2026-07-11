@@ -1,0 +1,50 @@
+/* tokens.css — drop-reel (2026-07-10-ben-dropvid-001)
+ * Brand tokens per SK-C1 wrapper-rules §4 (⚑ DERIVED from the owner-approved
+ * benowitz-drop-exit webinar kit — NOT ratified project memory; proposal rides
+ * the step-8 PR). Compositions consume colors ONLY via these custom
+ * properties — never hard-coded (ratification/revision = a one-file change).
+ *
+ * Safe areas per wrapper-rules §2, 9:16 row — EXACT ratified values.
+ *
+ * Fonts: brand faces are Cormorant / Manrope / JetBrains Mono. None are
+ * installed on this machine and external font fetching at render is banned
+ * (determinism-rules: no render-time network fetches for required assets;
+ * D-036: no new dependencies mid-run). The stacks below therefore resolve to
+ * documented LOCAL fallbacks on this host:
+ *   display serif -> Palatino Linotype / Georgia (Windows system serif)
+ *   ui sans       -> Segoe UI (Windows system sans)
+ *   mono          -> Cascadia Mono / Consolas (unused in this piece)
+ * If Cormorant/Manrope are ever installed locally, the same stacks pick them
+ * up first with no markup change. Flagged in BUILD-NOTE.md and at H5.
+ */
+:root {
+  /* brand — navy family */
+  --brand-navy: #0E2A47;
+  --brand-navy-dark: #081A2D;
+  --brand-navy-soft: #1B3A5F;
+  --ink: #0B1E33;
+
+  /* brand — gold family */
+  --brand-gold: #C8A35C;
+  --gold-soft: #DDC18A;
+  --gold-deep: #A78443;
+
+  /* brand — paper / warm neutrals */
+  --paper: #FBF7EE;
+  --paper-warm: #F7F1E6;
+  --paper-cream: #F1E9D7;
+  --muted: #7A6E55;
+
+  /* scrim token (disclosure band backdrop; ink-derived, 82% opacity) */
+  --scrim: rgba(8, 26, 45, 0.82);
+
+  /* safe areas — 9:16 @ 1080x1920 (wrapper-rules §2, exact values) */
+  --safe-top: 220px;
+  --safe-bottom: 320px;
+  --safe-x: 64px;
+
+  /* type stacks (see header note on local fallbacks) */
+  --font-display: 'Cormorant', 'Cormorant Garamond', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --font-ui: 'Manrope', 'Segoe UI', 'Segoe UI Variable Text', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Mono', Consolas, monospace;
+}

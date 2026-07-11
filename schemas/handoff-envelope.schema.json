@@ -85,7 +85,8 @@
   "$defs": {
     "state": {
       "type": "string",
-      "enum": ["requested", "intake", "context_loaded", "brief", "research", "draft", "fact_check", "revision", "voice_edit", "fact_delta", "compliance", "qa", "manager_review", "human_review", "approved", "done", "archived", "escalated"]
+      "enum": ["requested", "intake", "context_loaded", "brief", "research", "draft", "fact_check", "revision", "voice_edit", "fact_delta", "compliance", "qa", "manager_review", "human_review", "approved", "done", "archived", "escalated",
+               "storyboard", "engine_routing", "build", "preview_review", "render", "technical_qc", "judgment_qc", "delivery_ready", "human_signoff", "published", "performance_review"]
     },
     "party": {
       "type": "string",

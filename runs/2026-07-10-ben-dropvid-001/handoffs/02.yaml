@@ -1,0 +1,44 @@
+run_id: 2026-07-10-ben-dropvid-001
+seq: 2
+stage:
+  from: storyboard
+  to: engine_routing
+agents:
+  from: VDIR
+  to: ORCH
+artifacts:
+- path: runs/2026-07-10-ben-dropvid-001/storyboard/storyboard.yaml
+  sha256: 0ad0d26d2331e56a4ee039a3c05a685d7744cb1089ba41c080214094fa682abf
+- path: runs/2026-07-10-ben-dropvid-001/storyboard/captions.yaml
+  sha256: 147bac40188460ac8256c027bd152a0d4eb44a781e45ccb5fc64a581ce6859cf
+- path: runs/2026-07-10-ben-dropvid-001/storyboard/visual-brief.md
+  sha256: 054ce285ac2aa9a1c71c27d8dfbbacfffb5ee9a332deaedf4dc7728a28a4035f
+skills_used:
+- id: SK-B16
+  version: 1.0.0
+- id: SK-B17
+  version: 1.0.0
+- id: SK-C3
+  version: 1.0.0
+gate_results:
+- gate: G-V
+  pass: true
+  detail: "storyboard schema-valid (route added this session)"
+- gate: G-V
+  pass: true
+  detail: "storyboard_check: durations/contiguity/ID-map/GAP-mirror/locked-hash all clean"
+- gate: G-V
+  pass: true
+  detail: "caption_check: 28 segments, CPS/line/timing clean"
+- gate: G-V
+  pass: true
+  detail: "caption-concat == spoken script, ORCH independent re-verification"
+concerns:
+- "caption track flows across scene cuts (marker windows under-allocate reading time at CPS<=17: HOOK would need 24.4); zero text changes — flagged for H5"
+- "schema_validate ROUTES lacked a storyboard entry (V2 gate no-op) — fixed by build this session, route now live"
+confidence:
+  value: high
+  basis: "3 validators green both VDIR-side and ORCH-side; verbatim property proven by concatenation twice"
+approvals: []
+feedback_ref: null
+escalations: []

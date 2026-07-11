@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-os/schemas/render-manifest@1.0.0",
+  "title": "Render manifest (Phase 4 §7.3 SK-C1 output schema; Phase 5 §5 V6 entry)",
+  "description": "video/<engine>/<project>/renders/<id>/manifest.yaml — settings, input hashes, dependency versions, output hashes; everything needed to render again. V6 requires: manifest complete, output hashed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifest_id", "run_id", "engine", "engine_version", "upstream_pin", "storyboard", "composition", "settings", "inputs", "output", "environment", "rendered_at", "notes"],
+  "properties": {
+    "manifest_id": {"type": "string", "pattern": "^(HF|RM)-\\d{4}-\\d{4}-\\d{2}$"},
+    "run_id": {"type": "string"},
+    "engine": {"enum": ["hyperframes", "remotion"]},
+    "engine_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "must equal the ratified pin for the engine (D-036) — 0.7.49 for hyperframes at SK-C1 1.0.0"},
+    "upstream_pin": {"type": "string", "pattern": "^[a-f0-9]{7,40}$"},
+    "storyboard": {"$ref": "#/$defs/hashed_file"},
+    "composition": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/hashed_file"},
+      "description": "composition source files (index.html + sub-compositions), each hashed"
+    },
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resolution", "fps", "duration_s", "aspect_ratio", "preset"],
+      "properties": {
+        "resolution": {"type": "string", "pattern": "^\\d+x\\d+$"},
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "aspect_ratio": {"type": "string", "pattern": "^\\d+:\\d+$"},
+        "preset": {"type": "string"}
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/hashed_file"},
+      "description": "every non-composition input the render consumed (assets, fonts, tokens)"
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "duration_s", "size_bytes"],
+      "properties": {
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "size_bytes": {"type": "integer", "minimum": 1}
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["node", "ffmpeg", "os"],
+      "properties": {
+        "node": {"type": "string"},
+        "ffmpeg": {"type": "string"},
+        "os": {"type": "string"}
+      }
+    },
+    "rendered_at": {"type": "string"},
+    "cloud_render": {"const": false, "description": "local render only (D-070); the field exists so a violation is schema-visible, not silent"},
+    "notes": {"type": "string", "description": "build-note pointer or inline notes; deviations are zero or escalated"}
+  },
+  "$defs": {
+    "hashed_file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

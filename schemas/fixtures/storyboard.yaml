@@ -1,0 +1,122 @@
+# Fixtures for storyboard.schema.json — valid case mirrors the VDIR card's example output (Phase 2 §6.11)
+valid:
+  - why: "DROP-reel style storyboard: ID-mapped text, GAP-honest assets, scored engine rec"
+    record:
+      run_id: 2026-07-10-ben-dropvid-001
+      parent_run: 2026-07-10-ben-drop-001
+      script_ref:
+        path: runs/2026-07-10-ben-drop-001/voice/drop-reel-v3.md
+        sha256: 8ec534b3aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      platform_spec:
+        platform: instagram-reels
+        aspect_ratio: "9:16"
+        resolution: 1080x1920
+        fps: 30
+        duration_s: 90
+        tolerance_s: 3
+      scenes:
+        - id: SC-01
+          start_s: 0
+          duration_s: 5
+          type: to-camera
+          on_screen_text:
+            - text_id: CAP-01
+              text: "Your DROP payout arrives as a single check."
+          assets:
+            - ref: GAP
+              rights: none-recorded
+              gap_note: "to-camera footage not filmed"
+          transition: cut
+          direction: "Hook to camera; caption bottom-center in safe area"
+        - id: SC-02
+          start_s: 5
+          duration_s: 85
+          type: text-card
+          on_screen_text:
+            - text_id: DISC-BEN-FRS-01
+              text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+              persistent: true
+          assets: []
+          transition: none
+          direction: "Persistent disclosure block, lower third, inside safe area"
+      engine_recommendation:
+        choice: hyperframes
+        factors:
+          - {name: one-off vs data-driven variants, score: 5, note: "one-off"}
+          - {name: caption-heavy, score: 5, note: "caption track dominant"}
+          - {name: licensing, score: 5, note: "Apache-2.0, no threshold (D-070)"}
+        rationale: "Caption-heavy one-off with no typed-prop variants: the HyperFrames lane."
+        close_call: false
+        override: null
+      asset_gaps:
+        - scene_id: SC-01
+          description: "to-camera footage (Derrick) not on this machine"
+          suggestion: "film against brand backdrop; placeholder slate until then"
+          accepted_as_placeholder: true
+invalid:
+  - why: "on-screen text without a ledger/disclosure/caption ID (D-016 hole)"
+    record:
+      run_id: r
+      parent_run: null
+      script_ref: {path: p, sha256: 8ec534b3aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}
+      platform_spec: {platform: reels, aspect_ratio: "9:16", resolution: 1080x1920, fps: 30, duration_s: 90, tolerance_s: 3}
+      scenes:
+        - id: SC-01
+          start_s: 0
+          duration_s: 90
+          type: text-card
+          on_screen_text:
+            - text_id: free-text
+              text: "unmapped words"
+          assets: []
+          direction: d
+      engine_recommendation:
+        choice: hyperframes
+        factors: [{name: f, score: 3, note: n}]
+        rationale: r
+        close_call: false
+        override: null
+      asset_gaps: []
+  - why: "asset without a rights field (unknown must be GAP-equivalent, never omitted)"
+    record:
+      run_id: r
+      parent_run: null
+      script_ref: {path: p, sha256: 8ec534b3aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}
+      platform_spec: {platform: reels, aspect_ratio: "9:16", resolution: 1080x1920, fps: 30, duration_s: 90, tolerance_s: 3}
+      scenes:
+        - id: SC-01
+          start_s: 0
+          duration_s: 90
+          type: b-roll
+          on_screen_text: []
+          assets:
+            - ref: AST-BEN-001
+          direction: d
+      engine_recommendation:
+        choice: hyperframes
+        factors: [{name: f, score: 3, note: n}]
+        rationale: r
+        close_call: false
+        override: null
+      asset_gaps: []
+  - why: "engine factor score outside 1–5"
+    record:
+      run_id: r
+      parent_run: null
+      script_ref: {path: p, sha256: 8ec534b3aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}
+      platform_spec: {platform: reels, aspect_ratio: "9:16", resolution: 1080x1920, fps: 30, duration_s: 90, tolerance_s: 3}
+      scenes:
+        - id: SC-01
+          start_s: 0
+          duration_s: 90
+          type: text-card
+          on_screen_text: []
+          assets: []
+          direction: d
+      engine_recommendation:
+        choice: hyperframes
+        factors: [{name: f, score: 9, note: n}]
+        rationale: r
+        close_call: false
+        override: null
+      asset_gaps: []
