@@ -1,0 +1,28 @@
+run_id: 2026-07-10-ben-dropli-001
+seq: 3
+stage:
+  from: voice_edit
+  to: compliance
+agents:
+  from: VOICE
+  to: COMPL
+artifacts:
+- path: voice/drop-linkedin-v2.md
+  sha256: 76c3d98e062ab4c40483e993091accccec40d6af9892394ed0fec71b3b191122
+- path: voice/change-log.md
+  sha256: 73c116314da70d585494f1ee217994e81d3e203ef94e863341c010bcfa1a1d78
+- path: voice/claim-diff.yaml
+  sha256: e07c1a8977cadd772e218bfe3d367f0ff9b8e0bd5ec29cd77d35c51678354ef2
+skills_used:
+- id: SK-B9
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: fingerprint pass; diff empty control-verified; inheritance intact
+approvals: []
+feedback_ref: null
+escalations: []

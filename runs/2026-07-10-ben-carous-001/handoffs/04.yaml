@@ -1,0 +1,26 @@
+run_id: 2026-07-10-ben-carous-001
+seq: 4
+stage:
+  from: compliance
+  to: qa
+agents:
+  from: COMPL
+  to: QA
+artifacts:
+- path: compliance/report.md
+  sha256: 1a32ed85036f5029b50bbc8037f59875859821fe155019203bdefcf48de5b641
+skills_used:
+- id: SK-B14
+  version: 1.0.0
+- id: SK-B15
+  version: 1.0.0
+gate_results: []
+concerns:
+- FLAG-1 costless fix available (append FRS-01 to caption) — surface at H2; PG-1 profile-gap
+  proposal candidate
+confidence:
+  value: high
+  basis: pass, 0 major, 3 minor
+approvals: []
+feedback_ref: null
+escalations: []

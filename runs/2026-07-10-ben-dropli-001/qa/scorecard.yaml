@@ -1,0 +1,38 @@
+# QA scorecard — run 2026-07-10-ben-dropli-001 — RUB-SOCIAL-1 applied by QA
+# Validators run 2026-07-10 by QA (chain outputs read, not re-derived where
+# validator-fed). Anchor rationale per dimension: qa/qa-notes.md. No
+# low-confidence scores; all seven dimensions included in the composite.
+run: 2026-07-10-ben-dropli-001
+rubric: RUB-SOCIAL-1
+target: voice/drop-linkedin-v2.md
+required:
+  R1_facts: "pass(ledger_validate --deliverable voice/drop-linkedin-v2.md -> VALID, 0 violations; blocking_summary CLEAR, recomputed high_risk_non_verified: 0; all 9 high-risk claims verified or verified-with-qualification; 10 inherited statuses parent-hash-verified per ledger delta pass; on_screen texts CL-25/CL-26 byte-present in v2)"
+  R2_visual_copy: "pass(n/a by construction — pure-text LinkedIn post, no on-image/on-slide surface exists; the format's only 'on-screen' text IS the post body, and its ledger byte-presence is already enforced under R1 via on_screen: true on CL-25/CL-26)"
+  R3_compliance: "pass(COMPL verdict PASS — 0 blocked/major, 2 minor flags fix-optional; compliance_lint re-run by QA on v2 and first-comment.md: 0 findings each, exit 0)"
+  R4_disclosure: "pass(LinkedIn placement design intact: drafts/first-comment.md carries DISC-BEN-FRS-01 + DISC-BEN-TAX-01 byte-verbatim (disclosure_check standard mode: PASS 0 violations) and the post states the location in-post ('...full disclosures are in the first comment.'); in-post DISC-BEN-SHORT-01 + TAX-01 verbatim (disclosure_check --short-format --tax on v2: PASS 0 violations); actual first-comment posting is the COMPL publish-gate condition at H2, not verifiable from drafts)"
+  R5_format: "pass(social_format_check --format linkedin on v2: PASS, 0 findings; 279 words in 150-300 band; first-comment statement present)"
+  R6_contamination: "pass(lexicon_scan --project benowitz-wealth: 0 foreign-term hits on v2 and on first-comment.md)"
+scores:
+  audience_relevance: 5
+  originality: 4
+  clarity: 5
+  brand_fit: 5
+  platform_fit: 5
+  engagement: 5
+  cta: 4
+composite: 9.4
+golden_comparison: >-
+  No goldens exist for the social profile (RUB-SOCIAL-1 itself records
+  "goldens: none yet for social") — no nearest-golden citation or delta
+  narrative is possible. This is golden-candidate territory: per the rubric,
+  the first approved social run becomes golden-candidate #2. If this run
+  clears H2, QA proposes it via proposals/queue/ (D-079 path). Until a social
+  golden and a rejected negative exist, regression detection for this profile
+  has no baseline.
+observations:
+  - "MEMC/publish-checklist: COMPL publish-gate conditions 1-4 are HARD and ride to H2 — (1) drafted first comment posted as the FIRST comment immediately at publish (the in-post location sentence is false until then; CL-25/CL-26 qualifications); (2) [WEBINAR-REGISTRATION-LINK] placeholder replaced with the live URL before the comment posts; (3) webinar confirmed live and free (inherited CL-14, unverified); (4) post text locked at publish (D5)."
+  - "MEMC/rubric-gap: RUB-SOCIAL-1's CTA 5-anchor reads 'one ask' but brand-voice.md's ratified LinkedIn cta_pattern is the dual 'forward this / weigh in' verbatim — as written, a pattern-perfect LinkedIn CTA can never score 5. Candidate rubric clarification (score interpolated to 4 this run; verdict unaffected)."
+  - "MEMC/adaptation-pattern: D-047 child-run economics worked — 10 inherited byte-identical sentences kept FACT to a delta pass and VOICE to two cosmetic edits; the fresh value is entirely in the referrer-facing frame (hook scene + CL-27 forwarding scope). Originality 4 prices the inherited familiar mechanics honestly."
+  - "COMPL FLAG-1 (CL-22 'almost never' — unverified frequency assertion, softening suggested) and FLAG-2 (unlabeled illustrative scene, adjudicated not-a-testimonial) are minor/fix-optional and ride to H2 for human adjudication; any adopted wording change re-enters at fact_check (D5). Verdict-neutral here."
+  - "Tool-sight control noted with approval: VOICE verified the claim_diff zero against a planted semantic change rather than assuming it (drop-001 blindness lesson applied). Pattern worth keeping."
+verdict: pass

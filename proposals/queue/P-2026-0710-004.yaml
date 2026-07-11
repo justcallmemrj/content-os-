@@ -1,0 +1,18 @@
+id: P-2026-0710-004
+run: 2026-07-10-ben-dropli-001
+origin_agent: QA
+type: lesson-observation
+target: evaluations/rubrics/RUB-SOCIAL-1.md#cta
+payload:
+  observation: CTA anchor (one ask) caps the ratified LinkedIn forward+weigh-in dual
+    pattern at 4; a pattern-perfect LinkedIn CTA can never score 5 as written.
+rationale: QA rubric-gap, run ben-dropli-001
+consequence_class: consequential
+sources: []
+sensitivity: S1
+status: queued
+memc:
+  triaged_at: null
+  notes: null
+  staged_in: null
+  resolved_by: null

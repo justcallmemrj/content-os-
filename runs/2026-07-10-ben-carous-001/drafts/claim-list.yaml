@@ -1,0 +1,182 @@
+# Claim list v1 — SK-B2 declare mode — run 2026-07-10-ben-carous-001
+# Deliverables: drafts/drop-carousel-v1.md + drafts/caption.md
+# Source asset (attached, pre-checked): runs/2026-07-10-ben-drop-001/voice/drop-reel-v3.md
+#   with ledger runs/2026-07-10-ben-drop-001/factcheck/ledger.yaml (v2, blocking summary CLEAR).
+# Evidence convention: "drop-001/CL-xx" = the source run's ledger claim; anything the
+#   attached asset does not support is [UNVERIFIED]. Disclosure texts cite
+#   projects/benowitz-wealth/disclosures.md@1.0.0 (approved memory).
+# Every on-image string (every slide string) is declared byte-exact with on_screen: true.
+
+claims:
+  # ---- drop-carousel-v1.md (on-image; text byte-exact to the slide) ----
+  - id: CC-01
+    text: "Your DROP payout arrives as a single check."
+    location: "Slide 1"
+    risk: high
+    evidence: "drop-001/CL-01 (verified; asserts payout FORM only)"
+    on_screen: true
+  - id: CC-02
+    text: "It comes with a decision attached."
+    location: "Slide 1"
+    risk: medium
+    evidence: "drop-001/CL-02 (verified)"
+    on_screen: true
+  - id: CC-03
+    text: "Most members never hear it called a decision."
+    location: "Slide 1"
+    risk: low
+    evidence: "[UNVERIFIED] — carried from drop-001/CL-17, adjudicated unverified (low-risk texture; unverified is its legitimate final state)"
+    on_screen: true
+  - id: CC-04
+    text: "Most members picture a payday."
+    location: "Slide 2"
+    risk: low
+    evidence: "[UNVERIFIED] — carried from drop-001/CL-18, adjudicated unverified (low-risk texture)"
+    on_screen: true
+  - id: CC-05
+    text: "Half of that is right."
+    location: "Slide 2"
+    risk: low
+    evidence: "drop-001/CL-05 + drop-001/CL-06 (the two-arm fork: pension automatic, lump sum elective — 'half right' asserts only that one arm pays without action)"
+    on_screen: true
+  - id: CC-06
+    text: "Your monthly pension turns on by itself."
+    location: "Slide 3"
+    risk: medium
+    evidence: "drop-001/CL-05 (verified)"
+    on_screen: true
+  - id: CC-07
+    text: "The lump sum doesn't. It waits for your instruction."
+    location: "Slide 4"
+    risk: medium
+    evidence: "drop-001/CL-06 (verified; verbatim)"
+    on_screen: true
+  - id: CC-08
+    text: "Cash gets taxed as that year's ordinary income."
+    location: "Slide 5"
+    risk: high
+    evidence: "drop-001/CL-07 (verified; slide text is a trimmed subset — the 'stacked on everything else you earn' clause omitted for slide budget, claim strictly narrower than source)"
+    on_screen: true
+  - id: CC-09
+    text: "Any payout sent to you directly has twenty percent withheld for federal tax."
+    location: "Slide 5"
+    risk: high
+    evidence: "drop-001/CL-08 (verified; verbatim)"
+    on_screen: true
+  - id: CC-10
+    text: "A direct rollover is the other route."
+    location: "Slide 6"
+    risk: medium
+    evidence: "drop-001/CL-09 (verified; verbatim)"
+    on_screen: true
+  - id: CC-11
+    text: "The money moves trustee to trustee into an IRA or another qualified plan, nothing withheld, still tax-deferred."
+    location: "Slide 6"
+    risk: high
+    evidence: "drop-001/CL-10 (verified; verbatim, 'qualified plan' wording preserved)"
+    on_screen: true
+  - id: CC-12
+    text: "Choose cash, and it's taxed in the year it pays out."
+    location: "Slide 7"
+    risk: high
+    evidence: "drop-001/CL-12 (verified; verbatim — cash route only, distribution year)"
+    on_screen: true
+  - id: CC-13
+    text: "Choose the rollover, and the timing becomes yours."
+    location: "Slide 7"
+    risk: medium
+    evidence: "drop-001/CL-11 (verified-with-qualification: deferral-until-withdrawal, not unconditional control; placement immediately after Slide 6's deferral mechanics honors the qualification, and the conditional 'Choose the rollover' scopes it to the deferral arm)"
+    on_screen: true
+  - id: CC-14
+    text: "Our free DROP Exit webinar walks through the whole decision."
+    location: "Slide 8"
+    risk: low
+    evidence: "[UNVERIFIED] — matches drop-001/CL-14, adjudicated unverified (operational; publish checklist must confirm webinar is live and free)"
+    on_screen: true
+  - id: CC-15
+    text: "Register at the link in our profile."
+    location: "Slide 8"
+    risk: low
+    evidence: "[UNVERIFIED] — operational; link presence in profile is a publish-gate condition"
+    on_screen: true
+  - id: CC-16
+    text: "Educational only. Not advice. Not affiliated with FRS. Consult a qualified tax professional regarding your specific situation. Full disclosures in profile."
+    location: "Slide 8"
+    risk: high
+    evidence: "DISC-BEN-SHORT-01 + DISC-BEN-TAX-01 verbatim (projects/benowitz-wealth/disclosures.md@1.0.0); mirrors drop-001/CL-15 qualification — 'Full disclosures in profile.' is TRUE only if DISC-BEN-FRS-01 (with the TAX-01 rider per the calendar touchpoint) is actually placed in the profile at publish; hard publish-gate condition"
+    on_screen: true
+
+  # ---- caption.md (not on-image) ----
+  - id: CP-01
+    text: "Your DROP payout arrives as a single check — and it comes with a decision attached."
+    location: "caption hook"
+    risk: high
+    evidence: "drop-001/CL-01 + drop-001/CL-02 (both verified; merged with connective only, no new assertion)"
+    on_screen: false
+  - id: CP-02
+    text: "If you're in DROP, it ends on a date you already know."
+    location: "caption body L1"
+    risk: medium
+    evidence: "drop-001/CL-03 (verified; F-BEN-0003 chain — conditional 'if you're in DROP' retained per the drop-001/CL-16 adjudication so no eligibility implication attaches)"
+    on_screen: false
+  - id: CP-03
+    text: "You must leave FRS-covered work for that balance to pay out."
+    location: "caption body L1"
+    risk: high
+    evidence: "drop-001/CL-04 (verified; F-BEN-0003, stated as the hard rule per the fact's usage note)"
+    on_screen: false
+  - id: CP-04
+    text: "Your monthly pension turns on by itself."
+    location: "caption body L2"
+    risk: medium
+    evidence: "drop-001/CL-05 (verified)"
+    on_screen: false
+  - id: CP-05
+    text: "The lump sum waits for your instruction."
+    location: "caption body L2"
+    risk: medium
+    evidence: "drop-001/CL-06 (verified; contraction of 'The lump sum doesn't. It waits for your instruction.' — same substance, no new assertion)"
+    on_screen: false
+  - id: CP-06
+    text: "Cash gets taxed as that year's ordinary income, stacked on everything else you earn."
+    location: "caption body L3"
+    risk: high
+    evidence: "drop-001/CL-07 (verified; verbatim including the stacking clause)"
+    on_screen: false
+  - id: CP-07
+    text: "A direct rollover stays tax-deferred, nothing withheld — the timing becomes yours."
+    location: "caption body L4"
+    risk: high
+    evidence: "drop-001/CL-10 (verified; condensed mechanics) + drop-001/CL-11 (verified-with-qualification; 'the timing becomes yours' reads immediately after the deferral mechanics in the same line, honoring the qualification)"
+    on_screen: false
+  - id: CP-08
+    text: "Our free DROP Exit webinar walks through the whole decision."
+    location: "caption CTA"
+    risk: low
+    evidence: "[UNVERIFIED] — matches drop-001/CL-14 (operational; publish checklist confirms live and free)"
+    on_screen: false
+  - id: CP-09
+    text: "Register at the link in our profile."
+    location: "caption CTA"
+    risk: low
+    evidence: "[UNVERIFIED] — operational; link presence is a publish-gate condition"
+    on_screen: false
+  - id: CP-10
+    text: "Consult a qualified tax professional regarding your specific situation."
+    location: "caption tax referral"
+    risk: high
+    evidence: "DISC-BEN-TAX-01 verbatim (projects/benowitz-wealth/disclosures.md@1.0.0; required by the calendar row-1 TAX CONTENT touchpoint)"
+    on_screen: false
+  - id: CP-11
+    text: "Educational only. Not advice. Not affiliated with FRS. Full disclosures in profile."
+    location: "caption disclosure"
+    risk: high
+    evidence: "DISC-BEN-SHORT-01 verbatim + short-format condition sentence (disclosures.md@1.0.0); TRUE only if DISC-BEN-FRS-01 + TAX-01 rider are placed in the profile at publish (publish-gate)"
+    on_screen: false
+
+summary:
+  total: 27
+  asset_cited: 18          # CC-01,02,05,06,07,08,09,10,11,12,13 + CP-01..07
+  unverified: 6            # CC-03, CC-04, CC-14, CC-15, CP-08, CP-09 (all low-risk texture/operational)
+  disclosure_cited: 3      # CC-16, CP-10, CP-11 (disclosures.md@1.0.0, approved memory)
+  high_risk_unverified: 0

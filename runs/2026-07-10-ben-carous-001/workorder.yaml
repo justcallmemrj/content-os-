@@ -1,0 +1,18 @@
+task_id: T-2026-0710-006
+run_id: 2026-07-10-ben-carous-001
+parent_run: null
+project_id: benowitz-wealth
+cross_project: null
+deliverable: {type: social, format: carousel, platform: instagram, spec: "DROP-exit decision carousel per ratified calendar row 1 (the row is the brief); source asset = approved drop-001 deliverable"}
+objective: webinar-registration
+audience_ref: audience.md#frs-50plus
+funnel_stage: awareness
+voice_profile_version: brand-voice.md@1.0.0
+required_fact_ids: [F-BEN-0003, F-BEN-0010]
+disclosure_ids: [DISC-BEN-FRS-01]
+prohibited_notes: ["TAX CONTENT per calendar touchpoint — tax referral + FRS-01+TAX-01 profile rider carry over"]
+asset_manifest_ref: "runs/2026-07-10-ben-cal-001/strategy/calendar.md#row-1"
+constraints: {length_words: [0, 400], deadline: null}
+model_tier_escalation: none
+state: done
+calendar_ref: "runs/2026-07-10-ben-cal-001/strategy/calendar.md#row-1"

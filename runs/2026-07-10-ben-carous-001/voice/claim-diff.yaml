@@ -1,0 +1,68 @@
+# Claim diff — run 2026-07-10-ben-carous-001 — SK-B2 delta duty (emitted by VOICE)
+# Two file pairs:
+#   drafts/drop-carousel-v1.md -> voice/drop-carousel-v2.md
+#   drafts/caption.md          -> voice/caption-v2.md
+run: 2026-07-10-ben-carous-001
+ledger: "factcheck/ledger.yaml"   # version 1 (full pass, CLEAR)
+by: VOICE
+at: "2026-07-10"
+
+pairs:
+  - old: "drafts/drop-carousel-v1.md"
+    new: "voice/drop-carousel-v2.md"
+    differ:
+      command: >-
+        python .claude/skills/ev-claim-ledger/scripts/claim_diff.py
+        runs/2026-07-10-ben-carous-001/drafts/drop-carousel-v1.md
+        runs/2026-07-10-ben-carous-001/voice/drop-carousel-v2.md --json
+      output: "[]"
+      hits: 0
+      # Tool-sight control: "**Slide N:**" lines do not start with the
+      # differ's MARKER characters, so every slide sentence is parsed.
+      # Scratch copy with "twenty percent" -> "thirty percent" planted
+      # produced exactly 1 hit. The zero is real.
+    touches: []          # zero slide-text edits — every slide string is
+                         # on_screen ledger text; edits were confined to the
+                         # title/provenance marker lines (not on-image copy)
+    untouched_claims: [CL-01, CL-02, CL-03, CL-04, CL-05, CL-06, CL-07,
+                       CL-08, CL-09, CL-10, CL-11, CL-12, CL-13, CL-14,
+                       CL-15, CL-16]
+    non_claim_changes:
+      - "Title line: 'carousel v1' -> 'carousel v2 (voice)' (metadata marker line)"
+      - "Provenance line: voice-pass revises-note appended (metadata marker line)"
+
+  - old: "drafts/caption.md"
+    new: "voice/caption-v2.md"
+    differ:
+      command: >-
+        python .claude/skills/ev-claim-ledger/scripts/claim_diff.py
+        runs/2026-07-10-ben-carous-001/drafts/caption.md
+        runs/2026-07-10-ben-carous-001/voice/caption-v2.md --json
+      output: "[]"
+      hits: 0
+      # Tool-sight control: scratch copy with "that year's" -> "next year's"
+      # planted produced exactly 1 hit. The zero is real.
+    touches: []          # no sentence text edited
+    untouched_claims: [CL-17, CL-18, CL-19, CL-20, CL-21, CL-22, CL-23,
+                       CL-24, CL-25, CL-26, CL-27]
+    non_claim_changes:
+      - change: "blank line inserted after '…The lump sum waits for your instruction.'"
+        cl: null       # whitespace only; sentence bytes untouched
+        reason: >-
+          spoken beat between the rule/fork couplet and the tax-routes
+          couplet (parent drop-001 cadence: pause before the tax claim);
+          CL-23 kept in the same line block as its deferral mechanics per
+          its qualification's placement condition
+        differ: "no hit (sentence list identical)"
+
+# "No factual sentences touched" — CHECKED assertion for both pairs:
+# differ 0 hits on each + byte-presence audit of all 27 literal ledger claim
+# texts against their v2 file (CL-01..CL-16 carousel, CL-17..CL-27 caption;
+# whitespace-normalized only where ledger YAML folds long entries).
+# CL-28 ([IMPLIED], FOUND by FACT) is carried by the Slides 5-7 comparative
+# structure, not a literal string — slide order, fork framing, and the
+# "still tax-deferred" deferred-not-tax-free wording are all unchanged.
+# Qualified claims (CL-13, CL-16, CL-23, CL-27): texts byte-identical and
+# placement conditions preserved; qualifications travel undisturbed.
+# Disclosure strings never smoothed: CL-16 final slide line, CL-26 tax
+# referral, CL-27 caption disclosure — byte-identical.

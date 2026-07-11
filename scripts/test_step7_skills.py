@@ -90,7 +90,13 @@ with tempfile.TemporaryDirectory() as td:
         inh = [c for c in child_ledger["claims"]
                if any("inherited from" in h.get("note", "") for h in c["history"])]
         fresh = [c for c in child_ledger["claims"] if c["status"] == "unverified"
-                 and c["id"].endswith("A")]
+                 and c["history"] and c["history"][0].get("event") == "declared"]
+        # REGRESSION (FACT finding, run ben-dropli-001): every id must satisfy the
+        # ledger schema pattern — the old CL-NNA fresh-id scheme was invalid
+        import re as _re
+        bad_ids = [c["id"] for c in child_ledger["claims"]
+                   if not _re.match(r"^CL-\d{2,}$", c["id"])]
+        check("SK-B5 all child-ledger ids satisfy the schema pattern", not bad_ids, str(bad_ids))
         check("SK-B5 exactly 2 claims inherited with history events", len(inh) == 2, str(len(inh)))
         check("SK-B5 inherited claims keep parent statuses",
               all(c["status"] in ("verified", "verified-with-qualification") for c in inh))

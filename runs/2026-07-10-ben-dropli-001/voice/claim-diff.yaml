@@ -1,0 +1,56 @@
+# Claim diff — run 2026-07-10-ben-dropli-001 — SK-B2 delta duty (emitted by VOICE)
+# Compares drafts/drop-linkedin-v1.md (fact-checked, ledger v2) -> voice/drop-linkedin-v2.md
+run: 2026-07-10-ben-dropli-001
+old: "drafts/drop-linkedin-v1.md"
+new: "voice/drop-linkedin-v2.md"
+ledger: "factcheck/ledger.yaml"   # version 2 (delta pass, CLEAR)
+by: VOICE
+at: "2026-07-10"
+
+differ:
+  command: >-
+    python .claude/skills/ev-claim-ledger/scripts/claim_diff.py
+    runs/2026-07-10-ben-dropli-001/drafts/drop-linkedin-v1.md
+    runs/2026-07-10-ben-dropli-001/voice/drop-linkedin-v2.md --json
+  output: "[]"
+  hits: 0
+  # Tool-sight control (lesson from drop-001's blindness finding — a zero is
+  # verified, never assumed): scratch copy of v2 with a planted semantic
+  # change ("twenty percent" -> "thirty percent") run through the same
+  # differ produces exactly 1 hit. The differ sees every sentence of this
+  # plain-prose format; the 0 above is a real zero.
+
+# "No factual sentences touched" — CHECKED assertion, not an assumption:
+# differ 0 hits + byte-presence audit of every ledger claim text against v2.
+touches: []   # no claim sentence edited; every diff-hit list is empty
+
+# The two edits made (both differ-classified cosmetic / invisible):
+non_claim_changes:
+  - old: "So here is the decision, stated plainly."
+    new: "Here's the decision, stated plainly."
+    cl: null      # sentence carries no ledger claim
+    change: "register — brand 'Here's' opener, throat-clearing 'So' dropped"
+    differ: "no hit (changed tokens are stopwords/short: 'so', 'is' vs \"here's\")"
+  - old: "single nine-sentence DECISION paragraph"
+    new: "split into fork-setup + routes paragraphs after 'It waits for your instruction.'"
+    cl: null      # whitespace only
+    change: "paragraph break for LinkedIn scan cadence; sentence bytes untouched"
+    differ: "no hit (sentence list identical)"
+  - old: "# DROP exit LinkedIn — draft v1"
+    new: "# DROP exit LinkedIn — voice v2"
+    cl: null
+    change: "header metadata; marker line, outside post copy and differ scope"
+
+untouched_claims: [CL-04, CL-05, CL-06, CL-07, CL-08, CL-09, CL-10, CL-12,
+                   CL-13, CL-14, CL-20, CL-21, CL-22, CL-23, CL-24, CL-25,
+                   CL-26, CL-27]
+# Byte-presence audit result: all 17 literal claim texts present in v2
+# (whitespace-normalized only where the ledger YAML folds long entries);
+# CL-27 is [IMPLIED] — its carrier CTA sentence is byte-identical to v1,
+# scoping clause "who are close to their DROP date" intact.
+# Inherited set (parent drop-001 texts CL-04..CL-14): NONE edited — the
+# byte-identical inheritance that shrank FACT's delta scope survives this
+# voice pass intact. No cadence edit on an inherited sentence was needed,
+# so nothing rides to FACT for a cosmetic-vs-semantic call.
+# Disclosure texts byte-identical: DISC-BEN-SHORT-01 (CL-25), first-comment
+# placement sentence (CL-26), DISC-BEN-TAX-01 final line. Never smoothed.

@@ -1,0 +1,23 @@
+run_id: 2026-07-10-ben-dropli-001
+seq: 2
+stage:
+  from: fact_check
+  to: voice_edit
+agents:
+  from: FACT
+  to: VOICE
+artifacts:
+- path: factcheck/ledger.yaml
+  sha256: c5873b3d05fa9b02f4721d930bf908191719553b4f0c1aa68609891da6eb8812
+skills_used:
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns:
+- inherit_ledger id-scheme defect found+normalized; tool fix queued
+confidence:
+  value: high
+  basis: 0 high-risk non-verified; spot-audit sound
+approvals: []
+feedback_ref: null
+escalations: []

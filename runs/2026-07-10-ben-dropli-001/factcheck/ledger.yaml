@@ -1,0 +1,554 @@
+run: 2026-07-10-ben-dropli-001
+deliverable: drop-linkedin-v1.md
+version: 2
+passes:
+- type: delta
+  by: FACT
+  at: '2026-07-10T19:33:55'
+  trigger: adaptation inheritance from 2026-07-10-ben-drop-001
+- type: delta
+  by: FACT
+  at: '2026-07-10T19:46:50-04:00'
+  trigger: adaptation fresh claims
+claims:
+- id: CL-04
+  text: you must leave FRS-covered work for that balance to pay out
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: STAKES
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c1 (F-BEN-0003, S-BEN-0001 §121.091(13))
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0003 opened: member must ''terminate all employment relationships''
+      with employer verification to receive accumulated DROP benefits; draft states
+      it as the hard rule per the fact''s usage note (work-order-REQUIRED framing
+      honored)'
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-05
+  text: your monthly pension turns on by itself
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: BEAT ONE
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c2 (F-BEN-0004)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0004 opened: ''At DROP exit, the member''s lifetime monthly pension
+      begins'' — no member election attached to that arm; excerpt ''your monthly pension
+      turns on'''
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-06
+  text: The lump sum doesn't. It waits for your instruction.
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: BEAT ONE
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c2 (F-BEN-0004)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0004 opened: balance ''becomes payable as a one-time lump sum,
+      which may be taken as a distribution or rolled over'' — the payout form is the
+      member''s election'
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-07
+  text: cash gets taxed as that year's ordinary income, stacked on everything else
+    you earn
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: BEAT TWO
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c3 (F-BEN-0010, S-BEN-0002)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0010 opened: cash distribution ''treated as ordinary income in
+      the year of distribution (stacking on top of other income for that year)'' —
+      direct restatement; draft does not quantify the cost (usage-note prohibition
+      respected)'
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-08
+  text: Any payout sent to you directly has twenty percent withheld for federal tax.
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: BEAT TWO
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c4 (F-BEN-0006, S-BEN-0002)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0006 opened: IRS verbatim ''A retirement plan distribution paid
+      to you is subject to mandatory withholding of 20%, even if you intend to roll
+      it over later'' — matches; DISC-BEN-TAX-01 rides along per usage note and is
+      present verbatim in CTA'
+  - at: '2026-07-10T18:13:25-04:00'
+    event: edited
+    by: WRITE
+    diff: Leading 'And ' dropped for duration; claim substance identical
+  - at: '2026-07-10T18:13:25-04:00'
+    event: adjudicated
+    by: FACT
+    against: F-BEN-0006 — cosmetic-only change confirmed; verified stands
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-09
+  text: A direct rollover is the other route.
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: BEAT THREE
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c5 (F-BEN-0007; two-route fork per F-BEN-0004)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0007 and F-BEN-0004 opened: payout taken ''as a distribution or
+      rolled over'' — the rollover is the second of the two routes'
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-10
+  text: The money moves trustee to trustee into an IRA or another qualified plan,
+    nothing withheld, still tax-deferred.
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: BEAT THREE
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c5 (F-BEN-0007, S-BEN-0002)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'F-BEN-0007 opened: mechanics matched but v1''s ''another plan'' loosened
+      the evidence''s ''another qualified plan'''
+    note: 'v1 status: verified-with-qualification'
+  - at: '2026-07-10T18:04:49-04:00'
+    event: qualified
+    by: FACT
+    note: '''another plan'' must read ''another qualified plan'' to match the evidence'
+  - at: '2026-07-10T18:13:25-04:00'
+    event: edited
+    by: WRITE
+    diff: '''into an IRA or another plan'' -> ''into an IRA or another qualified plan''
+      (FACT''s one-word correction adopted)'
+  - at: '2026-07-10T18:13:25-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0007 opened: ''direct rollover (trustee-to-trustee transfer)...
+      to an IRA or another qualified plan preserves the money''s tax-deferred status,
+      with no tax withheld'' — now an exact scope match; qualification discharged'
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-12
+  text: Choose cash, and it's taxed in the year it pays out.
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: TURN
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c3 (F-BEN-0010, S-BEN-0002)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'F-BEN-0010 + F-BEN-0003/0004 opened: v1 keyed the tax year to the termination
+      date and swept in both routes'
+    note: 'v1 status: verified-with-qualification (distribution date is the technical
+      trigger; rollover path defers the question)'
+  - at: '2026-07-10T18:04:49-04:00'
+    event: qualified
+    by: FACT
+    note: Distribution date, not termination date, is the technical tax trigger; rollover
+      path defers the question entirely
+  - at: '2026-07-10T18:13:25-04:00'
+    event: edited
+    by: WRITE
+    diff: '''Your termination date decides which tax year that money lands in'' ->
+      ''Choose cash, and it''s taxed in the year it pays out.'' (keyed to the distribution
+      event; explicitly scoped to the cash route)'
+  - at: '2026-07-10T18:13:25-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0010 opened: cash distribution ''treated as ordinary income in
+      the year of distribution'' — the rewrite states exactly that: cash route only,
+      taxed in the payout (distribution) year; both v1 qualification limits respected'
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-13
+  text: You can see that year coming.
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: TURN
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: RP-2026-0710-01/c1 (F-BEN-0003; chain via c2/F-BEN-0004 and F-BEN-0002)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: verified
+    by: FACT
+    against: v1 text 'you know that date ahead of time' — F-BEN-0003 (termination
+      pegged to DROP period end) + F-BEN-0002 (period fixed at election)
+  - at: '2026-07-10T18:13:25-04:00'
+    event: edited
+    by: WRITE
+    diff: '''you know that date ahead of time'' -> ''You can see that year coming.''
+      (follows the CL-12 rewrite; same foreseeability teaching)'
+  - at: '2026-07-10T18:13:25-04:00'
+    event: verified
+    by: FACT
+    against: 'Chain re-checked: DROP end date fixed at election (F-BEN-0002) -> termination
+      at that date makes the balance payable (F-BEN-0003/0004) -> cash payout taxed
+      in that distribution year (F-BEN-0010) — the payout year is foreseeable; supported'
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-14
+  text: Our free DROP Exit webinar walks through the whole decision.
+  location:
+    file: drafts/drop-reel-v2.md
+    anchor: CTA
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+  - at: '2026-07-10T18:04:49-04:00'
+    event: adjudicated
+    by: FACT
+    against: RP-2026-0710-01 — packet contains no evidence about the webinar's existence,
+      price, or scope; low-risk operational claim, unverified is its legitimate final
+      state
+    note: Producer should confirm webinar is live and free before publish (QA/publish
+      checklist, not a ledger blocker)
+  - at: '2026-07-10T19:33:55'
+    event: adjudicated
+    by: FACT
+    note: inherited from 2026-07-10-ben-drop-001 (parent hash verified)
+- id: CL-20
+  text: 'Every spring, somewhere in Florida, a benefits coordinator gets the same
+    knock. A teacher in her last year of DROP closes the door, lowers her voice, and
+    asks: the pension part I understand, but what happens with the check?'
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: HOOK
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: false
+  history:
+  - at: '2026-07-10T19:33:55'
+    event: declared
+    by: WRITE
+    note: declared as CL-11A; id normalized to CL-20 by FACT (schema pattern ^CL-\d{2,}$;
+      parent sequence continued) — declaration content unchanged
+  - at: '2026-07-10T19:46:50-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'Approved-fact set + parent packet RP-2026-0710-01: no evidence for the
+      illustrative scene (recurring springtime asks of benefits coordinators); ''last
+      year of DROP'' is consistent with F-BEN-0002''s defined-period mechanics (no
+      conflict), but the anecdote itself is unevidenced'
+    note: Low-risk narrative texture; unverified is its legitimate final state
+- id: CL-21
+  text: Union reps get it in the parking lot. Sheriff's office HR gets it during exit
+    paperwork. CPAs get it in March, sometimes a tax year too late.
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: HOOK
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: false
+  history:
+  - at: '2026-07-10T19:33:55'
+    event: declared
+    by: WRITE
+    note: declared as CL-12A; id normalized to CL-21 by FACT — declaration content
+      unchanged
+  - at: '2026-07-10T19:46:50-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'Approved-fact set: no evidence on who members ask or when; the factual
+      shadow ''sometimes a tax year too late'' is consistent with F-BEN-0010 (cash
+      taxed in the year of distribution — discovering the consequence the following
+      March is possible) and is hedged (''sometimes''); the scenario itself is unevidenced.
+      Independent extraction flags the CPA sentence high on tax keywords; adjudged
+      low — anecdotal texture, no tax rule asserted beyond what CL-24 carries'
+    note: Unverified is its legitimate final state
+- id: CL-22
+  text: The first person an FRS member asks is almost never an advisor. It's you.
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: HOOK
+  risk: medium
+  declared_by: WRITE
+  status: unverified
+  on_screen: false
+  history:
+  - at: '2026-07-10T19:33:55'
+    event: declared
+    by: WRITE
+    note: declared as CL-13A; id normalized to CL-22 by FACT — declaration content
+      unchanged
+  - at: '2026-07-10T19:46:50-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'Approved-fact set + parent packet: no evidence on member help-seeking
+      behavior; ''almost never'' is a frequency assertion with no source'
+    note: Medium-risk behavioral claim, non-blocking; producer may soften or source
+      it, but unverified stands as the categorical status (D8)
+- id: CL-23
+  text: After that, your monthly pension turns on by itself.
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: DECISION
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: F-BEN-0004 (S-BEN-0001 §121.091(13); parent CL-05 same substance)
+  on_screen: false
+  history:
+  - at: '2026-07-10T19:33:55'
+    event: declared
+    by: WRITE
+    note: declared as CL-14A; id normalized to CL-23 by FACT — declaration content
+      unchanged
+  - at: '2026-07-10T19:46:50-04:00'
+    event: delta-verified
+    by: FACT
+    against: 'F-BEN-0004 opened: ''At DROP exit, the member''s lifetime monthly pension
+      begins'' — the draft sequences the pension start after the required termination
+      (CL-04), i.e. at DROP exit; ''by itself'' matches the no-member-election arm.
+      The fresh ''After that'' linkage is the only addition over inherited CL-05 and
+      it is exactly what the fact states'
+- id: CL-24
+  text: Take the check, and cash gets taxed as that year's ordinary income, stacked
+    on everything else you earn.
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: DECISION
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: F-BEN-0010 (S-BEN-0002; parent CL-07 same core text)
+  on_screen: false
+  history:
+  - at: '2026-07-10T19:33:55'
+    event: declared
+    by: WRITE
+    note: declared as CL-15A; id normalized to CL-24 by FACT — declaration content
+      unchanged
+  - at: '2026-07-10T19:46:50-04:00'
+    event: adjudicated
+    by: FACT
+    note: 'Risk reclassified low -> high by FACT: tax-treatment claim (risk-classification
+      rule: tax = high); independent extraction also flags it high'
+  - at: '2026-07-10T19:46:50-04:00'
+    event: delta-verified
+    by: FACT
+    against: 'F-BEN-0010 opened: cash distribution ''treated as ordinary income in
+      the year of distribution (stacking on top of other income for that year)'' —
+      direct restatement; ''Take the check, and'' scopes the claim to the cash route;
+      no quantification of the cost (usage-note prohibition respected); DISC-BEN-TAX-01
+      present verbatim in the post''s final line per usage note'
+- id: CL-25
+  text: Educational only. Not advice. Not affiliated with FRS.
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: CTA/disclosure
+  risk: high
+  declared_by: WRITE
+  status: verified-with-qualification
+  evidence: DISC-BEN-SHORT-01 (projects/benowitz-wealth/disclosures.md@1.0.0)
+  qualification: >-
+    The three sentences match DISC-BEN-SHORT-01 verbatim (byte-checked), and
+    the short-format condition that the deliverable explicitly say where the
+    full disclosure lives is met by the adjacent sentence (CL-26). The
+    disclosure posture is only TRUE if DISC-BEN-FRS-01 actually appears in the
+    first comment at publish. The drafted first comment
+    (drafts/first-comment.md) carries DISC-BEN-FRS-01 and DISC-BEN-TAX-01
+    byte-verbatim, so the condition is satisfiable as drafted — posting it is
+    a hard publish-gate condition, not verifiable from the draft.
+  on_screen: true
+  history:
+  - at: '2026-07-10T19:33:55'
+    event: declared
+    by: WRITE
+    note: declared as CL-16A; id normalized to CL-25 by FACT — declaration content
+      unchanged
+  - at: '2026-07-10T19:46:50-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'disclosures.md@1.0.0 opened: DISC-BEN-SHORT-01 verbatim match byte-checked
+      in the post; short-format conditions read; drafts/first-comment.md opened:
+      DISC-BEN-FRS-01 and DISC-BEN-TAX-01 both byte-verbatim present'
+  - at: '2026-07-10T19:46:50-04:00'
+    event: qualified
+    by: FACT
+    note: Conditional on the drafted first comment actually being posted at publish
+      (mirrors parent CL-15 qualification); on_screen set true — the deliverable IS
+      the on-screen text for this format, byte-presence enforced by validator
+- id: CL-26
+  text: The registration link and our full disclosures are in the first comment.
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: CTA/disclosure
+  risk: high
+  declared_by: WRITE
+  status: verified-with-qualification
+  evidence: drafts/first-comment.md (contains DISC-BEN-FRS-01 + DISC-BEN-TAX-01 verbatim
+    + registration-link slot)
+  qualification: >-
+    Placement claim. The drafted first comment exists and contains everything
+    the sentence promises: the full disclosures (DISC-BEN-FRS-01 verbatim,
+    plus DISC-BEN-TAX-01) and a registration link slot. Two conditions must
+    hold at publish for the sentence to be true: (1) the comment is actually
+    posted as the first comment immediately at publish; (2) the
+    [WEBINAR-REGISTRATION-LINK] placeholder is replaced with the live URL.
+    Both are hard publish-gate conditions (ride with inherited CL-14's
+    webinar-live/free check); neither is verifiable from the draft.
+  on_screen: true
+  history:
+  - at: '2026-07-10T19:33:55'
+    event: declared
+    by: WRITE
+    note: declared as CL-17A; id normalized to CL-26 by FACT — declaration content
+      unchanged
+  - at: '2026-07-10T19:46:50-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'drafts/first-comment.md opened: registration link present as [WEBINAR-REGISTRATION-LINK]
+      placeholder; DISC-BEN-FRS-01 byte-verbatim against disclosures.md@1.0.0; DISC-BEN-TAX-01
+      byte-verbatim; producer instruction block states the publish-gate condition
+      explicitly'
+  - at: '2026-07-10T19:46:50-04:00'
+    event: qualified
+    by: FACT
+    note: True only once the comment is posted first at publish with the live URL
+      in place — hard publish-gate condition, flagged to QA/producer checklist
+- id: CL-27
+  text: '[IMPLIED] Teachers, deputies, firefighters, and state staff ''who are close
+    to their DROP date'' face this payout decision — the forwarding address is conditional
+    on already being in DROP.'
+  location:
+    file: drafts/drop-linkedin-v1.md
+    anchor: CTA
+  risk: high
+  declared_by: FOUND
+  status: verified
+  evidence: F-BEN-0005 (S-BEN-0004, S-BEN-0001); parent CL-16 discharge logic
+  on_screen: false
+  history:
+  - at: '2026-07-10T19:46:50-04:00'
+    event: found
+    by: FACT
+    note: Undeclared implied claim in the forwarding CTA — occupational address with
+      DROP applicability, the same shape as parent CL-16
+  - at: '2026-07-10T19:46:50-04:00'
+    event: delta-verified
+    by: FACT
+    against: 'F-BEN-0005 opened: ''DROP is available only to FRS Pension Plan members;
+      Investment Plan members are not eligible'' — the relative clause ''who are close
+      to their DROP date'' scopes the address to members already in DROP, who are
+      Pension Plan members by definition; no eligibility implication reaches Investment
+      Plan members in the same occupations (identical to the parent CL-16 v2 conditional
+      discharge)'
+blocking_summary:
+  high_risk_non_verified: 0
+  notes: >-
+    CLEAR. Delta pass (adaptation fresh claims): 10 inherited entries untouched
+    (spot-audit: parent_artifact_hash matches the approved parent artifact
+    voice/drop-reel-v3.md byte-for-byte; CL-08 and CL-10 byte-identical in this
+    draft, listed untouched in the parent VOICE claim-diff, parent verified
+    statuses rest on opened evidence — transfer sound). 7 fresh claims
+    adjudicated (ids normalized CL-11A..CL-17A -> CL-20..CL-26 to satisfy the
+    ledger schema id pattern; contents unchanged) plus 1 FOUND implied claim
+    (CL-27, verified). CL-24 risk reclassified low -> high (tax) and verified
+    against F-BEN-0010. All nine high-risk claims verified or
+    verified-with-qualification. Publish-gate conditions ride on CL-25/CL-26
+    (first comment actually posted with DISC-BEN-FRS-01 and live registration
+    URL) and inherited CL-14 (webinar live and free). Non-blocking unverified:
+    CL-20, CL-21 (low texture), CL-22 (medium behavioral).

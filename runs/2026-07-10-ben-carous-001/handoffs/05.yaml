@@ -1,0 +1,24 @@
+run_id: 2026-07-10-ben-carous-001
+seq: 5
+stage:
+  from: qa
+  to: manager_review
+agents:
+  from: QA
+  to: ORCH
+artifacts:
+- path: qa/scorecard.yaml
+  sha256: 1c9a98e13deb1570f988c0f69c13d8c96fe712503ec13b673536d2ebcd6993b3
+- path: qa/qa-notes.md
+  sha256: 743374c8a41045ea69fe3130357bfdacadf819e5b0917cfe3f0979ac784de0fe
+skills_used:
+- id: SK-B18
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: required 6/6, composite 9.7
+approvals: []
+feedback_ref: null
+escalations: []
