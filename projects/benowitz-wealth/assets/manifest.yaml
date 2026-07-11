@@ -18,3 +18,15 @@ assets:
     origin: "Downloads/Benowitz-Carousels.zip — published 30-post package"
     note: "slide JPGs NOT vendored (large binaries); they remain in the Downloads archive.
            Captions are the voice-bearing text and the exemplar source."
+  - id: AST-BEN-BOOKS-FRB
+    path: books/
+    items: [BWM_FRB_Book1_Manuscript_v1.md, BWM_FRB_Book2_Manuscript_v1.md,
+            BWM_FRB_Book3_Manuscript_v1.md, BWM_FRB_Compliance_Review_Memo.md]
+    type: book-manuscript
+    rights: firm-owned
+    origin: "Downloads/ (owner back catalog, delivered 2026-07-11; 'The FRS Retirement
+             Blueprint Series' Books 1-3 + CCO compliance review memo)"
+    note: "Manuscripts vendored for provenance (source records S-BEN-0005..0007); facts
+           NOT extracted at seeding — future runs extract on demand. Memo §1.5 flags the
+           firm-wide fee-only(BEN)/fee-based(DUC) inconsistency as its highest-priority
+           pre-print action item — see staging-2026-07-11-003 digest ⚑."

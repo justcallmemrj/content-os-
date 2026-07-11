@@ -47,3 +47,27 @@ sources:
   - F-BEN-0010
   file: S-BEN-0004.md
   sha256: dcb1298fac604f199c620821be8307efe06694ec69d28fb31df2b01efa11e97b
+- id: S-BEN-0005
+  type: practitioner
+  tier: 3
+  status: active
+  stability: annual
+  cited_by: []
+  file: S-BEN-0005.md
+  sha256: d8051cff534bbbafdc066383c46e9374616402166aea200b1e4763f53f32c05d
+- id: S-BEN-0006
+  type: practitioner
+  tier: 3
+  status: active
+  stability: annual
+  cited_by: []
+  file: S-BEN-0006.md
+  sha256: 3a2d4f9730c6fe8047f6a882e59cef5920f34b820a995bf0e148aa6cecbd73ed
+- id: S-BEN-0007
+  type: practitioner
+  tier: 3
+  status: active
+  stability: annual
+  cited_by: []
+  file: S-BEN-0007.md
+  sha256: cf21ee395d0d39761031f749bffe21a15a2b1caa77184522fb63333c336ce4c4
