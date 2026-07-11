@@ -1,0 +1,30 @@
+run_id: 2026-07-10-ben-carous-001
+seq: 3
+stage:
+  from: voice_edit
+  to: compliance
+agents:
+  from: VOICE
+  to: COMPL
+artifacts:
+- path: voice/drop-carousel-v2.md
+  sha256: 0b72d2c1ffbbd9516f49a7e5c67a1dc062d784629941afb47899702597d2afcc
+- path: voice/caption-v2.md
+  sha256: 0a50a44ab85b25aa205a787f175470b464cd50313f57bef4440100b439afdec7
+- path: voice/change-log.md
+  sha256: a08153d080ce1cedd58794c7d9ca2aa1d62b5a159e59e5c55d6a3adf01d4600f
+- path: voice/claim-diff.yaml
+  sha256: 575425f3520934c4cc1fe56b5a31f5a31813e83521a0936e21274af9dac01a5a
+skills_used:
+- id: SK-B9
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: zero slide edits; caption whitespace only; diffs empty control-verified
+approvals: []
+feedback_ref: null
+escalations: []

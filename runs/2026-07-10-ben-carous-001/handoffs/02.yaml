@@ -1,0 +1,24 @@
+run_id: 2026-07-10-ben-carous-001
+seq: 2
+stage:
+  from: fact_check
+  to: voice_edit
+agents:
+  from: FACT
+  to: VOICE
+artifacts:
+- path: factcheck/ledger.yaml
+  sha256: 8dd7cf9442f46924998a5b3de64a52acecc3775a31e741105055f717b45c9fb1
+- path: factcheck/findings.md
+  sha256: 8d1301042f416678b202c6203d46f16d6e5e445859e89255105b6688dbe9947b
+skills_used:
+- id: SK-B2
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: 28 claims, 13 high-risk all verified/vwq; hrnv=0
+approvals: []
+feedback_ref: null
+escalations: []

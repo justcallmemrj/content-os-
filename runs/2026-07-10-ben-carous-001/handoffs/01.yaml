@@ -1,0 +1,32 @@
+run_id: 2026-07-10-ben-carous-001
+seq: 1
+stage:
+  from: draft
+  to: fact_check
+agents:
+  from: WRITE
+  to: FACT
+artifacts:
+- path: drafts/drop-carousel-v1.md
+  sha256: 739235cec5e7d9ea971216f33555a9229d137fbcc4a5bef1a750170d5541ad0f
+- path: drafts/caption.md
+  sha256: b0c1e8289b76e2c6190daeab0a344ded5b66226600ad9539c139c6221ba2242c
+- path: drafts/claim-list.yaml
+  sha256: 0c9f4514412a84492098c841a541a068aac7ffa08f0739bc0c23a911ab29b8db
+- path: drafts/interventions.md
+  sha256: b688111425d999989369fbcc381a18bce46ba534fedd7183c58d6d7443e0d34d
+skills_used:
+- id: SK-B4
+  version: 1.0.0
+- id: SK-B2
+  version: 1.0.0
+- id: SK-B15
+  version: 1.0.0
+gate_results: []
+concerns: []
+confidence:
+  value: high
+  basis: 6 validators green first pass; 27 claims declared 18 asset-cited
+approvals: []
+feedback_ref: null
+escalations: []

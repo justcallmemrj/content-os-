@@ -1,0 +1,712 @@
+run: 2026-07-10-ben-carous-001
+deliverable: drafts/drop-carousel-v1.md (+ drafts/caption.md)
+version: 3
+passes:
+- type: full
+  by: FACT
+  at: '2026-07-10T19:55:00-04:00'
+  trigger: full adjudication — carousel adaptation of approved drop-001 asset
+claims:
+- id: CL-01
+  text: Your DROP payout arrives as a single check.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 1
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-01 (verified, ledger v2; F-BEN-0004)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-01 in drafts/claim-list.yaml; id normalized by FACT (schema
+      pattern)
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'Parent ledger opened: drop-001/CL-01 verified against F-BEN-0004 (payout
+      FORM only, magnitude removed in parent revision); slide text byte-identical
+      to the parent claim text and to the approved v3 asset; F-BEN-0004 re-opened
+      this pass: balance ''becomes payable as a one-time lump sum'''
+- id: CL-02
+  text: It comes with a decision attached.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 1
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-02 (verified, ledger v2; F-BEN-0004)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-02
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: drop-001/CL-02 verified (lump sum 'may be taken as a distribution or
+      rolled over' = a member election); byte-identical to parent claim text; F-BEN-0004
+      re-opened
+- id: CL-03
+  text: Most members never hear it called a decision.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 1
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-03, honestly marked [UNVERIFIED]
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'drop-001/CL-17 opened: adjudicated unverified there (no evidence on
+      what members hear); nothing new in this run''s evidence set changes that'
+    note: Low-risk texture; unverified is its legitimate final state
+- id: CL-04
+  text: Most members picture a payday.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 2
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-04, honestly marked [UNVERIFIED]
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'drop-001/CL-18 opened: unverified (no evidence on member expectations);
+      unchanged'
+    note: Low-risk texture; unverified stands
+- id: CL-05
+  text: Half of that is right.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 2
+  risk: low
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-05 + drop-001/CL-06 (both verified; F-BEN-0004 two-arm fork)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-05
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0004 opened: pension begins automatically at DROP exit, lump sum
+      is elective — ''half of that is right'' asserts only the fork (one arm pays
+      without action, the other waits); Slides 3-4 immediately supply both arms, so
+      the rhetorical fraction resolves to the verified pair'
+- id: CL-06
+  text: Your monthly pension turns on by itself.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 3
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-05 (verified, ledger v2; F-BEN-0004)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-06
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: drop-001/CL-05 verified ('At DROP exit, the member's lifetime monthly
+      pension begins', no member election on that arm); slide differs from parent
+      claim text only by sentence-initial capital and terminal period — cosmetic;
+      F-BEN-0004 re-opened
+- id: CL-07
+  text: The lump sum doesn't. It waits for your instruction.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 4
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-06 (verified, ledger v2; F-BEN-0004)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-07
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'drop-001/CL-06 verified; byte-identical to parent claim text; F-BEN-0004
+      re-opened: payout form is the member''s election'
+- id: CL-08
+  text: Cash gets taxed as that year's ordinary income.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 5
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-07 (verified, ledger v2; F-BEN-0010, S-BEN-0002)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-08; trimmed subset of the parent claim (stacking clause dropped
+      for slide budget)
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0010 opened: cash distribution ''treated as ordinary income in
+      the year of distribution'' — the trim drops the parenthetical stacking consequence,
+      making the slide claim STRICTLY NARROWER than the verified parent CL-07; nothing
+      added, nothing distorted; no quantification (usage-note prohibition respected);
+      the caption (CL-22) carries the full stacking clause'
+- id: CL-09
+  text: Any payout sent to you directly has twenty percent withheld for federal tax.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 5
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-08 (verified, ledger v2; F-BEN-0006, S-BEN-0002)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-09
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0006 opened: IRS verbatim ''A retirement plan distribution paid
+      to you is subject to mandatory withholding of 20%, even if you intend to roll
+      it over later'' — byte-identical to parent claim text; DISC-BEN-TAX-01 rides
+      on the final slide line per usage note (CL-16, byte-verified)'
+- id: CL-10
+  text: A direct rollover is the other route.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 6
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-09 (verified, ledger v2; F-BEN-0007 + F-BEN-0004 two-route
+    fork)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-10
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0004 + F-BEN-0007 opened: payout taken ''as a distribution or
+      rolled over'' — the rollover is the second of the two routes; byte-identical
+      to parent claim text'
+- id: CL-11
+  text: The money moves trustee to trustee into an IRA or another qualified plan,
+    nothing withheld, still tax-deferred.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 6
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-10 (verified, ledger v2; F-BEN-0007, S-BEN-0002)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-11
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0007 opened: ''direct rollover (trustee-to-trustee transfer)...
+      to an IRA or another qualified plan preserves the money''s tax-deferred status,
+      with no tax withheld'' — byte-identical to parent claim text; the parent''s
+      hard-won ''qualified plan'' wording preserved intact'
+- id: CL-12
+  text: Choose cash, and it's taxed in the year it pays out.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 7
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-12 (verified, ledger v2; F-BEN-0010, S-BEN-0002)
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-12
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0010 opened: cash ''treated as ordinary income in the year of
+      distribution'' — byte-identical to the parent claim text, which already carries
+      both v1 qualification limits (cash route only, keyed to the distribution event)'
+- id: CL-13
+  text: Choose the rollover, and the timing becomes yours.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 7
+  risk: medium
+  declared_by: WRITE
+  status: verified-with-qualification
+  evidence: drop-001/CL-11 (verified-with-qualification, ledger v2; F-BEN-0010)
+  qualification: 'The parent claim (drop-001/CL-11 "The timing becomes yours.") is
+    verified-WITH-QUALIFICATION, and the qualification travels with every adaptation:
+    the evidence supports deferral-until-withdrawal — the member gains discretion
+    over when taxable withdrawal occurs relative to a forced this-year cash event
+    — NOT unconditional control of timing; distribution rules still govern retirement
+    accounts and the evidence set contains nothing on those limits. The slide''s added
+    conditional "Choose the rollover, and" scopes the sentence to the deferral arm,
+    and Slide 6 immediately precedes with the deferral mechanics, honoring the parent''s
+    placement condition — but placement honors a qualification, it does not discharge
+    one.'
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-13, citing the parent qualification and arguing placement
+      honors it
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'drop-001/CL-11 opened: status verified-with-qualification (deferral-until-withdrawal,
+      not unconditional control); F-BEN-0010 re-opened: ''a properly executed direct
+      rollover defers taxation until later withdrawal'''
+  - at: '2026-07-10T19:55:00-04:00'
+    event: qualified
+    by: FACT
+    note: Trimmed/adapted versions of qualified claims inherit the qualification —
+      WRITE's placement argument is accepted as honoring it, not as discharging it;
+      status set verified-with-qualification to keep the limit auditable downstream
+- id: CL-14
+  text: Our free DROP Exit webinar walks through the whole decision.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 8
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-14, honestly marked [UNVERIFIED]
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'drop-001/CL-14 opened: unverified (no evidence on the webinar''s existence,
+      price, or scope); unchanged in this run'
+    note: Producer must confirm webinar is live and free before publish — publish
+      checklist, not a ledger blocker
+- id: CL-15
+  text: Register at the link in our profile.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 8
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-15, honestly marked [UNVERIFIED]
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: No evidence available on profile state at publish; matches the approved
+      v3 asset's CTA wording
+    note: Link presence in profile is a publish-gate condition (rides with CL-14 and
+      CL-16)
+- id: CL-16
+  text: Educational only. Not advice. Not affiliated with FRS. Consult a qualified
+    tax professional regarding your specific situation. Full disclosures in profile.
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slide 8 / final line
+  risk: high
+  declared_by: WRITE
+  status: verified-with-qualification
+  evidence: DISC-BEN-SHORT-01 + DISC-BEN-TAX-01 (projects/benowitz-wealth/disclosures.md@1.0.0)
+  qualification: DISC-BEN-SHORT-01 (first three sentences) and DISC-BEN-TAX-01 (fourth
+    sentence) are byte-verbatim against disclosures.md@1.0.0, and "Full disclosures
+    in profile." satisfies the short-format condition that the deliverable explicitly
+    say where the full disclosure lives. The sentence is only TRUE if DISC-BEN-FRS-01
+    (with the TAX-01 rider per the calendar TAX CONTENT touchpoint) is actually placed
+    in the profile at publish — a hard publish-gate condition, not verifiable from
+    the draft.
+  on_screen: true
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CC-16
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'disclosures.md@1.0.0 opened: SHORT-01 and TAX-01 byte-verbatim in the
+      slide line; short-format conditions read; mirrors drop-001/CL-15''s structure
+      with TAX-01 added for the tax touchpoint'
+  - at: '2026-07-10T19:55:00-04:00'
+    event: qualified
+    by: FACT
+    note: Conditional on DISC-BEN-FRS-01 + TAX-01 rider actually in profile at publish
+      (same qualification the parent CL-15 carried)
+- id: CL-17
+  text: Your DROP payout arrives as a single check — and it comes with a decision
+    attached.
+  location:
+    file: drafts/caption.md
+    anchor: caption hook
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-01 + drop-001/CL-02 (both verified, ledger v2; F-BEN-0004)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-01
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: Both parent claims opened (verified against F-BEN-0004); the merge adds
+      only the connective '— and'; no new assertion; consistent with Slide 1 (CL-01/CL-02)
+- id: CL-18
+  text: If you're in DROP, it ends on a date you already know.
+  location:
+    file: drafts/caption.md
+    anchor: caption body L1
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-03 (verified, ledger v2; F-BEN-0003 + F-BEN-0002)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-02
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: F-BEN-0003 opened (termination pegged to the end of the DROP period)
+      + F-BEN-0002 opened (participation elected for a defined period, max 96 months
+      — end date known in advance); differs from parent claim text only by sentence-initial
+      capital; the conditional 'If you're in DROP' is retained per the drop-001/CL-16
+      adjudication, so no eligibility implication attaches
+- id: CL-19
+  text: You must leave FRS-covered work for that balance to pay out.
+  location:
+    file: drafts/caption.md
+    anchor: caption body L1
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-04 (verified, ledger v2; F-BEN-0003, S-BEN-0001 §121.091(13))
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-03
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0003 opened: member must ''terminate all employment relationships''
+      with employer verification — stated as the hard rule per the fact''s usage note
+      (never softened); sentence-initial capital is the only difference from the parent
+      claim text; matches the approved v3 asset byte-for-byte'
+- id: CL-20
+  text: Your monthly pension turns on by itself.
+  location:
+    file: drafts/caption.md
+    anchor: caption body L2
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-05 (verified, ledger v2; F-BEN-0004)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-04
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0004 opened: ''At DROP exit, the member''s lifetime monthly pension
+      begins'' — same adjudication as CL-06 (on-image twin); caption and slide assert
+      the identical thing'
+- id: CL-21
+  text: The lump sum waits for your instruction.
+  location:
+    file: drafts/caption.md
+    anchor: caption body L2
+  risk: medium
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-06 (verified, ledger v2; F-BEN-0004)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-05; contraction of the parent's two-sentence form
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0004 opened: payout form is the member''s election — the contraction
+      drops only the contrastive ''doesn''t'' sentence (the contrast is carried by
+      the preceding pension sentence); same substance, no new assertion; consistent
+      with Slide 4 (CL-07)'
+- id: CL-22
+  text: Cash gets taxed as that year's ordinary income, stacked on everything else
+    you earn.
+  location:
+    file: drafts/caption.md
+    anchor: caption body L3
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: drop-001/CL-07 (verified, ledger v2; F-BEN-0010, S-BEN-0002)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-06
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0010 opened: ''treated as ordinary income in the year of distribution
+      (stacking on top of other income for that year)'' — parent claim text verbatim
+      including the stacking clause; supplies the full form of the trimmed Slide 5
+      claim (CL-08), so on-image and caption are consistent (caption strictly richer,
+      no contradiction)'
+- id: CL-23
+  text: A direct rollover stays tax-deferred, nothing withheld — the timing becomes
+    yours.
+  location:
+    file: drafts/caption.md
+    anchor: caption body L4
+  risk: high
+  declared_by: WRITE
+  status: verified-with-qualification
+  evidence: drop-001/CL-10 (verified) + drop-001/CL-11 (verified-with-qualification),
+    ledger v2; F-BEN-0007 + F-BEN-0010
+  qualification: 'The mechanics half ("stays tax-deferred, nothing withheld") condenses
+    the verified drop-001/CL-10 without loss. The final clause "the timing becomes
+    yours" is drop-001/CL-11, which is verified-WITH-QUALIFICATION: supported as deferral-until-withdrawal
+    (discretion over when taxable withdrawal occurs), NOT unconditional control of
+    timing — distribution rules still govern retirement accounts and the evidence
+    set is silent on those limits. The clause reads in the same line immediately after
+    the deferral mechanics, honoring the parent''s placement condition; the qualification
+    itself still travels.'
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-07, citing both parent claims and the qualification
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'F-BEN-0007 opened (trustee-to-trustee transfer preserves tax-deferred
+      status, no tax withheld) + F-BEN-0010 opened (direct rollover ''defers taxation
+      until later withdrawal''); drop-001/CL-11 opened: verified-with-qualification'
+  - at: '2026-07-10T19:55:00-04:00'
+    event: qualified
+    by: FACT
+    note: The CL-11 qualification travels with the adapted clause; status verified-with-qualification;
+      consistent with Slide 7 (CL-13), which carries the same qualification
+- id: CL-24
+  text: Our free DROP Exit webinar walks through the whole decision.
+  location:
+    file: drafts/caption.md
+    anchor: caption CTA
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-08, honestly marked [UNVERIFIED]
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'drop-001/CL-14 opened: unverified (operational); unchanged'
+    note: Same publish-checklist condition as CL-14 (webinar live and free)
+- id: CL-25
+  text: Register at the link in our profile.
+  location:
+    file: drafts/caption.md
+    anchor: caption CTA
+  risk: low
+  declared_by: WRITE
+  status: unverified
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-09, honestly marked [UNVERIFIED]
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: No evidence on profile state at publish; identical to Slide 8's CTA (CL-15)
+      — on-image and caption consistent
+    note: Publish-gate condition
+- id: CL-26
+  text: Consult a qualified tax professional regarding your specific situation.
+  location:
+    file: drafts/caption.md
+    anchor: caption tax referral
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: DISC-BEN-TAX-01 (projects/benowitz-wealth/disclosures.md@1.0.0)
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-10
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'disclosures.md@1.0.0 opened: DISC-BEN-TAX-01 byte-verbatim; required
+      for tax content per the calendar row-1 TAX CONTENT touchpoint and the F-BEN-0006/0010
+      usage notes; also present on-image in CL-16 — consistent'
+- id: CL-27
+  text: Educational only. Not advice. Not affiliated with FRS. Full disclosures in
+    profile.
+  location:
+    file: drafts/caption.md
+    anchor: caption disclosure
+  risk: high
+  declared_by: WRITE
+  status: verified-with-qualification
+  evidence: DISC-BEN-SHORT-01 (projects/benowitz-wealth/disclosures.md@1.0.0)
+  qualification: DISC-BEN-SHORT-01 byte-verbatim, plus the explicit where-the-full-disclosure-lives
+    sentence the short format requires. TRUE only if DISC-BEN-FRS-01 (with the TAX-01
+    rider per the tax touchpoint) is actually placed in the profile at publish — hard
+    publish-gate condition shared with CL-16.
+  on_screen: false
+  history:
+  - at: '2026-07-10'
+    event: declared
+    by: WRITE
+    note: declared as CP-11
+  - at: '2026-07-10T19:55:00-04:00'
+    event: adjudicated
+    by: FACT
+    against: 'disclosures.md@1.0.0 opened: SHORT-01 byte-verbatim; short-format conditions
+      read'
+  - at: '2026-07-10T19:55:00-04:00'
+    event: qualified
+    by: FACT
+    note: Profile-placement condition at publish; identical posture to on-image CL-16
+      — consistent
+- id: CL-28
+  text: '[IMPLIED] Choosing the direct rollover defers the tax that the cash route
+    triggers in the payout year — the Slide 5-7 fork asserts a comparative tax outcome
+    between the two routes, not just each route''s mechanics separately.'
+  location:
+    file: drafts/drop-carousel-v1.md
+    anchor: Slides 5-7 (comparative structure)
+  risk: high
+  declared_by: FOUND
+  status: verified
+  evidence: F-BEN-0010 (S-BEN-0002); drop-001/CL-10 + CL-11 + CL-12 chain
+  on_screen: false
+  history:
+  - at: '2026-07-10T19:55:00-04:00'
+    event: found
+    by: FACT
+    note: The declared list covers each route's claims individually; the cross-slide
+      comparison (cash taxed now vs rollover deferred) is itself a material implied
+      claim no declared entry names
+  - at: '2026-07-10T19:55:00-04:00'
+    event: verified
+    by: FACT
+    against: 'F-BEN-0010 opened: ''taken as a cash distribution, it is treated as
+      ordinary income in the year of distribution... whereas a properly executed direct
+      rollover defers taxation until later withdrawal'' — the fact itself is comparative
+      and states exactly this contrast; Slide 6''s ''still tax-deferred'' keeps the
+      deferred-not-tax-free framing (no ''save thousands'' outcome language, F-BEN-0007
+      usage-note hard line respected)'
+- id: CL-29
+  text: Educational content only. Not individualized investment, tax, or legal advice.
+    Benowitz Wealth Management is a brand of Joy Financial Group LLC, a Florida state-registered
+    investment adviser. Benowitz Wealth Management is not affiliated with, endorsed
+    by, or sponsored by the Florida Retirement System, the Florida Division of Retirement,
+    or the State Board of Administration of Florida.
+  location:
+    file: voice/caption-v3.md
+    anchor: disclosure-append
+  risk: high
+  declared_by: WRITE
+  status: verified
+  evidence: disclosures.md@1.0.0
+  on_screen: false
+  history:
+  - at: 2026-07-10T20:30
+    event: declared
+    by: WRITE
+    note: 'H2 approve-with-edits: Wes directed COMPL FLAG-1 fix (append FRS-01 to
+      caption)'
+  - at: 2026-07-10T20:30
+    event: verified
+    by: validator:disclosure_check
+    note: byte-verbatim vs disclosures.md@1.0.0 (deterministic)
+blocking_summary:
+  high_risk_non_verified: 0
+  notes: 'CLEAR. Full pass on the carousel adaptation: 27 declared claims (WRITE ids
+    CC-01..CC-16/CP-01..CP-11 normalized to CL-01..CL-27 for the schema id pattern)
+    + 1 FOUND implied comparative claim (CL-28, verified). All asset-cited claims
+    re-verified against the parent ledger entries they cite AND the underlying approved
+    facts (opened this pass: F-BEN-0002/0003/0004/ 0005/0006/0007/0010, disclosures.md@1.0.0);
+    every on-image string byte-present in the carousel draft and every caption claim
+    byte-present in caption.md. Trimmed Slide 5 claim (CL-08) is strictly narrower
+    than its verified source; the two adaptations of qualified parent CL-11 (CL-13,
+    CL-23) carry the qualification forward as verified-with-qualification — placement
+    honors, never discharges. On-image vs caption: no contradictions; the caption
+    is a superset (it adds the termination rule CL-19 and stacking clause CL-22 the
+    slides trim). All 13 high-risk claims verified or verified-with-qualification.
+    Non-blocking unverified: CL-03, CL-04, CL-14, CL-15, CL-24, CL-25 (low-risk texture/operational).
+    Publish-gate conditions: webinar live and free (CL-14/CL-24); registration link
+    in profile (CL-15/CL-25); DISC-BEN-FRS-01 + TAX-01 rider in profile (CL-16/CL-27).
+    | v3: caption FRS-01 append per H2 edit'

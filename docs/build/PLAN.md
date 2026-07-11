@@ -9,7 +9,19 @@ H2 exercised live (approved verbatim, edit distance 0 → the north-star
 baseline). BUILD-MODE deleted at signature: the main session now runs under
 full protected-path enforcement; every merge to main is Wes's.
 
-## Next: step 7 — Social profile + adaptation child runs + calendar linkage [WES]
+## STEP 7 COMPLETE (2026-07-10) — pending PR #11 merge + tag build-step-7
+
+Exit criteria MET: adaptation delta-inheritance fixture green (+id-schema
+regression); two social runs through H2 (LinkedIn adaptation 9.4 approved
+verbatim; carousel 9.7 approved with the caption fix, executed + verified).
+Calendar linkage proven (ratified row = brief; touchpoints carried).
+
+## Next: step 8 — Video: HyperFrames binding [WES: H5]
+
+Manifest script, VDIR + SK-B16/B17/C3/C1, byte-match/safe-area validators;
+first render through H5. Upstream pinned 6152437d (v0.7.49, DEC-BUILD-001).
+
+## Previous: step 7 — Social profile + adaptation child runs + calendar linkage [WES]
 
 Per package §4: adaptation delta-inheritance fixture green; one social run
 through H2. Needs SK-B4/B5/B12 authored (their format canon is already in the
